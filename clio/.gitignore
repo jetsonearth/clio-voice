@@ -1,0 +1,104 @@
+# Xcode
+.DS_Store
+.build/
+build/
+default.profraw
+
+# Xcode user-specific files
+Clio.xcodeproj/project.xcworkspace/xcuserdata/
+Clio.xcodeproj/xcuserdata/
+Clio.xcodeproj/xcshareddata/
+
+# Asset build artifacts
+Clio/Assets.xcassets/.DS_Store
+Clio/Assets.xcassets/AppIcon.appiconset/1024.png
+Clio/Assets.xcassets/AppIcon.appiconset/114.png
+Clio/Assets.xcassets/AppIcon.appiconset/120.png
+Clio/Assets.xcassets/AppIcon.appiconset/180.png
+Clio/Assets.xcassets/AppIcon.appiconset/29.png
+Clio/Assets.xcassets/AppIcon.appiconset/40.png
+Clio/Assets.xcassets/AppIcon.appiconset/57.png
+Clio/Assets.xcassets/AppIcon.appiconset/58.png
+Clio/Assets.xcassets/AppIcon.appiconset/60.png
+Clio/Assets.xcassets/AppIcon.appiconset/80.png
+Clio/Assets.xcassets/AppIcon.appiconset/87.png
+Clio/Assets.xcassets/clio-banner.imageset/.DS_Store
+Clio/Assets.xcassets/menuBarIcon.imageset/.DS_Store
+
+# Directory-specific DS_Store
+Clio/.DS_Store
+Clio/Config/.DS_Store
+Clio/Localization/.DS_Store
+Clio/Resources/.DS_Store
+Clio/Resources/Sounds/.DS_Store
+Clio/Services/.DS_Store
+Clio/Views/.DS_Store
+.claude/.DS_Store
+strategy/.DS_Store
+
+# Whisper framework debug symbols
+whisper.xcframework/.DS_Store
+whisper.xcframework/*/dSYMs/
+
+# Development artifacts
+*.profraw
+temp/
+testing/
+__pycache__/
+*.pyc
+
+# Analysis and documentation files
+BACKEND_ARCHITECTURE_ANALYSIS_REPORT.md
+PERFORMANCE_LEARNINGS.md
+PERFORMANCE_PROBLEM_STATEMENT.md
+RAILWAY_MIGRATION_GUIDE.md
+TEMP_KEY_CACHE_IMPLEMENTATION_GUIDE.md
+VERCEL_PERFORMANCE_ANALYSIS.md
+railway_forum_post_draft.md
+
+# Demo files
+*Demo.swift
+connection_test.py
+find_redundant.py
+refined_analysis.py
+research_developer_vocabulary.json
+*.tsv
+*.csv
+
+# Railway/deployment files
+railway-package.json
+railway-server.js
+
+# Strategy documents
+strategy/GROWTH_HACKING_STRATEGIES.md
+strategy/features/dynamic-context-detection-handoff.md
+strategy/features/real_time_streaming_text_insertion.md
+strategy/infrastructure/CLOUDFLARE_WORKERS_RESEARCH.md
+strategy/maintenance/fixes/verbose_log_fixes.md
+
+# Configuration files
+SonioxConfig.plist
+
+# IDE files
+.vscode/
+
+# Untracked manager files
+Clio/Managers/MinimalHotkeyManager.swift
+Clio/PowerMode/DeveloperToolService.swift
+Clio/PowerMode/PersonaManager.swift
+Clio/Services/Network/ConnectionHealthMonitor.swift
+Clio/Services/Network/KoyebRequestManager.swift
+Clio/Utils/DiagnosticLogger.swift
+Clio/Views/Debug/
+
+# Prevent accidental check-in of local Whisper models
+WhisperModels/
+**/WhisperModels/
+*.mlmodelc.zip
+
+# Ignore large disfluency removal datasets
+strategy/features/Disfluency_Removal/
+
+# Local temp files
+.col.sorted
+ACTIVE]

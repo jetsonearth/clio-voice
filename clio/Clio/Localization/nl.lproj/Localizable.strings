@@ -1,0 +1,213 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Created on 2025-01-04.
+*/
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "Opslaan";
+"general.cancel" = "Annuleren";
+"general.delete" = "Verwijderen";
+"general.edit" = "Bewerken";
+"general.done" = "Klaar";
+"general.settings" = "Instellingen";
+"general.close" = "Sluiten";
+"general.ok" = "OK";
+"general.yes" = "Ja";
+"general.no" = "Nee";
+"general.error" = "Fout";
+"general.success" = "Succes";
+"general.loading" = "Laden...";
+"general.retry" = "Opnieuw proberen";
+"general.download" = "Downloaden";
+"general.upload" = "Uploaden";
+"general.search" = "Zoeken";
+"general.filter" = "Filteren";
+"general.sort" = "Sorteren";
+"general.share" = "Delen";
+"general.copy" = "Kopiëren";
+"general.paste" = "Plakken";
+"general.clear" = "Wissen";
+"general.reset" = "Resetten";
+"general.continue" = "Doorgaan";
+"general.back" = "Terug";
+"general.next" = "Volgende";
+"general.finish" = "Voltooien";
+"general.language" = "Taal";
+"general.default" = "Standaard";
+"general.required" = "Vereist";
+
+/* Navigation */
+"Home" = "Home";
+"Dictionary" = "Woordenboek";
+"Plan" = "Plan";
+"Upgrade" = "Upgraden";
+"navigation.home" = "Home";
+"navigation.models" = "Spraakmodellen";
+"navigation.power_mode" = "AI Verbetering";
+"navigation.dictionary" = "Persoonlijke Termen";
+"navigation.personalization" = "Personalisatie";
+"navigation.vocabulary" = "Vocabulaire";
+"navigation.replacements" = "Spraakafkortingen";
+"navigation.snippets" = "Stijlvoorinstellingen";
+"navigation.settings" = "Instellingen";
+"navigation.plan" = "Plan";
+"navigation.license" = "Plan";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "Help ons je stem beter te herkennen";
+"onboarding.language.subtitle" = "Clio werkt met 60+ talen. Dit helpt ons alleen je spraak beter te herkennen. Kies je primaire talen voor betere nauwkeurigheid—je kunt nog steeds dicteren in elke taal.";
+"onboarding.language.search_placeholder" = "Talen zoeken...";
+
+/* Dictionary */
+"dictionary.title" = "Persoonlijke Termen";
+"dictionary.custom_title" = "Aangepast Woordenboek";
+"dictionary.custom_description" = "Voeg namen, acroniemen en speciale termen toe die je vaak gebruikt—zodat Clio ze duidelijk hoort en ze elke keer goed krijgt.\nVan merknamen tot teamjargon tot lastige acroniemen, Clio leert de unieke woorden die voor jou belangrijk zijn.\nHoe meer je het leert, hoe vloeiender het wordt.";
+"dictionary.add_new" = "Nieuw toevoegen";
+"dictionary.search_placeholder" = "Woordenboek zoeken";
+"dictionary.vocabulary" = "Vocabulaire";
+"dictionary.replacements" = "Spraakafkortingen";
+"dictionary.enable_word" = "Woord inschakelen";
+"dictionary.disable_word" = "Woord uitschakelen";
+"dictionary.delete_word" = "Woord verwijderen";
+"dictionary.delete_replacement" = "Vervanging verwijderen";
+"dictionary.add_to_vocabulary" = "Toevoegen aan vocabulaire";
+"dictionary.add_word" = "Woord toevoegen";
+"dictionary.make_replacement" = "Maak er een vervanging van";
+"dictionary.word_replacement_title" = "Woordvervanging";
+"dictionary.word_replacement_description" = "Wanneer ingeschakeld, verandert dit je aangepaste woord in een correctieregel. Clio zal automatisch de verkeerde versie vervangen wanneer het wordt gedicteerd.";
+"dictionary.misspelling_placeholder" = "Verkeerde spelling";
+"dictionary.correct_spelling_placeholder" = "Juiste spelling";
+"dictionary.add_word_placeholder" = "Nieuw woord toevoegen";
+"dictionary.edit_word" = "Woord bewerken";
+"dictionary.word_placeholder" = "Woord";
+"dictionary.save_changes" = "Wijzigingen opslaan";
+"dictionary.edit_replacement" = "Vervanging bewerken";
+"dictionary.original_placeholder" = "Origineel";
+"dictionary.replacement_placeholder" = "Vervanging";
+"dictionary.no_vocabulary_words" = "Geen vocabulaire woorden";
+"dictionary.vocabulary_help_text" = "Voeg woorden toe om Clio te helpen ze correct te herkennen";
+"dictionary.no_word_replacements" = "Geen woordvervangingen";
+"dictionary.replacements_help_text" = "Maak automatische woordvervangingen voor betere transcriptie";
+"dictionary.voice_shortcuts_description" = "Maak slimme spraakafkortingen om vulwoorden te herschrijven, afkortingen uit te breiden, of gewoontes op te ruimen—automatisch, terwijl je spreekt.\nZeg \"mijn nummer\" → Clio plakt 123‑456‑7890.\nZeg \"koude DM\" → Clio zet je volledige pitch neer.\nZeg het op jouw manier. Clio maakt het glad, scherpt het aan, levert het af.";
+"dictionary.info_card.title.vocab" = "Leer Clio je taal.";
+"dictionary.info_card.title.voice" = "Vorm hoe je stem landt.";
+"dictionary.add_new_word" = "Nieuw woord toevoegen";
+
+/* Style Presets */
+"style_presets.info_card.title" = "Laat Clio schrijven zoals jij.";
+"style_presets.info_card.description" = "Leer je schrijfgewoontes. Clio leert hoe je zinnen bouwt, hoe je alinea's breekt, hoe je interpunctie plaatst.\nHoe meer je het leert, hoe meer het schrijft zoals jouw stem.";
+"style_presets.add_new" = "Nieuw toevoegen";
+"style_presets.search_placeholder" = "Voorinstellingen zoeken";
+"style_presets.no_presets" = "Geen voorinstellingen";
+"style_presets.presets_help_text" = "Maak stijlvoorinstellingen om je schrijfgewoontes te leren";
+"style_presets.add_new_preset" = "Nieuwe voorinstelling toevoegen";
+"style_presets.edit_preset" = "Voorinstelling bewerken";
+"style_presets.preset_name_placeholder" = "Voorinstelling naam";
+"style_presets.preset_description_placeholder" = "Beschrijving (optioneel)";
+"style_presets.preset_rules_placeholder" = "Regels (één per regel)";
+"style_presets.preset_rules_help" = "Voorbeeld: \"Zet altijd twee spaties tussen zinnen\", \"Begin nooit zinnen met 'en'\"";
+"style_presets.delete_preset" = "Voorinstelling verwijderen";
+"style_presets.preset_name" = "Voorinstelling naam";
+"style_presets.preset_description" = "Beschrijving";
+"style_presets.preset_rules" = "Regels";
+"style_presets.preset_rules_help_text" = "Voeg regels toe om je schrijfgewoontes te leren";
+
+/* Feedback */
+"feedback.title" = "Neem contact op";
+"feedback.subtitle" = "We lezen elke bericht. Bedankt voor het helpen van Clio beter te maken!";
+"feedback.tab.report_issue" = "Probleem rapporteren";
+"feedback.tab.share_feedback" = "Feedback delen";
+"feedback.field.email" = "Je e-mail (optioneel)";
+"feedback.field.message" = "Bericht";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "Wat ging er mis? Beschrijf de stappen om het probleem te reproduceren.";
+"feedback.placeholder.feedback" = "Ideeën om Clio beter te maken? Deel ze hier.";
+"feedback.checkbox.blocking" = "Dit probleem blokkeert me volledig om Clio te gebruiken";
+"feedback.info.system_info" = "Systeeminformatie wordt automatisch meegenomen";
+"feedback.button.send" = "Bericht verzenden";
+"feedback.success.title" = "Feedback verzonden!";
+"feedback.success.message" = "Bedankt voor je feedback! We lezen elke bericht en nemen contact op als nodig.";
+"feedback.error.title" = "Fout bij verzenden feedback";
+"feedback.error.invalid_response" = "Ongeldige reactie van server";
+"feedback.error.submission_failed" = "Verzenden van feedback mislukt. Probeer opnieuw.";
+"feedback.error.http_error" = "Server fout (code: %d)";
+"feedback.subject.bug_report" = "Bug rapport";
+"feedback.subject.general_feedback" = "Algemene feedback";
+"feedback.subject.urgent_bug" = "🚨 [Urgente bug] Clio app - Gebruiker geblokkeerd";
+"feedback.subject.bug_format" = "[%@] Clio app feedback";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "Verbetert transcriptienauwkeurigheid door scherminhoud te analyseren, te begrijpen waar je aan werkt, industrie-termen te herkennen, en relevante context te bieden aan het spraakherkenningsmodel. Helpt met technische jargon, eigennamen en context-specifieke vocabulaire.";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "Dicteer sneltoets";
+"settings.dictation_hotkey.description" = "Houd ingedrukt om op te nemen, laat los om te transcriberen (druk-om-te-spreken modus)";
+"settings.hands_free_mode.title" = "Handenvrije modus";
+"settings.hands_free_mode.description" = "Druk eenmaal om te spreken zonder toets ingedrukt te houden, druk opnieuw om te transcriberen";
+"settings.assistant_mode.title" = "Clio commando modus";
+"settings.assistant_mode.description" = "Selecteer tekst om te transformeren of stel een vraag om te zoeken met Perplexity";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "Toetsenbord sneltoetsen";
+"settings.edit_key" = "Toets bewerken";
+"common.coming_soon" = "Binnenkort";
+"hotkey.modal.description" = "Druk op elke toets of toetscombinatie die je wilt gebruiken";
+
+/* System Settings */
+"settings.system_settings.header" = "Systeem instellingen";
+"settings.ai_enhancement" = "AI-bewerking inschakelen";
+"settings.ai_enhancement.description" = "Laat Clio transcripties met AI herschrijven zodat bewoording, toon en opmaak natuurlijk aanvoelen.";
+"settings.launch_at_login" = "Starten bij inloggen";
+"settings.launch_at_login.subtitle" = "Start Clio automatisch bij inloggen.";
+"settings.hide_dock_icon.title" = "Dock icoon verbergen";
+"settings.hide_dock_icon.description" = "Run Clio op de achtergrond (alleen menubalk)";
+"onboarding.tryit.command_prefix" = "Selecteer alle tekst hieronder, houd dan ingedrukt";
+"onboarding.tryit.command_instruction_suffix" = "Zeg \"vertaal dit naar Chinees\", laat dan beide toetsen los";
+
+/* Onboarding - App Descriptions */
+"onboarding.app.cursor.description" = "AI Coderen";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI Assistent";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "Je bent klaar om Clio's druk-om-te-spreken modus te proberen.";
+"onboarding.primer.hold_key_instruction" = "Houd je toets ingedrukt om te spreken.\nLaat los en Clio transcribeert je stem direct en schoon.";
+"onboarding.primer.try_it_now" = "Probeer nu";
+"onboarding.primer.back" = "Terug";
+"onboarding.primer.next_hands_free" = "Volgende, probeer handenvrije modus";
+"onboarding.primer.double_tap_instruction" = "Dubbeltik op je toets om over te schakelen naar continu luisteren.";
+"onboarding.primer.next_command_mode" = "Volgende, probeer commando modus";
+"onboarding.primer.select_text_instruction" = "Selecteer tekst om te transformeren, houd dan je toets ingedrukt.";
+"onboarding.primer.command_instruction" = "Zeg \"vertaal dit naar Chinees\", laat dan beide toetsen los.";
+"onboarding.primer.next_personalization" = "Volgende, personalisatie setup";
+"onboarding.primer.personalization_instruction" = "Leer Clio om je stem beter te herkennen.";
+
+/* Onboarding Personalization */
+"onboarding.personalization.title" = "Leer Clio om je stem beter te herkennen";
+"onboarding.personalization.subtitle" = "Spreek een paar zinnen om Clio vertrouwd te maken met je stem en spreekstijl.";
+"onboarding.personalization.start_recording" = "Opname starten";
+"onboarding.personalization.stop_recording" = "Opname stoppen";
+"onboarding.personalization.recording_progress" = "Opname voortgang: %d/%d";
+"onboarding.personalization.recording_complete" = "Opname voltooid!";
+"onboarding.personalization.recording_error" = "Opname fout";
+"onboarding.personalization.recording_retry" = "Opnieuw proberen";
+"onboarding.personalization.recording_skip" = "Overslaan";
+"onboarding.personalization.recording_next" = "Volgende";
+"onboarding.personalization.recording_finish" = "Voltooien";
+
+/* Updates Primer */
+"updates.primer.title" = "We hebben wat spannende updates voor je!";
+"updates.primer.subtitle" = "Neem een snelle tour om commando modus in actie te zien...";
+"updates.primer.primary" = "Laat me zien wat nieuw is";
+"updates.primer.secondary" = "Later";
+"updates.primer.skip" = "Overslaan";
+
+/* Language Settings */
+"settings.language_settings.header" = "Taal instellingen";
+
+"common.coming_soon" = "Binnenkort";
+"ai_strength.toggle.off_hint" = "Uit: het ruwe transcript komt het snelst binnen met vrijwel geen extra verwerking—alleen minimale filler-verwijdering.";
+"ai_strength.toggle.on_hint" = "Aan: Clio voert AI-bewerking uit voor extra helderheid; reken op een korte vertraging terwijl de tekst wordt herschreven volgens de hieronder gekozen intensiteit.";

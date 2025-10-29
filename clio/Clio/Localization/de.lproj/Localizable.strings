@@ -1,0 +1,1385 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  German Translation - Created on 2025-01-04.
+*/
+
+/* Dashboard */
+"dashboard.words_dictated" = "Sie haben %d Wörter diktiert.";
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "Speichern";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "Helfen Sie uns, Ihre Stimme besser zu erkennen";
+"onboarding.language.subtitle" = "Clio funktioniert mit über 60 Sprachen. Dies hilft uns nur dabei, Ihre Sprache besser zu verstehen. Wählen Sie Ihre Hauptsprachen für höhere Genauigkeit—Sie können weiterhin in jeder beliebigen Sprache diktieren.";
+"onboarding.language.search_placeholder" = "Sprachen suchen...";
+"general.cancel" = "Abbrechen";
+"general.delete" = "Löschen";
+"general.edit" = "Bearbeiten";
+"general.done" = "Fertig";
+"general.settings" = "Einstellungen";
+"general.close" = "Schließen";
+"general.ok" = "OK";
+"general.error" = "Fehler";
+"general.success" = "Erfolg";
+"general.loading" = "Wird geladen...";
+"general.retry" = "Erneut versuchen";
+"general.download" = "Herunterladen";
+"general.upload" = "Hochladen";
+"general.search" = "Suchen";
+"general.filter" = "Filtern";
+"general.sort" = "Sortieren";
+"general.share" = "Teilen";
+"general.copy" = "Kopieren";
+"general.paste" = "Einfügen";
+"general.clear" = "Löschen";
+"general.reset" = "Zurücksetzen";
+"general.continue" = "Fortfahren";
+"general.back" = "Zurück";
+"general.next" = "Weiter";
+"general.finish" = "Beenden";
+"general.language" = "Sprache";
+
+/* Navigation */
+"Home" = "Startseite";
+"Dictionary" = "Wörterbuch";
+"Plan" = "Plan";
+"Upgrade" = "Upgrade";
+"navigation.plan" = "Plan";
+"navigation.license" = "Plan";
+"navigation.ai_editing_strength" = "KI-Bearbeitungsstärke";
+
+/* Main Menu */
+"menu.file" = "Datei";
+"menu.edit" = "Bearbeiten";
+"menu.view" = "Ansicht";
+"menu.window" = "Fenster";
+"menu.help" = "Hilfe";
+"menu.about" = "Über Clio";
+"menu.preferences" = "Einstellungen...";
+"menu.quit" = "Clio beenden";
+
+/* Recording */
+"recording.start" = "Aufnahme starten";
+"recording.stop" = "Aufnahme beenden";
+"recording.pause" = "Pause";
+"recording.resume" = "Fortsetzen";
+"recording.transcribing" = "Transkribieren...";
+"recording.processing" = "Verarbeitung läuft...";
+"recording.ready" = "Aufnahmebereit";
+"recording.listening" = "Höre zu...";
+"recording.saved" = "Aufnahme gespeichert";
+"recording.failed" = "Aufnahme fehlgeschlagen";
+"recording.permission_required" = "Mikrofonzugriff erforderlich";
+"recording.permission_description" = "Clio benötigt Zugriff auf Ihr Mikrofon, um Sprache zu transkribieren";
+
+/* Transcription */
+"transcription.title" = "Transkription";
+"transcription.empty" = "Noch keine Transkription";
+"transcription.copy" = "Transkription kopieren";
+"transcription.enhance" = "Mit KI verbessern";
+"transcription.play" = "Audio abspielen";
+"transcription.delete" = "Transkription löschen";
+"transcription.language" = "Transkriptionssprache";
+"transcription.accuracy" = "Genauigkeit";
+"transcription.speed" = "Geschwindigkeit";
+
+/* Settings */
+"settings.title" = "Einstellungen";
+"settings.general" = "Allgemein";
+"settings.audio" = "Audio";
+"settings.ai" = "KI-Verbesserung";
+"settings.shortcuts" = "Tastenkombinationen";
+"settings.appearance" = "Erscheinungsbild";
+"settings.privacy" = "Datenschutz";
+"settings.about" = "Über";
+"settings.language" = "Sprache";
+"settings.language.description" = "Wählen Sie Ihre bevorzugte Sprache";
+"settings.language.choose_description" = "Wählen Sie Ihre bevorzugte Sprache für die App-Oberfläche";
+"settings.language.change_note" = "Sprachänderungen werden sofort übernommen. Einige Sprachen haben möglicherweise unvollständige Übersetzungen.";
+"settings.language.available" = "Verfügbare Sprachen";
+"settings.launch_at_login" = "Bei Anmeldung starten";
+"settings.launch_at_login.subtitle" = "Clio automatisch beim Anmelden starten.";
+"settings.hide_dock_icon.title" = "Dock-Symbol ausblenden";
+"settings.hide_dock_icon.description" = "Clio im Hintergrund laufen lassen (nur Menüleiste)";
+"settings.show_in_menu_bar" = "In der Menüleiste anzeigen";
+"settings.show_in_dock" = "Im Dock anzeigen";
+"settings.ai_enhancement" = "KI-Bearbeitung aktivieren";
+"settings.ai_enhancement.description" = "Lass Clio Transkripte mit KI neu formulieren, damit Formulierungen, Ton und Format natürlich wirken.";
+"settings.keyboard_shortcuts" = "Tastenkombinationen";
+"settings.keyboard_shortcuts.configured" = "Tastenkombination konfiguriert";
+"settings.keyboard_shortcuts.required" = "Tastenkombination erforderlich";
+"settings.keyboard_shortcuts.selected_key" = "Ausgewählte Taste";
+"settings.keyboard_shortcuts.edit_hotkey" = "Hotkey bearbeiten";
+"settings.keyboard_shortcuts.reset_hotkey" = "Zurücksetzen";
+"settings.keyboard_shortcuts.description" = "Legen Sie eine Taste fest, die einmal für freihändige Aufnahme gedrückt wird, dann erneut zum Stoppen";
+
+/* Audio Settings */
+"settings.audio_cleanup.title" = "Audio-Bereinigung";
+"settings.audio_cleanup.subtitle" = "Aufnahmespeicher verwalten";
+"settings.audio_cleanup.description" = "Audiodateien werden automatisch nach 14 Tagen gelöscht, um Speicherplatz zu sparen. Transkriptionen werden immer beibehalten.";
+"audio.input_device" = "Eingabegerät";
+"audio.quality" = "Audioqualität";
+"audio.quality.low" = "Niedrig";
+"audio.quality.medium" = "Mittel";
+"audio.quality.high" = "Hoch";
+"audio.noise_reduction" = "Rauschunterdrückung";
+"audio.auto_gain" = "Automatische Verstärkungsregelung";
+
+/* AI Settings */
+"ai.provider" = "KI-Anbieter";
+"ai.model" = "Modell";
+"ai.api_key" = "API-Schlüssel";
+"ai.enhancement_prompt" = "Verbesserungsanweisung";
+"ai.auto_enhance" = "Automatische Verbesserung";
+"ai.context_aware" = "Kontextbezogen";
+
+/* AI Editing Strength */
+"ai_strength.title" = "Stärke der KI-Bearbeitung";
+"ai_strength.subtitle" = "Wählen Sie, wie stark Clio Ihr Transkript umschreibt und bereinigt.";
+"ai_strength.light.title" = "Leichte Reinigung";
+"ai_strength.light.subtitle" = "Schneller Feinschliff, der Störgeräusche entfernt und Ihre Stimme bewahrt.";
+"ai_strength.light.bullet1" = "Erhält gemischte Sprachen und die ursprüngliche Satzreihenfolge";
+"ai_strength.light.bullet2" = "Überspringt Füllwörter, Stottern und falsche Starts";
+"ai_strength.light.bullet3" = "Fügt nur leichte Zeichensetzungs- und Formatkorrekturen hinzu";
+"ai_strength.full.title" = "Gründliche Reinigung";
+"ai_strength.full.subtitle" = "Umfassendere Bearbeitung, die Formulierungen für Klarheit und Fluss neu gestaltet.";
+"ai_strength.full.bullet1" = "Fasst Sätze zusammen oder ordnet sie neu, wenn es die Geschichte verbessert";
+"ai_strength.full.bullet2" = "Klärt implizite Subjekte und glättet holprige Formulierungen";
+"ai_strength.full.bullet3" = "Respektiert weiterhin gemischte Sprachen und die beabsichtigte Bedeutung";
+"ai_strength.preview.title" = "Vorschau";
+"ai_strength.preview.input" = "Eingabe";
+"ai_strength.preview.output_light" = "Ausgabe (Leicht)";
+"ai_strength.preview.output_full" = "Ausgabe (Gründlich)";
+
+/* Shortcuts */
+"shortcuts.global" = "Globale Tastenkombinationen";
+"shortcuts.record" = "Aufnahme starten/beenden";
+"shortcuts.quick_transcribe" = "Schnelltranskription";
+"shortcuts.toggle_window" = "Fenster umschalten";
+
+/* Models */
+"models.title" = "Transkriptionsmodelle";
+"models.download" = "Modell herunterladen";
+"models.downloading" = "Wird heruntergeladen...";
+"models.delete" = "Modell löschen";
+"models.size" = "Größe";
+"models.accuracy" = "Genauigkeit";
+"models.speed" = "Geschwindigkeit";
+"models.languages" = "Unterstützte Sprachen";
+
+/* Subscription */
+"subscription.title" = "Abonnement";
+"subscription.free" = "Kostenlos";
+"subscription.pro" = "Pro";
+"subscription.upgrade" = "Auf Pro upgraden";
+"subscription.manage" = "Abonnement verwalten";
+"subscription.restore" = "Kauf wiederherstellen";
+
+/* Pricing Plans */
+"pricing.plans.title" = "Wählen Sie Ihren Plan";
+"pricing.plans.subtitle" = "Erhalten Sie unbegrenzte Transkription und Premium-Funktionen";
+"pricing.feature.unlimited" = "Unbegrenzte Transkription";
+"pricing.feature.works_everywhere" = "Funktioniert überall: Mac, iOS, Windows";
+"pricing.feature.priority_support" = "Prioritätssupport";
+"pricing.cta.choose_plan" = "Plan wählen";
+
+/* Onboarding */
+"onboarding.welcome" = "Willkommen bei Clio";
+"onboarding.description" = "Ihr KI-gestützter Sprachtranskriptions-Assistent";
+"onboarding.get_started" = "Loslegen";
+"onboarding.skip" = "Überspringen";
+
+/* Errors */
+"error.generic" = "Ein Fehler ist aufgetreten";
+"error.network" = "Netzwerkfehler";
+"error.permission_denied" = "Zugriff verweigert";
+"error.file_not_found" = "Datei nicht gefunden";
+"error.invalid_api_key" = "Ungültiger API-Schlüssel";
+"error.model_download_failed" = "Modell-Download fehlgeschlagen";
+
+/* Success Messages */
+"success.saved" = "Erfolgreich gespeichert";
+"success.copied" = "In die Zwischenablage kopiert";
+"success.deleted" = "Erfolgreich gelöscht";
+"success.updated" = "Erfolgreich aktualisiert";
+/* Missing Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "Test your microphone";
+"onboarding.setup.microphone.description" = "Make sure Clio can hear you clearly";
+"onboarding.setup.microphone.speak_now" = "Speak now...";
+"onboarding.setup.microphone.tap_to_test" = "Tap to test microphone";
+"onboarding.setup.microphone.stop" = "Stop";
+"onboarding.setup.microphone.test_microphone" = "Test Microphone";
+"onboarding.setup.model.title" = "Choose transcription model";
+"onboarding.setup.model.description" = "Larger models are more accurate but use more resources";
+"onboarding.setup.model.download_continue" = "Download & Continue";
+"onboarding.setup.complete.title" = "Setup Complete\!";
+"onboarding.setup.complete.description" = "Clio is ready to transcribe your voice in any app";
+"onboarding.setup.complete.try_it_out" = "Try It Out";
+"onboarding.setup.recommended" = "RECOMMENDED";
+"onboarding.setup.keyboard.right_option" = "Right Option";
+"onboarding.setup.keyboard.left_option" = "Left Option";
+"onboarding.setup.keyboard.left_control" = "Left Control";
+"onboarding.setup.keyboard.right_control" = "Right Control";
+"onboarding.setup.keyboard.function" = "Function";
+"onboarding.setup.keyboard.right_command" = "Right Command";
+"onboarding.setup.keyboard.right_shift" = "Right Shift";
+
+/* Missing Permission Keys */
+"onboarding.permissions.title" = "Set up Clio on your computer";
+"onboarding.permissions.description" = "Grant the following permissions to enable seamless voice transcription";
+"onboarding.permissions.accessibility_title" = "Accessibility Access";
+"onboarding.permissions.accessibility_subtitle" = "Allows Clio to paste transcriptions anywhere you type";
+"onboarding.permissions.microphone_title" = "Microphone Access";
+"onboarding.permissions.microphone_subtitle" = "Enables voice recording for transcription (only when actively using Clio)";
+"onboarding.permissions.continue" = "Continue";
+"onboarding.permissions.granted" = "Granted";
+"onboarding.permissions.required" = "Required";
+"onboarding.permissions.tap_to_grant" = "Tap to grant permission";
+"onboarding.permissions.privacy_title" = "Privacy & Security";
+"onboarding.permissions.privacy_description" = "Clio respects your privacy and only requests permissions necessary for transcription";
+"onboarding.permissions.feature_local" = "Local processing only";
+"onboarding.permissions.feature_no_data" = "No data collection";
+"onboarding.permissions.feature_control" = "Always under your control";
+
+/* Onboarding - Enhanced Permissions */
+"onboarding.enhanced_permissions.title" = "Clio auf Ihrem Computer einrichten";
+"onboarding.enhanced_permissions.subtitle" = "Berechtigungen erteilen, um Sprachtranskription zu aktivieren";
+"onboarding.enhanced_permissions.accessibility.title" = "Bedienungshilfen-Berechtigung";
+"onboarding.enhanced_permissions.accessibility.description" = "Ermöglicht Clio, transkribierten Text in jede App einzufügen";
+"onboarding.enhanced_permissions.microphone.title" = "Mikrofon-Berechtigung";
+"onboarding.enhanced_permissions.microphone.description" = "Erforderlich für Sprachtranskription";
+"onboarding.enhanced_permissions.granted" = "Erteilt";
+"onboarding.enhanced_permissions.grant_access" = "Zugriff erteilen";
+"onboarding.enhanced_permissions.open_settings" = "Einstellungen öffnen";
+
+/* Missing Enhanced Setup Keys */
+"onboarding.enhanced_setup.best_for_keyboards" = "Best for most keyboards";
+"onboarding.enhanced_setup.alternative_option" = "Alternative option";
+"onboarding.enhanced_setup.download_size" = "Size: %@";
+"onboarding.enhanced_setup.speed_rating" = "Speed: %@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "Accuracy: %@/10";
+"onboarding.enhanced_setup.downloaded" = "Downloaded";
+"onboarding.enhanced_setup.download" = "Download";
+"onboarding.enhanced_setup.select_microphone" = "Select microphone";
+"onboarding.enhanced_setup.microphone_description" = "Choose which microphone to use for recording";
+"onboarding.enhanced_setup.selected_microphone" = "Selected microphone";
+"onboarding.enhanced_setup.no_microphones" = "No microphones found";
+"onboarding.enhanced_setup.connect_microphone" = "Please connect a microphone and try again";
+"onboarding.enhanced_setup.default" = "Default";
+"onboarding.enhanced_setup.choose_model" = "Choose transcription model";
+"onboarding.enhanced_setup.model_description" = "Larger models are more accurate but use more resources";
+"onboarding.enhanced_setup.all_set" = "All Set\!";
+"onboarding.enhanced_setup.ready_description" = "Clio is ready to transcribe your voice in any app";
+"onboarding.enhanced_setup.feature_1_title" = "Global Hotkey";
+"onboarding.enhanced_setup.feature_1_subtitle" = "Works in any app on your Mac";
+"onboarding.enhanced_setup.feature_2_title" = "Local Processing";
+"onboarding.enhanced_setup.feature_2_subtitle" = "Your voice stays private on your device";
+"onboarding.enhanced_setup.feature_3_title" = "AI Enhancement";
+"onboarding.enhanced_setup.feature_3_subtitle" = "Optional AI processing for better accuracy";
+"onboarding.enhanced_setup.feature_4_title" = "Real-time Transcription";
+"onboarding.enhanced_setup.feature_4_subtitle" = "Instant text insertion anywhere you type";
+"onboarding.enhanced_setup.get_started" = "Get Started";
+"onboarding.enhanced_setup.visual_keyboard_text" = "Choose your preferred recording key";
+"onboarding.enhanced_setup.visual_microphone_text" = "Select your microphone for best quality";
+"onboarding.enhanced_setup.visual_model_text" = "Choose the right model for your needs";
+"onboarding.enhanced_setup.visual_fast" = "Fast";
+"onboarding.enhanced_setup.visual_accurate" = "Accurate";
+"onboarding.enhanced_setup.visual_private" = "Private";
+"onboarding.enhanced_setup.visual_perfect" = "Perfect\!";
+"onboarding.enhanced_setup.visual_ready" = "Clio is ready to transcribe your voice";
+"onboarding.enhanced_setup.visual_step_1" = "Press and hold your hotkey";
+"onboarding.enhanced_setup.visual_step_2" = "Speak clearly into your microphone";
+"onboarding.enhanced_setup.visual_step_3" = "Release to see your transcribed text";
+
+/* Missing TryIt Keys */
+"onboarding.tryit.pro_badge" = "PRO";
+
+/* Email Sample Content */
+"email.to_label" = "An:";
+"email.subject_label" = "Betreff:";
+"email.sample_address" = "sarah@unternehmen.com";
+"email.sample_subject" = "Projektzeitplan-Besprechung";
+
+/* Additional General Terms */
+"general.yes" = "Ja";
+"general.no" = "Nein";
+"general.required" = "Erforderlich";
+"general.default" = "Standard";
+"general.refresh" = "Aktualisieren";
+
+/* Additional Navigation */
+"navigation.home" = "Startseite";
+"navigation.models" = "Sprachmodelle";
+"navigation.power_mode" = "KI-Verbesserung";
+"navigation.dictionary" = "Benutzerdefiniertes Vokabular";
+"navigation.settings" = "Einstellungen";
+
+/* Dictionary */
+"dictionary.title" = "Benutzerdefiniertes Vokabular";
+"dictionary.custom_title" = "Benutzerdefiniertes Wörterbuch";
+"dictionary.custom_description" = "Trainieren Sie Clio, um benutzerdefinierte Wörter zu erkennen und automatische Korrekturen zu erstellen. Fügen Sie Vokabeln hinzu, um die Transkriptionsgenauigkeit zu verbessern, oder erstellen Sie Wortersetzungen, um häufige Transkriptionsfehler automatisch zu korrigieren.";
+"dictionary.add_new" = "Neu hinzufügen";
+"dictionary.search_placeholder" = "Wörterbuch durchsuchen";
+"dictionary.vocabulary" = "Vokabular";
+"dictionary.replacements" = "Ersetzungen";
+"dictionary.enable_word" = "Wort aktivieren";
+"dictionary.disable_word" = "Wort deaktivieren";
+"dictionary.delete_word" = "Wort löschen";
+"dictionary.delete_replacement" = "Ersetzung löschen";
+"dictionary.add_to_vocabulary" = "Zum Vokabular hinzufügen";
+"dictionary.add_word" = "Wort hinzufügen";
+"dictionary.make_replacement" = "Als Ersetzung verwenden";
+"dictionary.word_replacement_title" = "Wortersetzung";
+"dictionary.word_replacement_description" = "Wenn aktiviert, wird Ihr benutzerdefiniertes Wort zu einer Korrektur-Regel. Clio ersetzt automatisch die falsche Version, wann immer sie diktiert wird.";
+"dictionary.misspelling_placeholder" = "Falschschreibung";
+"dictionary.correct_spelling_placeholder" = "Korrekte Schreibweise";
+"dictionary.add_word_placeholder" = "Neues Wort hinzufügen";
+"dictionary.edit_word" = "Wort bearbeiten";
+"dictionary.word_placeholder" = "Wort";
+"dictionary.save_changes" = "Änderungen speichern";
+"dictionary.edit_replacement" = "Ersetzung bearbeiten";
+"dictionary.original_placeholder" = "Original";
+"dictionary.replacement_placeholder" = "Ersetzung";
+"dictionary.no_vocabulary_words" = "Keine Vokabelwörter";
+"dictionary.vocabulary_help_text" = "Fügen Sie Wörter hinzu, damit Clio sie korrekt erkennt";
+"dictionary.no_word_replacements" = "Keine Wortersetzungen";
+"dictionary.replacements_help_text" = "Erstellen Sie automatische Wortersetzungen für bessere Transkription";
+
+/* Recording - Additional */
+"recording.stop.confirmation" = "Aufnahme beenden?";
+
+/* Transcription - Additional */
+"transcription.load_more" = "Mehr laden";
+"transcription.delete_selected_title" = "Ausgewählte Elemente löschen?";
+"transcription.delete_confirmation" = "Diese Aktion kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie %d Element(e) löschen möchten?";
+"transcription.search.placeholder" = "Transkriptionen durchsuchen";
+"transcription.empty.title" = "Keine Transkriptionen gefunden";
+"transcription.history.title" = "Transkriptionsverlauf";
+"transcription.history.description" = "Alle Ihre transkribierten Audioaufnahmen anzeigen und verwalten";
+"transcription.empty.subtitle" = "Ihr Verlauf wird hier angezeigt";
+"transcription.history.empty" = "Noch keine Transkriptionshistorie";
+"transcription.filter.today" = "Heute";
+"transcription.filter.week" = "Diese Woche";
+"transcription.filter.month" = "Dieser Monat";
+"transcription.selected_count" = "%d ausgewählt";
+"transcription.select_all" = "Alle auswählen";
+"transcription.deselect_all" = "Alle abwählen";
+"transcription.total_latency_help" = "Gesamtlatenz: %@ms";
+"transcription.enhanced" = "Verbessert";
+"transcription.original" = "Original";
+"transcription.llm_latency" = "LLM: %@ms";
+"transcription.llm_latency_help" = "LLM-Latenz: %@ms";
+"transcription.asr_latency" = "ASR: %@ms";
+"transcription.asr_latency_help" = "ASR-Latenz: %@ms";
+"transcription.copy_enhanced" = "Verbesserte Version kopieren";
+"transcription.copy_original" = "Original kopieren";
+"transcription.export.title" = "Transkript exportieren";
+"transcription.export.text" = "Nur-Text";
+"transcription.export.pdf" = "PDF-Datei";
+"transcription.date.today" = "HEUTE";
+"transcription.date.yesterday" = "GESTERN";
+
+/* Settings - Additional */
+"settings.description" = "Konfigurieren Sie Ihre Einstellungen und Anwendungsoptionen";
+"settings.sign_out.title" = "Konto & Zurücksetzen";
+"settings.sign_out.subtitle" = "Verwalten Sie Ihr Konto, den Onboarding-Prozess und die Authentifizierung";
+"settings.sign_out.description" = "Melden Sie sich von Ihrem Clio-Konto ab. Dadurch kehren Sie zum Anmeldebildschirm zurück.";
+"settings.sign_out.button" = "Abmelden";
+"settings.reset_onboarding.title" = "Tutorial zurücksetzen";
+"settings.reset_onboarding.subtitle" = "Neu starten mit dem Einführungsprozess";
+"settings.reset_onboarding.button" = "Onboarding zurücksetzen";
+"settings.reset_onboarding.confirm" = "Zurücksetzen";
+"settings.reset_onboarding.message" = "Dies setzt den Onboarding-Prozess zurück. Sie werden die Einführungsbildschirme wieder sehen, wenn Sie die App neu starten.";
+"settings.keyboard_shortcuts.title" = "Tastenkombination zum Sprechen";
+"settings.shortcut.configured" = "Tastenkombination konfiguriert";
+"settings.shortcut.required" = "Tastenkombination erforderlich";
+"settings.shortcut.warning" = "Eine Tastenkombination ist erforderlich, um die Aufnahme zu starten";
+"settings.app_language" = "App-Sprache";
+"settings.app_language.description" = "Wählen Sie Ihre bevorzugte Schnittstellensprache";
+"settings.app_language.tooltip" = "Wählen Sie Ihre bevorzugte Sprache für Menüs, Schaltflächen und Oberflächentexte. Änderungen werden sofort wirksam. Einige neuere Funktionen haben möglicherweise begrenzte Übersetzungen.";
+"settings.dictation_language" = "Diktiersprache";
+"settings.dictation_language.description" = "Wählen Sie Sprachen für die Spracherkennung";
+"settings.dictation_language.tooltip" = "Wenn Sie nur eine Sprache sprechen, wählen Sie diese aus. Andernfalls wählen Sie Auto-Erkennung. Für beste Ergebnisse mit Auto-Erkennung verwenden Sie ein hochwertiges Mikrofon.";
+
+/* Privacy Settings */
+"settings.privacy.title" = "Datenschutz";
+"settings.privacy.subtitle" = "Wählen Sie zwischen Cloud- und lokaler Verarbeitung";
+"settings.privacy.use_local_model" = "Lokales Modell verwenden";
+"settings.privacy.local_model_description" = "Audio lokal ohne Internetverbindung verarbeiten";
+"settings.privacy.model_not_downloaded" = "Lokales Modell nicht heruntergeladen";
+"settings.privacy.download_model" = "Advanced v3 Turbo herunterladen";
+
+/* Audio Settings - Additional */
+"audio.input.title" = "Audio-Eingabe";
+"audio.input.subtitle" = "Konfigurieren Sie Ihre Mikrofoneinstellungen";
+"audio.input.mode" = "Eingabemodus";
+"audio.devices.available" = "Verfügbare Geräte";
+"audio.devices.prioritized" = "Priorisierte Geräte";
+"audio.devices.priority_description" = "Geräte werden in Prioritätsreihenfolge verwendet. Wenn ein Gerät nicht verfügbar ist, wird das nächste Gerät versucht. Wenn keine priorisierten Geräte verfügbar sind, wird das System-Standardmikrofon verwendet.";
+"audio.devices.no_priority" = "Keine priorisierten Geräte";
+"audio.mode.system_default" = "Standard-Eingabegerät des Systems verwenden";
+"audio.mode.custom" = "Ein bestimmtes Eingabegerät auswählen";
+"audio.mode.prioritized" = "Geräte-Prioritätsreihenfolge festlegen";
+"audio.device.active" = "Aktiv";
+"audio.device.unavailable" = "Nicht verfügbar";
+"audio.devices.no_additional" = "Keine zusätzlichen Geräte verfügbar";
+"audio.devices.none.title" = "Keine Audiogeräte";
+"audio.devices.none.description" = "Verbinden Sie ein Audio-Eingabegerät, um zu beginnen";
+"audio.mode.system_default.title" = "Systemstandard";
+"audio.mode.custom.title" = "Benutzerdefiniertes Gerät";
+"audio.mode.prioritized.title" = "Priorisierte Geräte";
+
+/* Language Selection */
+"language.transcription.title" = "Transkriptionssprache";
+"language.current_model" = "Aktuelles Modell: %@";
+"language.multilingual.description" = "Dieses Modell unterstützt mehrere Sprachen. Sie können Auto-Erkennung wählen oder eine bestimmte Sprache auswählen.";
+"language.english_only" = "Sprache: Englisch";
+"language.english_only.description" = "Dies ist ein für Englisch optimiertes Modell und unterstützt nur englische Transkription.";
+"language.no_model" = "Kein Modell ausgewählt";
+
+/* Audio Cleanup */
+"audio.cleanup.description" = "Alte Audiodateien automatisch bereinigen, um Speicherplatz zu sparen";
+"audio.cleanup.enable" = "Automatische Bereinigung aktivieren";
+"audio.cleanup.retention_period" = "Aufbewahrungsdauer";
+"audio.cleanup.keep_files" = "Dateien behalten für";
+"audio.cleanup.1_day" = "1 Tag";
+"audio.cleanup.3_days" = "3 Tage";
+"audio.cleanup.7_days" = "7 Tage";
+"audio.cleanup.14_days" = "14 Tage";
+"audio.cleanup.30_days" = "30 Tage";
+"audio.cleanup.description_text" = "Audiodateien, die älter als der ausgewählte Zeitraum sind, werden automatisch gelöscht, während die Texttranskripte erhalten bleiben.";
+"audio.cleanup.analyzing" = "Analysiere...";
+"audio.cleanup.run_now" = "Bereinigung jetzt ausführen";
+"audio.cleanup.alert_title" = "Audio-Bereinigung";
+"audio.cleanup.delete_files" = "%d Dateien löschen";
+"audio.cleanup.will_delete" = "Dies wird %d Audiodateien löschen, die älter als %@ Tag(e) sind.";
+"audio.cleanup.size_freed" = "Gesamter freizugebender Speicherplatz: %@";
+"audio.cleanup.transcripts_preserved" = "Die Texttranskripte werden erhalten.";
+"audio.cleanup.no_files" = "Keine Audiodateien gefunden, die älter als %@ Tag(e) sind.";
+"audio.cleanup.complete_title" = "Bereinigung abgeschlossen";
+"audio.cleanup.result_with_errors" = "Erfolgreich %d Audiodateien gelöscht. Fehler beim Löschen von %@ Dateien.";
+"audio.cleanup.result_success" = "Erfolgreich %d Audiodateien gelöscht.";
+"audio.cleanup.how_long_keep" = "Wie lange Audiodateien behalten";
+"audio.cleanup.select_period" = "Aufbewahrungsdauer auswählen";
+"audio.cleanup.auto_delete_info" = "Audiodateien, die älter als %@ Tag(e) sind, werden automatisch gelöscht.";
+"audio.cleanup.transcripts_always_preserved" = "Texttranskripte werden immer erhalten.";
+"audio.cleanup.manual_cleanup" = "Manuelle Bereinigung";
+"audio.cleanup.run_immediately" = "Bereinigung sofort ausführen";
+"audio.cleanup.analysis_title" = "Audio-Bereinigungsanalyse";
+"audio.cleanup.found_files" = "%d Audiodateien gefunden, die älter als %@ Tag(e) sind.";
+"audio.cleanup.storage_freed" = "Gesamter freizugebender Speicher: %@";
+"audio.cleanup.already_optimized" = "Ihr Speicher ist bereits optimiert!";
+"audio.cleanup.result_success_with_space" = "Erfolgreich %d Audiodateien gelöscht und Speicherplatz freigegeben.";
+
+/* AI Settings - Additional */
+"enhance.mode.title" = "Verbesserungsmodus";
+
+/* Models - Additional */
+"speech.models.title" = "Sprachmodelle";
+"models.active_model" = "Aktives Modell";
+"models.no_model_selected" = "Kein Modell ausgewählt";
+"models.change_language" = "Ändern";
+"models.language_locked" = "Gesperrt";
+"models.tap_to_change" = "Zum Ändern tippen";
+"models.english_only" = "Nur Englisch";
+"models.language_prompts" = "Sprache & Anweisungen";
+"models.library_title" = "Modellbibliothek";
+"models.library_subtitle" = "Wählen Sie aus %d Sprachmodellen";
+"models.section.local_models" = "Lokale Modelle";
+"models.section.premium_cloud_models" = "Premium-Cloud-Modelle";
+"models.filter.all" = "Alle";
+"models.filter.downloaded" = "Heruntergeladen";
+"models.performance.speed" = "Geschwindigkeit";
+"models.performance.accuracy" = "Genauigkeit";
+"models.delete.title" = "Modell löschen";
+"models.delete.confirmation" = "Sind Sie sicher, dass Sie das Modell '%@' löschen möchten?";
+"models.status.active" = "Aktiv";
+"models.status.downloaded" = "Heruntergeladen";
+"models.currently_active" = "Derzeit aktiv";
+"models.set_as_default" = "Als Standard festlegen";
+"models.requires_pro" = "Erfordert Pro";
+"models.coming_soon" = "Bald verfügbar";
+"models.show_in_finder" = "Im Finder anzeigen";
+"models.download.main" = "Modell";
+"models.download.coreml" = "CoreML";
+"models.tag.multilingual" = "Mehrsprachig";
+"models.tag.english_only" = "Nur Englisch";
+"models.clio_max.description" = "Premium-Cloud-basiertes Modell mit ultra-niedrigem Latenz-Streaming. Besonders optimiert für Chinesisch, Japanisch, Koreanisch und Englisch. Unterstützt 18 chinesische Dialekte einschließlich Kantonesisch, Wu und regionale Varianten. Perfekt für mehrsprachige Fachkräfte und internationale Teams.";
+"models.clio_max_ultra.description" = "Das ultimative Cloud-basierte Transkriptionsmodell mit maximaler Genauigkeit und Leistung. Erweiterte KI-Verarbeitung mit Echtzeit-Streaming und Unterstützung für alle Sprachen. Entwickelt für Enterprise-Anwendungen und Profi-Nutzer.";
+"models.cloud_model" = "Cloud-Modell";
+"models.action.connect" = "Verbinden";
+"models.action.connected" = "Verbunden";
+"models.action.connecting" = "Verbinde...";
+"models.requires_internet" = "Erfordert Internetverbindung";
+
+/* Model Descriptions */
+"models.clio_flash.description" = "Ultra-schnelle Transkription mit guter Genauigkeit. Kostenlos für immer mit lokaler Verarbeitung";
+"models.clio_pro.description" = "Perfekte Balance zwischen Geschwindigkeit und Genauigkeit mit verbessertem Datenschutz. Lokale Verarbeitung hält Ihr Audio vollständig privat";
+"models.clio_ultra.description" = "Langsamer als Pro mit höherer Genauigkeit, unterstützt mehrere Sprachen";
+
+/* Chinese Dialects */
+"language.chinese_simplified" = "Chinesisch (vereinfacht)";
+"language.chinese_traditional" = "Chinesisch (traditionell)";
+"language.chinese_hong_kong" = "Chinesisch (Hongkong)";
+"language.chinese_shanghai" = "Chinesisch (Shanghai)";
+"language.chinese_wu" = "Chinesisch (Wu)";
+"language.chinese_min" = "Chinesisch (Min)";
+"language.chinese_northeast" = "Chinesisch (Nordost)";
+"language.chinese_gansu" = "Chinesisch (Gansu)";
+"language.chinese_guangzhou" = "Chinesisch (Guangzhou)";
+"language.chinese_henan" = "Chinesisch (Henan)";
+"language.chinese_hubei" = "Chinesisch (Hubei)";
+"language.chinese_hunan" = "Chinesisch (Hunan)";
+"language.chinese_jiangxi" = "Chinesisch (Jiangxi)";
+"language.chinese_ningxia" = "Chinesisch (Ningxia)";
+"language.chinese_shanxi" = "Chinesisch (Shanxi)";
+"language.chinese_shaanxi" = "Chinesisch (Shaanxi)";
+"language.chinese_shandong" = "Chinesisch (Shandong)";
+"language.chinese_sichuan" = "Chinesisch (Sichuan)";
+"language.chinese_tianjin" = "Chinesisch (Tianjin)";
+"language.chinese_yunnan" = "Chinesisch (Yunnan)";
+"language.chinese_cantonese" = "Chinesisch (Kantonesisch)";
+
+/* Model Access Control */
+"models.access.fastest_lowest_accuracy" = "Am schnellsten, niedrigste Genauigkeit (39 MB)";
+"models.access.fast_good_accuracy" = "Schnell, gute Genauigkeit (74 MB)";
+"models.access.balanced_speed_accuracy_pro" = "Ausgewogene Geschwindigkeit & Genauigkeit (244 MB) - Pro";
+"models.access.high_accuracy_slower_pro" = "Hohe Genauigkeit, langsamer (769 MB) - Pro";
+"models.access.highest_accuracy_pro" = "Höchste Genauigkeit (1,5 GB) - Pro";
+"models.access.latest_model_best_quality_pro" = "Neuestes Modell, beste Qualität - Pro";
+"models.access.pro_model" = "Pro-Modell";
+"models.access.free_model" = "Kostenloses Modell";
+
+/* AI Providers */
+"providers.llama.description" = "Lokale Llama-Modelle - Kostenlos";
+"providers.openai.description" = "GPT-4, GPT-3.5 - Pro";
+"providers.anthropic.description" = "Claude 3-Modelle - Pro";
+"providers.gemini.description" = "Google Gemini - Pro";
+"providers.deepseek.description" = "DeepSeek-Modelle - Pro";
+"providers.groq.description" = "Groq LPU-Modelle - Pro";
+"providers.mistral.description" = "Mistral AI - Pro";
+"providers.qwen.description" = "Qwen-Modelle - Pro";
+"providers.ollama.description" = "Lokale Ollama-Modelle - Pro";
+"providers.custom.description" = "Benutzerdefinierter Anbieter - Pro";
+
+/* Dashboard - Additional */
+"dashboard.ready_to_start" = "Bereit mit der Transkription zu beginnen?";
+"dashboard.efficiency_title" = "Clio beschleunigt Sie";
+"dashboard.with_clio" = "mit CLIO";
+"dashboard.efficiency_subtitle" = "EFFIZIENZGEWINN";
+"dashboard.minutes_saved" = "Gesparte Minuten";
+"dashboard.time_efficiency" = "ZEITEFFIZIENZ";
+"dashboard.time_speaking" = "Sprechzeit";
+"dashboard.total_speaking_time" = "Gesamte Sprechzeit";
+"dashboard.words_per_minute" = "Wörter/Min";
+"dashboard.speaking_rate" = "SPRECHGESCHWINDIGKEIT";
+
+/* Authentication - Additional */
+"auth.signing_in" = "Melde an";
+
+/* Greetings */
+"greeting.good_morning" = "Guten Morgen";
+"greeting.good_afternoon" = "Guten Tag";
+"greeting.good_evening" = "Guten Abend";
+
+/* PowerMode */
+"powermode.create.title" = "Erweiterten Modus erstellen";
+"powermode.edit.title" = "Erweiterten Modus bearbeiten";
+"powermode.help.activation" = "Der erweiterte Modus wird automatisch aktiviert, wenn Sie diese Apps verwenden oder diese Websites besuchen";
+"powermode.section.basic_info" = "Grundinformationen";
+"powermode.section.transcription" = "Transkriptionseinstellungen";
+"powermode.section.applications" = "Anwendungen";
+"powermode.section.websites" = "Websites";
+"powermode.field.icon" = "Symbol";
+"powermode.field.name" = "Name";
+"powermode.field.model" = "Modell";
+"powermode.field.language" = "Sprache";
+"powermode.placeholder.name" = "Modusnamen eingeben";
+"powermode.placeholder.website_url" = "Website-URL eingeben (z.B. google.com)";
+"powermode.model.system_default" = "Systemstandard";
+"powermode.language.auto_detect" = "Auto-Erkennung";
+"powermode.empty.no_apps" = "Keine Anwendungen ausgewählt";
+"powermode.empty.no_websites" = "Keine Websites hinzugefügt";
+"powermode.delete.title" = "Erweiterten Modus löschen";
+
+/* Languages */
+"language.english" = "Englisch";
+"language.spanish" = "Spanisch";
+"language.french" = "Französisch";
+"language.german" = "Deutsch";
+"language.italian" = "Italienisch";
+"language.portuguese" = "Portugiesisch";
+"language.russian" = "Russisch";
+"language.japanese" = "Japanisch";
+"language.korean" = "Koreanisch";
+"language.chinese" = "Chinesisch";
+"language.auto_detect" = "Auto-Erkennung";
+
+/* Settings - Permissions */
+"settings.permissions.title" = "App-Berechtigungen";
+"settings.permissions.subtitle" = "Clio benötigt die folgenden Berechtigungen, um ordnungsgemäß zu funktionieren";
+"settings.permissions.all_granted" = "Alle erforderlichen Berechtigungen sind erteilt und funktionieren ordnungsgemäß";
+"settings.permissions.required_note" = "Alle Berechtigungen sind erforderlich, damit Clio ordnungsgemäß funktioniert.";
+"settings.permission.keyboard_shortcut" = "Tastenkombination";
+"settings.permission.microphone" = "Mikrofonzugriff";
+"settings.permission.accessibility" = "Bedienungshilfen";
+"settings.permission.screen_recording" = "Bildschirmaufzeichnung";
+"settings.status.enabled" = "Aktiviert";
+"settings.status.disabled" = "Deaktiviert";
+
+/* Authentication */
+"auth.signin.title" = "Willkommen zurück bei Clio";
+"auth.signin.subtitle" = "Transkribieren Sie in Gedankengeschwindigkeit — 3× schneller als Tippen";
+"auth.signin.button" = "Anmelden";
+"auth.signin.switch_prompt" = "Haben Sie noch kein Konto?";
+"auth.signin.switch_action" = "Registrieren";
+"auth.signup.title" = "Erstellen Sie Ihr Clio-Konto";
+"auth.signup.subtitle" = "Transkribieren Sie in Gedankengeschwindigkeit — 3× schneller als Tippen";
+"auth.signup.button" = "Konto erstellen";
+"auth.signup.switch_prompt" = "Haben Sie bereits ein Konto?";
+"auth.signup.switch_action" = "Anmelden";
+"auth.placeholder.fullname" = "Vollständiger Name";
+"auth.placeholder.email" = "E-Mail";
+"auth.placeholder.password" = "Passwort";
+"auth.placeholder.confirm_password" = "Passwort bestätigen";
+"auth.error.passwords_mismatch" = "Passwörter stimmen nicht überein";
+"auth.remember_password" = "Passwort merken";
+"auth.processing" = "Verarbeitung läuft...";
+"auth.forgot_password" = "Passwort vergessen?";
+"auth.error.invalid_email" = "Bitte geben Sie zuerst eine gültige E-Mail-Adresse ein";
+"auth.password_reset_sent" = "Passwort-Reset-E-Mail gesendet an %@";
+"auth.error.password_reset_failed" = "Fehler beim Senden der Passwort-Reset-E-Mail. Bitte versuchen Sie es erneut.";
+
+/* Onboarding - Welcome */
+"onboarding.welcome.title" = "Willkommen!";
+"onboarding.welcome.subtitle" = "Wo haben Sie von uns gehört?";
+"onboarding.skip" = "Vorerst überspringen";
+
+/* Onboarding - Trial */
+"onboarding.trial.title" = "Clio Pro testen";
+"onboarding.trial.subtitle" = "Erleben Sie erstklassige Sprachmodelle während Ihrer Testphase, dann upgraden Sie zu unbegrenzter Transkription für 7,99€/Monat";
+"onboarding.trial.feature.lightning_fast.title" = "Blitzschnelle Transkription";
+"onboarding.trial.feature.lightning_fast.description" = "Bis zu 600ms Transkription für sofortige Sprache-zu-Text-Produktivität";
+"onboarding.trial.feature.world_leading.title" = "Weltführende Spracherkennung";
+"onboarding.trial.feature.world_leading.description" = "Beste Genauigkeit in über 50 Sprachen mit fortschrittlichen KI-Modellen";
+"onboarding.trial.feature.realtime_translation.title" = "Echtzeit-Übersetzung";
+"onboarding.trial.feature.realtime_translation.description" = "Diktieren Sie in Ihrer eigenen Sprache, übersetzen Sie sofort in eine andere";
+"onboarding.trial.feature.messy_to_polished.title" = "KI Auto-Bearbeitung";
+"onboarding.trial.feature.messy_to_polished.description" = "Verwandeln Sie unordentliche Sprache in polierten Text. Keine Füllwörter, nur klare Ideen.";
+"onboarding.trial.feature.speed_up_writing.title" = "Beschleunigen Sie Ihr Schreiben überall";
+"onboarding.trial.feature.speed_up_writing.description" = "Funktioniert in jeder Mac-App. Sprachtippen überall mit unbegrenzter Transkription.";
+"onboarding.trial.feature.privacy_first.title" = "Datenschutz-First-Design";
+"onboarding.trial.feature.privacy_first.description" = "Keine Datenspeicherung. Ihre Stimme und Ihr Text werden nie gespeichert. 100% Datenbesitz.";
+"onboarding.trial.start_trial" = "Testversion starten";
+"onboarding.trial.view_plans" = "Pro-Pläne ansehen";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.choose_hotkey" = "Wählen Sie Ihre Tastenkombination";
+"onboarding.enhanced_setup.hotkey_description" = "Drücken Sie diese Taste einmal, um die freihändige Aufnahme zu starten, drücken Sie sie erneut zum Transkribieren";
+
+/* Subscription */
+"subscription.upgrade.title" = "Auf Clio Pro upgraden";
+"subscription.upgrade.subtitle" = "Erweiterte Funktionen und unbegrenzte Nutzung freischalten";
+"subscription.trial.active" = "Pro-Testversion aktiv";
+"subscription.trial.days_remaining" = "%d Tage verbleibend";
+"subscription.feature.trying_to_use" = "Sie versuchen zu verwenden:";
+"subscription.billing.monthly" = "Monatlich";
+"subscription.billing.yearly" = "Jährlich";
+"subscription.billing.save" = "17€ sparen";
+"subscription.billing.per_month" = "/Monat";
+"subscription.billing.per_year" = "/Jahr";
+"subscription.billing.annual_savings" = "Nur 7,08€/Monat bei jährlicher Abrechnung";
+"subscription.features.title" = "Was in Pro enthalten ist";
+"subscription.feature.premium_models.title" = "Zugang zu erweiterten Modellen";
+"subscription.feature.premium_models.description" = "Zugang zu allen erweiterten Modellen mit überlegener Latenz, Genauigkeit und Leistung";
+"subscription.feature.ai_enhancement.title" = "KI-Verbesserung & Auto-Korrektur";
+"subscription.feature.ai_enhancement.description" = "Intelligente Textverbesserung mit Auto-Korrektur, Kontextverständnis und verbesserter Workflow-Integration";
+"subscription.feature.unlimited.title" = "Unbegrenzte Transkription";
+"subscription.feature.unlimited.description" = "Keine monatlichen Limits bei der Transkription mit unbegrenzter Nutzung aller Funktionen";
+"subscription.feature.priority_support.title" = "Premium-Support";
+"subscription.feature.priority_support.description" = "Schnelle Unterstützung mit prioritärer Hilfe, wenn Sie diese benötigen";
+"subscription.feature.base_model.title" = "Basismodell (Clio Flash)";
+"subscription.feature.base_model.description" = "Kostenlos für immer - perfekt für den täglichen Gebrauch mit zuverlässiger Transkriptionsqualität";
+"subscription.cta.get_pro" = "Clio Pro holen";
+"subscription.cta.have_license" = "Ich habe einen Lizenzschlüssel";
+"subscription.cta.start_trial" = "%@ kostenlose Testversion starten";
+"subscription.pro" = "PRO";
+"subscription.clio_pro" = "Clio Pro";
+"subscription.upgrade" = "Upgrade";
+
+/* License Management */
+"license.management.title" = "Lizenzverwaltung";
+"license.status.activated" = "Premium-Funktionen aktiviert";
+"license.action.remove" = "Lizenz entfernen";
+"license.action.activate" = "Lizenz aktivieren";
+"license.placeholder.enter_key" = "Lizenzschlüssel eingeben";
+"license.status.active" = "Lizenz aktiv";
+"license.pro.welcome.title" = "Vielen Dank, dass Sie Pro-Nutzer sind!";
+"license.pro.welcome.subtitle" = "Sie haben Zugang zu allen Premium-Funktionen und unbegrenzter Nutzung";
+"license.licensed_to" = "Lizenziert an: %@";
+"license.have_key_question" = "Haben Sie einen Lizenzschlüssel?";
+"license.activation.success" = "Lizenz erfolgreich aktiviert!";
+"license.activation.error" = "Ungültiger Lizenzschlüssel. Bitte versuchen Sie es erneut.";
+"license.description" = "Verwalten Sie Ihr Abonnement und greifen Sie auf Premium-Funktionen zu";
+"license.manage_account" = "Verwalten";
+"license.refer_friends" = "Freunde empfehlen";
+"license.subscription.title" = "Abonnement";
+"license.subscription.pro_status" = "Sie befinden sich derzeit im Pro-Plan.";
+"license.subscription.thanks" = "Danke, dass Sie Pro sind.";
+"license.credits.title" = "Guthaben";
+"license.credits.current_balance" = "Aktueller Saldo";
+"license.credits.share_link" = "Link teilen";
+"license.credits.next_tier" = "Nächste Stufe";
+"license.credits.invite_description" = "Laden Sie Freunde zu Clio ein und erhalten Sie einen Monat gratis pro Empfehlung.";
+
+/* Subscription Status */
+"license.status.expires_soon" = "Läuft bald ab";
+"license.status.days_remaining" = "Verbleibende Tage";
+"license.status.access_until" = "Zugang bis";
+
+/* Menu Bar */
+"menu.add_word_to_dictionary" = "Wort zum Wörterbuch hinzufügen";
+"menu.version" = "Version";
+"menu.share_feedback" = "Feedback teilen";
+"menu.select_dictation_language" = "Diktatsprache auswählen";
+"menu.select_audio_input" = "Audio-Eingang auswählen";
+
+/* Dictation Language Settings */
+"settings.dictation.auto_detect" = "Automatisch Erkennen";
+"settings.dictation.languages_count" = "%d Sprachen";
+"settings.dictation.select_languages" = "Sprachen Auswählen";
+
+/* Trial */
+"trial.usage.title" = "Testnutzung";
+"trial.days_remaining_detail" = "%d von %d Tagen verbleibend";
+"trial.limit_reached" = "Testlimit erreicht. Upgraden Sie, um fortzufahren.";
+"trial.word_limit_warning" = "Wortlimit der Testversion fast erreicht";
+"trial.word_limit_reached" = "Wortlimit der Testversion erreicht. Upgrade, um fortzufahren.";
+"trial.words_remaining" = "%@ verbleibende Wörter";
+"trial.words_remaining_detail" = "%d / %d Wörter verwendet";
+"trial.words_used_detail" = "%@ Wörter verwendet";
+
+/* Word-based Trial */
+"trial.words.title" = "Kostenlose Testversion";
+"trial.words.subtitle" = "Erleben Sie Pro-Funktionen mit 4.000 kostenlosen Wörtern";
+"trial.words.usage_detail" = "%@ von %@ Wörtern verwendet";
+"trial.words.remaining" = "%@ Wörter verbleibend";
+"trial.words.used" = "%@ Wörter verwendet";
+"trial.words.expired.title" = "Testversion abgeschlossen";
+"trial.words.expired.subtitle" = "Sie haben alle 4.000 Testwörter verwendet";
+"trial.words.expired.description" = "Bereit, unbegrenzte Transkription und Premium-Funktionen freizuschalten?";
+"trial.words.limit_warning" = "Testversion endet bald - %@ Wörter verbleibend";
+"trial.words.progress.label" = "Testfortschritt";
+"trial.words.of_total" = "%@ / %@";
+
+/* Modern CTA Messages */
+"upgrade.primary.title" = "Unbegrenzte Macht freischalten";
+"upgrade.primary.subtitle" = "Treten Sie Tausenden von Nutzern bei, die ohne Limits transkribieren";
+"upgrade.secondary.title" = "Mit Pro fortfahren";
+"upgrade.benefit.unlimited" = "Unbegrenzte Transkription";
+"upgrade.benefit.premium_models" = "Premium-KI-Modelle";
+"upgrade.benefit.enhancements" = "Intelligente Textverarbeitung";
+"upgrade.benefit.support" = "Prioritärer Support";
+"upgrade.cta.primary" = "Auf Pro upgraden";
+"upgrade.cta.secondary" = "Alle Funktionen anzeigen";
+"upgrade.value.proposition" = "Einmaliger Kauf • Lebenslanger Zugang • Alle Funktionen enthalten";
+
+/* Enhanced License Activation */
+"license.activation.title" = "Lizenz aktivieren";
+"license.activation.subtitle" = "Geben Sie Ihren Lizenzschlüssel ein, um Pro-Funktionen freizuschalten";
+"license.key.placeholder" = "XXXX-XXXX-XXXX-XXXX";
+"license.activation.cta" = "Pro-Lizenz aktivieren";
+
+/* Subscription Upgrade */
+"subscription.upgrade.description" = "Einmaliger Kauf • Lebenslanger Zugang • Alle Funktionen freigeschaltet";
+"subscription.upgrade.word_limit_cta" = "Testkontingent von 4.000 Wörtern verbraucht • Upgraden für unbegrenzte Nutzung";
+"subscription.word_trial.progress_format" = "%@ / %@ Wörter";
+"subscription.word_trial.percentage_used" = "%d%% genutzt";
+
+/* Features */
+"feature.unlimited_transcriptions" = "Unbegrenzte Transkription";
+"feature.large_whisper_models" = "Zugang zu allen erweiterten Modellen (überlegene Latenz, Genauigkeit, etc.)";
+"feature.ai_enhancement" = "KI-Verbesserung & Auto-Korrektur";
+"feature.custom_prompts" = "Intelligente Textverarbeitung & Optimierung";
+"feature.power_modes" = "Erweiterte Workflow-Integration";
+"feature.cloud_sync" = "Cloud-Synchronisation nicht unterstützt";
+"feature.priority_support" = "Premium-Support";
+"feature.basic_transcription" = "Basismodell (kostenlos für immer)";
+"feature.unlimited_usage.title" = "Unbegrenzte Transkription";
+"feature.unlimited_usage.description" = "Verwandeln Sie unbegrenzte Stunden Sprache in Text ohne monatliche Beschränkungen";
+"feature.all_models.title" = "Weltklasse-KI-Modelle";
+"feature.all_models.description" = "Zugang zur fortschrittlichsten, blitzschnellen Transkriptionstechnologie der Welt";
+"feature.ai_enhancement.title" = "Intelligente Textverbesserung";
+"feature.ai_enhancement.description" = "Auto-Grammatikkorrektur, Klarheitsverbesserung und lassen Sie Ihre Worte mit KI-Magie glänzen";
+"feature.enhanced_modes.title" = "Intelligente Kontexterkennung";
+"feature.enhanced_modes.description" = "KI versteht Ihre Gespräche und passt sich Ihrem einzigartigen Sprechstil an";
+"feature.cloud_sync.title" = "Cloud-Synchronisation";
+"feature.cloud_sync.description" = "Zugriff von allen Geräten";
+"feature.priority_support.title" = "Prioritärer Support";
+"feature.priority_support.description" = "Hilfe bekommen, wenn Sie sie brauchen";
+
+/* Usage Stats */
+"usage.your_usage.title" = "Ihre Nutzung";
+"usage.words" = "Wörter";
+"usage.sessions" = "Sitzungen";
+"usage.time_saved" = "Gesparte Zeit";
+
+/* Footer */
+"footer.support" = "Support";
+"footer.documentation" = "Dokumentation";
+"footer.privacy" = "Datenschutz";
+
+/* Flash Model Download Dialog */
+"trial.expired.title" = "Testversion abgelaufen";
+"trial.expired.description" = "Ihre Pro-Testversion ist beendet. Um Clio weiter zu verwenden, können Sie auf Pro upgraden oder das kostenlose Flash-Modell für grundlegende Transkription herunterladen.";
+"trial.expired.flash.description" = "Schnell, genau und für immer kostenlos";
+"trial.expired.download.flash" = "Clio Flash herunterladen";
+"trial.expired.upgrade.pro" = "Auf Pro upgraden";
+
+/* Recording Failed Dialog */
+"recording.failed.title" = "Aufnahme fehlgeschlagen";
+"recording.failed.description" = "Aufnahme fehlgeschlagen, da %@ ein Pro-Abonnement erfordert. Wählen Sie eine Option unten:";
+"recording.failed.option1" = "Auf Pro upgraden für unbegrenzten Zugang";
+"recording.failed.option2" = "Clio Flash (kostenlos) für grundlegende Transkription verwenden";
+"recording.failed.upgrade.now" = "Auf Pro upgraden";
+"recording.failed.use.free" = "Flash-Modell verwenden";
+
+/* Common */
+"common.cancel" = "Abbrechen";
+
+/* Audio Player */
+"audio_player.generating_waveform" = "Wellenform wird generiert...";
+"audio_player.recording" = "Aufnahme";
+"audio_player.show_in_finder" = "Im Finder anzeigen";
+"audio_player.retranscribe_audio" = "Diese Audiodatei erneut transkribieren";
+"audio_player.retranscription_successful" = "Erneute Transkription erfolgreich";
+"audio_player.retranscription_failed" = "Erneute Transkription fehlgeschlagen";
+"audio_player.no_model_selected" = "Kein Transkriptionsmodell ausgewählt";
+
+/* Audio Transcribe */
+"audio_transcribe.transcription_result" = "Transkriptionsergebnis";
+"audio_transcribe.enhanced" = "Verbessert";
+"audio_transcribe.original" = "Original";
+"audio_transcribe.transcription" = "Transkription";
+"audio_transcribe.duration" = "Dauer: %@";
+"audio_transcribe.audio_file_selected" = "Audiodatei ausgewählt: %@";
+"audio_transcribe.ai_enhancement" = "KI-Verbesserung";
+"audio_transcribe.prompt" = "Anweisung:";
+"audio_transcribe.select_prompt" = "Anweisung auswählen";
+"audio_transcribe.start_transcription" = "Transkription starten";
+"audio_transcribe.choose_different_file" = "Andere Datei wählen";
+"audio_transcribe.drop_audio_file" = "Audiodatei hier ablegen";
+"audio_transcribe.or" = "oder";
+"audio_transcribe.choose_file" = "Datei wählen";
+"audio_transcribe.supported_formats" = "Unterstützte Formate: WAV, MP3, M4A, AIFF";
+
+/* Settings - Additional */
+"settings.ai_model_type.title" = "KI-Modelltyp";
+"settings.ai_model_type.local" = "Lokale KI";
+"settings.ai_model_type.local_description" = "Private, offline Verarbeitung, erfordert bessere Hardware";
+"settings.ai_model_type.cloud" = "Cloud-KI";
+"settings.ai_model_type.cloud_description" = "Intelligentere, neueste Modelle, erfordert Internetverbindung";
+"settings.context_options.title" = "Kontextoptionen";
+"settings.context_options.clipboard" = "Zwischenablage-Kontext verwenden";
+"settings.context_options.clipboard_description" = "Zwischenablage-Inhalt einbeziehen, um der KI beim Kontextverständnis und der Korrektur von Transkriptionsfehlern zu helfen";
+"settings.context_options.screen" = "Bildschirmkontext verwenden";
+"settings.context_options.screen_description" = "Sichtbaren Text erfassen, um zusätzlichen Kontext zu liefern (erfordert Bildschirmaufzeichnungsberechtigung)";
+"settings.deep_context.title" = "Tiefer Kontext";
+"settings.deep_context.subtitle" = "Analysiert Bildschirminhalte, um intelligente Kontexterkennung für höhere Genauigkeit und Personalisierung zu bieten";
+"settings.permissions.grant" = "Erteilen";
+"settings.subscription.active" = "Aktiv";
+"settings.subscription.trial_usage" = "Testnutzung";
+"settings.subscription.premium_features" = "Premium-Funktionen";
+"settings.local_ai_model.title" = "Lokales KI-Modell";
+"settings.local_ai_model.downloaded" = "Heruntergeladen";
+"settings.cloud_ai_provider.title" = "Cloud-KI-Anbieter";
+"settings.cloud_ai_provider.api_key" = "API-Schlüssel";
+"settings.cloud_ai_provider.verify" = "Überprüfen";
+"settings.cloud_ai_provider.get_key" = "Schlüssel erhalten";
+
+/* Common - Additional */
+"common.error" = "Fehler";
+"common.ok" = "OK";
+
+/* Qwen Provider */
+"ai_provider.qwen.title" = "Alibaba Cloud Qwen-Turbo";
+"ai_provider.qwen.subtitle" = "Schnelles und effizientes KI-Modell für Textverbesserung";
+"ai_provider.connected" = "Verbunden";
+"ai_provider.api_key" = "API-Schlüssel";
+"ai_provider.remove_key" = "Schlüssel entfernen";
+"ai_provider.qwen.enter_api_key" = "Geben Sie Ihren Alibaba Cloud API-Schlüssel ein";
+"ai_provider.invalid_key_error" = "Ungültiger API-Schlüssel. Bitte überprüfen und erneut versuchen.";
+"ai_provider.verify_and_save" = "Überprüfen und speichern";
+"ai_provider.get_key" = "API-Schlüssel erhalten";
+
+/* Metrics */
+"metrics.you_are" = "Sie sind";
+"metrics.faster" = "%@ schneller";
+"metrics.with_voiceink" = "mit Clio";
+"metrics.speaking_time" = "SPRECHZEIT";
+"metrics.typing_time" = "TIPPZEIT";
+"metrics.time_saved" = "GESPARTE ZEIT";
+"metrics.feedback_or_issues" = "Feedback oder Probleme?";
+"metrics.report" = "Melden";
+
+/* Model Library */
+"models.status.default" = "Standard";
+"models.status.default_model" = "Standardmodell";
+"models.action.set_default" = "Als Standard festlegen";
+"models.action.download" = "Herunterladen";
+"models.action.downloading" = "Wird heruntergeladen...";
+"models.action.delete" = "Modell löschen";
+"models.action.show_in_finder" = "Im Finder anzeigen";
+"models.component.model" = "Modell";
+"models.component.coreml" = "CoreML";
+
+/* Power Mode */
+"power_mode.title" = "KI-Verbesserung";
+"power_mode.info" = "Erstellen Sie benutzerdefinierte Konfigurationen, die automatisch angewendet werden, wenn Sie bestimmte Apps/Websites verwenden.";
+"power_mode.subtitle" = "Wenden Sie automatisch benutzerdefinierte Konfigurationen basierend auf der App/Website an, die Sie verwenden";
+"power_mode.add_title" = "KI-Verbesserung hinzufügen";
+"power_mode.edit_default_title" = "Standard-KI-Verbesserung bearbeiten";
+"power_mode.edit_title" = "KI-Verbesserung bearbeiten";
+"power_mode.universal_fallback" = "Universeller Fallback";
+"power_mode.delete_title" = "%@ löschen?";
+"power_mode.delete_warning" = "Diese Aktion kann nicht rückgängig gemacht werden. Alle zugehörigen Apps, Websites und Einstellungen werden entfernt.";
+"power_mode.default_configuration" = "Standardkonfiguration";
+"power_mode.email" = "E-Mail";
+"power_mode.meeting_notes" = "Besprechungsnotizen";
+"power_mode.card.apps" = "Apps";
+"power_mode.card.websites" = "Websites";
+"power_mode.card.universal_fallback" = "Gilt für alle Apps und Websites ohne spezifische Modi";
+
+/* Power Mode Modal */
+"power_mode.modal.add_title" = "Erweiterten Modus hinzufügen";
+"power_mode.modal.add_button" = "Hinzufügen";
+"power_mode.modal.ai_enhancement" = "KI-Verbesserung";
+"power_mode.modal.ai_provider" = "KI-Anbieter";
+"power_mode.modal.ai_model" = "KI-Modell";
+"power_mode.modal.icon" = "Symbol";
+"power_mode.modal.description" = "Erstellen Sie einen benutzerdefinierten erweiterten Modus, um automatisch bestimmte Einstellungen anzuwenden, wenn Sie bestimmte Apps oder Websites verwenden.";
+"power_mode.modal.name" = "Name";
+"power_mode.modal.when_to_trigger" = "Wann auslösen";
+"power_mode.modal.applications" = "Anwendungen";
+"power_mode.modal.no_apps" = "Keine Anwendungen hinzugefügt";
+"power_mode.modal.websites" = "Websites";
+"power_mode.modal.no_websites" = "Keine Websites hinzugefügt";
+"power_mode.modal.enhancement_prompt" = "Verbesserungsanweisung";
+"power_mode.modal.edit_title" = "Erweiterten Modus bearbeiten";
+"power_mode.modal.edit_description" = "Bearbeiten Sie Ihre erweiterten Moduseinstellungen und Konfigurationen.";
+"power_mode.modal.transcription" = "Transkription";
+"power_mode.modal.model" = "Modell";
+"power_mode.modal.language" = "Sprache";
+"power_mode.modal.section.basics" = "Grundlagen";
+"power_mode.modal.section.triggers" = "Auslöser";
+"power_mode.modal.section.prompt" = "Anweisung";
+"power_mode.modal.section.basics_description" = "Grundlegende Informationen und Transkriptionseinstellungen einrichten";
+"power_mode.modal.section.triggers_description" = "Wählen Sie, wann dieser erweiterte Modus aktiviert werden soll";
+"power_mode.modal.section.prompt_description" = "Wählen Sie, wie KI Ihre Transkriptionen verbessern soll";
+"power_mode.modal.mode_name" = "Modusname";
+"power_mode.modal.name_placeholder" = "Beschreibenden Namen eingeben";
+"power_mode.modal.browse_apps" = "Apps durchsuchen";
+"power_mode.modal.recognition_model" = "Erkennungsmodell";
+"power_mode.modal.system_default" = "Systemstandard";
+"power_mode.modal.no_apps_selected" = "Keine Anwendungen ausgewählt";
+"power_mode.modal.add_apps_subtitle" = "Apps hinzufügen, um diesen Modus auszulösen";
+"power_mode.modal.website_placeholder" = "beispiel.com";
+"power_mode.modal.add_urls_subtitle" = "URLs hinzufügen, um diesen Modus auszulösen";
+"power_mode.modal.search_apps" = "Anwendungen suchen";
+"power_mode.modal.loading_apps" = "Anwendungen werden geladen...";
+"power_mode.modal.edit_prompt" = "Anweisung bearbeiten";
+"power_mode.modal.new_mode" = "Neuer erweiterter Modus";
+"power_mode.modal.edit_mode" = "Erweiterten Modus bearbeiten";
+"power_mode.modal.delete_mode" = "Modus löschen";
+"power_mode.modal.delete_confirmation" = "Erweiterten Modus löschen";
+"power_mode.modal.delete_warning" = "Diese Aktion kann nicht rückgängig gemacht werden. Alle Einstellungen und Konfigurationen werden dauerhaft entfernt.";
+"power_mode.modal.ai_enhancement_prompt" = "KI-Verbesserungsanweisung";
+"power_mode.modal.prompt_description" = "Passen Sie an, wie KI Ihre Transkriptionen für diesen Modus verbessern soll.";
+"power_mode.modal.predefined_prompt" = "Dies ist eine vordefinierte Anweisung für %@";
+"power_mode.modal.default_prompt" = "Die Transkription unverändert zurückgeben.";
+"power_mode.modal.email_prompt" = "Diese Transkription in ein professionelles E-Mail-Format umwandeln.";
+"power_mode.modal.meeting_prompt" = "Diese Transkription als Besprechungsnotizen mit Aktionspunkten strukturieren.";
+"power_mode.modal.no_prompt" = "Keine Anweisung konfiguriert";
+"power_mode.modal.create_prompt" = "Benutzerdefinierte Anweisung erstellen";
+"power_mode.modal.prompt_instructions" = "Anweisungen";
+"power_mode.modal.builtin_template_editable" = "Integrierte Vorlage (bearbeitbar)";
+"power_mode.modal.builtin_template" = "Integrierte Vorlage";
+"power_mode.modal.edit_templates" = "Mit Vorlagen bearbeiten";
+"power_mode.modal.prompt_placeholder" = "Geben Sie hier Ihre KI-Verbesserungsanweisungen ein...";
+"power_mode.modal.use_template" = "Vorlage verwenden";
+"power_mode.modal.triggers_info" = "Auslösebedingungen";
+"power_mode.modal.triggers_description" = "Festlegen, wann dieser erweiterte Modus aktiviert werden soll";
+"power_mode.modal.no_applications" = "Keine Anwendungen ausgewählt";
+"power_mode.modal.no_applications_subtitle" = "Apps hinzufügen, um diesen Modus auszulösen";
+"power_mode.modal.characters" = "Zeichen";
+"power_mode.modal.transcription_settings" = "Transkriptionseinstellungen";
+"power_mode.modal.global_settings_notice" = "Modell- und Spracheinstellungen verwenden jetzt globale Einstellungen von der Einstellungsseite";
+"power_mode.modal.select_apps" = "Anwendungen auswählen";
+
+/* PowerMode Empty State */
+"power_mode.empty.title" = "Keine erweiterten Modi";
+"power_mode.empty.subtitle" = "Fügen Sie angepasste Power-Modi für verschiedene Kontexte hinzu";
+"power_mode.empty.add_button" = "Neuen erweiterten Modus hinzufügen";
+
+/* General Actions */
+"general.edit" = "Bearbeiten";
+"general.remove" = "Entfernen";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.step_keyboard" = "Tastatur";
+"onboarding.enhanced_setup.step_microphone" = "Mikrofon";
+"onboarding.enhanced_setup.step_model" = "Modell";
+"onboarding.enhanced_setup.in_progress" = "In Bearbeitung";
+"onboarding.enhanced_setup.complete" = "Abgeschlossen";
+"onboarding.enhanced_setup.choose_hotkey" = "Wählen Sie Ihre Aufnahmetaste";
+"onboarding.enhanced_setup.hotkey_description" = "Halten Sie diese Taste einmal gedrückt, um die Freisprechaufnahme zu starten, drücken Sie erneut, um zu transkribieren. Wählen Sie, was sich gut anfühlt.";
+/* Hotkey Modal */
+"hotkey.modal.title" = "Hotkey Auswählen";
+"hotkey.modal.subtitle" = "Wählen Sie Ihre bevorzugte Taste für Sprachaufnahmen";
+"hotkey.modal.description" = "Drücken Sie eine beliebige Taste oder Tastenkombination";
+"hotkey.modal.listening" = "Drücken Sie eine beliebige Zusatztaste...";
+"hotkey.modal.record_key" = "Taste Aufzeichnen";
+
+/* Hotkey Keys */
+"hotkey.key.right_option" = "Rechte Wahltaste";
+"hotkey.key.left_option" = "Linke Wahltaste";
+"hotkey.key.left_control" = "Linke Steuerung";
+"hotkey.key.right_control" = "Rechte Steuerung";
+"hotkey.key.function" = "Funktionstaste";
+"hotkey.key.right_command" = "Rechte Befehlstaste";
+"hotkey.key.left_command" = "Linke Befehlstaste";
+"hotkey.key.right_shift" = "Rechte Umschalttaste";
+"hotkey.key.left_shift" = "Linke Umschalttaste";
+"onboarding.enhanced_setup.key_right_option" = "Rechte Wahltaste";
+"onboarding.enhanced_setup.key_left_option" = "Linke Wahltaste";
+"onboarding.enhanced_setup.key_left_control" = "Linke Steuerung";
+"onboarding.enhanced_setup.key_right_control" = "Rechte Steuerung";
+"onboarding.enhanced_setup.key_function" = "Funktionstaste";
+"onboarding.enhanced_setup.key_right_command" = "Rechte Befehlstaste";
+"onboarding.enhanced_setup.key_right_shift" = "Rechte Umschalttaste";
+"onboarding.enhanced_setup.recommended" = "Empfohlen";
+
+/* Onboarding - Trial (alternative) */
+"onboarding.trial.feature_1_title" = "Premium-Modelle";
+"onboarding.trial.feature_1_description" = "Zugang zu größeren, genaueren erweiterten Modellen";
+"onboarding.trial.feature_2_title" = "KI-Verbesserung";
+"onboarding.trial.feature_2_description" = "Transkriptionen automatisch mit KI verbessern";
+"onboarding.trial.feature_3_title" = "Erweiterte Modi";
+"onboarding.trial.feature_3_description" = "Kontextbasierte automatische Einstellungen";
+"onboarding.trial.continue_free" = "Mit kostenloser Version fortfahren";
+
+/* Onboarding - Permissions */
+"onboarding.permissions.microphone.title" = "Mikrofonzugriff";
+"onboarding.permissions.microphone.description" = "Clio erlauben, auf Ihr Mikrofon zuzugreifen, um Audio aufzunehmen";
+"onboarding.permissions.microphone_selection.title" = "Mikrofon auswählen";
+"onboarding.permissions.microphone_selection.description" = "Wählen Sie, welches Mikrofon für die Aufnahme verwendet werden soll";
+"onboarding.permissions.accessibility.title" = "Bedienungshilfen-Zugriff";
+"onboarding.permissions.accessibility.description" = "Clio erlauben, Transkriptionen automatisch einzufügen";
+"onboarding.permissions.screen_recording.title" = "Bildschirmaufzeichnung";
+"onboarding.permissions.screen_recording.description" = "Optional: Verbessert die Genauigkeit und Personalisierung der Transkription durch Bildschirmkontext. Wir speichern Ihre Bildschirminhalte niemals.";
+"onboarding.permissions.screen_recording.short" = "Optional: Verbessert die Genauigkeit und Personalisierung der Transkription mit Bildschirmkontext. Wir speichern Ihre Bildschirminhalte niemals.";
+"onboarding.permissions.screen_recording.long" = "Optional, aber sehr empfehlenswert: Das Aktivieren des Bildschirmkontexts verbessert Genauigkeit und Personalisierung deutlich. Datenschutz zuerst: Wir speichern Ihre Bildschirminhalte nie. Sie werden nur zur Kontextgebung während der Transkription verwendet. Bei Cloud‑Modellen wird der Kontext nur kurzzeitig zur Ausführung des Modells gesendet und anschließend sofort verworfen — auf unseren Servern wird nichts gespeichert.";
+"privacy.learn_more" = "Mehr erfahren";
+"privacy.hide_details" = "Details ausblenden";
+"privacy.policy" = "Datenschutzrichtlinie";
+"onboarding.permissions.keyboard_shortcut.title" = "Tastenkombination";
+"onboarding.permissions.keyboard_shortcut.description" = "Eine Taste festlegen, die einmal für freihändige Aufnahme gedrückt wird";
+"onboarding.permissions.no_microphones" = "Keine Mikrofone gefunden";
+"onboarding.permissions.select_microphone" = "Mikrofon auswählen";
+"onboarding.permissions.microphone_recommendation" = "Wir empfehlen die Verwendung eines externen Mikrofons für bessere Qualität";
+"onboarding.permissions.set_shortcut" = "Tastenkombination festlegen";
+"onboarding.permissions.enable_access" = "Zugriff aktivieren";
+"onboarding.button.skip_for_now" = "Vorerst überspringen";
+"onboarding.permissions.key_fn" = "fn";
+"onboarding.permissions.key_right_option" = "Rechte Wahltaste";
+"onboarding.permissions.key_left_option" = "Linke Wahltaste";
+"onboarding.permissions.key_left_control" = "Linke Steuerung";
+"onboarding.permissions.key_right_control" = "Rechte Steuerung";
+"onboarding.permissions.key_function" = "Funktionstaste";
+"onboarding.permissions.key_right_command" = "Rechte Befehlstaste";
+"onboarding.permissions.key_right_shift" = "Rechte Umschalttaste";
+
+/* Onboarding - Try It Components */
+"onboarding.intro.title" = "Clio funktioniert in jeder App";
+"onboarding.intro.description" = "Von E-Mails über Chats bis hin zu Dokumenten—Clio funktioniert in jedem Textfeld auf Ihrem Computer.";
+"onboarding.intro.next" = "Weiter";
+"onboarding.shortcut.title" = "Alles transkribieren";
+"onboarding.shortcut.description" = "Drücken Sie die %@-Taste einmal für freihändige Aufnahme, dann drücken Sie erneut, um zu transkribieren und Ihren Text überall einzufügen.";
+"onboarding.shortcut.hotkey_title" = "Ihre Tastenkombination";
+"onboarding.shortcut.action_text" = "Einmal für freihändig drücken, erneut für Transkription drücken";
+"onboarding.shortcut.try_it_out" = "Ausprobieren";
+"onboarding.demo.listening" = "Höre zu...";
+"onboarding.demo.ai_formatting" = "KI-Formatierung...";
+"onboarding.tryit.command_prefix" = "Markiere den gesamten Text unten und halte anschließend";
+"onboarding.tryit.title" = "Probieren Sie es aus!";
+"onboarding.tryit.description" = "Klicken Sie auf das Textfeld und verwenden Sie Ihre %@-Taste für freihändige Aufnahme und Transkription.";
+"onboarding.tryit.step1" = "Klicken Sie auf das Textfeld rechts";
+"onboarding.tryit.step2" = "Drücken Sie die %@-Taste";
+"onboarding.tryit.step3" = "Sprechen Sie klar in Ihr Mikrofon";
+"onboarding.tryit.step4" = "Drücken Sie die Taste erneut zum Transkribieren";
+"onboarding.tryit.complete_setup" = "Einrichtung abschließen";
+"onboarding.tryit.skip_for_now" = "Vorerst überspringen";
+"onboarding.tryit.placeholder" = "Drücken Sie die Tastenkombination, um mit dem Diktieren zu beginnen...";
+"onboarding.tryit.command_instruction_suffix" = "sage \"Übersetze das ins Chinesische\", dann beide Tasten loslassen";
+
+/* Onboarding - Setup Components */
+"onboarding.setup.back" = "Zurück";
+"onboarding.setup.keyboard.title" = "Wählen Sie Ihre Tastenkombination";
+"onboarding.setup.keyboard.description" = "Halten Sie diese Taste einmal gedrückt, um die Freisprechaufnahme zu starten, drücken Sie erneut zum Transkribieren";
+"onboarding.setup.continue" = "Fortfahren";
+
+/* Missing Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "Testen Sie Ihr Mikrofon";
+"onboarding.setup.microphone.description" = "Stellen Sie sicher, dass Clio Sie klar hören kann";
+"onboarding.setup.microphone.speak_now" = "Sprechen Sie jetzt...";
+"onboarding.setup.microphone.tap_to_test" = "Tippen Sie, um das Mikrofon zu testen";
+"onboarding.setup.microphone.stop" = "Stopp";
+"onboarding.setup.microphone.test_microphone" = "Mikrofon testen";
+"onboarding.setup.model.title" = "Transkriptionsmodell wählen";
+"onboarding.setup.model.description" = "Größere Modelle sind genauer, verbrauchen aber mehr Ressourcen";
+"onboarding.setup.model.download_continue" = "Herunterladen & Fortfahren";
+"onboarding.setup.complete.title" = "Einrichtung abgeschlossen!";
+"onboarding.setup.complete.description" = "Clio ist bereit, Ihre Stimme in jeder App zu transkribieren";
+"onboarding.setup.complete.try_it_out" = "Ausprobieren";
+"onboarding.setup.recommended" = "EMPFOHLEN";
+"onboarding.setup.keyboard.right_option" = "Rechte Wahltaste";
+"onboarding.setup.keyboard.left_option" = "Linke Wahltaste";
+"onboarding.setup.keyboard.left_control" = "Linke Steuerung";
+"onboarding.setup.keyboard.right_control" = "Rechte Steuerung";
+"onboarding.setup.keyboard.function" = "Funktionstaste";
+"onboarding.setup.keyboard.right_command" = "Rechte Befehlstaste";
+"onboarding.setup.keyboard.right_shift" = "Rechte Umschalttaste";
+
+/* Missing Enhanced Setup Keys - Proper German */
+"onboarding.enhanced_setup.best_for_keyboards" = "Beste Wahl für die meisten Tastaturen";
+"onboarding.enhanced_setup.alternative_option" = "Alternative Option";
+"onboarding.enhanced_setup.download_size" = "Größe: %@";
+"onboarding.enhanced_setup.speed_rating" = "Geschwindigkeit: %@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "Genauigkeit: %@/10";
+"onboarding.enhanced_setup.downloaded" = "Heruntergeladen";
+"onboarding.enhanced_setup.download" = "Herunterladen";
+"onboarding.enhanced_setup.cloud_access" = "Cloud-Zugang";
+"onboarding.enhanced_setup.select_microphone" = "Mikrofon auswählen";
+"onboarding.enhanced_setup.microphone_description" = "Wählen Sie, welches Mikrofon für die Aufnahme verwendet werden soll";
+"onboarding.enhanced_setup.selected_microphone" = "Ausgewähltes Mikrofon";
+"onboarding.enhanced_setup.no_microphones" = "Keine Mikrofone gefunden";
+"onboarding.enhanced_setup.connect_microphone" = "Bitte verbinden Sie ein Mikrofon und versuchen Sie es erneut";
+"onboarding.enhanced_setup.default" = "Standard";
+"onboarding.enhanced_setup.choose_model" = "Transkriptionsmodell wählen";
+"onboarding.enhanced_setup.model_description" = "Größere Modelle sind genauer, verbrauchen aber mehr Ressourcen";
+"onboarding.enhanced_setup.all_set" = "Alles bereit!";
+"onboarding.enhanced_setup.ready_description" = "Clio ist bereit, Ihre Stimme in jeder App zu transkribieren";
+"onboarding.enhanced_setup.feature_1_title" = "Globale Tastenkombination";
+"onboarding.enhanced_setup.feature_1_subtitle" = "Funktioniert in jeder App auf Ihrem Mac";
+"onboarding.enhanced_setup.feature_2_title" = "Lokale Verarbeitung";
+"onboarding.enhanced_setup.feature_2_subtitle" = "Ihre Stimme bleibt privat auf Ihrem Gerät";
+"onboarding.enhanced_setup.feature_3_title" = "KI-Verbesserung";
+"onboarding.enhanced_setup.feature_3_subtitle" = "Optionale KI-Verarbeitung für bessere Genauigkeit";
+"onboarding.enhanced_setup.feature_4_title" = "Echtzeit-Transkription";
+"onboarding.enhanced_setup.feature_4_subtitle" = "Sofortige Texteinfügung überall wo Sie tippen";
+"onboarding.enhanced_setup.get_started" = "Loslegen";
+"onboarding.enhanced_setup.visual_keyboard_text" = "Wählen Sie Ihre bevorzugte Aufnahmetaste";
+"onboarding.enhanced_setup.visual_microphone_text" = "Wählen Sie Ihr Mikrofon für beste Qualität";
+"onboarding.enhanced_setup.visual_model_text" = "Wählen Sie das richtige Modell für Ihre Bedürfnisse";
+"onboarding.enhanced_setup.visual_fast" = "Schnell";
+"onboarding.enhanced_setup.visual_accurate" = "Genau";
+"onboarding.enhanced_setup.visual_private" = "Privat";
+"onboarding.enhanced_setup.visual_perfect" = "Perfekt!";
+"onboarding.enhanced_setup.visual_ready" = "Clio ist bereit, Ihre Stimme zu transkribieren";
+"onboarding.enhanced_setup.visual_step_1" = "Drücken Sie Ihre Tastenkombination einmal, um die freihändige Aufnahme zu starten";
+"onboarding.enhanced_setup.visual_step_2" = "Sprechen Sie klar in Ihr Mikrofon";
+"onboarding.enhanced_setup.visual_step_3" = "Drücken Sie Ihre Tastenkombination erneut zum Transkribieren";
+"onboarding.enhanced_setup.mic_speak_to_test" = "Sprechen Sie, um Ihr Mikrofon zu testen";
+"onboarding.enhanced_setup.mic_listening" = "Höre zu...";
+
+/* Model Access Control */
+"models.upgrade_required_title" = "Pro-Modell erfordert Upgrade";
+"models.upgrade_fallback_message" = "Das %@-Modell erfordert ein Pro-Abonnement. Möchten Sie jetzt upgraden oder zu %@ (kostenlos für immer) wechseln?";
+"models.upgrade_now" = "Auf Pro upgraden";
+"models.use_free_model" = "Kostenloses Modell verwenden";
+"models.switched_to_free_title" = "Zu kostenlosem Modell gewechselt";
+"models.switched_to_free_message" = "Sie verwenden jetzt %@, das kostenlos für immer und perfekt für den täglichen Gebrauch ist.";
+"models.large_v3_quantized.description" = "Leichtgewichtige Version unseres fortschrittlichsten Modells. Kleinere Download-Größe und weniger Speicherverbrauch bei Beibehaltung exzellenter Genauigkeit. Perfekt für Geräte mit begrenztem Speicher oder RAM";
+
+/* Trial Expired Modal */
+"trial_expired.title" = "Testversion abgelaufen";
+"trial_expired.description" = "Ihre Pro-Testversion ist beendet. Wählen Sie eine Option, um Clio weiter zu verwenden.";
+"trial_expired.use_flash" = "Basismodell verwenden";
+"trial_expired.upgrade" = "Auf Pro upgraden";
+"trial_expired.never_remind" = "Nie wieder erinnern";
+
+/* Offline Pro Features */
+"offline.onboarding.title" = "Clio Pro-Funktionen testen";
+"offline.onboarding.subtitle" = "Verwenden Sie Clio kostenlos für immer mit unserem Standardmodell oder testen Sie Pro-Funktionen für 7 Tage";
+"offline.features.premium_models.title" = "Premium-Modelle";
+"offline.features.premium_models.description" = "Größere, genauere Modelle für überlegene Transkriptionsqualität";
+"offline.features.ai_enhancement.title" = "Erweiterte KI-Verbesserung";
+"offline.features.ai_enhancement.description" = "Intelligente Textformatierung, Grammatikkorrektur und Kontextverbesserungen";
+
+/* Onboarding - Sprachauswahl */
+"onboarding.language_selection.title" = "Wählen Sie Ihre Diktatsprachen";
+"onboarding.language_selection.subtitle" = "Wählen Sie die Sprachen, in denen Sie sprechen werden";
+"onboarding.language_selection.description" = "Wählen Sie mehrere Sprachen für mehrsprachige Transkription";
+"onboarding.language_selection.show_all" = "Alle Sprachen anzeigen";
+"onboarding.language_selection.show_less" = "Beliebte Sprachen anzeigen";
+"onboarding.language_selection.selected_count" = "%d Sprachen ausgewählt";
+"onboarding.language_selection.auto_detect" = "Automatische Erkennung";
+"onboarding.language_selection.auto_description" = "Erkennt automatisch die Sprache, die Sie sprechen. Erfordert ein gutes Mikrofon für beste Ergebnisse";
+"onboarding.language_selection.pick_languages" = "Sprachen wählen";
+"onboarding.language_selection.pick_description" = "Wählen Sie bestimmte Sprachen für bessere Genauigkeit";
+"onboarding.language_selection.search" = "Sprachen suchen...";
+
+/* Feedback */
+"feedback.title" = "Kontakt";
+"feedback.subtitle" = "Wir lesen jede Nachricht. Danke, dass Sie dabei helfen, Clio zu verbessern!";
+"feedback.tab.report_issue" = "Problem melden";
+"feedback.tab.share_feedback" = "Feedback teilen";
+"feedback.field.email" = "Ihre E-Mail (optional)";
+"feedback.field.message" = "Nachricht";
+"feedback.placeholder.email" = "email@beispiel.de";
+"feedback.placeholder.issue" = "Was ist schiefgelaufen? Bitte beschreiben Sie die Schritte zur Reproduktion des Problems.";
+"feedback.placeholder.feedback" = "Haben Sie Ideen zur Verbesserung von Clio? Teilen Sie sie hier mit.";
+"feedback.checkbox.blocking" = "Dieses Problem blockiert mich vollständig bei der Nutzung von Clio";
+"feedback.info.system_info" = "Systeminformationen werden automatisch mitgesendet";
+"feedback.button.send" = "Nachricht senden";
+"feedback.success.title" = "Feedback gesendet!";
+"feedback.success.message" = "Vielen Dank für Ihr Feedback! Wir lesen jede Nachricht und melden uns bei Ihnen, falls erforderlich.";
+"feedback.error.title" = "Fehler beim Senden des Feedbacks";
+"feedback.error.invalid_response" = "Ungültige Serverantwort";
+"feedback.error.submission_failed" = "Feedback konnte nicht gesendet werden. Bitte versuchen Sie es erneut.";
+"feedback.error.http_error" = "Serverfehler (Code: %d)";
+"feedback.subject.bug_report" = "Fehlerbericht";
+"feedback.subject.general_feedback" = "Allgemeines Feedback";
+"feedback.subject.urgent_bug" = "🚨 [DRINGENDER FEHLER] Clio App - Benutzer blockiert";
+"feedback.subject.bug_format" = "[%@] Clio App Feedback";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "Deep Context analysiert Bildschirminhalte, um die Transkriptionsgenauigkeit zu verbessern, indem es versteht, woran Sie arbeiten, Fachbegriffe erkennt und relevanten Kontext für das Spracherkennungsmodell bereitstellt. Dies hilft bei technischem Jargon, Eigennamen und kontextspezifischem Vokabular.";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "Diktat-Hotkey";
+"settings.dictation_hotkey.description" = "Halten zum Aufnehmen, loslassen zum Transkribieren (Push-to-Talk-Modus)";
+"settings.hands_free_mode.title" = "Freisprechmodus";
+"settings.hands_free_mode.description" = "Einmal drücken, um ohne Festhalten zu sprechen, erneut drücken zum Transkribieren";
+"settings.assistant_mode.title" = "Clio Kommandomodus";
+"settings.assistant_mode.description" = "Text zum Transformieren auswählen oder Fragen stellen, um mit Perplexity zu suchen";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "TASTENKOMBINATIONEN";
+"settings.edit_key" = "Taste bearbeiten";
+
+/* Language Settings */
+"settings.language_settings.header" = "SPRACHEINSTELLUNGEN";
+
+"common.coming_soon" = "Demnächst";
+
+
+/* Missing translations */
+"dictionary.add_new_word" = "Add new word";
+"dictionary.info_card.title.vocab" = "Teach Clio your language.";
+"dictionary.info_card.title.voice" = "Shape how your voice lands.";
+"dictionary.voice_shortcuts_description" = "Create smart voice shortcuts to rewrite filler, expand shorthands, or clean up habits—automatically, as you speak.\nSay \"my number\" → Clio pastes 123‑456‑7890.\nSay \"cold DM\" → Clio drops your full pitch.\nSay it your way. Clio smooths it, sharpens it, delivers it.";
+"hotkey.configuration.description" = "Select which key to use for voice recording. Press once for hands-free recording, hold for hold-to-talk.";
+"hotkey.configuration.title" = "Hold-to-Talk Key";
+"hotkey.field.accessibility.hint" = "Tap to change hotkey configuration";
+"hotkey.field.accessibility.label" = "Current hotkey setting";
+"hotkey.modal.instructions.description" = "Brief press: Start hands-free recording (press key again to stop)\nLong press: hold-to-talk mode (hold to record, release to transcribe)";
+"hotkey.modal.instructions.title" = "How it works";
+"hotkey.modal.preview.title" = "Your selection";
+"navigation.personalization" = "Personalisierung";
+"navigation.replacements" = "Sprachkürzel";
+"navigation.snippets" = "Stilvorlagen";
+"navigation.vocabulary" = "Persönlicher Begriff";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI Assistant";
+"onboarding.app.cursor" = "Cursor";
+"onboarding.app.cursor.description" = "AI Coding";
+"onboarding.app.email" = "Email";
+"onboarding.app.email.description" = "Communication";
+"onboarding.app.notion" = "Notion";
+"onboarding.app.notion.description" = "Note Taking";
+"onboarding.app.slack" = "Slack";
+"onboarding.app.slack.description" = "Team Chat";
+"onboarding.enhanced_permissions.panel.accessibility" = "This permission is only used to insert text — never to control your screen.";
+"onboarding.enhanced_permissions.panel.microphone" = "Clio only listens when you press the mic. Your voice is never stored on our server.";
+"onboarding.enhanced_permissions.panel.screen_recording" = "We never save your screen. Context is used once to improve your output, then discarded.";
+"onboarding.permissions.accessibility.long" = "This gives Clio the ability to instantly paste your transcribed voice into any app you're using - like Discord, Notion, Cursor, or your browser.\n\nThink of it as having an assistant who hears you, types it out, and hits Command + V for you. No switching tabs. No copy-paste dance.";
+"onboarding.permissions.microphone.long" = "Clio listens when you speak - so it can transcribe your thoughts, polish your words, and help you stay in flow.\n\nMicrophone access is what lets voice become your new input layer.";
+"onboarding.personalization.primer.skip_to_use" = "Skip to use";
+"onboarding.personalization.primer.subtitle" = "A quick tour of Personal Terms, Voice Shortcuts, and Style Presets. You can skip anytime.";
+"onboarding.personalization.primer.title" = "See how Clio becomes more personalized for you";
+"onboarding.personalization.subtitle.personal_terms" = "Add names, products, and acronyms so Clio recognizes your unique vocabulary.";
+"onboarding.personalization.subtitle.style_presets" = "Customize tone and formatting per app or website using prompt.";
+"onboarding.personalization.subtitle.voice_shortcuts" = "Create quick voice shortcuts to insert common phrases or perform actions.";
+"onboarding.personalization.title.personal_terms" = "Personal Terms";
+"onboarding.personalization.title.style_presets" = "Style Presets";
+"onboarding.personalization.title.voice_shortcuts" = "Voice Shortcuts";
+"onboarding.primer.back" = "Back";
+"onboarding.primer.continue" = "Continue";
+"onboarding.primer.double_tap_instruction" = "Press the Right ⌘ key just once for continuous listening. When you are done, press again to transcribe.";
+"onboarding.primer.finish" = "Finish";
+"onboarding.primer.hold_key_instruction" = "In the next page, try holding your Right ⌥ key to speak.\nLet go, and Clio will transcribe your voice—clean and instant.";
+"onboarding.primer.hotkey_label" = "Hotkey:";
+"onboarding.primer.next_command_mode" = "Next, try Command Mode";
+"onboarding.primer.next_hands_free" = "Next, try using the Hands-Free Mode to transcribe";
+"onboarding.primer.placeholder_images" = "Placeholder • You can provide images to place here.";
+"onboarding.primer.ready_push_to_talk" = "You're ready to try Clio";
+"onboarding.primer.select_text_hotkey_instruction" = "Select any text, then trigger your command hotkey and speak, e.g. 'Summarize this'.";
+"onboarding.primer.select_text_instruction" = "Select text, then trigger the hotkey to ask Clio to\nsummarize, improve, translate, and more.";
+"onboarding.primer.try_command_mode" = "Try Command Mode";
+"onboarding.primer.try_it_now" = "Try it Now";
+"onboarding.tryit.and_begin_speaking" = "and begin speaking";
+"onboarding.tryit.click_field_instruction" = "Click the text field below and use your hotkey for hands-free recording and transcription.";
+"onboarding.tryit.command_default_text" = "And now, I calmly watch the very heartbeat of the machine beneath me. A being that breathes thought, a traveler between life and death.";
+"onboarding.tryit.command_tips" = "Also try: ‘Turn this into bullets’, ‘Make this longer’, or ‘Explain this’.";
+"onboarding.tryit.edit_hotkeys" = "Edit hotkeys";
+"onboarding.tryit.example_text" = "Clio is my voice-powered writing tool—it turns messy speech into clean, clear text.";
+"onboarding.tryit.hands_free" = "Hands-free";
+"onboarding.tryit.header" = "Try Clio now. Just Speak";
+"onboarding.tryit.hold_down" = "Hold down";
+"onboarding.tryit.next" = "Next";
+"onboarding.tryit.press" = "Press";
+"onboarding.tryit.push_to_talk" = "Push to talk";
+"onboarding.tryit.to_start_press_again" = "to start, press again to transcribe";
+"onboarding.tryit.want_to_change_keys" = "Want to change keys?";
+"pricing.plans.annual.name" = "Annual Pro";
+"pricing.plans.annual.savings" = "Save $16.89 per year";
+"pricing.plans.cta.choose_plan" = "Choose Plan";
+"pricing.plans.feature.priority_support" = "Priority support";
+"pricing.plans.feature.unlimited" = "Unlimited transcription";
+"pricing.plans.feature.works_everywhere" = "Works everywhere: Mac, iOS, Windows";
+"pricing.plans.monthly.name" = "Monthly Pro";
+"pricing.plans.recommended" = "RECOMMENDED";
+"settings.notch_transcript.description" = "Show streaming transcript under the notch recorder. Turn off to keep the notch from growing vertically.";
+"settings.notch_transcript.title" = "Notch Transcript";
+"settings.shortcut.choose_key" = "Choose Your Recording Key";
+"settings.shortcut.instructions" = "Select the key you want to use for recording. Press once to start hands-free recording, press again to stop and transcribe.";
+"settings.system_settings.header" = "SYSTEMEINSTELLUNGEN";
+"snippets.description" = "Create and manage reusable text snippets for quick insertion while dictating";
+"snippets.empty.subtitle" = "Create your first snippet to get started";
+"snippets.empty.title" = "No snippets yet";
+"style_presets.add_new" = "Add New Preset";
+"style_presets.description" = "Customize how Clio writes in different apps.\nSet your preferred tone, structure, or prompt per environment—so your voice feels right in every tool you use. Define how Clio should write: casual in Slack, polished in Notion, punchy in X.\nStyle, tone, format. All in your control.";
+"style_presets.drawer.activate" = "Activate when using";
+"style_presets.drawer.add_app" = "Add App";
+"style_presets.drawer.add_website" = "Add website";
+"style_presets.drawer.delete" = "Delete this preset";
+"style_presets.drawer.mode_name" = "Mode name";
+"style_presets.drawer.mode_placeholder" = "Enter a descriptive name";
+"style_presets.drawer.no_apps_found" = "No apps found";
+"style_presets.drawer.prompt" = "Prompt";
+"style_presets.drawer.title" = "Preset Setting";
+"style_presets.drawer.website_placeholder" = "e.g. example.com";
+"style_presets.empty.subtitle" = "Create your first preset to get started";
+"style_presets.empty.title" = "No style presets yet";
+"style_presets.info_card.title" = "Let Clio write like you.";
+"updates.primer.primary" = "Show me what’s new";
+"updates.primer.subtitle" = "Take a quick tour to see Command Mode in action and explore the new personalization upgrades.";
+"updates.primer.title" = "We’ve got some exciting updates for you!";
+
+"ai_strength.toggle.off_hint" = "Aus: Du erhältst das Roh-Transkript am schnellsten, nahezu ohne Nachbearbeitung – nur minimale Füllwortbereinigung.";
+"ai_strength.toggle.on_hint" = "Ein: Clio führt eine KI-Bearbeitung für mehr Klarheit aus; rechne mit einer kurzen Verzögerung, während entsprechend der unten gewählten Stärke umgeschrieben wird.";

@@ -1,0 +1,65 @@
+t=000000 sess=Yhq lvl=INFO cat=audio evt=devices_scan
+t=000000 sess=Yhq lvl=INFO cat=audio evt=devices count=1
+t=000000 sess=Yhq lvl=INFO cat=audio evt=device ch=1 uid_hash=-5817553920983483220 name="MacBook Pro麦克风"
+t=000180 sess=Yhq lvl=INFO cat=hotkey evt=open_config ready=false
+t=000192 sess=Yhq lvl=INFO cat=hotkey evt=register ok=true
+t=000238 sess=Yhq lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=006836 sess=Yhq lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=006930 sess=Yhq lvl=INFO cat=audio evt=input_selected uid_hash=-5817553920983483220 name="MacBook Pro麦克风" ch=1
+t=007014 sess=Yhq lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=007014 sess=Yhq lvl=INFO cat=audio evt=devices_scan
+t=007014 sess=Yhq lvl=INFO cat=audio evt=devices count=2
+t=007014 sess=Yhq lvl=INFO cat=audio evt=device name="MacBook Pro麦克风" uid_hash=-5817553920983483220 ch=1
+t=007014 sess=Yhq lvl=INFO cat=audio evt=device name=CADefaultDeviceAggregate-19202-0 ch=1 uid_hash=2325620540552614371
+t=007080 sess=Yhq lvl=INFO cat=stream evt=ws_bind socket=sock_787230374863725998@attempt_1
+t=007115 sess=Yhq lvl=INFO cat=audio evt=first_buffer
+t=008120 sess=Yhq lvl=INFO cat=stream evt=start_sent attempt=1
+t=008120 sess=Yhq lvl=INFO cat=stream evt=ready attempt=1 socket=sock_787230374863725998@attempt_1
+t=012118 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=50
+t=014062 sess=Yhq lvl=INFO cat=transcript evt=raw_final text="Hey, um,"
+t=014711 sess=Yhq lvl=INFO cat=transcript evt=raw_final text=" testing out Cleo's transcriptions.<end>"
+t=017112 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=100
+t=017859 sess=Yhq lvl=INFO cat=transcript evt=raw_final text=" On Jane's Mac.<end>"
+t=019474 sess=Yhq lvl=INFO cat=transcript evt=raw_final text=" Thanks.<end>"
+t=022078 sess=Yhq lvl=INFO cat=transcript evt=final text="Hey, um, testing out Cleo's transcriptions. On Jane's Mac. Thanks."
+t=022078 sess=Yhq lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=022869 sess=Yhq lvl=INFO cat=transcript evt=llm_final text="Testing out Cleo's transcriptions on Jane's MacBook Pro. Thanks."
+t=022981 sess=Yhq lvl=INFO cat=transcript evt=insert_attempt text="Testing out Cleo's transcriptions on Jane's MacBook Pro. Thanks. " target=备忘录 chars=65
+t=022995 sess=Yhq lvl=INFO cat=transcript evt=insert_result ok=true
+t=027484 sess=Yhq lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=027632 sess=Yhq lvl=INFO cat=audio evt=input_selected ch=1 name="MacBook Pro麦克风" uid_hash=-5817553920983483220
+t=027837 sess=Yhq lvl=INFO cat=audio evt=first_buffer
+t=027840 sess=Yhq lvl=INFO cat=stream evt=send_audio seq=0 bytes=3200
+t=028233 sess=Yhq lvl=WARN cat=stream evt=state code=1001 state=closed
+t=028433 sess=Yhq lvl=INFO cat=stream evt=ws_bind socket=sock_-2471379496809981947@attempt_2
+t=033218 sess=Yhq lvl=INFO cat=stream evt=prebuffer packets=50 bytes=160000
+t=038221 sess=Yhq lvl=INFO cat=stream evt=prebuffer packets=100 bytes=320000
+t=040950 sess=Yhq lvl=INFO cat=stream evt=ws_bind socket=sock_-9095053726452802929@attempt_3
+t=041801 sess=Yhq lvl=INFO cat=stream evt=start_sent attempt=3
+t=041801 sess=Yhq lvl=INFO cat=stream evt=ready attempt=3 socket=sock_-9095053726452802929@attempt_3
+t=042847 sess=Yhq lvl=INFO cat=stream evt=send_audio seq=150 bytes=3200
+t=045366 sess=Yhq lvl=INFO cat=transcript evt=final text=我在Jane的电脑上测试
+t=045366 sess=Yhq lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=045808 sess=Yhq lvl=INFO cat=transcript evt=llm_final text=我在Jane的電腦上測試
+t=045958 sess=Yhq lvl=INFO cat=transcript evt=insert_attempt text="我在Jane的電腦上測試 " chars=13 target=备忘录
+t=045958 sess=Yhq lvl=INFO cat=transcript evt=insert_result ok=true
+t=066248 sess=Yhq lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=066325 sess=Yhq lvl=INFO cat=audio evt=input_selected name="MacBook Pro麦克风" ch=1 uid_hash=-5817553920983483220
+t=066527 sess=Yhq lvl=INFO cat=audio evt=first_buffer
+t=066530 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=0
+t=066964 sess=Yhq lvl=WARN cat=stream evt=state state=closed code=1001
+t=067172 sess=Yhq lvl=INFO cat=stream evt=ws_bind socket=sock_-4838747100608815702@attempt_4
+t=069104 sess=Yhq lvl=INFO cat=stream evt=start_sent attempt=4
+t=069104 sess=Yhq lvl=INFO cat=stream evt=ready socket=sock_-4838747100608815702@attempt_4 attempt=4
+t=071512 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=50
+t=076500 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=100
+t=077326 sess=Yhq lvl=INFO cat=transcript evt=raw_final text="Fixing bug"
+t=077414 sess=Yhq lvl=INFO cat=transcript evt=raw_final text="s and dropping their airdrop. DMG files.<end>"
+t=081348 sess=Yhq lvl=INFO cat=transcript evt=raw_final text=" Needed to validate the transcription.<end>"
+t=081502 sess=Yhq lvl=INFO cat=stream evt=send_audio bytes=3200 seq=150
+t=082351 sess=Yhq lvl=INFO cat=transcript evt=final text="Fixing bugs and dropping their airdrop. DMG files. Needed to validate the transcription."
+t=082351 sess=Yhq lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=082873 sess=Yhq lvl=INFO cat=transcript evt=llm_final text="Fixing bugs and dropping their AirDrop `.dmg` files. Needed to validate the transcription."
+t=083030 sess=Yhq lvl=INFO cat=transcript evt=insert_attempt target=备忘录 chars=91 text="Fixing bugs and dropping their AirDrop `.dmg` files. Needed to validate the transcription. "
+t=083030 sess=Yhq lvl=INFO cat=transcript evt=insert_result ok=true
+t=094026 sess=Yhq lvl=INFO cat=sys evt=snapshot_saved path=/Users/jane/Library/Logs/Clio/diag-20250819-111652.log

@@ -1,0 +1,37 @@
+t=000000 sess=jzo lvl=INFO cat=audio evt=devices_scan
+t=000000 sess=jzo lvl=INFO cat=audio evt=devices count=1
+t=000000 sess=jzo lvl=INFO cat=audio evt=device uid_hash=-8007338763437314659 ch=1 name="MacBook Air麦克风"
+t=000244 sess=jzo lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000262 sess=jzo lvl=INFO cat=hotkey evt=open_config ready=false
+t=000263 sess=jzo lvl=INFO cat=hotkey evt=register ok=true
+t=017364 sess=jzo lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=017467 sess=jzo lvl=INFO cat=audio evt=input_selected uid_hash=-8007338763437314659 name="MacBook Air麦克风" ch=1
+t=017567 sess=jzo lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=017567 sess=jzo lvl=INFO cat=audio evt=current_default id=88 name="MacBook Air麦克风" uid_hash=-8007338763437314659
+t=017567 sess=jzo lvl=INFO cat=audio evt=current_default_output name="MacBook Air扬声器" id=81 uid_hash=4728543963552024557
+t=017567 sess=jzo lvl=INFO cat=audio evt=devices_scan
+t=017567 sess=jzo lvl=INFO cat=audio evt=devices count=2
+t=017567 sess=jzo lvl=INFO cat=audio evt=device ch=1 uid_hash=-8007338763437314659 name="MacBook Air麦克风"
+t=017567 sess=jzo lvl=INFO cat=audio evt=device name=CADefaultDeviceAggregate-95014-0 ch=1 uid_hash=8737609363812479705
+t=017637 sess=jzo lvl=INFO cat=stream evt=ws_bind socket=sock_2031337409038446433@attempt_1
+t=017666 sess=jzo lvl=INFO cat=audio evt=first_buffer
+t=017670 sess=jzo lvl=INFO cat=audio evt=level peak_db=-4 avg_db=-4
+t=019266 sess=jzo lvl=INFO cat=stream evt=start_sent attempt=1
+t=019266 sess=jzo lvl=INFO cat=stream evt=ready attempt=1 socket=sock_2031337409038446433@attempt_1
+t=019769 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=020872 sess=jzo lvl=WARN cat=audio evt=silence_detected duration_s=3 device_id=88 device_uid_hash=-8007338763437314659 threshold_db=-50 device_name="MacBook Air麦克风"
+t=021870 sess=jzo lvl=INFO cat=audio evt=level avg_db=-120 peak_db=-120
+t=023936 sess=jzo lvl=INFO cat=audio evt=input_selected ch=1 uid_hash=-8007338763437314659 name="MacBook Air麦克风"
+t=024121 sess=jzo lvl=INFO cat=audio evt=level avg_db=-4 peak_db=-4
+t=026223 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=028324 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=030425 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=032527 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=033945 sess=jzo lvl=INFO cat=audio evt=input_selected ch=1 uid_hash=-8007338763437314659 name="MacBook Air麦克风"
+t=034376 sess=jzo lvl=INFO cat=audio evt=input_selected ch=1 uid_hash=-8007338763437314659 name="MacBook Air麦克风"
+t=034560 sess=jzo lvl=INFO cat=audio evt=level avg_db=-4 peak_db=-4
+t=034943 sess=jzo lvl=INFO cat=audio evt=input_selected uid_hash=-8007338763437314659 name="MacBook Air麦克风" ch=1
+t=036625 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=038637 sess=jzo lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=040120 sess=jzo lvl=INFO cat=transcript evt=final text=
+t=040120 sess=jzo lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"

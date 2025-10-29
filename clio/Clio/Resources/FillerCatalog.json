@@ -1,0 +1,97 @@
+{
+  "locales": [
+    {
+      "id": "en",
+      "caseInsensitive": true,
+      "singles": [
+        { "text": "um", "tidy": true },
+        { "text": "uh", "tidy": true },
+        { "text": "umm", "tidy": true },
+        { "text": "uhh", "tidy": true },
+        { "text": "erm", "tidy": true },
+        { "text": "er", "tidy": true },
+        { "text": "hmm", "tidy": true },
+        { "text": "mm", "tidy": true },
+        { "text": "well" },
+        { "text": "so" },
+        { "text": "like", "dropMode": "bounded" },
+        { "text": "okay" },
+        { "text": "ok" },
+        { "text": "basically" },
+        { "text": "literally" }
+      ],
+      "phrases": [
+        { "tokens": ["you", "know"] },
+        { "tokens": ["i", "mean"] },
+        { "tokens": ["kind", "of"] },
+        { "tokens": ["sort", "of"] }
+      ]
+    },
+    {
+      "id": "zh",
+      "caseInsensitive": false,
+      "singles": [
+        { "text": "嗯", "tidy": true, "sentenceCase": false },
+        { "text": "呃", "tidy": true, "sentenceCase": false },
+        { "text": "额", "tidy": true, "sentenceCase": false },
+        { "text": "啊", "tidy": true, "sentenceCase": false },
+        { "text": "那个", "sentenceCase": false },
+        { "text": "这个", "sentenceCase": false },
+        { "text": "那個", "sentenceCase": false },
+        { "text": "這個", "sentenceCase": false },
+        { "text": "就是", "sentenceCase": false },
+        { "text": "然后", "dropMode": "sentenceStart", "sentenceCase": false },
+        { "text": "嘛", "sentenceCase": false }
+      ]
+    },
+    {
+      "id": "es",
+      "caseInsensitive": true,
+      "singles": [
+        { "text": "eh", "tidy": true },
+        { "text": "em", "tidy": true },
+        { "text": "mmm", "tidy": true },
+        { "text": "este", "dropMode": "sentenceStart" }
+      ],
+      "phrases": [
+        { "tokens": ["o", "sea"] }
+      ]
+    },
+    {
+      "id": "fr",
+      "caseInsensitive": true,
+      "singles": [
+        { "text": "euh", "tidy": true },
+        { "text": "heu", "tidy": true }
+      ]
+    },
+    {
+      "id": "de",
+      "caseInsensitive": true,
+      "singles": [
+        { "text": "äh", "tidy": true },
+        { "text": "ähm", "tidy": true },
+        { "text": "hm", "tidy": true, "dropMode": "bounded" }
+      ]
+    },
+    {
+      "id": "ja",
+      "caseInsensitive": false,
+      "singles": [
+        { "text": "えっと", "tidy": true, "sentenceCase": false },
+        { "text": "ええと", "tidy": true, "sentenceCase": false },
+        { "text": "うーん", "tidy": true, "sentenceCase": false },
+        { "text": "んー", "tidy": true, "sentenceCase": false }
+      ]
+    },
+    {
+      "id": "ko",
+      "caseInsensitive": false,
+      "singles": [
+        { "text": "음", "tidy": true, "sentenceCase": false },
+        { "text": "음...", "tidy": true, "sentenceCase": false },
+        { "text": "음..", "tidy": true, "sentenceCase": false }
+      ]
+    }
+  ]
+}

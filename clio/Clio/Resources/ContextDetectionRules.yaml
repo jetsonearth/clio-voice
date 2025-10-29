@@ -1,0 +1,396 @@
+# Context Detection Rules Configuration
+# This file defines rules for detecting different contexts based on app bundle IDs,
+# URLs (for browsers), and window titles in hierarchical order of reliability.
+
+contexts:
+  email:
+    display_name: "Email"
+    priority: 100
+    confidence_boost: 0.5
+    
+    # Most reliable: App bundle ID matching
+    applications:
+      - bundle_id: "com.apple.Mail"
+        priority: 100
+      - bundle_id: "com.microsoft.Outlook"
+        priority: 100
+      - bundle_id: "org.mozilla.thunderbird"
+        priority: 100
+    
+    # Second most reliable: Browser URL patterns
+    browser_rules:
+      valid_browsers:
+        - "com.google.Chrome"
+        - "com.apple.Safari"
+        - "org.mozilla.firefox"
+        - "com.microsoft.edgemac"
+        - "com.brave.Browser"
+      url_patterns:
+        - pattern: "mail\\.google\\.com"
+          confidence: 0.9
+        - pattern: "outlook\\.live\\.com"
+          confidence: 0.9
+        - pattern: "outlook\\.office\\.com"
+          confidence: 0.9
+        - pattern: "mail\\.yahoo\\.com"
+          confidence: 0.8
+        - pattern: "protonmail\\.com"
+          confidence: 0.8
+    
+    # Fallback: Window title patterns
+    window_title_patterns:
+      - pattern: ".*@.*\\.(com|org|net|edu) - Gmail"
+        confidence: 0.7
+      - pattern: "Gmail - Compose"
+        confidence: 0.8
+      - pattern: "Outlook - Compose"
+        confidence: 0.8
+      - pattern: "Mail - New Message"
+        confidence: 0.7
+      - pattern: ".*Message.*- (Mail|Outlook|Gmail)"
+        confidence: 0.6
+    
+    # Content patterns (lowest priority)
+    content_patterns:
+      - pattern: "(?i)\\bcompose\\b"
+        confidence: 0.1
+      - pattern: "(?i)\\bsubject:\\b"
+        confidence: 0.1
+      - pattern: "(?i)\\b(to|from|cc|bcc):\\b"
+        confidence: 0.1
+
+  code:
+    display_name: "Code"
+    priority: 90
+    confidence_boost: 0.4
+    
+    applications:
+      # IDEs and Code Editors - Exact Bundle IDs (Highest Confidence)
+      - bundle_id: "com.microsoft.VSCode"
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.microsoft.VSCode.Insiders"  # VSCode Insiders
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.apple.dt.Xcode"
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.jetbrains.intellij"
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.jetbrains.pycharm"
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.jetbrains.webstorm"
+        priority: 100
+        confidence: 1.0
+      - bundle_id: "com.sublimetext.4"
+        priority: 95
+        confidence: 1.0
+      
+      # Pattern-Based Matching for Dynamic Bundle IDs
+      - bundle_id_pattern: "com.todesktop.*"  # Cursor (dynamic ID)
+        process_names: ["Cursor"]
+        priority: 100
+        confidence: 0.9
+      - bundle_id_pattern: "com.codeium.*"  # Windsurf (likely pattern)
+        process_names: ["Windsurf"]
+        priority: 100
+        confidence: 0.9
+      
+      # Terminal Applications (High priority for development)
+      - bundle_id: "com.apple.Terminal"
+        priority: 95
+        confidence: 1.0
+      - bundle_id: "com.googlecode.iterm2"
+        priority: 95
+        confidence: 1.0
+      - bundle_id: "dev.warp.Warp"  # Corrected Warp bundle ID
+        priority: 95
+        confidence: 1.0
+      
+      # Process Name Fallbacks - BROAD MATCHING for AI coding tools
+      - process_names: 
+          # Traditional terminals and IDEs
+          - "Terminal"
+          - "iTerm2" 
+          - "Warp"
+          - "Code"  # VSCode
+          - "Xcode"
+          
+          # AI-powered coding tools (known)
+          - "Cursor"
+          - "Windsurf"
+          - "Devin"
+          - "Augment"
+          
+          # Broad pattern matching for unknown AI tools
+          - "AI"      # Catches apps with "AI" in name
+          - "Assistant"
+          - "Copilot"
+          - "Coder"
+          - "Coding"
+          - "Developer"
+        priority: 80
+        confidence: 0.7
+      
+      # Flexible Bundle ID Patterns for AI coding tools
+      - bundle_id_pattern: ".*ai.*"       # Matches any bundle with "ai"
+        priority: 75
+        confidence: 0.6
+      - bundle_id_pattern: ".*coder.*"    # Matches coding-related bundles
+        priority: 75 
+        confidence: 0.6
+      - bundle_id_pattern: ".*dev.*"      # Matches development-related bundles
+        priority: 75
+        confidence: 0.6
+      
+      # Git Clients
+      - bundle_id: "com.github.GitHubDesktop"
+        priority: 90
+        confidence: 1.0
+      - bundle_id: "com.axosoft.gitkraken"
+        priority: 90
+        confidence: 1.0
+    
+    browser_rules:
+      valid_browsers:
+        - "com.google.Chrome"
+        - "com.apple.Safari"
+        - "org.mozilla.firefox"
+        - "com.microsoft.edgemac"
+        - "com.brave.Browser"
+      url_patterns:
+        # Version Control & Traditional Coding Platforms
+        - pattern: "github\\.com"
+          confidence: 0.9
+        - pattern: "gitlab\\.com"
+          confidence: 0.9
+        - pattern: "bitbucket\\.org"
+          confidence: 0.8
+        - pattern: "stackoverflow\\.com"
+          confidence: 0.8
+        - pattern: "codespaces\\.github\\.com"
+          confidence: 0.9
+        
+        # Web-based IDEs & Sandboxes
+        - pattern: "replit\\.com"
+          confidence: 0.9
+        - pattern: "repl\\.it"
+          confidence: 0.8
+        - pattern: "codesandbox\\.io"
+          confidence: 0.8
+        - pattern: "stackblitz\\.com"
+          confidence: 0.9
+        - pattern: "codepen\\.io"
+          confidence: 0.7
+        - pattern: "glitch\\.com"
+          confidence: 0.8
+        - pattern: "gitpod\\.io"
+          confidence: 0.9
+        
+        # AI-Powered Development Tools
+        - pattern: "v0\\.dev"           # Vercel's AI
+          confidence: 0.9
+        - pattern: "bolt\\.new"         # StackBlitz AI
+          confidence: 0.9
+        - pattern: "lovable\\.dev"      # AI app builder
+          confidence: 0.9
+        - pattern: "same\\.dev"         # AI UI cloning
+          confidence: 0.9
+        - pattern: "cursor\\.com"       # Cursor IDE
+          confidence: 0.8
+        - pattern: "windsurf\\.com"     # Windsurf IDE
+          confidence: 0.8
+        - pattern: "orchids\\.app"      # Orchids AI
+          confidence: 0.9
+        
+        # Broad AI Coding Platform Patterns
+        - pattern: ".*\\.dev"           # Many AI tools use .dev domains
+          confidence: 0.6
+        - pattern: ".*ai.*\\.(com|io|dev)"  # AI-related domains
+          confidence: 0.7
+        - pattern: ".*code.*\\.(com|io|dev)" # Code-related domains
+          confidence: 0.6
+        - pattern: ".*copilot.*"        # Copilot-related tools
+          confidence: 0.8
+        
+        # Specific AI Companies/Tools
+        - pattern: "anthropic\\.com"    # Claude
+          confidence: 0.8
+        - pattern: "openai\\.com"       # ChatGPT/OpenAI
+          confidence: 0.8
+        - pattern: "sourcegraph\\.com"  # Sourcegraph (has AI features)
+          confidence: 0.8
+        - pattern: "codeium\\.com"      # Codeium AI
+          confidence: 0.8
+        - pattern: "tabnine\\.com"      # TabNine AI
+          confidence: 0.8
+        - pattern: "aws\\.amazon\\.com.*kiro" # Amazon Kiro (if web-based)
+          confidence: 0.7
+    
+    window_title_patterns:
+      # Terminal patterns - more flexible for custom environments
+      - pattern: ".*Terminal.*"
+        confidence: 0.8
+      - pattern: ".*iTerm.*"
+        confidence: 0.8
+      - pattern: ".*Warp.*"
+        confidence: 0.8
+      - pattern: ".*— Python.*"
+        confidence: 0.7
+      - pattern: ".*claude.*GIT.*"
+        confidence: 0.6
+      - pattern: ".*\\.(py|js|ts|tsx|jsx|swift|java|cpp|c|h|rs|go|php|rb|kt).*"
+        confidence: 0.6
+      
+      # Traditional IDEs
+      - pattern: ".*Visual Studio Code.*"
+        confidence: 0.9
+      - pattern: ".*Xcode.*"
+        confidence: 0.9
+      - pattern: ".*IntelliJ.*"
+        confidence: 0.9
+      - pattern: ".*PyCharm.*"
+        confidence: 0.9
+      
+      # AI-Powered IDEs (specific)
+      - pattern: ".*Cursor.*"
+        confidence: 0.9
+      - pattern: ".*Windsurf.*"
+        confidence: 0.9
+      - pattern: ".*Devin.*"
+        confidence: 0.8
+      
+      # Web-based AI coding tools (browser titles)
+      - pattern: ".*same\\.dev.*"
+        confidence: 0.8
+      - pattern: ".*v0\\.dev.*"
+        confidence: 0.8
+      - pattern: ".*bolt\\.new.*"
+        confidence: 0.8
+      - pattern: ".*lovable\\.dev.*"
+        confidence: 0.8
+      - pattern: ".*orchids\\.app.*"
+        confidence: 0.8
+      - pattern: ".*Replit.*"
+        confidence: 0.8
+      - pattern: ".*CodeSandbox.*"
+        confidence: 0.8
+      - pattern: ".*StackBlitz.*"
+        confidence: 0.8
+      
+      # Broad AI/Coding patterns (lower confidence)
+      - pattern: ".*(AI|ai).*cod.*"          # "AI coding", "ai coder", etc.
+        confidence: 0.6
+      - pattern: ".*(AI|ai).*(assist|help).*" # "AI assistant", "ai helper"
+        confidence: 0.6
+      - pattern: ".*copilot.*"               # Any Copilot variant
+        confidence: 0.7
+      - pattern: ".*\\bcode\\b.*"            # Word "code" in title
+        confidence: 0.5
+      - pattern: ".*\\bdevelop.*"            # "develop", "developer", "development"
+        confidence: 0.5
+      
+      # Git patterns
+      - pattern: ".*GitHub.*"
+        confidence: 0.8
+      - pattern: ".*GitKraken.*"
+        confidence: 0.8
+      - pattern: ".*Sourcetree.*"
+        confidence: 0.8
+    
+    content_patterns:
+      - pattern: "(?i)\\bfunction\\s+\\w+"
+        confidence: 0.1
+      - pattern: "(?i)\\bclass\\s+\\w+"
+        confidence: 0.1
+      - pattern: "(?i)\\bimport\\s+\\w+"
+        confidence: 0.1
+      - pattern: "(?i)\\bgit\\s+(commit|push|pull|merge)"
+        confidence: 0.1
+
+  social_media:
+    display_name: "Social Media"
+    priority: 10
+    confidence_boost: 0.2
+    
+    applications:
+      - bundle_id: "com.twitter.twitter-mac"
+        priority: 90
+      - bundle_id: "com.facebook.archon"
+        priority: 90
+      - bundle_id: "com.tinyspeck.slackmacgap"  # Slack
+        priority: 80
+      - bundle_id: "com.hnc.Discord"
+        priority: 80
+    
+    browser_rules:
+      valid_browsers:
+        - "com.google.Chrome"
+        - "com.apple.Safari"
+        - "org.mozilla.firefox"
+        - "com.microsoft.edgemac"
+        - "com.brave.Browser"
+      url_patterns:
+        - pattern: "twitter\\.com"
+          confidence: 0.9
+        - pattern: "x\\.com"
+          confidence: 0.9
+        - pattern: "facebook\\.com"
+          confidence: 0.9
+        - pattern: "instagram\\.com"
+          confidence: 0.9
+        - pattern: "linkedin\\.com"
+          confidence: 0.8
+        - pattern: "tiktok\\.com"
+          confidence: 0.9
+        - pattern: "youtube\\.com"
+          confidence: 0.8
+        - pattern: "reddit\\.com"
+          confidence: 0.7
+    
+    window_title_patterns:
+      - pattern: ".*Twitter.*"
+        confidence: 0.8
+      - pattern: ".*Facebook.*"
+        confidence: 0.8
+      - pattern: ".*Instagram.*"
+        confidence: 0.8
+      - pattern: ".*LinkedIn.*"
+        confidence: 0.8
+      - pattern: ".*TikTok.*"
+        confidence: 0.8
+      - pattern: ".*YouTube.*"
+        confidence: 0.7
+      - pattern: ".*Reddit.*"
+        confidence: 0.7
+      - pattern: ".*Discord.*"
+        confidence: 0.7
+      - pattern: ".*Slack.*"
+        confidence: 0.7
+
+# Global configuration
+detection_config:
+  # Minimum confidence threshold for context detection
+  minimum_confidence: 0.3
+  
+  # Bundle ID matching always wins if found
+  bundle_id_override_threshold: 0.8
+  
+  # URL matching confidence boost for browsers
+  url_confidence_boost: 0.3
+  
+  # Maximum patterns to evaluate per type (performance)
+  max_patterns_per_type: 50
+  
+  # Cache detection results for this many seconds
+  cache_duration_seconds: 5
+
+# User customization section (can be overridden)
+user_overrides:
+  # Users can add custom rules here
+  # Example:
+  # custom_code_apps:
+  #   - bundle_id: "com.my.custom.editor"
+  #     priority: 100

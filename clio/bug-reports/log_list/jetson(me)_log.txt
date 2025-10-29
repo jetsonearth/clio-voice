@@ -1,0 +1,89 @@
+t=000000 sess=4X6 lvl=INFO cat=audio evt=devices_scan
+t=000006 sess=4X6 lvl=INFO cat=audio evt=devices count=10
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device name="iPhone Microphone" uid_hash=2536473386470437867 ch=1
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="BlackHole 2ch" uid_hash=-8362092686579182308
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device name="MacBook Pro Microphone" uid_hash=7888419000421027815 ch=1
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="Gemoo Speaker" uid_hash=-8902806812682136984
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="Microsoft Teams Audio" uid_hash=-3202785714200337999
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name=PalabraMicrophone uid_hash=1497896080401704784
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device name=PalabraSpeaker uid_hash=8637306660407699405 ch=2
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name=ZoomAudioDevice uid_hash=8889531696586441283
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device name="Aggregate Device" uid_hash=-5278691145151596411 ch=3
+t=000007 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="Mixed Input" uid_hash=5081968104570323869
+t=000405 sess=4X6 lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000443 sess=4X6 lvl=INFO cat=hotkey evt=open_config ready=false
+t=000448 sess=4X6 lvl=INFO cat=hotkey evt=register ok=true
+t=009179 sess=4X6 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=009218 sess=4X6 lvl=INFO cat=audio evt=input_selected uid_hash=7888419000421027815 name="MacBook Pro Microphone" ch=1
+t=009261 sess=4X6 lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=009261 sess=4X6 lvl=INFO cat=audio evt=devices_scan
+t=009263 sess=4X6 lvl=INFO cat=audio evt=devices count=11
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device uid_hash=2536473386470437867 name="iPhone Microphone" ch=1
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device name="BlackHole 2ch" ch=2 uid_hash=-8362092686579182308
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device uid_hash=7888419000421027815 name="MacBook Pro Microphone" ch=1
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=1 uid_hash=1494811560094395692 name=CADefaultDeviceAggregate-72302-0
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="Gemoo Speaker" uid_hash=-8902806812682136984
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 uid_hash=-3202785714200337999 name="Microsoft Teams Audio"
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name=PalabraMicrophone uid_hash=1497896080401704784
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 uid_hash=8637306660407699405 name=PalabraSpeaker
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name=ZoomAudioDevice uid_hash=8889531696586441283
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=3 uid_hash=-5278691145151596411 name="Aggregate Device"
+t=009263 sess=4X6 lvl=INFO cat=audio evt=device ch=2 name="Mixed Input" uid_hash=5081968104570323869
+t=009338 sess=4X6 lvl=INFO cat=stream evt=ws_bind socket=sock_-6353722666638909370@attempt_1
+t=009362 sess=4X6 lvl=INFO cat=audio evt=first_buffer
+t=010689 sess=4X6 lvl=INFO cat=stream evt=start_sent attempt=1
+t=010689 sess=4X6 lvl=INFO cat=stream evt=ready socket=sock_-6353722666638909370@attempt_1 attempt=1
+t=014371 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=50 bytes=3200
+t=019358 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=100 bytes=3200
+t=019693 sess=4X6 lvl=INFO cat=transcript evt=raw_final text="The value"
+t=021394 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" of, or"
+t=023122 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" of things when they go right, and what types of agents have higher value.<end>"
+t=024361 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=150 bytes=3200
+t=025598 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" So part of this is...<end>"
+t=025604 sess=4X6 lvl=INFO cat=transcript evt=final text="The value of, or of things when they go right, and what types of agents have higher value. So part of this is..."
+t=025605 sess=4X6 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=026023 sess=4X6 lvl=INFO cat=transcript evt=llm_final text="The value of things when they go right and what types of agents have higher value."
+t=026125 sess=4X6 lvl=INFO cat=transcript evt=insert_attempt target=Notes chars=83 text="The value of things when they go right and what types of agents have higher value. "
+t=026175 sess=4X6 lvl=INFO cat=transcript evt=insert_result ok=true
+t=034806 sess=4X6 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=034830 sess=4X6 lvl=INFO cat=audio evt=input_selected uid_hash=7888419000421027815 ch=1 name="MacBook Pro Microphone"
+t=034976 sess=4X6 lvl=INFO cat=audio evt=first_buffer
+t=034977 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=0 bytes=3200
+t=035391 sess=4X6 lvl=WARN cat=stream evt=state code=1001 state=closed
+t=035602 sess=4X6 lvl=INFO cat=stream evt=ws_bind socket=sock_-4401642179602274338@attempt_2
+t=037035 sess=4X6 lvl=INFO cat=stream evt=start_sent attempt=2
+t=037035 sess=4X6 lvl=INFO cat=stream evt=ready socket=sock_-4401642179602274338@attempt_2 attempt=2
+t=039983 sess=4X6 lvl=INFO cat=stream evt=send_audio bytes=3200 seq=50
+t=042412 sess=4X6 lvl=INFO cat=transcript evt=raw_final text="Always want to do"
+t=044035 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" step A after step B,"
+t=044979 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=100 bytes=3200
+t=045705 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" and so if you prompt an agent to do that,"
+t=046295 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" great, it might do that like 90% of the time. You don't know what the LLM will do.<end>"
+t=046600 sess=4X6 lvl=INFO cat=transcript evt=final text="Always want to do step A after step B, and so if you prompt an agent to do that, great, it might do that like 90% of the time. You don't know what the LLM will do."
+t=046601 sess=4X6 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=047097 sess=4X6 lvl=INFO cat=transcript evt=llm_final text="Always want to do step A after step B, and so if you prompt an agent to do that, great, it might do that 90% of the time. You don't know what the LLM will do."
+t=047208 sess=4X6 lvl=INFO cat=transcript evt=insert_attempt target=Notes chars=159 text="Always want to do step A after step B, and so if you prompt an agent to do that, great, it might do that 90% of the time. You don't know what the LLM will do. "
+t=047209 sess=4X6 lvl=INFO cat=transcript evt=insert_result ok=true
+t=053235 sess=4X6 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=053260 sess=4X6 lvl=INFO cat=audio evt=input_selected uid_hash=7888419000421027815 ch=1 name="MacBook Pro Microphone"
+t=053403 sess=4X6 lvl=INFO cat=audio evt=first_buffer
+t=053405 sess=4X6 lvl=INFO cat=stream evt=send_audio bytes=3200 seq=0
+t=053821 sess=4X6 lvl=WARN cat=stream evt=state code=1001 state=closed
+t=054029 sess=4X6 lvl=INFO cat=stream evt=ws_bind socket=sock_-6306328649912249923@attempt_3
+t=055466 sess=4X6 lvl=INFO cat=stream evt=start_sent attempt=3
+t=055466 sess=4X6 lvl=INFO cat=stream evt=ready socket=sock_-6306328649912249923@attempt_3 attempt=3
+t=058407 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=50 bytes=3200
+t=060924 sess=4X6 lvl=INFO cat=transcript evt=raw_final text="It doesn't, you know, tak"
+t=062526 sess=4X6 lvl=INFO cat=transcript evt=raw_final text="e this and publish it as a blog"
+t=063403 sess=4X6 lvl=INFO cat=stream evt=send_audio seq=100 bytes=3200
+t=064273 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" out in the internet or it doesn't take it and email"
+t=065926 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=" it to your clients, it produces just"
+t=067692 sess=4X6 lvl=INFO cat=transcript evt=raw_final text=", you know, a report that you can re"
+t=067723 sess=4X6 lvl=INFO cat=transcript evt=raw_final text="ad and decide what to do with. So it's not actually doing anything, it's a"
+t=067752 sess=4X6 lvl=INFO cat=transcript evt=final text="It doesn't, you know, take this and publish it as a blog out in the internet or it doesn't take it and email it to your clients, it produces just, you know, a report that you can re ad and decide what to do with. So it's not actually doing anything, it's a"
+t=067752 sess=4X6 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=068143 sess=4X6 lvl=INFO cat=transcript evt=llm_final text="It doesn't take this and publish it as a blog out in the internet or email it to your clients. It produces just a report that you can read and decide what to do with. So it's not actually doing anything, it's a"
+t=068273 sess=4X6 lvl=INFO cat=transcript evt=insert_attempt text="It doesn't take this and publish it as a blog out in the internet or email it to your clients. It produces just a report that you can read and decide what to do with. So it's not actually doing anything, it's a " target=Notes chars=211
+t=068273 sess=4X6 lvl=INFO cat=transcript evt=insert_result ok=true
+t=093704 sess=4X6 lvl=INFO cat=sys evt=snapshot_saved path=/Users/ZhaobangJetWu/Library/Logs/Clio/diag-20250819-112622.log
+t=099531 sess=4X6 lvl=INFO cat=sys evt=snapshot_saved path=/Users/ZhaobangJetWu/Library/Logs/Clio/diag-20250819-112628.log

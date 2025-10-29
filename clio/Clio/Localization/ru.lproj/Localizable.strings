@@ -1,0 +1,1320 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Created on 2025-01-04.
+*/
+
+/* Dashboard */
+"dashboard.words_dictated" = "Вы надиктовали %d слов.";
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "Сохранить";
+"general.cancel" = "Отменить";
+"general.delete" = "Удалить";
+"general.edit" = "Редактировать";
+"general.done" = "Готово";
+"general.settings" = "Настройки";
+"general.close" = "Закрыть";
+"general.ok" = "ОК";
+"general.yes" = "Да";
+"general.no" = "Нет";
+"general.error" = "Ошибка";
+"general.success" = "Успешно";
+"general.loading" = "Загрузка...";
+"general.retry" = "Повторить";
+"general.download" = "Загрузить";
+"general.upload" = "Загрузить";
+"general.search" = "Поиск";
+"general.filter" = "Фильтр";
+"general.sort" = "Сортировка";
+"general.share" = "Поделиться";
+"general.copy" = "Копировать";
+"general.paste" = "Вставить";
+"general.clear" = "Очистить";
+"general.reset" = "Сбросить";
+"general.continue" = "Продолжить";
+"general.back" = "Назад";
+"general.next" = "Далее";
+"general.finish" = "Завершить";
+"general.language" = "Язык";
+"general.default" = "По умолчанию";
+"general.required" = "Обязательно";
+"general.refresh" = "Обновить";
+
+/* Navigation */
+"Home" = "Главная";
+"Dictionary" = "Словарь";
+"Plan" = "План";
+"Upgrade" = "Обновление";
+"navigation.home" = "Главная";
+"navigation.models" = "Модели речи";
+"navigation.power_mode" = "ИИ-улучшение";
+"navigation.ai_editing_strength" = "Интенсивность правки ИИ";
+"navigation.dictionary" = "Пользовательский словарь";
+"navigation.settings" = "Настройки";
+"navigation.plan" = "План";
+"navigation.license" = "План";
+
+/* Dictionary */
+"dictionary.title" = "Пользовательский словарь";
+"dictionary.custom_title" = "Пользовательский словарь";
+"dictionary.custom_description" = "Обучите Clio распознавать специальные слова и создавать автоматические исправления. Добавляйте словарные слова для повышения точности транскрипции или создавайте замены слов для автоматического исправления частых ошибок транскрипции.";
+"dictionary.add_new" = "Добавить новое";
+"dictionary.search_placeholder" = "Поиск по словарю";
+"dictionary.vocabulary" = "Словарь";
+"dictionary.replacements" = "Замены";
+"dictionary.enable_word" = "Включить слово";
+"dictionary.disable_word" = "Отключить слово";
+"dictionary.delete_word" = "Удалить слово";
+"dictionary.delete_replacement" = "Удалить замену";
+"dictionary.add_to_vocabulary" = "Добавить в словарь";
+"dictionary.add_word" = "Добавить слово";
+"dictionary.make_replacement" = "Сделать заменой";
+"dictionary.word_replacement_title" = "Замена слова";
+"dictionary.word_replacement_description" = "При включении ваше пользовательское слово становится правилом исправления. Clio будет автоматически заменять неправильную версию при диктовке.";
+"dictionary.misspelling_placeholder" = "Неправильное написание";
+"dictionary.correct_spelling_placeholder" = "Правильное написание";
+"dictionary.add_word_placeholder" = "Добавить новое слово";
+"dictionary.edit_word" = "Редактировать слово";
+"dictionary.word_placeholder" = "Слово";
+"dictionary.save_changes" = "Сохранить изменения";
+"dictionary.edit_replacement" = "Редактировать замену";
+"dictionary.original_placeholder" = "Оригинал";
+"dictionary.replacement_placeholder" = "Замена";
+"dictionary.no_vocabulary_words" = "Нет словарных слов";
+"dictionary.vocabulary_help_text" = "Добавьте слова, чтобы помочь Clio правильно их распознавать";
+"dictionary.no_word_replacements" = "Нет замен слов";
+"dictionary.replacements_help_text" = "Создавайте автоматические замены слов для лучшей транскрипции";
+
+/* Main Menu */
+"menu.file" = "Файл";
+"menu.edit" = "Правка";
+"menu.view" = "Вид";
+"menu.window" = "Окно";
+"menu.help" = "Справка";
+"menu.about" = "О программе Clio";
+"menu.preferences" = "Настройки...";
+"menu.quit" = "Выйти из Clio";
+
+/* Recording */
+"recording.start" = "Начать запись";
+"recording.stop" = "Остановить запись";
+"recording.stop.confirmation" = "Остановить запись?";
+"recording.pause" = "Приостановить";
+"recording.resume" = "Возобновить";
+"recording.transcribing" = "Транскрипция...";
+"recording.processing" = "Обработка...";
+"recording.ready" = "Готов к записи";
+"recording.listening" = "Слушаю...";
+"recording.saved" = "Запись сохранена";
+"recording.failed" = "Запись не удалась";
+"recording.permission_required" = "Требуется разрешение на микрофон";
+"recording.permission_description" = "Clio необходим доступ к микрофону для транскрипции речи";
+
+/* Transcription */
+"transcription.title" = "Транскрипция";
+"transcription.empty" = "Транскрипции пока нет";
+"transcription.copy" = "Копировать транскрипцию";
+"transcription.enhance" = "Улучшить с помощью ИИ";
+"transcription.play" = "Воспроизвести аудио";
+"transcription.delete" = "Удалить транскрипцию";
+"transcription.language" = "Язык транскрипции";
+"transcription.accuracy" = "Точность";
+"transcription.speed" = "Скорость";
+"transcription.load_more" = "Загрузить еще";
+"transcription.delete_selected_title" = "Удалить выбранные элементы?";
+"transcription.delete_confirmation" = "Это действие нельзя отменить. Вы уверены, что хотите удалить %d элемент(ов)?";
+"transcription.search.placeholder" = "Поиск по транскрипциям";
+"transcription.empty.title" = "Транскрипции не найдены";
+"transcription.history.description" = "Просмотр и управление всеми вашими транскрибированными аудиозаписями";
+"transcription.empty.subtitle" = "Ваша история появится здесь";
+"transcription.history.title" = "История транскрипций";
+"transcription.history.empty" = "История транскрипций пока пустая";
+"transcription.filter.today" = "Сегодня";
+"transcription.filter.week" = "Эта неделя";
+"transcription.filter.month" = "Этот месяц";
+"transcription.selected_count" = "%d выбрано";
+"transcription.select_all" = "Выбрать все";
+"transcription.deselect_all" = "Отменить выбор всех";
+"transcription.total_latency_help" = "Общая задержка: %@мс";
+"transcription.enhanced" = "Улучшенная";
+"transcription.original" = "Оригинальная";
+"transcription.llm_latency" = "LLM: %@мс";
+"transcription.llm_latency_help" = "Задержка LLM: %@мс";
+"transcription.asr_latency" = "ASR: %@мс";
+"transcription.asr_latency_help" = "Задержка ASR: %@мс";
+"transcription.copy_enhanced" = "Копировать улучшенную";
+"transcription.copy_original" = "Копировать оригинальную";
+"transcription.export.title" = "Экспортировать транскрипт";
+"transcription.export.text" = "Текстовый файл";
+"transcription.export.pdf" = "PDF-файл";
+"transcription.date.today" = "СЕГОДНЯ";
+"transcription.date.yesterday" = "ВЧЕРА";
+
+/* Settings */
+"settings.title" = "Настройки";
+"settings.description" = "Настройте ваши предпочтения и параметры приложения";
+"settings.sign_out.title" = "Аккаунт и сброс";
+"settings.sign_out.subtitle" = "Управление вашей учетной записью, процессом адаптации и аутентификацией";
+"settings.sign_out.description" = "Выйти из вашей учетной записи Clio. Это вернет вас к экрану аутентификации.";
+"settings.sign_out.button" = "Выйти";
+"settings.reset_onboarding.title" = "Сбросить обучение";
+"settings.reset_onboarding.subtitle" = "Начать заново с процесса знакомства";
+"settings.reset_onboarding.button" = "Сбросить адаптацию";
+"settings.reset_onboarding.confirm" = "Сбросить";
+"settings.reset_onboarding.message" = "Это сбросит процесс адаптации. Вы увидите экраны знакомства снова при перезапуске приложения.";
+"settings.general" = "Общие";
+"settings.audio" = "Аудио";
+"settings.ai" = "ИИ-улучшение";
+"settings.shortcuts" = "Горячие клавиши";
+"settings.keyboard_shortcuts.title" = "Горячая клавиша для говорения";
+"settings.shortcut.configured" = "Горячая клавиша настроена";
+"settings.shortcut.required" = "Требуется горячая клавиша";
+"settings.shortcut.warning" = "Для начала записи требуется горячая клавиша";
+"settings.appearance" = "Внешний вид";
+"settings.privacy" = "Конфиденциальность";
+"settings.about" = "О программе";
+"settings.language" = "Язык";
+"settings.app_language" = "Язык приложения";
+"settings.app_language.description" = "Выберите предпочитаемый язык интерфейса";
+"settings.app_language.tooltip" = "Выберите предпочитаемый язык для меню, кнопок и текста интерфейса. Изменения применяются немедленно. Некоторые новые функции могут иметь ограниченные переводы.";
+"settings.dictation_language" = "Язык диктовки";
+"settings.dictation_language.description" = "Выберите языки для распознавания речи";
+"settings.dictation_language.tooltip" = "Если вы говорите только на одном языке, выберите его. В противном случае выберите автоопределение. Для лучших результатов с автоопределением убедитесь, что у вас высококачественный микрофон.";
+"settings.language.description" = "Выберите предпочитаемый язык";
+"settings.language.choose_description" = "Выберите предпочитаемый язык для интерфейса приложения";
+"settings.language.change_note" = "Изменения языка применяются немедленно. Некоторые языки могут иметь неполные переводы.";
+"settings.language.available" = "Доступные языки";
+"settings.system_settings.header" = "СИСТЕМНЫЕ НАСТРОЙКИ";
+"settings.launch_at_login" = "Запуск при входе";
+"settings.launch_at_login.subtitle" = "Автоматически запускать Clio при входе в систему.";
+"settings.hide_dock_icon.title" = "Скрыть значок в Dock";
+"settings.hide_dock_icon.description" = "Оставить Clio работать в фоне (только строка меню)";
+"settings.show_in_menu_bar" = "Показывать в строке меню";
+"settings.show_in_dock" = "Показывать в доке";
+"settings.ai_enhancement" = "Включить редактирование ИИ";
+"settings.ai_enhancement.description" = "Позвольте Clio переписывать расшифровки с помощью ИИ, чтобы речь, тон и формат выглядели естественно.";
+"settings.keyboard_shortcuts" = "Горячие клавиши";
+"settings.keyboard_shortcuts.configured" = "Горячая клавиша настроена";
+"settings.keyboard_shortcuts.required" = "Требуется горячая клавиша";
+"settings.keyboard_shortcuts.selected_key" = "Выбранная клавиша";
+"settings.keyboard_shortcuts.edit_hotkey" = "Редактировать горячую клавишу";
+"settings.keyboard_shortcuts.reset_hotkey" = "Сбросить";
+
+/* Privacy Settings */
+"settings.privacy.title" = "Конфиденциальность";
+"settings.privacy.subtitle" = "Выбор между облачной и локальной обработкой";
+"settings.privacy.use_local_model" = "Использовать локальную модель";
+"settings.privacy.local_model_description" = "Обрабатывать аудио локально без подключения к интернету";
+"settings.privacy.model_not_downloaded" = "Локальная модель не загружена";
+"settings.privacy.download_model" = "Загрузить Whisper v3 Turbo";
+
+/* Audio Settings */
+"audio.input_device" = "Устройство ввода";
+"audio.quality" = "Качество аудио";
+"audio.quality.low" = "Низкое";
+"audio.quality.medium" = "Среднее";
+"audio.quality.high" = "Высокое";
+"audio.noise_reduction" = "Подавление шума";
+"audio.auto_gain" = "Автоматическое усиление";
+"audio.input.title" = "Аудиовход";
+"audio.input.subtitle" = "Настройте параметры микрофона";
+"audio.input.mode" = "Режим ввода";
+"audio.devices.available" = "Доступные устройства";
+"audio.devices.prioritized" = "Приоритетные устройства";
+"audio.devices.priority_description" = "Устройства будут использоваться в порядке приоритета. Если устройство недоступно, будет попробовано следующее. Если нет доступных приоритетных устройств, будет использован системный микрофон по умолчанию.";
+"audio.devices.no_priority" = "Нет приоритетных устройств";
+"audio.mode.system_default" = "Использовать системное устройство ввода по умолчанию";
+"audio.mode.custom" = "Выбрать конкретное устройство ввода";
+"audio.mode.prioritized" = "Установить порядок приоритета устройств";
+"audio.device.active" = "Активное";
+"audio.device.unavailable" = "Недоступно";
+"audio.devices.no_additional" = "Нет дополнительных доступных устройств";
+"audio.devices.none.title" = "Нет аудиоустройств";
+"audio.devices.none.description" = "Подключите устройство аудиовхода для начала работы";
+"audio.mode.system_default.title" = "Системное по умолчанию";
+"audio.mode.custom.title" = "Пользовательское устройство";
+"audio.mode.prioritized.title" = "Приоритетные устройства";
+
+/* Language Selection */
+"language.transcription.title" = "Язык транскрипции";
+"language.current_model" = "Текущая модель: %@";
+"language.multilingual.description" = "Эта модель поддерживает несколько языков. Вы можете выбрать автоопределение или выбрать конкретный язык.";
+"language.english_only" = "Язык: Английский";
+"language.english_only.description" = "Это оптимизированная для английского языка модель, поддерживающая только английскую транскрипцию.";
+"language.no_model" = "Модель не выбрана";
+
+/* Audio Cleanup */
+"audio.cleanup.description" = "Автоматически очищать старые аудиофайлы для экономии места";
+"audio.cleanup.enable" = "Включить автоматическую очистку";
+"audio.cleanup.retention_period" = "Период хранения";
+"audio.cleanup.keep_files" = "Хранить файлы";
+"audio.cleanup.1_day" = "1 день";
+"audio.cleanup.3_days" = "3 дня";
+"audio.cleanup.7_days" = "7 дней";
+"audio.cleanup.14_days" = "14 дней";
+"audio.cleanup.30_days" = "30 дней";
+"audio.cleanup.description_text" = "Аудиофайлы старше выбранного периода будут автоматически удалены, при этом текстовые транскрипции останутся нетронутыми.";
+"audio.cleanup.analyzing" = "Анализ...";
+"audio.cleanup.run_now" = "Запустить очистку сейчас";
+"audio.cleanup.alert_title" = "Очистка аудио";
+"audio.cleanup.delete_files" = "Удалить %d файлов";
+"audio.cleanup.will_delete" = "Это удалит %d аудиофайлов старше %@ дн.";
+"audio.cleanup.size_freed" = "Общий размер для освобождения: %@";
+"audio.cleanup.transcripts_preserved" = "Текстовые транскрипции будут сохранены.";
+"audio.cleanup.no_files" = "Не найдено аудиофайлов старше %@ дн.";
+"audio.cleanup.complete_title" = "Очистка завершена";
+"audio.cleanup.result_with_errors" = "Успешно удалено %d аудиофайлов. Не удалось удалить %@ файлов.";
+"audio.cleanup.result_success" = "Успешно удалено %d аудиофайлов.";
+"audio.cleanup.how_long_keep" = "Как долго хранить аудиофайлы";
+"audio.cleanup.select_period" = "Выберите период хранения";
+"audio.cleanup.auto_delete_info" = "Аудиофайлы старше %@ дн. будут автоматически удалены.";
+"audio.cleanup.transcripts_always_preserved" = "Текстовые транскрипции всегда сохраняются.";
+"audio.cleanup.manual_cleanup" = "Ручная очистка";
+"audio.cleanup.run_immediately" = "Запустить очистку немедленно";
+"audio.cleanup.analysis_title" = "Анализ очистки аудио";
+"audio.cleanup.found_files" = "Найдено %d аудиофайлов старше %@ дн.";
+"audio.cleanup.storage_freed" = "Общее освобождаемое место: %@";
+"audio.cleanup.already_optimized" = "Ваше хранилище уже оптимизировано!";
+"audio.cleanup.result_success_with_space" = "Успешно удалено %d аудиофайлов и освобождено место для хранения.";
+
+/* AI Settings */
+"ai.provider" = "Провайдер ИИ";
+"ai.model" = "Модель";
+"ai.api_key" = "API-ключ";
+"enhance.mode.title" = "Режим улучшения";
+"ai.enhancement_prompt" = "Промпт для улучшения";
+"ai.auto_enhance" = "Авто-улучшение";
+"ai.context_aware" = "Контекстно-зависимый";
+
+/* AI Editing Strength */
+"ai_strength.title" = "Интенсивность правки ИИ";
+"ai_strength.subtitle" = "Выберите, насколько активно Clio переписывает и очищает расшифровку.";
+"ai_strength.light.title" = "Лёгкая очистка";
+"ai_strength.light.subtitle" = "Быстрая полировка: убирает шум и сохраняет ваш голос.";
+"ai_strength.light.bullet1" = "Сохраняет смешанные языки и исходный порядок предложений";
+"ai_strength.light.bullet2" = "Пропускает слова-паразиты, запинки и ложные начала";
+"ai_strength.light.bullet3" = "Добавляет только лёгкие правки пунктуации и форматирования";
+"ai_strength.full.title" = "Глубокая очистка";
+"ai_strength.full.subtitle" = "Более глубокая правка, которая улучшает формулировки для ясности и плавности.";
+"ai_strength.full.bullet1" = "Объединяет или переставляет предложения, если так история звучит лучше";
+"ai_strength.full.bullet2" = "Проясняет подразумеваемые подлежащие и сглаживает неловкие формулировки";
+"ai_strength.full.bullet3" = "По-прежнему бережно сохраняет смешанные языки и исходный смысл";
+"ai_strength.preview.title" = "Предпросмотр";
+"ai_strength.preview.input" = "Вход";
+"ai_strength.preview.output_light" = "Выход (Лёгкая)";
+"ai_strength.preview.output_full" = "Выход (Глубокая)";
+
+/* Shortcuts */
+"shortcuts.global" = "Глобальные горячие клавиши";
+"shortcuts.record" = "Начать/остановить запись";
+"shortcuts.quick_transcribe" = "Быстрая транскрипция";
+"shortcuts.toggle_window" = "Переключить окно";
+
+/* Models */
+"speech.models.title" = "Модели речи";
+"models.title" = "Модели транскрипции";
+"models.download" = "Загрузить модель";
+"models.downloading" = "Загрузка...";
+"models.delete" = "Удалить модель";
+"models.size" = "Размер";
+"models.accuracy" = "Точность";
+"models.speed" = "Скорость";
+"models.languages" = "Поддерживаемые языки";
+"models.active_model" = "Активная модель";
+"models.no_model_selected" = "Модель не выбрана";
+"models.change_language" = "Изменить";
+"models.language_locked" = "Заблокировано";
+"models.tap_to_change" = "Нажмите для изменения";
+"models.english_only" = "Только английский";
+"models.language_prompts" = "Язык и промпты";
+"models.library_title" = "Библиотека моделей";
+"models.library_subtitle" = "Выберите из %d моделей речи";
+"models.section.local_models" = "Локальные модели";
+"models.section.premium_cloud_models" = "Премиум облачные модели";
+"models.filter.all" = "Все";
+"models.filter.downloaded" = "Загружено";
+"models.performance.speed" = "Скорость";
+"models.performance.accuracy" = "Точность";
+"models.delete.title" = "Удалить модель";
+"models.delete.confirmation" = "Вы уверены, что хотите удалить модель '%@'?";
+"models.status.active" = "Активная";
+"models.status.downloaded" = "Загружено";
+"models.currently_active" = "Сейчас активна";
+"models.set_as_default" = "Установить по умолчанию";
+"models.requires_pro" = "Требуется Pro";
+"models.coming_soon" = "Скоро";
+"models.show_in_finder" = "Показать в Finder";
+"models.download.main" = "Модель";
+"models.download.coreml" = "CoreML";
+"models.tag.multilingual" = "Многоязычная";
+"models.tag.english_only" = "Только английский";
+"models.clio_max.description" = "Премиальная облачная модель с ультранизкой задержкой потоковой передачи. Особенно оптимизирована для китайского, японского, корейского и английского языков. Поддерживает 18 китайских диалектов, включая кантонский, ву и региональные варианты. Идеально для многоязычных специалистов и международных команд.";
+"models.clio_max_ultra.description" = "Лучшая облачная модель транскрипции с максимальной точностью и производительностью. Продвинутая обработка ИИ с потоковой передачей в реальном времени и поддержкой всех языков. Создана для корпоративных приложений и профессиональных пользователей.";
+"models.cloud_model" = "Облачная модель";
+"models.action.connect" = "Подключить";
+"models.action.connected" = "Подключено";
+"models.action.connecting" = "Подключение...";
+"models.requires_internet" = "Требуется подключение к интернету";
+
+/* Model Descriptions */
+"models.clio_flash.description" = "Сверхбыстрая транскрипция с хорошей точностью. Бесплатна навсегда с локальной обработкой";
+"models.clio_pro.description" = "Идеальный баланс скорости и точности с усиленной конфиденциальностью. Локальная обработка обеспечивает полную приватность вашего аудио";
+"models.clio_ultra.description" = "Медленнее, чем Pro, но с более высокой точностью, поддерживает несколько языков";
+
+/* Chinese Dialects */
+"language.chinese_simplified" = "Китайский (упрощенный)";
+"language.chinese_traditional" = "Китайский (традиционный)";
+"language.chinese_hong_kong" = "Китайский (Гонконг)";
+"language.chinese_shanghai" = "Китайский (Шанхай)";
+"language.chinese_wu" = "Китайский (Ву)";
+"language.chinese_min" = "Китайский (Мин)";
+"language.chinese_northeast" = "Китайский (северо-восточный)";
+"language.chinese_gansu" = "Китайский (Ганьсу)";
+"language.chinese_guangzhou" = "Китайский (Гуанчжоу)";
+"language.chinese_henan" = "Китайский (Хэнань)";
+"language.chinese_hubei" = "Китайский (Хубэй)";
+"language.chinese_hunan" = "Китайский (Хунань)";
+"language.chinese_jiangxi" = "Китайский (Цзянси)";
+"language.chinese_ningxia" = "Китайский (Нинся)";
+"language.chinese_shanxi" = "Китайский (Шаньси)";
+"language.chinese_shaanxi" = "Китайский (Шэньси)";
+"language.chinese_shandong" = "Китайский (Шаньдун)";
+"language.chinese_sichuan" = "Китайский (Сычуань)";
+"language.chinese_tianjin" = "Китайский (Тяньцзинь)";
+"language.chinese_yunnan" = "Китайский (Юньнань)";
+"language.chinese_cantonese" = "Китайский (кантонский)";
+
+/* Model Access Control */
+"models.access.fastest_lowest_accuracy" = "Быстрейшая, низкая точность (39 МБ)";
+"models.access.fast_good_accuracy" = "Быстрая, хорошая точность (74 МБ)";
+"models.access.balanced_speed_accuracy_pro" = "Баланс скорости и точности (244 МБ) - Pro";
+"models.access.high_accuracy_slower_pro" = "Высокая точность, медленнее (769 МБ) - Pro";
+"models.access.highest_accuracy_pro" = "Наивысшая точность (1,5 ГБ) - Pro";
+"models.access.latest_model_best_quality_pro" = "Новейшая модель, лучшее качество - Pro";
+"models.access.pro_model" = "Pro модель";
+"models.access.free_model" = "Бесплатная модель";
+
+/* AI Providers */
+"providers.llama.description" = "Локальные модели Llama - Бесплатно";
+"providers.openai.description" = "GPT-4, GPT-3.5 - Pro";
+"providers.anthropic.description" = "Модели Claude 3 - Pro";
+"providers.gemini.description" = "Google Gemini - Pro";
+"providers.deepseek.description" = "Модели DeepSeek - Pro";
+"providers.groq.description" = "Модели Groq LPU - Pro";
+"providers.mistral.description" = "Mistral AI - Pro";
+"providers.qwen.description" = "Модели Qwen - Pro";
+"providers.ollama.description" = "Локальные модели Ollama - Pro";
+"providers.custom.description" = "Пользовательский провайдер - Pro";
+
+/* Subscription */
+"subscription.title" = "Подписка";
+"subscription.free" = "Бесплатно";
+"subscription.pro" = "Pro";
+"subscription.upgrade" = "Обновить до Pro";
+"subscription.manage" = "Управлять подпиской";
+"subscription.restore" = "Восстановить покупку";
+
+/* Onboarding */
+"onboarding.welcome" = "Добро пожаловать в Clio";
+"onboarding.description" = "Ваш ИИ-помощник для транскрипции голоса";
+"onboarding.get_started" = "Начать";
+"onboarding.skip" = "Пропустить";
+
+/* Errors */
+"error.generic" = "Произошла ошибка";
+"error.network" = "Ошибка сети";
+"error.permission_denied" = "Доступ запрещен";
+"error.file_not_found" = "Файл не найден";
+"error.invalid_api_key" = "Неверный API-ключ";
+"error.model_download_failed" = "Не удалось загрузить модель";
+
+/* Success Messages */
+"success.saved" = "Успешно сохранено";
+"success.copied" = "Скопировано в буфер обмена";
+"success.deleted" = "Успешно удалено";
+"success.updated" = "Успешно обновлено";
+
+/* Dashboard */
+"dashboard.words_dictated" = "Вы надиктовали %d слов.";
+"dashboard.ready_to_start" = "Готовы начать транскрипцию?";
+"dashboard.efficiency_title" = "Clio ускоряет вашу работу";
+"dashboard.with_clio" = "с CLIO";
+"dashboard.efficiency_subtitle" = "ПОВЫШЕНИЕ ЭФФЕКТИВНОСТИ";
+"dashboard.minutes_saved" = "Сэкономлено минут";
+"dashboard.time_efficiency" = "ЭФФЕКТИВНОСТЬ ВРЕМЕНИ";
+"dashboard.time_speaking" = "Время говорения";
+"dashboard.total_speaking_time" = "Общее время говорения";
+"dashboard.words_per_minute" = "Слов/мин";
+"dashboard.speaking_rate" = "СКОРОСТЬ РЕЧИ";
+
+// Authentication
+"auth.signing_in" = "Вход в систему";
+
+/* Greetings */
+"greeting.good_morning" = "Доброе утро";
+"greeting.good_afternoon" = "Добрый день";
+"greeting.good_evening" = "Добрый вечер";
+
+/* PowerMode */
+"powermode.create.title" = "Создать усиленный режим";
+"powermode.edit.title" = "Редактировать усиленный режим";
+"powermode.help.activation" = "Усиленный режим будет автоматически активироваться при использовании этих приложений или посещении этих веб-сайтов";
+"powermode.section.basic_info" = "Основная информация";
+"powermode.section.transcription" = "Настройки транскрипции";
+"powermode.section.applications" = "Приложения";
+"powermode.section.websites" = "Веб-сайты";
+"powermode.field.icon" = "Иконка";
+"powermode.field.name" = "Название";
+"powermode.field.model" = "Модель";
+"powermode.field.language" = "Язык";
+"powermode.placeholder.name" = "Введите название режима";
+"powermode.placeholder.website_url" = "Введите URL веб-сайта (напр., google.com)";
+"powermode.model.system_default" = "Системный по умолчанию";
+"powermode.language.auto_detect" = "Автоопределение";
+"powermode.empty.no_apps" = "Приложения не выбраны";
+"powermode.empty.no_websites" = "Веб-сайты не добавлены";
+"powermode.delete.title" = "Удалить усиленный режим";
+
+/* Languages */
+"language.english" = "Английский";
+"language.spanish" = "Испанский";
+"language.french" = "Французский";
+"language.german" = "Немецкий";
+"language.italian" = "Итальянский";
+"language.portuguese" = "Португальский";
+"language.russian" = "Русский";
+"language.japanese" = "Японский";
+"language.korean" = "Корейский";
+"language.chinese" = "Китайский";
+"language.auto_detect" = "Автоопределение";
+
+/* Settings */
+"settings.keyboard_shortcuts.title" = "Горячие клавиши";
+"settings.shortcut.configured" = "Горячая клавиша настроена";
+"settings.shortcut.required" = "Требуется горячая клавиша";
+"settings.shortcut.warning" = "⚠️ Пожалуйста, установите горячую клавишу для использования Clio";
+"settings.shortcut.choose_key" = "Выберите клавишу для записи";
+"settings.shortcut.instructions" = "Выберите клавишу, которую хотите использовать для записи. Нажмите один раз для начала записи без рук, нажмите еще раз для остановки и транскрипции.";
+"settings.permissions.title" = "Разрешения приложения";
+"settings.permissions.subtitle" = "Clio требует следующие разрешения для правильной работы";
+"settings.permissions.all_granted" = "Все необходимые разрешения предоставлены и функционируют правильно";
+"settings.permissions.required_note" = "Все разрешения необходимы для правильной работы Clio.";
+"settings.permission.keyboard_shortcut" = "Горячая клавиша";
+"settings.permission.microphone" = "Доступ к микрофону";
+"settings.permission.accessibility" = "Специальные возможности";
+"settings.permission.screen_recording" = "Запись экрана";
+"settings.status.enabled" = "Включено";
+"settings.status.disabled" = "Отключено";
+
+/* Authentication */
+"auth.signin.title" = "Добро пожаловать обратно в Clio";
+"auth.signin.subtitle" = "Транскрипция со скоростью мысли — в 3 раза быстрее печати";
+"auth.signin.button" = "Войти";
+"auth.signin.switch_prompt" = "Нет аккаунта?";
+"auth.signin.switch_action" = "Зарегистрироваться";
+"auth.signup.title" = "Создайте свой аккаунт Clio";
+"auth.signup.subtitle" = "Транскрипция со скоростью мысли — в 3 раза быстрее печати";
+"auth.signup.button" = "Создать аккаунт";
+"auth.signup.switch_prompt" = "Уже есть аккаунт?";
+"auth.signup.switch_action" = "Войти";
+"auth.placeholder.fullname" = "Полное имя";
+"auth.placeholder.email" = "Электронная почта";
+"auth.placeholder.password" = "Пароль";
+"auth.placeholder.confirm_password" = "Подтвердите пароль";
+"auth.error.passwords_mismatch" = "Пароли не совпадают";
+"auth.remember_password" = "Запомнить пароль";
+"auth.processing" = "Обработка...";
+"auth.forgot_password" = "Забыли пароль?";
+"auth.error.invalid_email" = "Сначала введите действительный адрес электронной почты";
+"auth.password_reset_sent" = "Письмо для сброса пароля отправлено на %@";
+"auth.error.password_reset_failed" = "Не удалось отправить письмо для сброса пароля. Попробуйте еще раз.";
+
+/* Onboarding */
+"onboarding.welcome.title" = "Добро пожаловать!";
+"onboarding.welcome.subtitle" = "Где вы о нас услышали?";
+"onboarding.skip" = "Пропустить пока";
+
+/* Onboarding - Trial */
+"onboarding.trial.title" = "Попробуйте Clio Pro";
+"onboarding.trial.subtitle" = "Испытайте лучшие в классе модели речи во время пробного периода, затем обновитесь до безлимитной транскрипции за $7.99/мес";
+"onboarding.trial.feature.lightning_fast.title" = "Молниеносная транскрипция";
+"onboarding.trial.feature.lightning_fast.description" = "Транскрипция всего за 600мс для мгновенной продуктивности голос-в-текст";
+"onboarding.trial.feature.world_leading.title" = "Мировое лидерство в распознавании речи";
+"onboarding.trial.feature.world_leading.description" = "Лучшая в классе точность для 50+ языков с продвинутыми ИИ моделями";
+"onboarding.trial.feature.realtime_translation.title" = "Перевод в реальном времени";
+"onboarding.trial.feature.realtime_translation.description" = "Диктуйте на своем языке, мгновенно переводите на другой";
+"onboarding.trial.feature.messy_to_polished.title" = "ИИ авто-редактирование";
+"onboarding.trial.feature.messy_to_polished.description" = "Превращайте неаккуратную речь в отшлифованный текст. Никаких слов-паразитов, только четкие идеи.";
+"onboarding.trial.feature.speed_up_writing.title" = "Ускорьте свое письмо везде";
+"onboarding.trial.feature.speed_up_writing.description" = "Работает в каждом приложении Mac. Голосовой ввод везде с безлимитной транскрипцией.";
+"onboarding.trial.feature.privacy_first.title" = "Конфиденциальность превыше всего";
+"onboarding.trial.feature.privacy_first.description" = "Нулевое хранение данных. Ваш голос и текст никогда не сохраняются. 100% владение данными.";
+"onboarding.trial.start_trial" = "Начать пробный период";
+"onboarding.trial.view_plans" = "Посмотреть Pro планы";
+
+/* Onboarding - Enhanced Permissions */
+"onboarding.enhanced_permissions.title" = "Настройка Clio на вашем компьютере";
+"onboarding.enhanced_permissions.subtitle" = "Предоставление разрешений для включения голосовой транскрипции";
+"onboarding.enhanced_permissions.accessibility.title" = "Доступ к специальным возможностям";
+"onboarding.enhanced_permissions.accessibility.description" = "Позволяет Clio вставлять транскрибированный текст в любое приложение";
+"onboarding.enhanced_permissions.microphone.title" = "Доступ к микрофону";
+"onboarding.enhanced_permissions.microphone.description" = "Необходимо для голосовой транскрипции";
+"onboarding.enhanced_permissions.granted" = "Предоставлено";
+"onboarding.enhanced_permissions.grant_access" = "Предоставить доступ";
+"onboarding.enhanced_permissions.open_settings" = "Открыть настройки";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.choose_hotkey" = "Выберите свою горячую клавишу";
+"onboarding.enhanced_setup.hotkey_description" = "Нажмите эту клавишу один раз для начала записи без рук, нажмите еще раз для транскрипции";
+"hotkey.modal.title" = "Choose Hotkey";
+"hotkey.modal.subtitle" = "Select your preferred key for voice recording";
+"hotkey.modal.description" = "Нажмите любую клавишу или комбинацию клавиш, которую хотите использовать";
+
+/* Subscription */
+"subscription.upgrade.title" = "Обновиться до Clio Pro";
+"subscription.upgrade.subtitle" = "Разблокируйте продвинутые функции и безлимитное использование";
+"subscription.trial.active" = "Pro пробный период активен";
+"subscription.trial.days_remaining" = "Осталось %d дней";
+"subscription.feature.trying_to_use" = "Вы пытаетесь использовать:";
+"subscription.billing.monthly" = "Ежемесячно";
+"subscription.billing.yearly" = "Ежегодно";
+"subscription.billing.save" = "Сэкономьте $17";
+"subscription.billing.per_month" = "/месяц";
+"subscription.billing.per_year" = "/год";
+"subscription.billing.annual_savings" = "Всего $7.08/месяц при годовой оплате";
+"subscription.features.title" = "Что включено в Pro";
+"subscription.feature.premium_models.title" = "Доступ к продвинутым моделям";
+"subscription.feature.premium_models.description" = "Доступ ко всем продвинутым моделям с превосходной задержкой, точностью и производительностью";
+"subscription.feature.ai_enhancement.title" = "ИИ улучшение и авто-исправление";
+"subscription.feature.ai_enhancement.description" = "Интеллектуальное улучшение текста с авто-исправлением, пониманием контекста и улучшенной интеграцией рабочих процессов";
+"subscription.feature.unlimited.title" = "Безлимитная транскрипция";
+"subscription.feature.unlimited.description" = "Никаких месячных ограничений на транскрипцию с безлимитным использованием всех функций";
+"subscription.feature.priority_support.title" = "Премиум поддержка";
+"subscription.feature.priority_support.description" = "Приоритетная помощь, когда вам нужна поддержка";
+"subscription.feature.base_model.title" = "Базовая модель (Clio Flash)";
+"subscription.feature.base_model.description" = "Бесплатно навсегда - идеально для ежедневного использования с надежным качеством транскрипции";
+"subscription.cta.get_pro" = "Получить Clio Pro";
+"subscription.cta.have_license" = "У меня есть лицензионный ключ";
+"subscription.cta.start_trial" = "Начать %@ бесплатный пробный период";
+"subscription.pro" = "PRO";
+"subscription.clio_pro" = "Clio Pro";
+"subscription.upgrade" = "Обновиться";
+
+/* License Management */
+"license.management.title" = "Управление лицензией";
+"license.status.activated" = "Премиум функции активированы";
+"license.action.remove" = "Удалить лицензию";
+"license.action.activate" = "Активировать лицензию";
+"license.placeholder.enter_key" = "Введите лицензионный ключ";
+"license.status.active" = "Лицензия активна";
+"license.pro.welcome.title" = "Спасибо за то, что вы Pro пользователь!";
+"license.pro.welcome.subtitle" = "У вас есть доступ ко всем премиум функциям и безлимитному использованию";
+"license.licensed_to" = "Лицензирован для: %@";
+"license.have_key_question" = "Есть лицензионный ключ?";
+"license.activation.success" = "Лицензия успешно активирована!";
+"license.activation.error" = "Неверный лицензионный ключ. Попробуйте еще раз.";
+"license.description" = "Управляйте своей подпиской и получайте доступ к премиум функциям";
+"license.manage_account" = "Управлять";
+"license.refer_friends" = "Пригласить друзей";
+"license.subscription.title" = "Подписка";
+"license.subscription.pro_status" = "В настоящее время вы на Pro плане.";
+"license.subscription.thanks" = "Спасибо за то, что вы Pro.";
+"license.credits.title" = "Кредиты";
+"license.credits.current_balance" = "Текущий баланс";
+"license.credits.share_link" = "Поделиться ссылкой";
+"license.credits.next_tier" = "Следующий уровень";
+"license.credits.invite_description" = "Приглашайте друзей в Clio и получайте месяц бесплатно за каждое приглашение.";
+
+/* Subscription Status */
+"license.status.expires_soon" = "Скоро Истекает";
+"license.status.days_remaining" = "Дней Осталось";
+"license.status.access_until" = "Доступ до";
+
+/* Menu Bar */
+"menu.add_word_to_dictionary" = "Добавить слово в словарь";
+"menu.version" = "Версия";
+"menu.share_feedback" = "Поделиться отзывом";
+"menu.select_dictation_language" = "Выбрать язык диктовки";
+"menu.select_audio_input" = "Выбрать аудиовход";
+
+/* Dictation Language Settings */
+"settings.dictation.auto_detect" = "Автоопределение";
+"settings.dictation.languages_count" = "%d Языков";
+"settings.dictation.select_languages" = "Выбрать Языки";
+
+/* Trial */
+"trial.usage.title" = "Использование пробного периода";
+"trial.days_remaining_detail" = "%d из %d дней осталось";
+"trial.limit_reached" = "Лимит пробного периода достигнут. Обновитесь для продолжения.";
+"trial.word_limit_warning" = "Лимит слов в пробной версии почти исчерпан";
+"trial.word_limit_reached" = "Лимит слов в пробной версии исчерпан. Обновитесь, чтобы продолжить.";
+"trial.words_remaining" = "Осталось %@ слов";
+"trial.words_remaining_detail" = "%d / %d слов использовано";
+"trial.words_used_detail" = "Использовано %@ слов";
+
+/* Word-based Trial */
+"trial.words.title" = "Бесплатный пробный период";
+"trial.words.subtitle" = "Испытайте Pro функции с 4000 бесплатными словами";
+"trial.words.usage_detail" = "%@ из %@ слов использовано";
+"trial.words.remaining" = "Осталось %@ слов";
+"trial.words.used" = "Использовано %@ слов";
+"trial.words.expired.title" = "Пробный период завершен";
+"trial.words.expired.subtitle" = "Вы использовали все 4000 пробных слов";
+"trial.words.expired.description" = "Готовы разблокировать безлимитную транскрипцию и премиум функции?";
+"trial.words.limit_warning" = "Пробный период скоро закончится - осталось %@ слов";
+"trial.words.progress.label" = "Прогресс пробного периода";
+"trial.words.of_total" = "%@ / %@";
+
+/* Modern CTA Messages */
+"upgrade.primary.title" = "Разблокировать безлимитную мощь";
+"upgrade.primary.subtitle" = "Присоединитесь к тысячам пользователей, транскрибирующих без ограничений";
+"upgrade.secondary.title" = "Продолжить с Pro";
+"upgrade.benefit.unlimited" = "Безлимитная транскрипция";
+"upgrade.benefit.premium_models" = "Премиум ИИ модели";
+"upgrade.benefit.enhancements" = "Умная обработка текста";
+"upgrade.benefit.support" = "Приоритетная поддержка";
+"upgrade.cta.primary" = "Обновиться до Pro";
+"upgrade.cta.secondary" = "Посмотреть все функции";
+"upgrade.value.proposition" = "Разовая покупка • Пожизненный доступ • Все функции включены";
+
+/* Enhanced License Activation */
+"license.activation.title" = "Активировать лицензию";
+"license.activation.subtitle" = "Введите свой лицензионный ключ для разблокировки Pro функций";
+"license.key.placeholder" = "XXXX-XXXX-XXXX-XXXX";
+"license.activation.cta" = "Активировать Pro лицензию";
+
+/* Subscription Upgrade */
+"subscription.upgrade.description" = "Разовая покупка • Пожизненный доступ • Все функции разблокированы";
+"subscription.upgrade.word_limit_cta" = "Использовано 4 000 слов пробной версии • Обновитесь для безлимита";
+"subscription.word_trial.progress_format" = "%@ / %@ слов";
+"subscription.word_trial.percentage_used" = "%d%% использовано";
+
+/* Features */
+"feature.unlimited_transcriptions" = "Безлимитная транскрипция";
+"feature.large_whisper_models" = "Доступ ко всем продвинутым моделям (превосходная задержка, точность и т.д.)";
+"feature.ai_enhancement" = "ИИ улучшение и авто-исправление";
+"feature.custom_prompts" = "Интеллектуальная обработка и оптимизация текста";
+"feature.power_modes" = "Продвинутая интеграция рабочих процессов";
+"feature.cloud_sync" = "Облачная синхронизация не поддерживается";
+"feature.priority_support" = "Премиум поддержка";
+"feature.basic_transcription" = "Базовая модель (бесплатно навсегда)";
+"feature.unlimited_usage.title" = "Безлимитная транскрипция";
+"feature.unlimited_usage.description" = "Превращайте безлимитные часы речи в текст без месячных ограничений";
+"feature.all_models.title" = "Мирового класса ИИ модели";
+"feature.all_models.description" = "Доступ к самой продвинутой, молниеносной технологии транскрипции в мире";
+"feature.ai_enhancement.title" = "Интеллектуальное улучшение текста";
+"feature.ai_enhancement.description" = "Авто-исправление грамматики, улучшение ясности и придание блеска вашим словам с помощью ИИ магии";
+"feature.enhanced_modes.title" = "Умное распознавание контекста";
+"feature.enhanced_modes.description" = "ИИ понимает ваши разговоры и адаптируется к вашему уникальному стилю речи";
+"feature.cloud_sync.title" = "Облачная синхронизация";
+"feature.cloud_sync.description" = "Доступ со всех устройств";
+"feature.priority_support.title" = "Приоритетная поддержка";
+"feature.priority_support.description" = "Получайте помощь, когда она вам нужна";
+
+/* Usage Stats */
+"usage.your_usage.title" = "Ваше использование";
+"usage.words" = "Слова";
+"usage.sessions" = "Сессии";
+"usage.time_saved" = "Сэкономлено времени";
+
+/* Footer */
+"footer.support" = "Поддержка";
+"footer.documentation" = "Документация";
+"footer.privacy" = "Конфиденциальность";
+
+/* Flash Model Download Dialog */
+"trial.expired.title" = "Пробный период истек";
+"trial.expired.description" = "Ваш Pro пробный период закончился. Чтобы продолжить использование Clio, вы можете обновиться до Pro или загрузить бесплатную модель Flash для базовой транскрипции.";
+"trial.expired.flash.description" = "Быстрая, точная и бесплатная навсегда";
+"trial.expired.download.flash" = "Загрузить Clio Flash";
+"trial.expired.upgrade.pro" = "Обновиться до Pro";
+
+/* Recording Failed Dialog */
+"recording.failed.title" = "Запись не удалась";
+"recording.failed.description" = "Запись не удалась, потому что %@ требует Pro подписку. Выберите вариант ниже:";
+"recording.failed.option1" = "Обновиться до Pro для безлимитного доступа";
+"recording.failed.option2" = "Использовать Clio Flash (бесплатно) для базовой транскрипции";
+"recording.failed.upgrade.now" = "Обновиться до Pro";
+"recording.failed.use.free" = "Использовать Flash модель";
+
+/* Common */
+"common.cancel" = "Отменить";
+"common.error" = "Ошибка";
+"common.ok" = "ОК";
+
+/* Audio Player */
+"audio_player.generating_waveform" = "Генерация формы волны...";
+"audio_player.recording" = "Запись";
+"audio_player.show_in_finder" = "Показать в Finder";
+"audio_player.retranscribe_audio" = "Повторно транскрибировать это аудио";
+"audio_player.retranscription_successful" = "Повторная транскрипция успешна";
+"audio_player.retranscription_failed" = "Повторная транскрипция не удалась";
+"audio_player.no_model_selected" = "Модель транскрипции не выбрана";
+
+/* Audio Transcribe */
+"audio_transcribe.transcription_result" = "Результат транскрипции";
+"audio_transcribe.enhanced" = "Улучшенная";
+"audio_transcribe.original" = "Оригинальная";
+"audio_transcribe.transcription" = "Транскрипция";
+"audio_transcribe.duration" = "Длительность: %@";
+"audio_transcribe.audio_file_selected" = "Выбран аудиофайл: %@";
+"audio_transcribe.ai_enhancement" = "ИИ улучшение";
+"audio_transcribe.prompt" = "Промпт:";
+"audio_transcribe.select_prompt" = "Выбрать промпт";
+"audio_transcribe.start_transcription" = "Начать транскрипцию";
+"audio_transcribe.choose_different_file" = "Выбрать другой файл";
+"audio_transcribe.drop_audio_file" = "Перетащите аудиофайл сюда";
+"audio_transcribe.or" = "или";
+"audio_transcribe.choose_file" = "Выбрать файл";
+"audio_transcribe.supported_formats" = "Поддерживаемые форматы: WAV, MP3, M4A, AIFF";
+
+/* Settings */
+"settings.audio_cleanup.title" = "Очистка аудио";
+"settings.audio_cleanup.subtitle" = "Управление хранением записей";
+"settings.audio_cleanup.description" = "Аудиофайлы автоматически удаляются через 14 дней для экономии места хранения. Транскрипции всегда сохраняются.";
+"settings.ai_model_type.title" = "Тип ИИ модели";
+"settings.ai_model_type.local" = "Локальный ИИ";
+"settings.ai_model_type.local_description" = "Приватная, офлайн обработка, требует лучшее оборудование";
+"settings.ai_model_type.cloud" = "Облачный ИИ";
+"settings.ai_model_type.cloud_description" = "Умнее, новейшие модели, требует подключение к интернету";
+"settings.context_options.title" = "Параметры контекста";
+"settings.context_options.clipboard" = "Использовать контекст буфера обмена";
+"settings.context_options.clipboard_description" = "Включать содержимое буфера обмена, чтобы помочь ИИ понять контекст и исправить ошибки транскрипции";
+"settings.context_options.screen" = "Использовать контекст экрана";
+"settings.context_options.screen_description" = "Захватывать видимый текст для предоставления дополнительного контекста (требует разрешение на запись экрана)";
+"settings.deep_context.title" = "Глубокий контекст";
+"settings.deep_context.subtitle" = "Анализирует экранный контент и обеспечивает интеллектуальное понимание контекста для повышения точности и персонализации";
+"settings.permissions.grant" = "Предоставить";
+"settings.subscription.active" = "Активно";
+"settings.subscription.trial_usage" = "Использование пробного периода";
+"settings.subscription.premium_features" = "Премиум функции";
+"settings.local_ai_model.title" = "Локальная ИИ модель";
+"settings.local_ai_model.downloaded" = "Загружено";
+"settings.cloud_ai_provider.title" = "Облачный ИИ провайдер";
+"settings.cloud_ai_provider.api_key" = "API ключ";
+"settings.cloud_ai_provider.verify" = "Проверить";
+"settings.cloud_ai_provider.get_key" = "Получить ключ";
+
+/* Qwen Provider */
+"ai_provider.qwen.title" = "Alibaba Cloud Qwen-Turbo";
+"ai_provider.qwen.subtitle" = "Быстрая и эффективная ИИ модель для улучшения текста";
+"ai_provider.connected" = "Подключено";
+"ai_provider.api_key" = "API ключ";
+"ai_provider.remove_key" = "Удалить ключ";
+"ai_provider.qwen.enter_api_key" = "Введите ваш API ключ Alibaba Cloud";
+"ai_provider.invalid_key_error" = "Неверный API ключ. Проверьте и попробуйте еще раз.";
+"ai_provider.verify_and_save" = "Проверить и сохранить";
+"ai_provider.get_key" = "Получить API ключ";
+
+/* Metrics */
+"metrics.you_are" = "Вы";
+"metrics.faster" = "на %@ быстрее";
+"metrics.with_voiceink" = "с Clio";
+"metrics.speaking_time" = "ВРЕМЯ ГОВОРЕНИЯ";
+"metrics.typing_time" = "ВРЕМЯ ПЕЧАТИ";
+"metrics.time_saved" = "СЭКОНОМЛЕНО ВРЕМЕНИ";
+"metrics.feedback_or_issues" = "Отзывы или проблемы?";
+"metrics.report" = "Сообщить";
+
+/* Model Library */
+"models.status.default" = "По умолчанию";
+"models.status.downloaded" = "Загружено";
+"models.status.default_model" = "Модель по умолчанию";
+"models.action.set_default" = "Установить по умолчанию";
+"models.action.download" = "Скачать";
+"models.action.downloading" = "Загрузка...";
+"models.action.delete" = "Удалить модель";
+"models.action.show_in_finder" = "Показать в Finder";
+"models.performance.speed" = "Скорость";
+"models.performance.accuracy" = "Точность";
+"models.component.model" = "Модель";
+"models.component.coreml" = "CoreML";
+
+/* Power Mode */
+"power_mode.title" = "ИИ улучшение";
+"power_mode.info" = "Создавайте пользовательские конфигурации, которые автоматически применяются при использовании определенных приложений/веб-сайтов.";
+"power_mode.subtitle" = "Автоматически применять пользовательские конфигурации в зависимости от используемого приложения/веб-сайта";
+"power_mode.add_title" = "Добавить ИИ улучшение";
+"power_mode.edit_default_title" = "Редактировать ИИ улучшение по умолчанию";
+"power_mode.edit_title" = "Редактировать ИИ улучшение";
+"power_mode.universal_fallback" = "Универсальный запасной вариант";
+"power_mode.delete_title" = "Удалить %@?";
+"power_mode.delete_warning" = "Это действие нельзя отменить. Все связанные приложения, веб-сайты и настройки будут удалены.";
+"power_mode.default_configuration" = "Конфигурация по умолчанию";
+"power_mode.email" = "Электронная почта";
+"power_mode.meeting_notes" = "Заметки совещания";
+"power_mode.card.apps" = "Приложения";
+"power_mode.card.websites" = "Веб-сайты";
+"power_mode.card.universal_fallback" = "Применяется ко всем приложениям и веб-сайтам без специальных режимов";
+
+/* Power Mode Modal */
+"power_mode.modal.add_title" = "Добавить усиленный режим";
+"power_mode.modal.add_button" = "Добавить";
+"power_mode.modal.ai_enhancement" = "ИИ улучшение";
+"power_mode.modal.ai_provider" = "ИИ провайдер";
+"power_mode.modal.ai_model" = "ИИ модель";
+"power_mode.modal.icon" = "Иконка";
+"power_mode.modal.description" = "Создайте пользовательский усиленный режим для автоматического применения специфических настроек при использовании определенных приложений или веб-сайтов.";
+"power_mode.modal.name" = "Название";
+"power_mode.modal.when_to_trigger" = "Когда срабатывать";
+"power_mode.modal.applications" = "Приложения";
+"power_mode.modal.no_apps" = "Приложения не добавлены";
+"power_mode.modal.websites" = "Веб-сайты";
+"power_mode.modal.no_websites" = "Веб-сайты не добавлены";
+"power_mode.modal.enhancement_prompt" = "Промпт для улучшения";
+"power_mode.modal.edit_title" = "Редактировать усиленный режим";
+"power_mode.modal.edit_description" = "Редактируйте настройки и конфигурации вашего усиленного режима.";
+"power_mode.modal.transcription" = "Транскрипция";
+"power_mode.modal.model" = "Модель";
+"power_mode.modal.language" = "Язык";
+"power_mode.modal.section.basics" = "Основы";
+"power_mode.modal.section.triggers" = "Триггеры";
+"power_mode.modal.section.prompt" = "Промпт";
+"power_mode.modal.section.basics_description" = "Настройте основную информацию и параметры транскрипции";
+"power_mode.modal.section.triggers_description" = "Выберите, когда этот усиленный режим должен активироваться";
+"power_mode.modal.section.prompt_description" = "Выберите, как ИИ будет улучшать ваши транскрипции";
+"power_mode.modal.mode_name" = "Название режима";
+"power_mode.modal.name_placeholder" = "Введите описательное название";
+"power_mode.modal.browse_apps" = "Обзор приложений";
+"power_mode.modal.recognition_model" = "Модель распознавания";
+"power_mode.modal.system_default" = "Системный по умолчанию";
+"power_mode.modal.no_apps_selected" = "Приложения не выбраны";
+"power_mode.modal.add_apps_subtitle" = "Добавьте приложения для активации этого режима";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_urls_subtitle" = "Добавьте URL для активации этого режима";
+"power_mode.modal.search_apps" = "Поиск приложений";
+"power_mode.modal.loading_apps" = "Загрузка приложений...";
+"power_mode.modal.edit_prompt" = "Редактировать промпт";
+"power_mode.modal.new_mode" = "Новый усиленный режим";
+"power_mode.modal.edit_mode" = "Редактировать усиленный режим";
+"power_mode.modal.delete_mode" = "Удалить режим";
+"power_mode.modal.delete_confirmation" = "Удалить усиленный режим";
+"power_mode.modal.delete_warning" = "Это действие нельзя отменить. Все настройки и конфигурации будут навсегда удалены.";
+"power_mode.modal.ai_enhancement_prompt" = "Промпт ИИ улучшения";
+"power_mode.modal.prompt_description" = "Настройте, как ИИ будет улучшать ваши транскрипции для этого режима.";
+"power_mode.modal.predefined_prompt" = "Это предопределенный промпт для %@";
+"power_mode.modal.default_prompt" = "Возвращать транскрипцию как есть без изменений.";
+"power_mode.modal.email_prompt" = "Преобразовать эту транскрипцию в формат профессионального электронного письма.";
+"power_mode.modal.meeting_prompt" = "Структурировать эту транскрипцию как заметки совещания с пунктами действий.";
+"power_mode.modal.no_prompt" = "Промпт не настроен";
+"power_mode.modal.create_prompt" = "Создать пользовательский промпт";
+"power_mode.modal.prompt_instructions" = "Инструкции промпта";
+"power_mode.modal.builtin_template_editable" = "Встроенный шаблон (редактируемый)";
+"power_mode.modal.builtin_template" = "Встроенный шаблон";
+"power_mode.modal.edit_templates" = "Редактировать с шаблонами";
+"power_mode.modal.prompt_placeholder" = "Введите ваши инструкции ИИ улучшения здесь...";
+"power_mode.modal.use_template" = "Использовать шаблон";
+"power_mode.modal.triggers_info" = "Условия срабатывания";
+"power_mode.modal.triggers_description" = "Установите, когда этот усиленный режим должен активироваться";
+"power_mode.modal.applications" = "Приложения";
+"power_mode.modal.no_applications" = "Приложения не выбраны";
+"power_mode.modal.no_applications_subtitle" = "Добавьте приложения для активации этого режима";
+"power_mode.modal.browse_apps" = "Обзор приложений";
+"power_mode.modal.websites" = "Веб-сайты";
+"power_mode.modal.no_websites" = "Веб-сайты не добавлены";
+"power_mode.modal.add_urls_subtitle" = "Добавьте URL для активации этого режима";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_button" = "Добавить";
+"power_mode.modal.mode_name" = "Название режима";
+"power_mode.modal.name_placeholder" = "Введите название режима";
+"power_mode.modal.characters" = "символов";
+"power_mode.modal.icon" = "Иконка";
+"power_mode.modal.recognition_model" = "Модель распознавания";
+"power_mode.modal.system_default" = "Системный по умолчанию";
+"power_mode.modal.transcription_settings" = "Настройки транскрипции";
+"power_mode.modal.global_settings_notice" = "Настройки модели и языка теперь используют глобальные предпочтения со страницы настроек";
+
+/* PowerMode Empty State */
+"power_mode.empty.title" = "Нет усиленных режимов";
+"power_mode.empty.subtitle" = "Добавьте настроенные мощные режимы для разных контекстов";
+"power_mode.empty.add_button" = "Добавить новый усиленный режим";
+
+/* General Actions */
+"general.edit" = "Редактировать";
+"general.remove" = "Удалить";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.step_keyboard" = "Клавиатура";
+"onboarding.enhanced_setup.step_microphone" = "Микрофон";
+"onboarding.enhanced_setup.step_model" = "Модель";
+"onboarding.enhanced_setup.in_progress" = "В процессе";
+"onboarding.enhanced_setup.complete" = "Завершить";
+"onboarding.enhanced_setup.choose_hotkey" = "Выберите клавишу для записи";
+"onboarding.enhanced_setup.hotkey_description" = "Удерживайте эту клавишу один раз, чтобы начать запись в режиме hands‑free, затем нажмите ещё раз, чтобы транскрибировать. Выберите то, что вам удобно.";
+"hotkey.modal.title" = "Choose Hotkey";
+"hotkey.modal.subtitle" = "Select your preferred key for voice recording";
+"hotkey.modal.description" = "Нажмите любую клавишу или комбинацию клавиш, которую хотите использовать";
+"onboarding.enhanced_setup.key_right_option" = "Правый Option";
+"onboarding.enhanced_setup.key_left_option" = "Левый Option";
+"onboarding.enhanced_setup.key_left_control" = "Левый Control";
+"onboarding.enhanced_setup.key_right_control" = "Правый Control";
+"onboarding.enhanced_setup.key_function" = "Function";
+"onboarding.enhanced_setup.key_right_command" = "Правый Command";
+"onboarding.enhanced_setup.key_right_shift" = "Правый Shift";
+"onboarding.enhanced_setup.recommended" = "Рекомендуется";
+
+/* Onboarding - Trial (alternative) */
+"onboarding.trial.feature_1_title" = "Премиум модели";
+"onboarding.trial.feature_1_description" = "Доступ к более крупным, более точным моделям Whisper";
+"onboarding.trial.feature_2_title" = "ИИ улучшение";
+"onboarding.trial.feature_2_description" = "Автоматически улучшать транскрипции с помощью ИИ";
+"onboarding.trial.feature_3_title" = "Усиленные режимы";
+"onboarding.trial.feature_3_description" = "Автоматические настройки на основе контекста";
+"onboarding.trial.continue_free" = "Продолжить с бесплатной версией";
+
+/* Onboarding - Permissions */
+"onboarding.permissions.microphone.title" = "Доступ к микрофону";
+"onboarding.permissions.microphone.description" = "Разрешить Clio доступ к вашему микрофону для записи аудио";
+"onboarding.permissions.microphone_selection.title" = "Выбрать микрофон";
+"onboarding.permissions.microphone_selection.description" = "Выберите, какой микрофон использовать для записи";
+"onboarding.permissions.accessibility.title" = "Доступ к специальным возможностям";
+"onboarding.permissions.accessibility.description" = "Разрешить Clio автоматически вставлять транскрипции";
+"onboarding.permissions.screen_recording.title" = "Запись экрана";
+"onboarding.permissions.screen_recording.description" = "Опционально: улучшает точность и персонализацию транскрипции с помощью контекста экрана. Мы никогда не сохраняем и не храним содержимое вашего экрана.";
+"onboarding.permissions.screen_recording.short" = "Опционально: контекст экрана повышает точность и персонализацию. Мы не сохраняем и не храним содержимое экрана.";
+"onboarding.permissions.screen_recording.long" = "Опционально, но очень рекомендуется: включение контекста экрана существенно повышает точность и персонализацию. Конфиденциальность превыше всего: мы не сохраняем содержимое вашего экрана. Оно используется только для предоставления контекста во время транскрипции. При использовании облачной модели контекст передается временно для запуска модели и сразу удаляется — на наших серверах ничего не хранится.";
+"privacy.learn_more" = "Подробнее";
+"privacy.hide_details" = "Скрыть детали";
+"privacy.policy" = "Политика конфиденциальности";
+"onboarding.permissions.keyboard_shortcut.title" = "Горячая клавиша";
+"onboarding.permissions.keyboard_shortcut.description" = "Установите клавишу для однократного нажатия для записи без рук";
+"onboarding.permissions.no_microphones" = "Микрофоны не найдены";
+"onboarding.permissions.select_microphone" = "Выбрать микрофон";
+"onboarding.permissions.microphone_recommendation" = "Мы рекомендуем использовать внешний микрофон для лучшего качества";
+"onboarding.permissions.set_shortcut" = "Установить горячую клавишу";
+"onboarding.permissions.enable_access" = "Включить доступ";
+"onboarding.button.skip_for_now" = "Пропустить пока";
+"onboarding.permissions.key_fn" = "fn";
+"onboarding.permissions.key_right_option" = "Правый Option";
+"onboarding.permissions.key_left_option" = "Левый Option";
+"onboarding.permissions.key_left_control" = "Левый Control";
+"onboarding.permissions.key_right_control" = "Правый Control";
+"onboarding.permissions.key_function" = "Function";
+"onboarding.permissions.key_right_command" = "Правый Command";
+"onboarding.permissions.key_right_shift" = "Правый Shift";
+
+/* Onboarding - Try It Components */
+"onboarding.intro.title" = "Clio работает в любом приложении";
+"onboarding.intro.description" = "От электронной почты до чатов и документов — Clio работает в любом текстовом поле на вашем компьютере.";
+"onboarding.intro.next" = "Далее";
+"onboarding.shortcut.title" = "Транскрибируйте что угодно";
+"onboarding.shortcut.description" = "Нажмите клавишу %@ один раз для записи без рук, затем нажмите еще раз для транскрипции и вставки текста в любое место.";
+"onboarding.shortcut.hotkey_title" = "Ваша горячая клавиша";
+"onboarding.shortcut.action_text" = "Нажмите один раз для записи без рук, нажмите еще раз для транскрипции";
+"onboarding.shortcut.try_it_out" = "Попробуйте";
+"onboarding.demo.listening" = "Слушаю...";
+"onboarding.demo.ai_formatting" = "ИИ форматирование...";
+"onboarding.tryit.command_prefix" = "Выделите весь текст ниже, затем удерживайте";
+"onboarding.tryit.title" = "Попробуйте!";
+"onboarding.tryit.description" = "Нажмите на текстовое поле и используйте клавишу %@ для записи без рук и транскрипции.";
+"onboarding.tryit.step1" = "Нажмите на текстовое поле справа";
+"onboarding.tryit.step2" = "Нажмите клавишу %@";
+"onboarding.tryit.step3" = "Говорите четко в ваш микрофон";
+"onboarding.tryit.step4" = "Нажмите клавишу еще раз для транскрипции";
+"onboarding.tryit.complete_setup" = "Завершить настройку";
+"onboarding.tryit.skip_for_now" = "Пропустить пока";
+"onboarding.tryit.placeholder" = "Нажмите горячую клавишу для начала диктовки...";
+"onboarding.tryit.command_instruction_suffix" = "скажите \"Переведи это на китайский\", затем отпустите обе клавиши";
+
+/* Onboarding - Setup Components */
+"onboarding.setup.back" = "Назад";
+"onboarding.setup.keyboard.title" = "Выберите горячую клавишу";
+"onboarding.setup.keyboard.description" = "Удерживайте эту клавишу один раз, чтобы начать запись без рук, затем нажмите ещё раз для транскрипции";
+"onboarding.setup.continue" = "Продолжить";
+
+/* Power Mode Modal */
+"power_mode.modal.select_apps" = "Выбрать приложения";
+
+/* Missing Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "Протестируйте ваш микрофон";
+"onboarding.setup.microphone.description" = "Убедитесь, что Clio может вас четко слышать";
+"onboarding.setup.microphone.speak_now" = "Говорите сейчас...";
+"onboarding.setup.microphone.tap_to_test" = "Нажмите для тестирования микрофона";
+"onboarding.setup.microphone.stop" = "Стоп";
+"onboarding.setup.microphone.test_microphone" = "Тестировать микрофон";
+"onboarding.setup.model.title" = "Выберите модель транскрипции";
+"onboarding.setup.model.description" = "Более крупные модели точнее, но используют больше ресурсов";
+"onboarding.setup.model.download_continue" = "Загрузить и продолжить";
+"onboarding.setup.complete.title" = "Настройка завершена!";
+"onboarding.setup.complete.description" = "Clio готов транскрибировать ваш голос в любом приложении";
+"onboarding.setup.complete.try_it_out" = "Попробовать";
+"onboarding.setup.recommended" = "РЕКОМЕНДУЕТСЯ";
+"onboarding.setup.keyboard.right_option" = "Правый Option";
+"onboarding.setup.keyboard.left_option" = "Левый Option";
+"onboarding.setup.keyboard.left_control" = "Левый Control";
+"onboarding.setup.keyboard.right_control" = "Правый Control";
+"onboarding.setup.keyboard.function" = "Function";
+"onboarding.setup.keyboard.right_command" = "Правый Command";
+"onboarding.setup.keyboard.right_shift" = "Правый Shift";
+
+/* Missing Permission Keys */
+"onboarding.permissions.title" = "Настройте Clio на вашем компьютере";
+"onboarding.permissions.description" = "Предоставьте следующие разрешения для обеспечения бесшовной транскрипции голоса";
+"onboarding.permissions.accessibility_title" = "Доступ к специальным возможностям";
+"onboarding.permissions.accessibility_subtitle" = "Позволяет Clio вставлять транскрипции в любое место, где вы печатаете";
+"onboarding.permissions.microphone_title" = "Доступ к микрофону";
+"onboarding.permissions.microphone_subtitle" = "Включает запись голоса для транскрипции (только при активном использовании Clio)";
+"onboarding.permissions.continue" = "Продолжить";
+"onboarding.permissions.granted" = "Предоставлено";
+"onboarding.permissions.required" = "Требуется";
+"onboarding.permissions.tap_to_grant" = "Нажмите для предоставления разрешения";
+"onboarding.permissions.privacy_title" = "Конфиденциальность и безопасность";
+"onboarding.permissions.privacy_description" = "Clio уважает вашу конфиденциальность и запрашивает только разрешения, необходимые для транскрипции";
+"onboarding.permissions.feature_local" = "Только локальная обработка";
+"onboarding.permissions.feature_no_data" = "Никакого сбора данных";
+"onboarding.permissions.feature_control" = "Всегда под вашим контролем";
+
+/* Missing Enhanced Setup Keys */
+"onboarding.enhanced_setup.best_for_keyboards" = "Лучше всего для большинства клавиатур";
+"onboarding.enhanced_setup.alternative_option" = "Альтернативный вариант";
+"onboarding.enhanced_setup.download_size" = "Размер: %@";
+"onboarding.enhanced_setup.speed_rating" = "Скорость: %@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "Точность: %@/10";
+"onboarding.enhanced_setup.downloaded" = "Загружено";
+"onboarding.enhanced_setup.download" = "Загрузить";
+"onboarding.enhanced_setup.cloud_access" = "Облачный доступ";
+"onboarding.enhanced_setup.select_microphone" = "Выбрать микрофон";
+"onboarding.enhanced_setup.microphone_description" = "Выберите, какой микрофон использовать для записи";
+"onboarding.enhanced_setup.selected_microphone" = "Выбранный микрофон";
+"onboarding.enhanced_setup.no_microphones" = "Микрофоны не найдены";
+"onboarding.enhanced_setup.connect_microphone" = "Пожалуйста, подключите микрофон и попробуйте снова";
+"onboarding.enhanced_setup.default" = "По умолчанию";
+"onboarding.enhanced_setup.choose_model" = "Выберите модель транскрипции";
+"onboarding.enhanced_setup.model_description" = "Более крупные модели точнее, но используют больше ресурсов";
+"onboarding.enhanced_setup.all_set" = "Все готово!";
+"onboarding.enhanced_setup.ready_description" = "Clio готов транскрибировать ваш голос в любом приложении";
+"onboarding.enhanced_setup.feature_1_title" = "Глобальная горячая клавиша";
+"onboarding.enhanced_setup.feature_1_subtitle" = "Работает в любом приложении на вашем Mac";
+"onboarding.enhanced_setup.feature_2_title" = "Локальная обработка";
+"onboarding.enhanced_setup.feature_2_subtitle" = "Ваш голос остается приватным на вашем устройстве";
+"onboarding.enhanced_setup.feature_3_title" = "ИИ улучшение";
+"onboarding.enhanced_setup.feature_3_subtitle" = "Опциональная обработка ИИ для лучшей точности";
+"onboarding.enhanced_setup.feature_4_title" = "Транскрипция в реальном времени";
+"onboarding.enhanced_setup.feature_4_subtitle" = "Мгновенная вставка текста в любое место, где вы печатаете";
+"onboarding.enhanced_setup.get_started" = "Начать";
+"onboarding.enhanced_setup.visual_keyboard_text" = "Выберите предпочитаемую клавишу записи";
+"onboarding.enhanced_setup.visual_microphone_text" = "Выберите ваш микрофон для лучшего качества";
+"onboarding.enhanced_setup.visual_model_text" = "Выберите подходящую модель для ваших нужд";
+"onboarding.enhanced_setup.visual_fast" = "Быстро";
+"onboarding.enhanced_setup.visual_accurate" = "Точно";
+"onboarding.enhanced_setup.visual_private" = "Приватно";
+"onboarding.enhanced_setup.visual_perfect" = "Отлично!";
+"onboarding.enhanced_setup.visual_ready" = "Clio готов транскрибировать ваш голос";
+"onboarding.enhanced_setup.visual_step_1" = "Нажмите горячую клавишу один раз для начала записи без рук";
+"onboarding.enhanced_setup.visual_step_2" = "Говорите четко в ваш микрофон";
+"onboarding.enhanced_setup.visual_step_3" = "Нажмите горячую клавишу еще раз для транскрипции";
+"onboarding.enhanced_setup.mic_speak_to_test" = "Говорите для тестирования вашего микрофона";
+"onboarding.enhanced_setup.mic_listening" = "Слушаю...";
+
+/* Missing TryIt Keys */
+"onboarding.tryit.pro_badge" = "PRO";
+
+/* Email Sample Content */
+"email.to_label" = "Кому:";
+"email.subject_label" = "Тема:";
+"email.sample_address" = "sarah@company.com";
+"email.sample_subject" = "Обсуждение временных рамок проекта";
+
+/* Model Access Control */
+"models.upgrade_required_title" = "Pro модель требует обновления";
+"models.upgrade_fallback_message" = "Модель %@ требует Pro подписку. Хотите обновиться сейчас или переключиться на %@ (бесплатно навсегда)?";
+"models.upgrade_now" = "Обновиться до Pro";
+"models.use_free_model" = "Использовать бесплатную модель";
+"models.switched_to_free_title" = "Переключено на бесплатную модель";
+"models.switched_to_free_message" = "Теперь вы используете %@, которая бесплатна навсегда и идеальна для ежедневного использования.";
+"models.large_v3_quantized.description" = "Облегченная версия нашей самой продвинутой модели. Меньший размер загрузки и использует меньше памяти, сохраняя отличную точность. Идеально для устройств с ограниченным местом или оперативной памятью";
+
+/* Trial Expired Modal */
+"trial_expired.title" = "Пробный период истек";
+"trial_expired.description" = "Ваш Pro пробный период закончился. Выберите вариант для продолжения использования Clio.";
+"trial_expired.use_flash" = "Использовать базовую модель";
+"trial_expired.upgrade" = "Обновиться до Pro";
+"trial_expired.never_remind" = "Больше не напоминать";
+
+/* Offline Pro Features */
+"offline.onboarding.title" = "Попробуйте функции Clio Pro";
+"offline.onboarding.subtitle" = "Используйте Clio бесплатно навсегда с нашей стандартной моделью или попробуйте Pro функции в течение 7 дней";
+"offline.features.premium_models.title" = "Премиум модели";
+"offline.features.premium_models.description" = "Более крупные, более точные модели для превосходного качества транскрипции";
+"offline.features.ai_enhancement.title" = "Продвинутое ИИ улучшение";
+"offline.features.ai_enhancement.description" = "Интеллектуальное форматирование текста, исправление грамматики и улучшения контекста";
+/* Onboarding - Выбор языка */
+"onboarding.language_selection.title" = "Выберите языки диктовки";
+"onboarding.language_selection.subtitle" = "Выберите языки, на которых будете говорить";
+"onboarding.language_selection.description" = "Выберите несколько языков для многоязычной транскрипции";
+"onboarding.language_selection.show_all" = "Показать все языки";
+"onboarding.language_selection.show_less" = "Показать популярные языки";
+"onboarding.language_selection.selected_count" = "Выбрано языков: %d";
+"onboarding.language_selection.auto_detect" = "Автоматическое определение";
+"onboarding.language_selection.auto_description" = "Автоматически определяет язык, на котором вы говорите. Требует хороший микрофон для лучших результатов";
+"onboarding.language_selection.pick_languages" = "Выбрать языки";
+"onboarding.language_selection.pick_description" = "Выберите конкретные языки для лучшей точности";
+"onboarding.language_selection.search" = "Поиск языков...";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "Помогите нам лучше распознавать ваш голос";
+"onboarding.language.subtitle" = "Clio работает с более чем 60 языками. Это просто помогает нам лучше распознавать вашу речь. Выберите ваши основные языки для повышения точности—вы всё равно можете диктовать на любом языке.";
+"onboarding.language.search_placeholder" = "Поиск языков...";
+
+
+/* Feedback */
+"feedback.title" = "Свяжитесь с нами";
+"feedback.subtitle" = "Мы читаем каждое сообщение. Спасибо за помощь в улучшении Clio!";
+"feedback.tab.report_issue" = "Сообщить о проблеме";
+"feedback.tab.share_feedback" = "Поделиться отзывом";
+"feedback.field.email" = "Ваш email (необязательно)";
+"feedback.field.message" = "Сообщение";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "Что пошло не так? Пожалуйста, опишите шаги для воспроизведения проблемы.";
+"feedback.placeholder.feedback" = "Есть идеи по улучшению Clio? Поделитесь ими здесь.";
+"feedback.checkbox.blocking" = "Эта проблема полностью блокирует мое использование Clio";
+"feedback.info.system_info" = "Информация о системе будет включена автоматически";
+"feedback.button.send" = "Отправить сообщение";
+"feedback.success.title" = "Отзыв отправлен!";
+"feedback.success.message" = "Спасибо за ваш отзыв! Мы читаем каждое сообщение и свяжемся с вами при необходимости.";
+"feedback.error.title" = "Ошибка отправки отзыва";
+"feedback.error.invalid_response" = "Неверный ответ сервера";
+"feedback.error.submission_failed" = "Не удалось отправить отзыв. Попробуйте снова.";
+"feedback.error.http_error" = "Ошибка сервера (код: %d)";
+"feedback.subject.bug_report" = "Отчет об ошибке";
+"feedback.subject.general_feedback" = "Общий отзыв";
+"feedback.subject.urgent_bug" = "🚨 [СРОЧНАЯ ОШИБКА] Приложение Clio - Пользователь заблокирован";
+"feedback.subject.bug_format" = "[%@] Отзыв о приложении Clio";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "Глубокий Контекст анализирует содержимое экрана для улучшения точности транскрипции, понимая над чем вы работаете, распознавая отраслевые термины и предоставляя релевантный контекст модели распознавания речи. Это помогает с техническим жаргоном, именами собственными и контекстно-специфической лексикой.";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "Горячая Клавиша Диктовки";
+"settings.dictation_hotkey.description" = "Удерживать для записи, отпустить для транскрипции (режим нажми-и-говори)";
+"settings.hands_free_mode.title" = "Режим Без Рук";
+"settings.hands_free_mode.description" = "Нажмите один раз, чтобы говорить не удерживая клавишу, нажмите снова для транскрипции";
+"settings.assistant_mode.title" = "Командный Режим Clio";
+"settings.assistant_mode.description" = "Выберите текст для преобразования или задайте вопросы для поиска с Perplexity";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "ГОРЯЧИЕ КЛАВИШИ";
+"settings.edit_key" = "Изменить клавишу";
+"common.coming_soon" = "Скоро";
+
+
+/* Missing translations */
+"dictionary.add_new_word" = "Add new word";
+"dictionary.info_card.title.vocab" = "Teach Clio your language.";
+"dictionary.info_card.title.voice" = "Shape how your voice lands.";
+"dictionary.voice_shortcuts_description" = "Create smart voice shortcuts to rewrite filler, expand shorthands, or clean up habits—automatically, as you speak.\nSay \"my number\" → Clio pastes 123‑456‑7890.\nSay \"cold DM\" → Clio drops your full pitch.\nSay it your way. Clio smooths it, sharpens it, delivers it.";
+"hotkey.configuration.description" = "Select which key to use for voice recording. Press once for hands-free recording, hold for hold-to-talk.";
+"hotkey.configuration.title" = "Hold-to-Talk Key";
+"hotkey.field.accessibility.hint" = "Tap to change hotkey configuration";
+"hotkey.field.accessibility.label" = "Current hotkey setting";
+"hotkey.key.function" = "Function";
+"hotkey.key.left_command" = "Left Command";
+"hotkey.key.left_control" = "Left Control";
+"hotkey.key.left_option" = "Left Option";
+"hotkey.key.left_shift" = "Left Shift";
+"hotkey.key.right_command" = "Right Command";
+"hotkey.key.right_control" = "Right Control";
+"hotkey.key.right_option" = "Right Option";
+"hotkey.key.right_shift" = "Right Shift";
+"hotkey.modal.instructions.description" = "Brief press: Start hands-free recording (press key again to stop)\nLong press: hold-to-talk mode (hold to record, release to transcribe)";
+"hotkey.modal.instructions.title" = "How it works";
+"hotkey.modal.listening" = "Please press any key";
+"hotkey.modal.preview.title" = "Your selection";
+"hotkey.modal.record_key" = "Record Key";
+"navigation.personalization" = "Персонализация";
+"navigation.replacements" = "Голосовые ярлыки";
+"navigation.snippets" = "Стилевые шаблоны";
+"navigation.vocabulary" = "Персональный термин";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI Assistant";
+"onboarding.app.cursor" = "Cursor";
+"onboarding.app.cursor.description" = "AI Coding";
+"onboarding.app.email" = "Email";
+"onboarding.app.email.description" = "Communication";
+"onboarding.app.notion" = "Notion";
+"onboarding.app.notion.description" = "Note Taking";
+"onboarding.app.slack" = "Slack";
+"onboarding.app.slack.description" = "Team Chat";
+"onboarding.enhanced_permissions.panel.accessibility" = "This permission is only used to insert text — never to control your screen.";
+"onboarding.enhanced_permissions.panel.microphone" = "Clio only listens when you press the mic. Your voice is never stored on our server.";
+"onboarding.enhanced_permissions.panel.screen_recording" = "We never save your screen. Context is used once to improve your output, then discarded.";
+"onboarding.permissions.accessibility.long" = "This gives Clio the ability to instantly paste your transcribed voice into any app you're using - like Discord, Notion, Cursor, or your browser.\n\nThink of it as having an assistant who hears you, types it out, and hits Command + V for you. No switching tabs. No copy-paste dance.";
+"onboarding.permissions.microphone.long" = "Clio listens when you speak - so it can transcribe your thoughts, polish your words, and help you stay in flow.\n\nMicrophone access is what lets voice become your new input layer.";
+"onboarding.personalization.primer.skip_to_use" = "Skip to use";
+"onboarding.personalization.primer.subtitle" = "A quick tour of Personal Terms, Voice Shortcuts, and Style Presets. You can skip anytime.";
+"onboarding.personalization.primer.title" = "See how Clio becomes more personalized for you";
+"onboarding.personalization.subtitle.personal_terms" = "Add names, products, and acronyms so Clio recognizes your unique vocabulary.";
+"onboarding.personalization.subtitle.style_presets" = "Customize tone and formatting per app or website using prompt.";
+"onboarding.personalization.subtitle.voice_shortcuts" = "Create quick voice shortcuts to insert common phrases or perform actions.";
+"onboarding.personalization.title.personal_terms" = "Personal Terms";
+"onboarding.personalization.title.style_presets" = "Style Presets";
+"onboarding.personalization.title.voice_shortcuts" = "Voice Shortcuts";
+"onboarding.primer.back" = "Back";
+"onboarding.primer.continue" = "Continue";
+"onboarding.primer.double_tap_instruction" = "Press the Right ⌘ key just once for continuous listening. When you are done, press again to transcribe.";
+"onboarding.primer.finish" = "Finish";
+"onboarding.primer.hold_key_instruction" = "In the next page, try holding your Right ⌥ key to speak.\nLet go, and Clio will transcribe your voice—clean and instant.";
+"onboarding.primer.hotkey_label" = "Hotkey:";
+"onboarding.primer.next_command_mode" = "Next, try Command Mode";
+"onboarding.primer.next_hands_free" = "Next, try using the Hands-Free Mode to transcribe";
+"onboarding.primer.placeholder_images" = "Placeholder • You can provide images to place here.";
+"onboarding.primer.ready_push_to_talk" = "You're ready to try Clio";
+"onboarding.primer.select_text_hotkey_instruction" = "Select any text, then trigger your command hotkey and speak, e.g. 'Summarize this'.";
+"onboarding.primer.select_text_instruction" = "Select text, then trigger the hotkey to ask Clio to\nsummarize, improve, translate, and more.";
+"onboarding.primer.try_command_mode" = "Try Command Mode";
+"onboarding.primer.try_it_now" = "Try it Now";
+"onboarding.tryit.and_begin_speaking" = "and begin speaking";
+"onboarding.tryit.click_field_instruction" = "Click the text field below and use your hotkey for hands-free recording and transcription.";
+"onboarding.tryit.command_default_text" = "And now, I calmly watch the very heartbeat of the machine beneath me. A being that breathes thought, a traveler between life and death.";
+"onboarding.tryit.command_tips" = "Also try: ‘Turn this into bullets’, ‘Make this longer’, or ‘Explain this’.";
+"onboarding.tryit.edit_hotkeys" = "Edit hotkeys";
+"onboarding.tryit.example_text" = "Clio is my voice-powered writing tool—it turns messy speech into clean, clear text.";
+"onboarding.tryit.hands_free" = "Hands-free";
+"onboarding.tryit.header" = "Try Clio now. Just Speak";
+"onboarding.tryit.hold_down" = "Hold down";
+"onboarding.tryit.next" = "Next";
+"onboarding.tryit.press" = "Press";
+"onboarding.tryit.push_to_talk" = "Push to talk";
+"onboarding.tryit.to_start_press_again" = "to start, press again to transcribe";
+"onboarding.tryit.want_to_change_keys" = "Want to change keys?";
+"pricing.plans.annual.name" = "Annual Pro";
+"pricing.plans.annual.savings" = "Save $16.89 per year";
+"pricing.plans.cta.choose_plan" = "Choose Plan";
+"pricing.plans.feature.priority_support" = "Priority support";
+"pricing.plans.feature.unlimited" = "Unlimited transcription";
+"pricing.plans.feature.works_everywhere" = "Works everywhere: Mac, iOS, Windows";
+"pricing.plans.monthly.name" = "Monthly Pro";
+"pricing.plans.recommended" = "RECOMMENDED";
+"pricing.plans.subtitle" = "Get unlimited transcription and premium features";
+"pricing.plans.title" = "Choose Your Plan";
+"settings.keyboard_shortcuts.description" = "Set a key to press once for hands-free recording, then press again to stop";
+"settings.language_settings.header" = "LANGUAGE SETTINGS";
+"settings.notch_transcript.description" = "Show streaming transcript under the notch recorder. Turn off to keep the notch from growing vertically.";
+"settings.notch_transcript.title" = "Notch Transcript";
+"snippets.description" = "Create and manage reusable text snippets for quick insertion while dictating";
+"snippets.empty.subtitle" = "Create your first snippet to get started";
+"snippets.empty.title" = "No snippets yet";
+"style_presets.add_new" = "Add New Preset";
+"style_presets.description" = "Customize how Clio writes in different apps.\nSet your preferred tone, structure, or prompt per environment—so your voice feels right in every tool you use. Define how Clio should write: casual in Slack, polished in Notion, punchy in X.\nStyle, tone, format. All in your control.";
+"style_presets.drawer.activate" = "Activate when using";
+"style_presets.drawer.add_app" = "Add App";
+"style_presets.drawer.add_website" = "Add website";
+"style_presets.drawer.delete" = "Delete this preset";
+"style_presets.drawer.mode_name" = "Mode name";
+"style_presets.drawer.mode_placeholder" = "Enter a descriptive name";
+"style_presets.drawer.no_apps_found" = "No apps found";
+"style_presets.drawer.prompt" = "Prompt";
+"style_presets.drawer.title" = "Preset Setting";
+"style_presets.drawer.website_placeholder" = "e.g. example.com";
+"style_presets.empty.subtitle" = "Create your first preset to get started";
+"style_presets.empty.title" = "No style presets yet";
+"style_presets.info_card.title" = "Let Clio write like you.";
+"updates.primer.primary" = "Show me what’s new";
+"updates.primer.subtitle" = "Take a quick tour to see Command Mode in action and explore the new personalization upgrades.";
+"updates.primer.title" = "We’ve got some exciting updates for you!";
+
+"ai_strength.toggle.off_hint" = "Выкл.: вы получите сырую расшифровку максимально быстро, почти без дополнительной обработки — лишь минимальное удаление слов‑паразитов.";
+"ai_strength.toggle.on_hint" = "Вкл.: Clio выполняет редактирование ИИ для большей ясности; ожидайте небольшую задержку, пока текст переписывается с выбранной ниже интенсивностью.";

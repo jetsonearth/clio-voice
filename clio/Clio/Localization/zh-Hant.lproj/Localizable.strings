@@ -1,0 +1,1338 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Traditional Chinese (Taiwan/Hong Kong) Translation - Created on 2025-01-29.
+  Culturally adapted for Taiwan and Hong Kong business users.
+*/
+
+/* Dashboard */
+"dashboard.words_dictated" = "您已輸入了 %d 個詞。";
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "儲存";
+"general.cancel" = "取消";
+"general.delete" = "刪除";
+"general.edit" = "編輯";
+"general.done" = "完成";
+"general.settings" = "設定";
+"general.close" = "關閉";
+"general.ok" = "確定";
+"general.yes" = "是";
+"general.no" = "否";
+"general.error" = "錯誤";
+"general.success" = "成功";
+"general.loading" = "載入中...";
+"general.retry" = "重試";
+"general.download" = "下載";
+"general.upload" = "上傳";
+"general.search" = "搜尋";
+"general.filter" = "篩選";
+"general.sort" = "排序";
+"general.share" = "分享";
+"general.copy" = "複製";
+"general.paste" = "貼上";
+"general.clear" = "清除";
+"general.reset" = "重設";
+"general.continue" = "繼續";
+"general.back" = "返回";
+"general.next" = "下一步";
+"general.finish" = "完成";
+"general.language" = "語言";
+"general.default" = "預設";
+"general.required" = "必填";
+
+/* Navigation */
+"Home" = "首頁";
+"Dictionary" = "字典";
+"Plan" = "方案";
+"Upgrade" = "升級";
+"navigation.home" = "首頁";
+"navigation.models" = "語音模型";
+"navigation.power_mode" = "AI 增強";
+"navigation.ai_editing_strength" = "AI 潤飾強度";
+"navigation.dictionary" = "自定義詞典";
+"navigation.settings" = "設定";
+"navigation.plan" = "訂閱方案";
+"navigation.license" = "訂閱方案";
+"navigation.personalization" = "個人化";
+"navigation.vocabulary" = "個人術語";
+
+/* Dictionary */
+"dictionary.title" = "個人詞典";
+"dictionary.custom_title" = "自訂字典";
+"dictionary.custom_description" = "訓練 Clio 識別自訂詞彙並建立自動修正。新增詞彙以提高轉錄準確度，或建立詞彙替換以自動修正常見轉錄錯誤。";
+"dictionary.add_new" = "新增";
+"dictionary.search_placeholder" = "搜尋字典";
+"dictionary.vocabulary" = "詞彙庫";
+"dictionary.replacements" = "語音捷徑";
+"dictionary.enable_word" = "啟用詞彙";
+"dictionary.disable_word" = "停用詞彙";
+"dictionary.delete_word" = "刪除詞彙";
+"dictionary.delete_replacement" = "刪除替換";
+"dictionary.add_to_vocabulary" = "新增至詞彙庫";
+"dictionary.add_word" = "新增詞彙";
+"dictionary.make_replacement" = "設為替換規則";
+"dictionary.word_replacement_title" = "詞彙替換";
+"dictionary.word_replacement_description" = "啟用後，將把您的自訂詞彙轉換為修正規則。Clio 將在聽寫時自動替換錯誤版本。";
+"dictionary.misspelling_placeholder" = "錯誤拼字";
+"dictionary.correct_spelling_placeholder" = "正確拼字";
+"dictionary.add_word_placeholder" = "新增詞彙";
+"dictionary.edit_word" = "編輯詞彙";
+"dictionary.word_placeholder" = "詞彙";
+"dictionary.save_changes" = "儲存變更";
+"dictionary.edit_replacement" = "編輯替換";
+"dictionary.original_placeholder" = "原文";
+"dictionary.replacement_placeholder" = "替換文字";
+"dictionary.no_vocabulary_words" = "尚無詞彙";
+"dictionary.vocabulary_help_text" = "新增詞彙以協助 Clio 正確識別";
+"dictionary.no_word_replacements" = "尚無替換規則";
+"dictionary.replacements_help_text" = "建立自動詞彙替換以提升轉錄品質";
+"dictionary.voice_shortcuts_description" = "建立智慧語音捷徑，讓你在說話時自動清理口頭禪、展開縮寫、修正習慣用法。\n說「我的電話」 → Clio 貼上 123‑456‑7890。\n說「cold DM」 → Clio 直接插入你的完整開場文案。\n用你自己的方式說，Clio 會潤飾、強化，並準確送達。";
+"dictionary.info_card.title.vocab" = "教會 Clio 你的語言。";
+"dictionary.info_card.title.voice" = "自訂你的表達方式。";
+"navigation.replacements" = "語音捷徑";
+
+/* AI Editing Strength */
+"ai_strength.title" = "AI 潤飾強度";
+"ai_strength.subtitle" = "選擇 AI 對轉錄文本的改寫力度。";
+"ai_strength.light.title" = "輕度清理";
+"ai_strength.light.subtitle" = "快速潤飾，清理雜訊同時保留你的原本語氣。";
+"ai_strength.light.bullet1" = "保留混合語言表達和原句順序";
+"ai_strength.light.bullet2" = "過濾口頭填充詞、結巴與重新開頭";
+"ai_strength.light.bullet3" = "僅做輕量標點與格式調整";
+"ai_strength.full.title" = "深度清理";
+"ai_strength.full.subtitle" = "更深入的潤飾，讓措辭更清晰順暢。";
+"ai_strength.full.bullet1" = "在更通順時合併、拆分或調整句序";
+"ai_strength.full.bullet2" = "補上隱含主語並潤飾生硬表達";
+"ai_strength.full.bullet3" = "仍然尊重混合語言表達與原始語意";
+"ai_strength.preview.title" = "預覽";
+"ai_strength.preview.input" = "輸入";
+"ai_strength.preview.output_light" = "輸出（輕度）";
+"ai_strength.preview.output_full" = "輸出（深度清理）";
+
+/* Style Presets */
+"style_presets.info_card.title" = "讓 Clio 像你一樣寫。";
+"style_presets.description" = "為不同應用自訂寫作風格。\n依情境設定語氣、結構或提示詞——讓你的聲音在各種工具裡都剛剛好。\n定義寫法：Slack 隨性、Notion 俐落、X 更有力道。\n風格、語氣、格式，都由你掌控。";
+"style_presets.add_new" = "新增預設";
+"style_presets.drawer.title" = "預設設定";
+"style_presets.drawer.activate" = "在以下應用啟用";
+"style_presets.drawer.add_app" = "加入應用程式";
+"style_presets.drawer.add_website" = "加入網站";
+"style_presets.drawer.website_placeholder" = "例如：example.com";
+"style_presets.drawer.delete" = "刪除此預設";
+"style_presets.drawer.prompt" = "提示詞";
+"style_presets.drawer.no_apps_found" = "找不到應用";
+"style_presets.drawer.mode_name" = "模式名稱";
+"style_presets.drawer.mode_placeholder" = "輸入清楚易懂的名稱";
+
+/* Snippets (placeholders) */
+"style_presets.empty.title" = "尚無樣式預設";
+"style_presets.empty.subtitle" = "建立第一個預設即可開始";
+
+/* Main Menu */
+"menu.file" = "檔案";
+"menu.edit" = "編輯";
+"menu.view" = "檢視";
+"menu.window" = "視窗";
+"menu.help" = "說明";
+"menu.about" = "關於 Clio";
+"menu.preferences" = "偏好設定...";
+"menu.quit" = "結束 Clio";
+
+/* Recording */
+"recording.start" = "開始錄音";
+"recording.stop" = "停止錄音";
+"recording.stop.confirmation" = "停止錄音？";
+"recording.pause" = "暫停";
+"recording.resume" = "繼續";
+"recording.transcribing" = "語音識別中...";
+"recording.processing" = "處理中...";
+"recording.ready" = "準備錄音";
+"recording.listening" = "聆聽中...";
+"recording.saved" = "錄音已儲存";
+"recording.failed" = "錄音失敗";
+"recording.permission_required" = "需要麥克風權限";
+"recording.permission_description" = "Clio 需要存取您的麥克風來轉錄語音";
+
+/* Transcription */
+"transcription.title" = "轉錄";
+"transcription.empty" = "尚無轉錄";
+"transcription.copy" = "複製轉錄";
+"transcription.enhance" = "AI 增強";
+"transcription.play" = "播放音訊";
+"transcription.delete" = "刪除轉錄";
+"transcription.language" = "轉錄語言";
+"transcription.accuracy" = "準確度";
+"transcription.speed" = "速度";
+"transcription.load_more" = "載入更多";
+"transcription.delete_selected_title" = "刪除所選項目？";
+"transcription.delete_confirmation" = "此操作無法復原。您確定要刪除 %d 個項目嗎？";
+"transcription.search.placeholder" = "搜尋轉錄";
+"transcription.empty.title" = "沒有找到轉錄";
+"transcription.history.title" = "轉錄紀錄";
+"transcription.history.description" = "檢視並管理所有錄音轉錄記錄";
+"transcription.empty.subtitle" = "您的記錄將顯示在此處";
+"transcription.history.empty" = "尚無轉錄紀錄";
+"transcription.filter.today" = "今天";
+"transcription.filter.week" = "本週";
+"transcription.filter.month" = "本月";
+"transcription.selected_count" = "已選取 %d 個";
+"transcription.select_all" = "全選";
+"transcription.deselect_all" = "取消全選";
+"transcription.total_latency_help" = "總延遲：%@ms";
+"transcription.enhanced" = "AI 增強版";
+"transcription.original" = "原始";
+"transcription.llm_latency" = "LLM：%@ms";
+"transcription.llm_latency_help" = "LLM 延遲：%@ms";
+"transcription.asr_latency" = "ASR：%@ms";
+"transcription.asr_latency_help" = "ASR 延遲：%@ms";
+"transcription.copy_enhanced" = "複製 AI 增強版";
+"transcription.copy_original" = "複製原始版";
+"transcription.export.title" = "匯出轉錄";
+"transcription.export.text" = "純文字";
+"transcription.export.pdf" = "PDF 檔案";
+"transcription.date.today" = "今天";
+"transcription.date.yesterday" = "昨天";
+
+/* Settings */
+"settings.title" = "設定";
+"settings.description" = "設定您的偏好及應用程式設定";
+"settings.sign_out.title" = "帳戶與重設";
+"settings.sign_out.subtitle" = "管理您的帳戶、導覽教學和身份驗證";
+"settings.sign_out.description" = "登出您的 Clio 帳戶。這將返回到驗證畫面。";
+"settings.sign_out.button" = "登出";
+"settings.reset_onboarding.title" = "重設教學";
+"settings.reset_onboarding.subtitle" = "重新開始介紹流程";
+"settings.reset_onboarding.button" = "重設導覽";
+"settings.reset_onboarding.confirm" = "重設";
+"settings.reset_onboarding.message" = "這將重設導覽流程。重新啟動應用程式時，您將再次看到介紹畫面。";
+"settings.general" = "一般";
+"settings.audio" = "音訊";
+"settings.ai" = "AI 增強";
+"settings.shortcuts" = "快速鍵";
+"settings.keyboard_shortcuts.title" = "語音輸入快速鍵";
+"settings.shortcut.configured" = "快速鍵已設定";
+"settings.shortcut.required" = "需要快速鍵";
+"settings.shortcut.warning" = "需要設定快速鍵才能開始錄音";
+"settings.appearance" = "外觀";
+"settings.privacy" = "隱私";
+"settings.about" = "關於";
+"settings.language" = "語言";
+"settings.app_language" = "應用程式語言";
+"settings.app_language.description" = "選擇您偏好的介面語言";
+"settings.app_language.tooltip" = "選擇您偏好的選單、按鈕和介面文字語言。變更會立即生效。某些較新功能可能有有限的翻譯。";
+"settings.dictation_language" = "聽寫語言";
+"settings.dictation_language.description" = "選擇語音識別語言";
+"settings.dictation_language.tooltip" = "如果您只說一種語言，請選擇該語言。否則，選擇自動偵測。為了獲得使用自動偵測的最佳效果，請確保您有高品質的麥克風。";
+"settings.language.description" = "選擇您偏好的語言";
+"settings.language.choose_description" = "為應用程式介面選擇您偏好的語言";
+"settings.language.change_note" = "語言變更會立即生效。某些語言可能翻譯不完整。";
+"settings.language.available" = "可用語言";
+"settings.system_settings.header" = "系統設定";
+"settings.launch_at_login" = "登入時啟動";
+"settings.launch_at_login.subtitle" = "登入時自動啟動 Clio。";
+"settings.hide_dock_icon.title" = "隱藏 Dock 圖示";
+"settings.hide_dock_icon.description" = "讓 Clio 在背景執行（僅選單列）";
+"settings.show_in_menu_bar" = "在選單列顯示";
+"settings.show_in_dock" = "在 Dock 顯示";
+"settings.ai_enhancement" = "啟用 AI 編輯";
+"settings.ai_enhancement.description" = "讓 Clio 透過 AI 重寫逐字稿，讓用語、語氣與版面更加自然。";
+"settings.keyboard_shortcuts" = "快速鍵";
+"settings.keyboard_shortcuts.configured" = "快速鍵已設定";
+"settings.keyboard_shortcuts.required" = "需要快速鍵";
+"settings.keyboard_shortcuts.selected_key" = "已選擇的按鍵";
+"settings.keyboard_shortcuts.edit_hotkey" = "編輯快速鍵";
+"settings.keyboard_shortcuts.reset_hotkey" = "重置";
+
+/* Privacy Settings */
+"settings.privacy.title" = "隱私";
+"settings.privacy.subtitle" = "在雲端和本機處理間選擇";
+"settings.privacy.use_local_model" = "使用本機模型";
+"settings.privacy.local_model_description" = "在本機處理音訊，無需網路連線";
+"settings.privacy.model_not_downloaded" = "本機模型未下載";
+"settings.privacy.download_model" = "下載 Whisper v3 Turbo";
+
+/* Audio Settings */
+"audio.input_device" = "輸入裝置";
+"audio.quality" = "音訊品質";
+"audio.quality.low" = "低";
+"audio.quality.medium" = "中";
+"audio.quality.high" = "高";
+"audio.noise_reduction" = "降噪";
+"audio.auto_gain" = "自動增益控制";
+"audio.input.title" = "音訊輸入";
+"audio.input.subtitle" = "設定您的麥克風偏好";
+"audio.input.mode" = "輸入模式";
+"audio.devices.available" = "可用裝置";
+"audio.devices.prioritized" = "優先裝置";
+"audio.devices.priority_description" = "裝置將按優先順序使用。如果裝置不可用，將嘗試下一個裝置。如果沒有優先裝置可用，將使用系統預設麥克風。";
+"audio.devices.no_priority" = "無優先裝置";
+"audio.mode.system_default" = "使用系統預設輸入裝置";
+"audio.mode.custom" = "選擇特定的輸入裝置";
+"audio.mode.prioritized" = "設定裝置優先順序";
+"audio.device.active" = "使用中";
+"audio.device.unavailable" = "不可用";
+"audio.devices.no_additional" = "沒有其他可用裝置";
+"audio.devices.none.title" = "無音訊裝置";
+"audio.devices.none.description" = "連接音訊輸入裝置以開始使用";
+"audio.mode.system_default.title" = "系統預設";
+"audio.mode.custom.title" = "自訂裝置";
+"audio.mode.prioritized.title" = "優先裝置";
+"general.refresh" = "重新整理";
+
+/* Language Selection */
+"language.transcription.title" = "轉錄語言";
+"language.current_model" = "目前模型：%@";
+"language.multilingual.description" = "此模型支援多種語言。您可以選擇自動偵測或選擇特定語言。";
+"language.english_only" = "語言：英語";
+"language.english_only.description" = "這是一個英語最佳化模型，僅支援英語轉錄。";
+"language.no_model" = "未選擇模型";
+
+/* Audio Cleanup */
+"audio.cleanup.description" = "自動清理舊音訊檔案以節省儲存空間";
+"audio.cleanup.enable" = "啟用自動清理";
+"audio.cleanup.retention_period" = "保留期間";
+"audio.cleanup.keep_files" = "保留檔案";
+"audio.cleanup.1_day" = "1 天";
+"audio.cleanup.3_days" = "3 天";
+"audio.cleanup.7_days" = "7 天";
+"audio.cleanup.14_days" = "14 天";
+"audio.cleanup.30_days" = "30 天";
+"audio.cleanup.description_text" = "超過選定期間的音訊檔案將被自動刪除，同時保留文字轉錄內容。";
+"audio.cleanup.analyzing" = "分析中...";
+"audio.cleanup.run_now" = "立即執行清理";
+"audio.cleanup.alert_title" = "音訊清理";
+"audio.cleanup.delete_files" = "刪除 %d 個檔案";
+"audio.cleanup.will_delete" = "將刪除 %d 個超過 %@ 天的音訊檔案。";
+"audio.cleanup.size_freed" = "將釋放的總大小：%@";
+"audio.cleanup.transcripts_preserved" = "文字轉錄將被保留。";
+"audio.cleanup.no_files" = "未找到超過 %@ 天的音訊檔案。";
+"audio.cleanup.complete_title" = "清理完成";
+"audio.cleanup.result_with_errors" = "成功刪除了 %d 個音訊檔案。刪除 %@ 個檔案失敗。";
+"audio.cleanup.result_success" = "成功刪除了 %d 個音訊檔案。";
+"audio.cleanup.how_long_keep" = "音訊檔案保留時間";
+"audio.cleanup.select_period" = "選擇保留期間";
+"audio.cleanup.auto_delete_info" = "超過 %@ 天的音訊檔案將被自動刪除。";
+"audio.cleanup.transcripts_always_preserved" = "文字轉錄將始終被保留。";
+"audio.cleanup.manual_cleanup" = "手動清理";
+"audio.cleanup.run_immediately" = "立即執行清理";
+"audio.cleanup.analysis_title" = "音訊清理分析";
+"audio.cleanup.found_files" = "找到 %d 個超過 %@ 天的音訊檔案。";
+"audio.cleanup.storage_freed" = "將釋放的總儲存空間：%@";
+"audio.cleanup.already_optimized" = "您的儲存空間已經最佳化！";
+"audio.cleanup.result_success_with_space" = "成功刪除了 %d 個音訊檔案並釋放了儲存空間。";
+
+/* AI Settings */
+"ai.provider" = "AI 提供商";
+"ai.model" = "模型";
+"ai.api_key" = "API 金鑰";
+"enhance.mode.title" = "增強模式";
+"ai.enhancement_prompt" = "增強提示";
+"ai.auto_enhance" = "自動增強";
+"ai.context_aware" = "情境感知";
+
+/* Shortcuts */
+"shortcuts.global" = "全域快速鍵";
+"shortcuts.record" = "開始/停止錄音";
+"shortcuts.quick_transcribe" = "快速轉錄";
+"shortcuts.toggle_window" = "切換視窗";
+
+/* Models */
+"speech.models.title" = "語音模型";
+"models.title" = "轉錄模型";
+"models.download" = "下載模型";
+"models.downloading" = "下載中...";
+"models.delete" = "刪除模型";
+"models.size" = "大小";
+"models.accuracy" = "準確度";
+"models.speed" = "速度";
+"models.languages" = "支援語言";
+"models.active_model" = "使用中模型";
+"models.no_model_selected" = "未選擇模型";
+"models.change_language" = "變更";
+"models.language_locked" = "鎖定";
+"models.tap_to_change" = "點擊變更";
+"models.english_only" = "僅英語";
+"models.language_prompts" = "語言與提示";
+"models.library_title" = "模型庫";
+"models.library_subtitle" = "從 %d 個語音模型中選擇";
+"models.section.local_models" = "本機模型";
+"models.section.premium_cloud_models" = "進階雲端模型";
+"models.filter.all" = "全部";
+"models.filter.downloaded" = "已下載";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "準確度";
+"models.delete.title" = "刪除模型";
+"models.delete.confirmation" = "您確定要刪除模型 '%@' 嗎？";
+"models.status.active" = "使用中";
+"models.status.downloaded" = "已下載";
+"models.currently_active" = "目前使用中";
+"models.set_as_default" = "設為預設";
+"models.requires_pro" = "需要 Pro 版";
+"models.coming_soon" = "即將推出";
+"models.show_in_finder" = "在 Finder 中顯示";
+"models.download.main" = "模型";
+"models.download.coreml" = "CoreML";
+"models.tag.multilingual" = "多語言";
+"models.tag.english_only" = "僅英語";
+"models.clio_max.description" = "進階雲端模型，具備超低延遲串流。特別針對中文、日文、韓文和英文最佳化。支援包括粵語、吳語和地區變體在內的 18 種中文方言。專為多語言專業人士和國際團隊打造。";
+"models.clio_max_ultra.description" = "終極雲端轉錄模型，具備最高準確度和效能。先進 AI 處理與即時串流，支援所有語言。專為企業級應用和專業使用者打造。";
+"models.cloud_model" = "雲端模型";
+"models.action.connect" = "連接";
+"models.action.connected" = "已連接";
+"models.action.connecting" = "連接中...";
+"models.requires_internet" = "需要網路連線";
+
+/* Model Descriptions */
+"models.clio_flash.description" = "超快轉錄速度，準確度良好。永久免費使用，本機處理";
+"models.clio_pro.description" = "速度和準確度的完美平衡，增強隱私保護。本機處理確保音訊完全私密";
+"models.clio_ultra.description" = "比 Pro 版較慢但準確度更高，支援多種語言";
+
+/* Chinese Dialects */
+"language.chinese_simplified" = "中文（簡體）";
+"language.chinese_traditional" = "中文（繁體）";
+"language.chinese_hong_kong" = "中文（香港）";
+"language.chinese_shanghai" = "中文（上海）";
+"language.chinese_wu" = "中文（吳語）";
+"language.chinese_min" = "中文（閩語）";
+"language.chinese_northeast" = "中文（東北）";
+"language.chinese_gansu" = "中文（甘肅）";
+"language.chinese_guangzhou" = "中文（廣州）";
+"language.chinese_henan" = "中文（河南）";
+"language.chinese_hubei" = "中文（湖北）";
+"language.chinese_hunan" = "中文（湖南）";
+"language.chinese_jiangxi" = "中文（江西）";
+"language.chinese_ningxia" = "中文（寧夏）";
+"language.chinese_shanxi" = "中文（山西）";
+"language.chinese_shaanxi" = "中文（陝西）";
+"language.chinese_shandong" = "中文（山東）";
+"language.chinese_sichuan" = "中文（四川）";
+"language.chinese_tianjin" = "中文（天津）";
+"language.chinese_yunnan" = "中文（雲南）";
+"language.chinese_cantonese" = "中文（粵語）";
+
+/* Model Access Control */
+"models.access.fastest_lowest_accuracy" = "最快速度，最低準確度（39 MB）";
+"models.access.fast_good_accuracy" = "快速，準確度良好（74 MB）";
+"models.access.balanced_speed_accuracy_pro" = "速度和準確度平衡（244 MB）- Pro 版";
+"models.access.high_accuracy_slower_pro" = "高準確度，較慢（769 MB）- Pro 版";
+"models.access.highest_accuracy_pro" = "最高準確度（1.5 GB）- Pro 版";
+"models.access.latest_model_best_quality_pro" = "最新模型，最佳品質 - Pro 版";
+"models.access.pro_model" = "Pro 版模型";
+"models.access.free_model" = "免費模型";
+
+/* AI Providers */
+"providers.llama.description" = "本機 Llama 模型 - 免費";
+"providers.openai.description" = "GPT-4、GPT-3.5 - Pro 版";
+"providers.anthropic.description" = "Claude 3 模型 - Pro 版";
+"providers.gemini.description" = "Google Gemini - Pro 版";
+"providers.deepseek.description" = "DeepSeek 模型 - Pro 版";
+"providers.groq.description" = "Groq LPU 模型 - Pro 版";
+"providers.mistral.description" = "Mistral AI - Pro 版";
+"providers.qwen.description" = "Qwen 模型 - Pro 版";
+"providers.ollama.description" = "本機 Ollama 模型 - Pro 版";
+"providers.custom.description" = "自訂提供商 - Pro 版";
+
+/* Subscription */
+"subscription.title" = "訂閱";
+"subscription.free" = "免費";
+"subscription.pro" = "Pro 版";
+"subscription.upgrade" = "升級至 Pro 版";
+"subscription.manage" = "管理訂閱";
+"subscription.restore" = "回復購買";
+
+/* Pricing Plans */
+"pricing.plans.title" = "選擇您的方案";
+"pricing.plans.subtitle" = "獲取無限轉錄和進階功能";
+"pricing.plans.monthly.name" = "月付專業版";
+"pricing.plans.annual.name" = "年付專業版";
+"pricing.plans.annual.savings" = "每年節省 $16.89";
+"pricing.plans.recommended" = "推薦";
+"pricing.plans.feature.unlimited" = "無限轉錄";
+"pricing.plans.feature.works_everywhere" = "全平台支援：Mac、iOS、Windows";
+"pricing.plans.feature.priority_support" = "優先客戶支援";
+"pricing.plans.cta.choose_plan" = "選擇方案";
+
+/* Onboarding */
+"onboarding.welcome" = "歡迎使用 Clio";
+"onboarding.description" = "您的 AI 語音轉錄助理";
+"onboarding.get_started" = "開始使用";
+"onboarding.skip" = "略過";
+
+/* Errors */
+"error.generic" = "發生錯誤";
+"error.network" = "網路錯誤";
+"error.permission_denied" = "權限被拒絕";
+"error.file_not_found" = "找不到檔案";
+"error.invalid_api_key" = "無效的 API 金鑰";
+"error.model_download_failed" = "模型下載失敗";
+
+/* Success Messages */
+"success.saved" = "儲存成功";
+"success.copied" = "已複製到剪貼板";
+"success.deleted" = "刪除成功";
+"success.updated" = "更新成功";
+
+/* Dashboard */
+"dashboard.words_dictated" = "您已聽寫了 %d 個字詞。";
+"dashboard.ready_to_start" = "準備開始轉錄？";
+"dashboard.efficiency_title" = "Clio 為您加速";
+"dashboard.with_clio" = "使用 CLIO";
+"dashboard.efficiency_subtitle" = "效率提升";
+"dashboard.minutes_saved" = "節省分鐘";
+"dashboard.time_efficiency" = "時間效率";
+"dashboard.time_speaking" = "說話時間";
+"dashboard.total_speaking_time" = "總說話時間";
+"dashboard.words_per_minute" = "字詞/分鐘";
+"dashboard.speaking_rate" = "說話速率";
+
+// Authentication
+"auth.signing_in" = "登入中";
+
+/* Greetings */
+"greeting.good_morning" = "早安";
+"greeting.good_afternoon" = "午安";
+"greeting.good_evening" = "晚安";
+
+/* PowerMode */
+"powermode.create.title" = "建立增強模式";
+"powermode.edit.title" = "編輯增強模式";
+"powermode.help.activation" = "當您使用這些應用程式或造訪這些網站時，增強模式將自動啟用";
+"powermode.section.basic_info" = "基本資訊";
+"powermode.section.transcription" = "轉錄設定";
+"powermode.section.applications" = "應用程式";
+"powermode.section.websites" = "網站";
+"powermode.field.icon" = "圖示";
+"powermode.field.name" = "名稱";
+"powermode.field.model" = "模型";
+"powermode.field.language" = "語言";
+"powermode.placeholder.name" = "輸入模式名稱";
+"powermode.placeholder.website_url" = "輸入網站網址（例如：google.com）";
+"powermode.model.system_default" = "系統預設";
+"powermode.language.auto_detect" = "自動偵測";
+"powermode.empty.no_apps" = "未選擇應用程式";
+"powermode.empty.no_websites" = "未新增網站";
+"powermode.delete.title" = "刪除增強模式";
+
+/* Languages */
+"language.english" = "英語";
+"language.spanish" = "西班牙語";
+"language.french" = "法語";
+"language.german" = "德語";
+"language.italian" = "義大利語";
+"language.portuguese" = "葡萄牙語";
+"language.russian" = "俄語";
+"language.japanese" = "日語";
+"language.korean" = "韓語";
+"language.chinese" = "中文";
+"language.auto_detect" = "自動偵測";
+
+/* Settings */
+"settings.keyboard_shortcuts.title" = "快速鍵";
+"settings.shortcut.configured" = "快速鍵已設定";
+"settings.shortcut.required" = "需要快速鍵";
+"settings.shortcut.warning" = "⚠️ 請設定快速鍵以使用 Clio";
+"settings.shortcut.choose_key" = "選擇您的錄音按鍵";
+"settings.shortcut.instructions" = "選擇用於錄音的按鍵。按一次開始免持錄音，再按一次停止並轉錄。";
+"settings.permissions.title" = "應用程式權限";
+"settings.permissions.subtitle" = "Clio 需要以下權限才能正常運作";
+"settings.permissions.all_granted" = "所有必要權限都已授予且運作正常";
+"settings.permissions.required_note" = "所有權限都是 Clio 正常運作所必需的。";
+"settings.permission.keyboard_shortcut" = "快速鍵";
+"settings.permission.microphone" = "麥克風存取";
+"settings.permission.accessibility" = "輔助使用";
+"settings.permission.screen_recording" = "螢幕錄製";
+"settings.status.enabled" = "已啟用";
+"settings.status.disabled" = "已停用";
+
+/* Authentication */
+"auth.signin.title" = "歡迎回到 Clio";
+"auth.signin.subtitle" = "以思考的速度轉錄 — 比打字快 3 倍";
+"auth.signin.button" = "登入";
+"auth.signin.switch_prompt" = "還沒有帳戶？";
+"auth.signin.switch_action" = "註冊";
+"auth.signup.title" = "建立您的 Clio 帳戶";
+"auth.signup.subtitle" = "以思考的速度轉錄 — 比打字快 3 倍";
+"auth.signup.button" = "建立帳戶";
+"auth.signup.switch_prompt" = "已有帳戶？";
+"auth.signup.switch_action" = "登入";
+"auth.placeholder.fullname" = "全名";
+"auth.placeholder.email" = "電子郵件";
+"auth.placeholder.password" = "密碼";
+"auth.placeholder.confirm_password" = "確認密碼";
+"auth.error.passwords_mismatch" = "密碼不符";
+"auth.remember_password" = "記住密碼";
+"auth.processing" = "處理中...";
+"auth.forgot_password" = "忘記密碼？";
+"auth.error.invalid_email" = "請先輸入有效的電子郵件地址";
+"auth.password_reset_sent" = "密碼重設郵件已發送至 %@";
+"auth.error.password_reset_failed" = "發送密碼重設郵件失敗。請再試一次。";
+
+/* Onboarding */
+"onboarding.welcome.title" = "歡迎！";
+"onboarding.welcome.subtitle" = "您從哪裡知道我們的？";
+"onboarding.skip" = "暫時略過";
+
+/* Onboarding - Trial */
+"onboarding.trial.title" = "試用 Clio Pro";
+"onboarding.trial.subtitle" = "在試用期間體驗頂級語音模型，然後升級到無限轉錄，每月 $7.99";
+"onboarding.trial.feature.lightning_fast.title" = "閃電般快速轉錄";
+"onboarding.trial.feature.lightning_fast.description" = "600 毫秒快速轉錄，實現即時語音轉文字生產力";
+"onboarding.trial.feature.world_leading.title" = "世界領先的語音識別";
+"onboarding.trial.feature.world_leading.description" = "在 50+ 種語言中提供同級最佳準確度與先進 AI 模型";
+"onboarding.trial.feature.realtime_translation.title" = "即時翻譯";
+"onboarding.trial.feature.realtime_translation.description" = "用您的語言說話，立即翻譯成另一種語言";
+"onboarding.trial.feature.messy_to_polished.title" = "AI 自動編輯";
+"onboarding.trial.feature.messy_to_polished.description" = "將雜亂的語音轉換為精緻文字。沒有語助詞，只有清晰想法。";
+"onboarding.trial.feature.speed_up_writing.title" = "在任何地方加速寫作";
+"onboarding.trial.feature.speed_up_writing.description" = "在每個 Mac 應用程式中運作。語音輸入無處不在，無限轉錄。";
+"onboarding.trial.feature.privacy_first.title" = "隱私優先設計";
+"onboarding.trial.feature.privacy_first.description" = "零資料保存。您的語音和文字永不儲存。100% 資料所有權。";
+"onboarding.trial.start_trial" = "開始試用";
+"onboarding.trial.view_plans" = "檢視 Pro 方案";
+
+/* Onboarding - Enhanced Permissions */
+"onboarding.enhanced_permissions.title" = "在您的電腦上設定 Clio";
+"onboarding.enhanced_permissions.subtitle" = "授予權限以啟用語音轉錄";
+"onboarding.enhanced_permissions.accessibility.title" = "輔助使用權限";
+"onboarding.enhanced_permissions.accessibility.description" = "允許 Clio 在任何應用程式中貼上轉錄文字";
+"onboarding.enhanced_permissions.microphone.title" = "麥克風存取權限";
+"onboarding.enhanced_permissions.microphone.description" = "語音轉錄所必需";
+"onboarding.enhanced_permissions.granted" = "已授予";
+"onboarding.enhanced_permissions.grant_access" = "授予存取權限";
+"onboarding.enhanced_permissions.open_settings" = "開啟設定";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.choose_hotkey" = "選擇您的快速鍵";
+"onboarding.enhanced_setup.hotkey_description" = "按一次此鍵開始免持錄音，再按一次停止並轉錄";
+
+/* Subscription */
+"subscription.upgrade.title" = "升級至 Clio Pro";
+"subscription.upgrade.subtitle" = "解鎖進階功能和無限使用";
+"subscription.trial.active" = "Pro 試用進行中";
+"subscription.trial.days_remaining" = "剩餘 %d 天";
+"subscription.feature.trying_to_use" = "您正在嘗試使用：";
+"subscription.billing.monthly" = "月付";
+"subscription.billing.yearly" = "年付";
+"subscription.billing.save" = "節省 $17";
+"subscription.billing.per_month" = "/月";
+"subscription.billing.per_year" = "/年";
+"subscription.billing.annual_savings" = "年付時每月僅需 $7.08";
+"subscription.features.title" = "Pro 版包含內容";
+"subscription.feature.premium_models.title" = "進階模型存取權限";
+"subscription.feature.premium_models.description" = "存取所有進階模型，具備卓越的延遲、準確度和效能表現";
+"subscription.feature.ai_enhancement.title" = "AI 增強與自動修正";
+"subscription.feature.ai_enhancement.description" = "智慧文字改進，包含自動修正、情境理解和增強工作流程整合";
+"subscription.feature.unlimited.title" = "無限轉錄";
+"subscription.feature.unlimited.description" = "轉錄次數無月度限制，所有功能無限使用";
+"subscription.feature.priority_support.title" = "優先客服";
+"subscription.feature.priority_support.description" = "需要協助時享有快速通道支援及優先協助";
+"subscription.feature.base_model.title" = "基礎模型（Clio Flash）";
+"subscription.feature.base_model.description" = "終身免費 - 適合日常使用，提供可靠的轉錄品質";
+"subscription.cta.get_pro" = "取得 Clio Pro";
+"subscription.cta.have_license" = "我有授權金鑰";
+"subscription.cta.start_trial" = "開始 %@ 免費試用";
+"subscription.pro" = "PRO";
+"subscription.clio_pro" = "Clio Pro";
+"subscription.upgrade" = "升級";
+
+/* License Management */
+"license.management.title" = "授權管理";
+"license.status.activated" = "進階功能已啟用";
+"license.action.remove" = "移除授權";
+"license.action.activate" = "啟用授權";
+"license.placeholder.enter_key" = "輸入授權金鑰";
+"license.status.active" = "授權使用中";
+"license.pro.welcome.title" = "感謝您成為 Pro 使用者！";
+"license.pro.welcome.subtitle" = "您可以存取所有進階功能和無限使用量";
+"license.licensed_to" = "授權給：%@";
+"license.have_key_question" = "有授權金鑰？";
+"license.activation.success" = "授權啟用成功！";
+"license.activation.error" = "無效的授權金鑰。請再試一次。";
+"license.description" = "管理您的訂閱並存取進階功能";
+"license.manage_account" = "管理";
+"license.refer_friends" = "推薦朋友";
+"license.subscription.title" = "訂閱";
+"license.subscription.pro_status" = "您目前使用的是 Pro 方案。";
+"license.subscription.thanks" = "感謝您成為 Pro 使用者。";
+"license.credits.title" = "點數";
+"license.credits.current_balance" = "目前餘額";
+"license.credits.share_link" = "分享連結";
+"license.credits.next_tier" = "下一層級";
+"license.credits.invite_description" = "邀請朋友使用 Clio，每次推薦可獲得一個月免費使用。";
+
+/* Subscription Status */
+"license.status.expires_soon" = "即將到期";
+"license.status.days_remaining" = "剩餘天數";
+"license.status.access_until" = "訪問有效期至";
+
+/* Menu Bar */
+"menu.add_word_to_dictionary" = "將單詞加入詞典";
+"menu.version" = "版本";
+"menu.share_feedback" = "分享回饋";
+"menu.select_dictation_language" = "選擇語音輸入語言";
+"menu.select_audio_input" = "選擇音頻輸入";
+
+/* Dictation Language Settings */
+"settings.dictation.auto_detect" = "自動檢測";
+"settings.dictation.languages_count" = "%d 種語言";
+"settings.dictation.select_languages" = "選擇語言";
+
+/* Trial */
+"trial.usage.title" = "試用使用量";
+"trial.days_remaining_detail" = "剩餘 %d / %d 天";
+"trial.limit_reached" = "試用期限已達。升級以繼續。";
+"trial.word_limit_warning" = "試用字數即將用完";
+"trial.word_limit_reached" = "試用字數已用完。請升級以繼續使用。";
+"trial.words_remaining" = "剩餘 %@ 詞";
+"trial.words_remaining_detail" = "已使用 %d / %d 詞";
+"trial.words_used_detail" = "已使用 %@ 詞";
+
+/* Word-based Trial */
+"trial.words.title" = "免費試用";
+"trial.words.subtitle" = "體驗 Pro 功能，免費 4,000 字";
+"trial.words.usage_detail" = "已使用 %@ / %@ 字";
+"trial.words.remaining" = "剩餘 %@ 字";
+"trial.words.used" = "已使用 %@ 詞";
+
+/* New: fill parity with en */
+"dictionary.add_new_word" = "新增詞彙";
+"navigation.snippets" = "風格預設";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI 助手";
+"onboarding.app.cursor" = "Cursor";
+"onboarding.app.cursor.description" = "AI 程式設計";
+"onboarding.app.email" = "電子郵件";
+"onboarding.app.email.description" = "通信";
+"onboarding.app.notion" = "Notion";
+"onboarding.app.notion.description" = "筆記";
+"onboarding.app.slack" = "Slack";
+"onboarding.app.slack.description" = "團隊聊天";
+"onboarding.enhanced_permissions.panel.accessibility" = "輔助使用";
+"onboarding.enhanced_permissions.panel.microphone" = "麥克風";
+"onboarding.enhanced_permissions.panel.screen_recording" = "螢幕錄製";
+"onboarding.permissions.accessibility.long" = "這讓 Clio 能在你使用的任何應用程式中，立即把轉錄文字貼上。就像有位助理幫你聽、幫你打，還會自動按 Command + V。無需切換視窗，也不用複製貼上。";
+"onboarding.permissions.microphone.long" = "Clio 只會在你主動使用時聆聽，將你的想法轉成文字、潤飾內容，幫助你維持專注。麥克風存取是讓聲音成為新輸入層的基礎。";
+"onboarding.tryit.and_begin_speaking" = "並開始說話";
+"onboarding.tryit.click_field_instruction" = "點選下方文字框，使用你的熱鍵進行免持錄音與轉錄。";
+"onboarding.tryit.edit_hotkeys" = "編輯熱鍵";
+"onboarding.tryit.example_text" = "Clio 是我的語音寫作工具——把零散的口語變成清晰、乾淨的文字。";
+"onboarding.tryit.hands_free" = "免持";
+"onboarding.tryit.header" = "現在試試 Clio。開口就能輸入";
+"onboarding.tryit.hold_down" = "按住";
+"onboarding.tryit.next" = "下一步";
+"onboarding.tryit.press" = "按下";
+"onboarding.tryit.push_to_talk" = "按住說話";
+"onboarding.tryit.to_start_press_again" = "即可開始，完成時再按一次轉錄";
+"onboarding.tryit.want_to_change_keys" = "想換按鍵嗎？";
+"settings.keyboard_shortcuts.description" = "在此設定 Clio 的鍵盤快速鍵。";
+"snippets.description" = "將常用文字存成片段，隨時一鍵插入。";
+"snippets.empty.subtitle" = "還沒有片段。建立第一個片段以便快速插入。";
+"snippets.empty.title" = "沒有片段";
+"trial.words.expired.title" = "試用完成";
+"trial.words.expired.subtitle" = "您已用完全部 4,000 字試用額度";
+"trial.words.expired.description" = "準備解鎖無限轉錄和進階功能？";
+"trial.words.limit_warning" = "試用即將結束 - 剩餘 %@ 字";
+"trial.words.progress.label" = "試用進度";
+"trial.words.of_total" = "%@ / %@";
+
+/* Modern CTA Messages */
+"upgrade.primary.title" = "解鎖無限力量";
+"upgrade.primary.subtitle" = "加入數千名使用者，享受無限制轉錄";
+"upgrade.secondary.title" = "繼續使用 Pro";
+"upgrade.benefit.unlimited" = "無限轉錄";
+"upgrade.benefit.premium_models" = "進階 AI 模型";
+"upgrade.benefit.enhancements" = "智慧文字處理";
+"upgrade.benefit.support" = "優先客服";
+"upgrade.cta.primary" = "升級至 Pro";
+"upgrade.cta.secondary" = "查看所有功能";
+"upgrade.value.proposition" = "一次購買 • 終身存取 • 包含所有功能";
+
+/* Enhanced License Activation */
+"license.activation.title" = "啟用授權";
+"license.activation.subtitle" = "輸入您的授權金鑰以解鎖 Pro 功能";
+"license.key.placeholder" = "XXXX-XXXX-XXXX-XXXX";
+"license.activation.cta" = "啟用 Pro 授權";
+
+/* Subscription Upgrade */
+"subscription.upgrade.description" = "一次購買 • 終身存取 • 解鎖所有功能";
+"subscription.upgrade.word_limit_cta" = "試用 4000 詞已用完 • 升級享受無限使用";
+"subscription.word_trial.progress_format" = "%@ / %@ 詞";
+"subscription.word_trial.percentage_used" = "已使用 %d%%";
+
+/* Features */
+"feature.unlimited_transcriptions" = "無限轉錄";
+"feature.large_whisper_models" = "存取所有進階模型（卓越延遲、準確度等）";
+"feature.ai_enhancement" = "AI 增強與自動修正";
+"feature.custom_prompts" = "智慧文字處理與最佳化";
+"feature.power_modes" = "進階工作流程整合";
+"feature.cloud_sync" = "不支援雲端同步";
+"feature.priority_support" = "進階客服";
+"feature.basic_transcription" = "基礎模型（終身免費）";
+"feature.unlimited_usage.title" = "無限轉錄";
+"feature.unlimited_usage.description" = "將無限小時的語音轉換為文字，無任何月度限制";
+"feature.all_models.title" = "世界級 AI 模型";
+"feature.all_models.description" = "存取世界上最先進、最快速的轉錄技術";
+"feature.ai_enhancement.title" = "智慧文字增強";
+"feature.ai_enhancement.description" = "自動修正文法、提升清晰度，讓您的文字閃閃發光";
+"feature.enhanced_modes.title" = "智慧情境識別";
+"feature.enhanced_modes.description" = "AI 理解您的對話內容，適應您獨特的說話風格";
+"feature.cloud_sync.title" = "雲端同步";
+"feature.cloud_sync.description" = "從所有裝置存取";
+"feature.priority_support.title" = "優先客服";
+"feature.priority_support.description" = "需要時獲得協助";
+
+/* Usage Stats */
+"usage.your_usage.title" = "您的使用量";
+"usage.words" = "字詞";
+"usage.sessions" = "工作階段";
+"usage.time_saved" = "節省時間";
+
+/* Footer */
+"footer.support" = "客服";
+"footer.documentation" = "說明文件";
+"footer.privacy" = "隱私";
+
+/* Flash Model Download Dialog */
+"trial.expired.title" = "試用已過期";
+"trial.expired.description" = "您的 Pro 試用已結束。要繼續使用 Clio，您可以升級至 Pro 或下載免費的 Flash 模型進行基礎轉錄。";
+"trial.expired.flash.description" = "快速、精準，且永久免費";
+"trial.expired.download.flash" = "下載 Clio Flash";
+"trial.expired.upgrade.pro" = "升級至 Pro";
+
+/* Recording Failed Dialog */
+"recording.failed.title" = "錄音失敗";
+"recording.failed.description" = "錄音失敗，因為 %@ 需要 Pro 訂閱。請選擇以下選項：";
+"recording.failed.option1" = "升級至 Pro 以獲得無限存取";
+"recording.failed.option2" = "使用 Clio Flash（免費）進行基礎轉錄";
+"recording.failed.upgrade.now" = "立即升級至 Pro";
+"recording.failed.use.free" = "使用 Flash 模型";
+
+/* Common */
+"common.cancel" = "取消";
+
+/* Audio Player */
+"audio_player.generating_waveform" = "產生波形中...";
+"audio_player.recording" = "錄音";
+"audio_player.show_in_finder" = "在 Finder 中顯示";
+"audio_player.retranscribe_audio" = "重新轉錄此音訊";
+"audio_player.retranscription_successful" = "重新轉錄成功";
+"audio_player.retranscription_failed" = "重新轉錄失敗";
+"audio_player.no_model_selected" = "未選擇轉錄模型";
+
+/* Audio Transcribe */
+"audio_transcribe.transcription_result" = "轉錄結果";
+"audio_transcribe.enhanced" = "增強";
+"audio_transcribe.original" = "原始";
+"audio_transcribe.transcription" = "轉錄";
+"audio_transcribe.duration" = "長度：%@";
+"audio_transcribe.audio_file_selected" = "已選擇音訊檔案：%@";
+"audio_transcribe.ai_enhancement" = "AI 增強";
+"audio_transcribe.prompt" = "提示：";
+"audio_transcribe.select_prompt" = "選擇提示";
+"audio_transcribe.start_transcription" = "開始轉錄";
+"audio_transcribe.choose_different_file" = "選擇不同檔案";
+"audio_transcribe.drop_audio_file" = "將音訊檔案拖拽至此";
+"audio_transcribe.or" = "或";
+"audio_transcribe.choose_file" = "選擇檔案";
+"audio_transcribe.supported_formats" = "支援格式：WAV、MP3、M4A、AIFF";
+
+/* Settings */
+"settings.audio_cleanup.title" = "音訊清理";
+"settings.audio_cleanup.subtitle" = "管理錄音儲存";
+"settings.audio_cleanup.description" = "音訊檔案會在 14 天後自動刪除以節省儲存空間。轉錄內容始終保留。";
+"settings.ai_model_type.title" = "AI 模型類型";
+"settings.ai_model_type.local" = "本機 AI";
+"settings.ai_model_type.local_description" = "私人離線處理，需要較好的硬體";
+"settings.ai_model_type.cloud" = "雲端 AI";
+"settings.ai_model_type.cloud_description" = "更智慧，最新模型，需要網路連線";
+"settings.context_options.title" = "情境選項";
+"settings.context_options.clipboard" = "使用剪貼板情境";
+"settings.context_options.clipboard_description" = "包含剪貼板內容以協助 AI 理解情境並修正轉錄錯誤";
+"settings.context_options.screen" = "使用螢幕情境";
+"settings.context_options.screen_description" = "擷取可見文字以提供額外情境（需要螢幕錄製權限）";
+"settings.deep_context.title" = "深度情境";
+"settings.deep_context.subtitle" = "分析螢幕內容，提供智慧情境理解，提升準確度與個人化";
+"settings.permissions.grant" = "授予";
+"settings.subscription.active" = "使用中";
+"settings.subscription.trial_usage" = "試用使用量";
+"settings.subscription.premium_features" = "進階功能";
+"settings.local_ai_model.title" = "本機 AI 模型";
+"settings.local_ai_model.downloaded" = "已下載";
+"settings.cloud_ai_provider.title" = "雲端 AI 提供商";
+"settings.cloud_ai_provider.api_key" = "API 金鑰";
+"settings.cloud_ai_provider.verify" = "驗證";
+"settings.cloud_ai_provider.get_key" = "取得金鑰";
+
+/* Common */
+"common.error" = "錯誤";
+"common.ok" = "確定";
+
+/* Qwen Provider */
+"ai_provider.qwen.title" = "阿里雲通義千問 Turbo";
+"ai_provider.qwen.subtitle" = "快速高效的文字增強 AI 模型";
+"ai_provider.connected" = "已連接";
+"ai_provider.api_key" = "API 金鑰";
+"ai_provider.remove_key" = "移除金鑰";
+"ai_provider.qwen.enter_api_key" = "輸入您的阿里雲 API 金鑰";
+"ai_provider.invalid_key_error" = "無效的 API 金鑰。請檢查後再試。";
+"ai_provider.verify_and_save" = "驗證並儲存";
+"ai_provider.get_key" = "取得 API 金鑰";
+
+/* Metrics */
+"metrics.you_are" = "您比";
+"metrics.faster" = "%@ 更快";
+"metrics.with_voiceink" = "使用 Clio";
+"metrics.speaking_time" = "說話時間";
+"metrics.typing_time" = "打字時間";
+"metrics.time_saved" = "節省時間";
+"metrics.feedback_or_issues" = "意見回饋或問題？";
+"metrics.report" = "回報";
+
+/* Model Library */
+"models.status.default" = "預設";
+"models.status.downloaded" = "已下載";
+"models.status.default_model" = "預設模型";
+"models.action.set_default" = "設為預設";
+"models.action.download" = "下載";
+"models.action.downloading" = "下載中...";
+"models.action.delete" = "刪除模型";
+"models.action.show_in_finder" = "在 Finder 中顯示";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "準確度";
+"models.component.model" = "模型";
+"models.component.coreml" = "CoreML";
+
+/* Power Mode */
+"power_mode.title" = "AI 增強";
+"power_mode.info" = "根據所使用的應用程式或網站自動套用自訂設定。";
+"power_mode.subtitle" = "根據使用的應用程式/網站自動套用自訂設定";
+"power_mode.add_title" = "新增 AI 增強";
+"power_mode.edit_default_title" = "編輯預設 AI 增強";
+"power_mode.edit_title" = "編輯 AI 增強";
+"power_mode.universal_fallback" = "通用後備";
+"power_mode.delete_title" = "刪除 %@？";
+"power_mode.delete_warning" = "此操作無法復原。所有相關的應用程式、網站和設定將被移除。";
+"power_mode.default_configuration" = "預設設定";
+"power_mode.email" = "電子郵件";
+"power_mode.meeting_notes" = "會議記錄";
+"power_mode.card.apps" = "應用程式";
+"power_mode.card.websites" = "網站";
+"power_mode.card.universal_fallback" = "適用於沒有特定模式的所有應用程式和網站";
+
+/* Power Mode Modal */
+"power_mode.modal.add_title" = "新增增強模式";
+"power_mode.modal.add_button" = "新增";
+"power_mode.modal.ai_enhancement" = "AI 增強";
+"power_mode.modal.ai_provider" = "AI 提供商";
+"power_mode.modal.ai_model" = "AI 模型";
+"power_mode.modal.icon" = "圖示";
+"power_mode.modal.description" = "建立自訂增強模式，在使用特定應用程式或網站時自動套用特定設定。";
+"power_mode.modal.name" = "名稱";
+"power_mode.modal.when_to_trigger" = "觸發時機";
+"power_mode.modal.applications" = "應用程式";
+"power_mode.modal.no_apps" = "未新增應用程式";
+"power_mode.modal.websites" = "網站";
+"power_mode.modal.no_websites" = "未新增網站";
+"power_mode.modal.enhancement_prompt" = "增強提示";
+"power_mode.modal.edit_title" = "編輯增強模式";
+"power_mode.modal.edit_description" = "編輯您的增強模式設定與組態。";
+"power_mode.modal.transcription" = "轉錄";
+"power_mode.modal.model" = "模型";
+"power_mode.modal.language" = "語言";
+"power_mode.modal.section.basics" = "基本設定";
+"power_mode.modal.section.triggers" = "觸發條件";
+"power_mode.modal.section.prompt" = "提示";
+"power_mode.modal.section.basics_description" = "設定基本資訊和轉錄設定";
+"power_mode.modal.section.triggers_description" = "選擇何時啟用此增強模式";
+"power_mode.modal.section.prompt_description" = "選擇 AI 如何增強您的轉錄";
+"power_mode.modal.mode_name" = "模式名稱";
+"power_mode.modal.name_placeholder" = "輸入描述性名稱";
+"power_mode.modal.browse_apps" = "瀏覽應用程式";
+"power_mode.modal.recognition_model" = "識別模型";
+"power_mode.modal.system_default" = "系統預設";
+"power_mode.modal.no_apps_selected" = "未選擇應用程式";
+"power_mode.modal.add_apps_subtitle" = "新增應用程式以觸發此模式";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_urls_subtitle" = "新增網址以觸發此模式";
+"power_mode.modal.search_apps" = "搜尋應用程式";
+"power_mode.modal.loading_apps" = "載入應用程式中...";
+"power_mode.modal.edit_prompt" = "編輯提示";
+"power_mode.modal.new_mode" = "新增強模式";
+"power_mode.modal.edit_mode" = "編輯增強模式";
+"power_mode.modal.delete_mode" = "刪除模式";
+"power_mode.modal.delete_confirmation" = "刪除增強模式";
+"power_mode.modal.delete_warning" = "此操作無法復原。所有設定和組態將被永久刪除。";
+"power_mode.modal.ai_enhancement_prompt" = "AI 增強提示";
+"power_mode.modal.prompt_description" = "自訂 AI 如何為此模式增強您的轉錄。";
+"power_mode.modal.predefined_prompt" = "這是 %@ 的預定義提示";
+"power_mode.modal.default_prompt" = "按原樣回傳轉錄，不做任何修改。";
+"power_mode.modal.email_prompt" = "將此轉錄轉換為專業電子郵件格式。";
+"power_mode.modal.meeting_prompt" = "將此轉錄整理為包含行動項目的會議記錄格式。";
+"power_mode.modal.no_prompt" = "未設定提示";
+"power_mode.modal.create_prompt" = "建立自訂提示";
+"power_mode.modal.prompt_instructions" = "提示指示";
+"power_mode.modal.builtin_template_editable" = "內建範本（可編輯）";
+"power_mode.modal.builtin_template" = "內建範本";
+"power_mode.modal.edit_templates" = "使用範本編輯";
+"power_mode.modal.prompt_placeholder" = "在此輸入您的 AI 增強指示...";
+"power_mode.modal.use_template" = "使用範本";
+"power_mode.modal.triggers_info" = "觸發條件";
+"power_mode.modal.triggers_description" = "設定何時啟用此增強模式";
+"power_mode.modal.applications" = "應用程式";
+"power_mode.modal.no_applications" = "未選擇應用程式";
+"power_mode.modal.no_applications_subtitle" = "新增應用程式以觸發此模式";
+"power_mode.modal.browse_apps" = "瀏覽應用程式";
+"power_mode.modal.websites" = "網站";
+"power_mode.modal.no_websites" = "未新增網站";
+"power_mode.modal.add_urls_subtitle" = "新增網址以觸發此模式";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_button" = "新增";
+"power_mode.modal.mode_name" = "模式名稱";
+"power_mode.modal.name_placeholder" = "輸入模式名稱";
+"power_mode.modal.characters" = "字元";
+"power_mode.modal.icon" = "圖示";
+"power_mode.modal.recognition_model" = "識別模型";
+"power_mode.modal.system_default" = "系統預設";
+"power_mode.modal.transcription_settings" = "轉錄設定";
+"power_mode.modal.global_settings_notice" = "模型和語言設定現在使用設定頁面的全域偏好設定";
+"power_mode.modal.select_apps" = "選擇應用程式";
+
+/* PowerMode Empty State */
+"power_mode.empty.title" = "無增強模式";
+"power_mode.empty.subtitle" = "為不同情境新增自訂增強模式";
+"power_mode.empty.add_button" = "新增增強模式";
+
+/* General Actions */
+"general.edit" = "編輯";
+"general.remove" = "移除";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.step_keyboard" = "鍵盤";
+"onboarding.enhanced_setup.step_microphone" = "麥克風";
+"onboarding.enhanced_setup.step_model" = "模型";
+"onboarding.enhanced_setup.in_progress" = "進行中";
+"onboarding.enhanced_setup.complete" = "完成";
+"onboarding.enhanced_setup.choose_hotkey" = "選擇您的錄音按鍵";
+"onboarding.enhanced_setup.hotkey_description" = "按一次此鍵開始免持錄音，再按一次停止並轉錄。選擇您覺得舒適的按鍵。";
+
+/* Hotkey Configuration */
+"hotkey.configuration.title" = "按鍵快速鍵";
+"hotkey.configuration.description" = "選擇用於語音錄製的按鍵。按一次開始免持錄音，長按為按住說話模式。";
+"hotkey.field.accessibility.label" = "目前快速鍵設定";
+"hotkey.field.accessibility.hint" = "點選以變更快速鍵設定";
+"hotkey.modal.title" = "選擇快速鍵";
+"hotkey.modal.subtitle" = "選擇您偏好的語音錄製按鍵";
+"hotkey.modal.description" = "按下您想要使用的任意按鍵或組合鍵";
+"hotkey.modal.instructions.title" = "運作方式";
+"hotkey.modal.instructions.description" = "短按：開始免持錄音（再次按鍵停止）\n長按：按住說話模式（按住錄音，放開轉錄）";
+"hotkey.modal.preview.title" = "您的選擇";
+"hotkey.modal.record_key" = "錄製按鍵";
+"hotkey.modal.listening" = "請按任何修飾鍵...";
+"hotkey.key.right_option" = "右側 Option";
+"hotkey.key.left_option" = "左側 Option";
+"hotkey.key.left_control" = "左側 Control";
+"hotkey.key.right_control" = "右側 Control";
+"hotkey.key.function" = "功能鍵";
+"hotkey.key.right_command" = "右側 Command";
+"hotkey.key.left_command" = "左側 Command";
+"hotkey.key.right_shift" = "右側 Shift";
+"hotkey.key.left_shift" = "左側 Shift";
+"onboarding.enhanced_setup.key_right_option" = "右 Option";
+"onboarding.enhanced_setup.key_left_option" = "左 Option";
+"onboarding.enhanced_setup.key_left_control" = "左 Control";
+"onboarding.enhanced_setup.key_right_control" = "右 Control";
+"onboarding.enhanced_setup.key_function" = "Function";
+"onboarding.enhanced_setup.key_right_command" = "右 Command";
+"onboarding.enhanced_setup.key_right_shift" = "右 Shift";
+"onboarding.enhanced_setup.recommended" = "建議";
+
+/* Onboarding - Trial (alternative) */
+"onboarding.trial.feature_1_title" = "進階模型";
+"onboarding.trial.feature_1_description" = "存取更大、更準確的 Whisper 模型";
+"onboarding.trial.feature_2_title" = "AI 增強";
+"onboarding.trial.feature_2_description" = "使用 AI 自動改善轉錄";
+"onboarding.trial.feature_3_title" = "增強模式";
+"onboarding.trial.feature_3_description" = "基於情境的自動設定";
+"onboarding.trial.continue_free" = "繼續使用免費版";
+
+/* Onboarding - Permissions */
+"onboarding.permissions.microphone.title" = "麥克風存取";
+"onboarding.permissions.microphone.description" = "允許 Clio 存取您的麥克風來錄製音訊";
+"onboarding.permissions.microphone_selection.title" = "選擇麥克風";
+"onboarding.permissions.microphone_selection.description" = "選擇用於錄音的麥克風";
+"onboarding.permissions.accessibility.title" = "輔助使用權限";
+"onboarding.permissions.accessibility.description" = "允許 Clio 自動貼上轉錄文字";
+"onboarding.permissions.screen_recording.title" = "螢幕錄製";
+"onboarding.permissions.screen_recording.description" = "選用：透過螢幕情境提升轉錄準確度與個人化。我們絕不儲存您的螢幕內容。";
+"onboarding.permissions.screen_recording.short" = "選用：使用螢幕情境提升準確度與個人化。我們絕不儲存您的螢幕內容。";
+"onboarding.permissions.screen_recording.long" = "選用但強烈建議：啟用螢幕情境能大幅提升準確度與個人化。隱私至上：我們從不保存您的螢幕內容。此內容僅於轉錄時提供情境之用。若使用雲端模型，情境將為執行模型而暫時傳送，隨後立即刪除——伺服器不會存放任何資料。";
+"privacy.learn_more" = "了解更多";
+"privacy.hide_details" = "隱藏詳情";
+"privacy.policy" = "隱私權政策";
+
+/* Settings - Notch Transcript */
+"settings.notch_transcript.title" = "Notch 即時字幕";
+"settings.notch_transcript.description" = "在 Notch 錄音器下方顯示即時轉錄。關閉可避免 Notch 區域垂直增高。";
+"onboarding.permissions.keyboard_shortcut.title" = "快速鍵";
+"onboarding.permissions.keyboard_shortcut.description" = "設定按一次免持錄音的按鍵";
+"onboarding.permissions.no_microphones" = "找不到麥克風";
+"onboarding.permissions.select_microphone" = "選擇麥克風";
+"onboarding.permissions.microphone_recommendation" = "我們建議使用外接麥克風以獲得更好的品質";
+"onboarding.permissions.set_shortcut" = "設定快速鍵";
+"onboarding.permissions.enable_access" = "啟用存取";
+"onboarding.button.skip_for_now" = "暫時略過";
+"onboarding.permissions.key_fn" = "fn";
+"onboarding.permissions.key_right_option" = "右 Option";
+"onboarding.permissions.key_left_option" = "左 Option";
+"onboarding.permissions.key_left_control" = "左 Control";
+"onboarding.permissions.key_right_control" = "右 Control";
+"onboarding.permissions.key_function" = "Function";
+"onboarding.permissions.key_right_command" = "右 Command";
+"onboarding.permissions.key_right_shift" = "右 Shift";
+
+/* Onboarding - Try It Components */
+"onboarding.intro.title" = "Clio 可在任何應用程式中使用";
+"onboarding.intro.description" = "從電子郵件到聊天到文件 — Clio 可在您電腦上的任何文字框中使用。";
+"onboarding.intro.next" = "下一步";
+"onboarding.shortcut.title" = "轉錄任何內容";
+"onboarding.shortcut.description" = "按一次 %@ 鍵開始免持錄音，再按一次即可轉錄並在任何地方插入您的文字。";
+"onboarding.shortcut.hotkey_title" = "您的快速鍵";
+"onboarding.shortcut.action_text" = "按一次免持，再按一次轉錄";
+"onboarding.shortcut.try_it_out" = "試試看";
+"onboarding.demo.listening" = "聆聽中...";
+"onboarding.demo.ai_formatting" = "AI 格式化中...";
+"onboarding.tryit.title" = "試試看！";
+"onboarding.tryit.description" = "點擊文字欄位並使用您的 %@ 鍵進行免持錄音和轉錄。";
+"onboarding.tryit.step1" = "點擊右側的文字欄位";
+"onboarding.tryit.step2" = "按下 %@ 鍵";
+"onboarding.tryit.step3" = "清楚地對著麥克風說話";
+"onboarding.tryit.step4" = "再按一次按鍵進行轉錄";
+"onboarding.tryit.complete_setup" = "完成設定";
+"onboarding.tryit.skip_for_now" = "暫時略過";
+"onboarding.tryit.placeholder" = "按下快速鍵開始聽寫...";
+"onboarding.tryit.command_prefix" = "先選取下方的全部文字，然後按住";
+"onboarding.tryit.command_instruction_suffix" = "說出 \"把這段翻成中文\"，然後同時放開兩個鍵以完成";
+"onboarding.tryit.command_tips" = "你也可以試試：『把這段變成條列』、『把它寫長一點』或『解釋一下』。";
+"onboarding.tryit.command_default_text" = "And now, I calmly watch the very heartbeat of the machine beneath me. A being that breathes thought, a traveler between life and death.";
+
+/* Onboarding - Setup Components */
+"onboarding.setup.back" = "返回";
+"onboarding.setup.keyboard.title" = "選擇您的快速鍵";
+"onboarding.setup.keyboard.description" = "按一次此鍵開始免持錄音，再按一次轉錄";
+"onboarding.setup.continue" = "繼續";
+
+/* Missing Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "測試您的麥克風";
+"onboarding.setup.microphone.description" = "確保 Clio 能清楚地聽到您的聲音";
+"onboarding.setup.microphone.speak_now" = "現在開始說話...";
+"onboarding.setup.microphone.tap_to_test" = "點擊測試麥克風";
+"onboarding.setup.microphone.stop" = "停止";
+"onboarding.setup.microphone.test_microphone" = "測試麥克風";
+"onboarding.setup.model.title" = "選擇轉錄模型";
+"onboarding.setup.model.description" = "較大的模型更準確但使用更多資源";
+"onboarding.setup.model.download_continue" = "下載並繼續";
+"onboarding.setup.complete.title" = "設定完成！";
+"onboarding.setup.complete.description" = "Clio 已準備好在任何應用程式中轉錄您的語音";
+"onboarding.setup.complete.try_it_out" = "試用";
+"onboarding.setup.recommended" = "建議";
+"onboarding.setup.keyboard.right_option" = "右 Option";
+"onboarding.setup.keyboard.left_option" = "左 Option";
+"onboarding.setup.keyboard.left_control" = "左 Control";
+"onboarding.setup.keyboard.right_control" = "右 Control";
+"onboarding.setup.keyboard.function" = "Function";
+"onboarding.setup.keyboard.right_command" = "右 Command";
+"onboarding.setup.keyboard.right_shift" = "右 Shift";
+
+/* Missing Permission Keys */
+"onboarding.permissions.title" = "在您的電腦上設定 Clio";
+"onboarding.permissions.description" = "授予以下權限以啟用無縫語音轉錄";
+"onboarding.permissions.accessibility_title" = "輔助使用權限";
+"onboarding.permissions.accessibility_subtitle" = "允許 Clio 在任何地方貼上轉錄";
+"onboarding.permissions.microphone_title" = "麥克風存取權限";
+"onboarding.permissions.microphone_subtitle" = "啟用語音錄製以進行轉錄（僅在積極使用 Clio 時）";
+"onboarding.permissions.continue" = "繼續";
+"onboarding.permissions.granted" = "已授予";
+"onboarding.permissions.required" = "必需";
+"onboarding.permissions.tap_to_grant" = "點擊授予權限";
+"onboarding.permissions.privacy_title" = "隱私與安全";
+"onboarding.permissions.privacy_description" = "Clio 尊重您的隱私，僅要求轉錄所需的權限";
+"onboarding.permissions.feature_local" = "僅本機處理";
+"onboarding.permissions.feature_no_data" = "不收集資料";
+"onboarding.permissions.feature_control" = "始終在您的控制之下";
+
+/* Missing Enhanced Setup Keys */
+"onboarding.enhanced_setup.best_for_keyboards" = "最適合大多數鍵盤";
+"onboarding.enhanced_setup.alternative_option" = "替代選項";
+"onboarding.enhanced_setup.download_size" = "大小：%@";
+"onboarding.enhanced_setup.speed_rating" = "速度：%@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "準確度：%@/10";
+"onboarding.enhanced_setup.downloaded" = "已下載";
+"onboarding.enhanced_setup.download" = "下載";
+"onboarding.enhanced_setup.cloud_access" = "雲端存取";
+"onboarding.enhanced_setup.select_microphone" = "選擇麥克風";
+"onboarding.enhanced_setup.microphone_description" = "選擇用於錄音的麥克風";
+"onboarding.enhanced_setup.selected_microphone" = "已選擇的麥克風";
+"onboarding.enhanced_setup.no_microphones" = "找不到麥克風";
+"onboarding.enhanced_setup.connect_microphone" = "請連接麥克風並再試一次";
+"onboarding.enhanced_setup.default" = "預設";
+"onboarding.enhanced_setup.choose_model" = "選擇轉錄模型";
+"onboarding.enhanced_setup.model_description" = "較大的模型更準確但使用更多資源";
+"onboarding.enhanced_setup.all_set" = "一切就緒！";
+"onboarding.enhanced_setup.ready_description" = "Clio 已準備好在任何應用程式中轉錄您的語音";
+"onboarding.enhanced_setup.feature_1_title" = "全域快速鍵";
+"onboarding.enhanced_setup.feature_1_subtitle" = "在 Mac 上的任何應用程式中使用";
+"onboarding.enhanced_setup.feature_2_title" = "本機處理";
+"onboarding.enhanced_setup.feature_2_subtitle" = "您的語音在裝置上保持私密";
+"onboarding.enhanced_setup.feature_3_title" = "AI 增強";
+"onboarding.enhanced_setup.feature_3_subtitle" = "選用的 AI 處理以提高準確度";
+"onboarding.enhanced_setup.feature_4_title" = "即時轉錄";
+"onboarding.enhanced_setup.feature_4_subtitle" = "在任何輸入位置即時插入文字";
+"onboarding.enhanced_setup.get_started" = "開始使用";
+"onboarding.enhanced_setup.visual_keyboard_text" = "選擇您偏好的錄音按鍵";
+"onboarding.enhanced_setup.visual_microphone_text" = "選擇您的麥克風以獲得最佳品質";
+"onboarding.enhanced_setup.visual_model_text" = "選擇符合您需求的模型";
+"onboarding.enhanced_setup.visual_fast" = "快速";
+"onboarding.enhanced_setup.visual_accurate" = "準確";
+"onboarding.enhanced_setup.visual_private" = "私密";
+"onboarding.enhanced_setup.visual_perfect" = "完美！";
+"onboarding.enhanced_setup.visual_ready" = "Clio 已準備好轉錄您的語音";
+"onboarding.enhanced_setup.visual_step_1" = "按一次快速鍵開始免持錄音";
+"onboarding.enhanced_setup.visual_step_2" = "清楚地對著麥克風說話";
+"onboarding.enhanced_setup.visual_step_3" = "再按一次快速鍵進行轉錄";
+"onboarding.enhanced_setup.mic_speak_to_test" = "說話以測試您的麥克風";
+"onboarding.enhanced_setup.mic_listening" = "聆聽中...";
+
+/* Missing TryIt Keys */
+"onboarding.tryit.pro_badge" = "PRO";
+
+/* Email Sample Content */
+"email.to_label" = "收件人：";
+"email.subject_label" = "主旨：";
+"email.sample_address" = "sarah@company.com";
+"email.sample_subject" = "專案時程討論";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "您已準備好嘗試 Clio";
+"onboarding.primer.hold_key_instruction" = "下一頁請按住右側 ⌥ 鍵說話。\n放開後，Clio 會立即且乾淨地轉錄您的語音。";
+"onboarding.primer.try_it_now" = "現在試試";
+"onboarding.primer.back" = "返回";
+"onboarding.primer.next_hands_free" = "下一步，試試免持模式";
+"onboarding.primer.double_tap_instruction" = "只需按一下右 ⌘ 鍵即可切換持續聆聽。完成時再按一次進行轉錄。";
+"onboarding.primer.next_command_mode" = "下一步，試試指令模式";
+"onboarding.primer.select_text_instruction" = "選取文字後觸發快捷鍵請 Clio 摘要、潤飾、翻譯等。";
+"onboarding.primer.try_command_mode" = "試試指令模式";
+"onboarding.primer.placeholder_images" = "佔位圖 • 您可以在此放入圖片。";
+"onboarding.primer.select_text_hotkey_instruction" = "選擇任何文字後觸發指令快捷鍵並說話，例如 'Summarize this'。";
+"onboarding.primer.hotkey_label" = "快捷鍵：";
+"onboarding.primer.finish" = "完成";
+"onboarding.primer.continue" = "繼續";
+
+/* Onboarding - Personalization Showcase */
+"onboarding.personalization.title.personal_terms" = "個人詞典";
+"onboarding.personalization.subtitle.personal_terms" = "新增姓名、產品與縮寫，讓 Clio 認得你的專屬詞彙。";
+"onboarding.personalization.title.voice_shortcuts" = "語音捷徑";
+"onboarding.personalization.subtitle.voice_shortcuts" = "建立快速語音捷徑以插入常用片語或執行操作。";
+"onboarding.personalization.title.style_presets" = "風格預設";
+"onboarding.personalization.subtitle.style_presets" = "依應用或網站自訂語氣與格式。";
+
+/* Onboarding - Personalization Primer */
+"onboarding.personalization.primer.title" = "看看 Clio 如何更貼近你的使用習慣";
+"onboarding.personalization.primer.subtitle" = "快速導覽個人詞典、語音捷徑與風格預設。您可隨時略過。";
+"onboarding.personalization.primer.skip_to_use" = "略過並開始使用";
+
+/* Model Access Control */
+"models.upgrade_required_title" = "Pro 模型需要升級";
+"models.upgrade_fallback_message" = "%@ 模型需要 Pro 訂閱。您想要立即升級或切換到 %@（永久免費）？";
+"models.upgrade_now" = "升級至 Pro";
+"models.use_free_model" = "使用免費模型";
+"models.switched_to_free_title" = "已切換至免費模型";
+"models.switched_to_free_message" = "您現在使用的是 %@，此模型永久免費且非常適合日常使用。";
+"models.large_v3_quantized.description" = "我們最先進模型的輕量版本。下載大小較小且使用較少記憶體，同時保持優秀的準確度。適合儲存空間或記憶體有限的裝置";
+
+/* Trial Expired Modal */
+"trial_expired.title" = "試用已過期";
+"trial_expired.description" = "您的 Pro 試用已結束。選擇一個選項以繼續使用 Clio。";
+"trial_expired.use_flash" = "使用基礎模型";
+"trial_expired.upgrade" = "升級至 Pro";
+"trial_expired.never_remind" = "不再提醒";
+
+/* Offline Pro Features */
+"offline.onboarding.title" = "試用 Clio Pro 功能";
+"offline.onboarding.subtitle" = "使用標準模型永久免費使用 Clio，或試用 Pro 功能 7 天";
+"offline.features.premium_models.title" = "進階模型";
+"offline.features.premium_models.description" = "更大、更準確的模型，提供卓越的轉錄品質";
+"offline.features.ai_enhancement.title" = "進階 AI 增強";
+"offline.features.ai_enhancement.description" = "智慧文字格式化、文法修正和情境改善";
+/* Onboarding - 語言選擇 */
+"onboarding.language_selection.title" = "選擇聽寫語言";
+"onboarding.language_selection.subtitle" = "選擇您將使用的語言";
+"onboarding.language_selection.description" = "選擇多種語言以實現多語言轉錄";
+"onboarding.language_selection.show_all" = "顯示所有語言";
+"onboarding.language_selection.show_less" = "顯示常用語言";
+"onboarding.language_selection.selected_count" = "已選擇 %d 種語言";
+"onboarding.language_selection.auto_detect" = "自動檢測";
+"onboarding.language_selection.auto_description" = "自動檢測您說的語言。需要優質麥克風以獲得最佳效果";
+"onboarding.language_selection.pick_languages" = "選擇語言";
+"onboarding.language_selection.pick_description" = "選擇特定語言以提高準確性";
+"onboarding.language_selection.search" = "搜尋語言...";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "協助我們更好地識別您的語音";
+"onboarding.language.subtitle" = "Clio支援60多種語言。這只是協助我們更好地識別您的語音。選擇您的主要語言以提高準確性——您仍可使用任何語言進行語音輸入。";
+"onboarding.language.search_placeholder" = "搜尋語言...";
+
+
+/* Feedback */
+"feedback.title" = "聯絡我們";
+"feedback.subtitle" = "我們閱讀每則訊息。感謝幫助改善Clio！";
+"feedback.tab.report_issue" = "回報問題";
+"feedback.tab.share_feedback" = "分享意見回饋";
+"feedback.field.email" = "您的電子郵件（選填）";
+"feedback.field.message" = "訊息";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "發生了什麼問題？請描述重現問題的步驟。";
+"feedback.placeholder.feedback" = "對改善Clio有想法嗎？請在這裡分享。";
+"feedback.checkbox.blocking" = "此問題完全阻止我使用Clio";
+"feedback.info.system_info" = "系統資訊將自動包含";
+"feedback.button.send" = "傳送訊息";
+"feedback.success.title" = "意見回饋已傳送！";
+"feedback.success.message" = "感謝您的意見回饋！我們閱讀每則訊息，必要時會與您聯繫。";
+"feedback.error.title" = "傳送意見回饋時發生錯誤";
+"feedback.error.invalid_response" = "伺服器回應無效";
+"feedback.error.submission_failed" = "傳送意見回饋失敗。請重試。";
+"feedback.error.http_error" = "伺服器錯誤（代碼：%d）";
+"feedback.subject.bug_report" = "錯誤報告";
+"feedback.subject.general_feedback" = "一般意見回饋";
+"feedback.subject.urgent_bug" = "🚨 [緊急錯誤] Clio應用程式 - 使用者被阻止";
+"feedback.subject.bug_format" = "[%@] Clio應用程式意見回饋";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "深度語境透過分析螢幕內容來提高轉錄準確性，理解您的工作內容，識別行業術語，並為語音識別模型提供相關語境。這有助於處理技術術語、專有名詞和特定語境詞彙。";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "聽寫熱鍵";
+"settings.dictation_hotkey.description" = "按住錄音，放開轉錄（一鍵通模式）";
+"settings.hands_free_mode.title" = "免持模式";
+"settings.hands_free_mode.description" = "按一次即可說話而無需按住任何鍵，再按一次進行轉錄";
+"settings.assistant_mode.title" = "Clio 命令模式";
+"settings.assistant_mode.description" = "選擇文字進行轉換，或提問並透過 Perplexity 搜尋";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "鍵盤快速鍵";
+"settings.edit_key" = "編輯按鍵";
+
+/* Language Settings */
+"settings.language_settings.header" = "語言設定";
+
+/* Updates */
+"updates.primer.title" = "我們為您準備了一些令人興奮的更新！";
+"updates.primer.subtitle" = "快速瀏覽以查看 Command Mode 的實際運作，並探索新的個人化升級功能。";
+"updates.primer.primary" = "查看新功能";
+
+"common.coming_soon" = "即將推出";
+
+"ai_strength.toggle.off_hint" = "關閉：幾乎不經額外處理即可最快取得原始稿，只會稍微清除口頭填充語。";
+"ai_strength.toggle.on_hint" = "開啟：Clio 會執行 AI 編輯以增進清晰度；依照下方選擇的強度重寫時會有短暫延遲。";

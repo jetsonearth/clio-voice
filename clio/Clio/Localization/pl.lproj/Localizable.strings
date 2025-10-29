@@ -1,0 +1,213 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Created on 2025-01-04.
+*/
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "Zapisz";
+"general.cancel" = "Anuluj";
+"general.delete" = "Usuń";
+"general.edit" = "Edytuj";
+"general.done" = "Gotowe";
+"general.settings" = "Ustawienia";
+"general.close" = "Zamknij";
+"general.ok" = "OK";
+"general.yes" = "Tak";
+"general.no" = "Nie";
+"general.error" = "Błąd";
+"general.success" = "Sukces";
+"general.loading" = "Ładowanie...";
+"general.retry" = "Spróbuj ponownie";
+"general.download" = "Pobierz";
+"general.upload" = "Prześlij";
+"general.search" = "Szukaj";
+"general.filter" = "Filtruj";
+"general.sort" = "Sortuj";
+"general.share" = "Udostępnij";
+"general.copy" = "Kopiuj";
+"general.paste" = "Wklej";
+"general.clear" = "Wyczyść";
+"general.reset" = "Resetuj";
+"general.continue" = "Kontynuuj";
+"general.back" = "Wstecz";
+"general.next" = "Dalej";
+"general.finish" = "Zakończ";
+"general.language" = "Język";
+"general.default" = "Domyślny";
+"general.required" = "Wymagane";
+
+/* Navigation */
+"Home" = "Strona główna";
+"Dictionary" = "Słownik";
+"Plan" = "Plan";
+"Upgrade" = "Aktualizuj";
+"navigation.home" = "Strona główna";
+"navigation.models" = "Modele mowy";
+"navigation.power_mode" = "Ulepszenie AI";
+"navigation.dictionary" = "Terminy osobiste";
+"navigation.personalization" = "Personalizacja";
+"navigation.vocabulary" = "Słownictwo";
+"navigation.replacements" = "Skróty głosowe";
+"navigation.snippets" = "Presety stylu";
+"navigation.settings" = "Ustawienia";
+"navigation.plan" = "Plan";
+"navigation.license" = "Plan";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "Pomóż nam lepiej rozpoznać twój głos";
+"onboarding.language.subtitle" = "Clio działa z 60+ językami. To pomaga nam lepiej rozpoznać twoją mowę. Wybierz swoje główne języki dla lepszej dokładności—nadal możesz dyktować w dowolnym języku.";
+"onboarding.language.search_placeholder" = "Szukaj języków...";
+
+/* Dictionary */
+"dictionary.title" = "Terminy osobiste";
+"dictionary.custom_title" = "Niestandardowy słownik";
+"dictionary.custom_description" = "Dodaj imiona, akronimy i specjalne terminy, których często używasz—żeby Clio je wyraźnie słyszał i za każdym razem je poprawnie rozpoznawał.\nOd nazw marek po żargon zespołowy po trudne akronimy, Clio uczy się unikalnych słów, które są dla ciebie ważne.\nIm więcej go nauczysz, tym bardziej płynny się stanie.";
+"dictionary.add_new" = "Dodaj nowy";
+"dictionary.search_placeholder" = "Szukaj w słowniku";
+"dictionary.vocabulary" = "Słownictwo";
+"dictionary.replacements" = "Skróty głosowe";
+"dictionary.enable_word" = "Włącz słowo";
+"dictionary.disable_word" = "Wyłącz słowo";
+"dictionary.delete_word" = "Usuń słowo";
+"dictionary.delete_replacement" = "Usuń zamiennik";
+"dictionary.add_to_vocabulary" = "Dodaj do słownictwa";
+"dictionary.add_word" = "Dodaj słowo";
+"dictionary.make_replacement" = "Zrób z tego zamiennik";
+"dictionary.word_replacement_title" = "Zamiana słów";
+"dictionary.word_replacement_description" = "Gdy włączone, zamienia twoje niestandardowe słowo w regułę korekty. Clio automatycznie zastąpi niepoprawną wersję za każdym razem, gdy zostanie podyktowana.";
+"dictionary.misspelling_placeholder" = "Błędna pisownia";
+"dictionary.correct_spelling_placeholder" = "Poprawna pisownia";
+"dictionary.add_word_placeholder" = "Dodaj nowe słowo";
+"dictionary.edit_word" = "Edytuj słowo";
+"dictionary.word_placeholder" = "Słowo";
+"dictionary.save_changes" = "Zapisz zmiany";
+"dictionary.edit_replacement" = "Edytuj zamiennik";
+"dictionary.original_placeholder" = "Oryginalne";
+"dictionary.replacement_placeholder" = "Zamiennik";
+"dictionary.no_vocabulary_words" = "Brak słów w słownictwie";
+"dictionary.vocabulary_help_text" = "Dodaj słowa, żeby pomóc Clio je poprawnie rozpoznać";
+"dictionary.no_word_replacements" = "Brak zamienników słów";
+"dictionary.replacements_help_text" = "Utwórz automatyczne zamienniki słów dla lepszej transkrypcji";
+"dictionary.voice_shortcuts_description" = "Utwórz inteligentne skróty głosowe, żeby przepisać wypełniacze, rozwinąć skróty, lub wyczyścić nawyki—automatycznie, gdy mówisz.\nPowiedz \"mój numer\" → Clio wklei 123‑456‑7890.\nPowiedz \"zimne DM\" → Clio wstawi twoją pełną prezentację.\nPowiedz to po swojemu. Clio to wygładzi, wyostrzy, dostarczy.";
+"dictionary.info_card.title.vocab" = "Naucz Clio swojego języka.";
+"dictionary.info_card.title.voice" = "Kształtuj jak twój głos się prezentuje.";
+"dictionary.add_new_word" = "Dodaj nowe słowo";
+
+/* Style Presets */
+"style_presets.info_card.title" = "Pozwól Clio pisać jak ty.";
+"style_presets.info_card.description" = "Naucz swoje nawyki pisarskie. Clio uczy się jak budujesz zdania, jak dzielisz akapity, jak stawiasz interpunkcję.\nIm więcej go nauczysz, tym więcej będzie pisać jak twój głos.";
+"style_presets.add_new" = "Dodaj nowy";
+"style_presets.search_placeholder" = "Szukaj presetów";
+"style_presets.no_presets" = "Brak presetów";
+"style_presets.presets_help_text" = "Utwórz presety stylu, żeby nauczyć swoje nawyki pisarskie";
+"style_presets.add_new_preset" = "Dodaj nowy preset";
+"style_presets.edit_preset" = "Edytuj preset";
+"style_presets.preset_name_placeholder" = "Nazwa presetu";
+"style_presets.preset_description_placeholder" = "Opis (opcjonalny)";
+"style_presets.preset_rules_placeholder" = "Zasady (jedna na linię)";
+"style_presets.preset_rules_help" = "Przykład: \"Zawsze stawiaj dwie spacje między zdaniami\", \"Nigdy nie zaczynaj zdań od 'i'\"";
+"style_presets.delete_preset" = "Usuń preset";
+"style_presets.preset_name" = "Nazwa presetu";
+"style_presets.preset_description" = "Opis";
+"style_presets.preset_rules" = "Zasady";
+"style_presets.preset_rules_help_text" = "Dodaj zasady, żeby nauczyć swoje nawyki pisarskie";
+
+/* Feedback */
+"feedback.title" = "Skontaktuj się z nami";
+"feedback.subtitle" = "Czytamy każdą wiadomość. Dziękujemy za pomoc w ulepszaniu Clio!";
+"feedback.tab.report_issue" = "Zgłoś problem";
+"feedback.tab.share_feedback" = "Podziel się opinią";
+"feedback.field.email" = "Twój email (opcjonalny)";
+"feedback.field.message" = "Wiadomość";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "Co poszło nie tak? Opisz kroki do odtworzenia problemu.";
+"feedback.placeholder.feedback" = "Masz pomysły na ulepszenie Clio? Podziel się nimi tutaj.";
+"feedback.checkbox.blocking" = "Ten problem całkowicie blokuje mi używanie Clio";
+"feedback.info.system_info" = "Informacje o systemie zostaną automatycznie dołączone";
+"feedback.button.send" = "Wyślij wiadomość";
+"feedback.success.title" = "Opinia wysłana!";
+"feedback.success.message" = "Dziękujemy za opinię! Czytamy każdą wiadomość i skontaktujemy się jeśli potrzeba.";
+"feedback.error.title" = "Błąd wysyłania opinii";
+"feedback.error.invalid_response" = "Nieprawidłowa odpowiedź z serwera";
+"feedback.error.submission_failed" = "Wysyłanie opinii nie powiodło się. Spróbuj ponownie.";
+"feedback.error.http_error" = "Błąd serwera (kod: %d)";
+"feedback.subject.bug_report" = "Raport błędu";
+"feedback.subject.general_feedback" = "Ogólna opinia";
+"feedback.subject.urgent_bug" = "🚨 [Pilny błąd] Aplikacja Clio - Użytkownik zablokowany";
+"feedback.subject.bug_format" = "[%@] Opinia aplikacji Clio";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "Poprawia dokładność transkrypcji poprzez analizę zawartości ekranu, rozumienie nad czym pracujesz, rozpoznawanie terminów branżowych i dostarczanie odpowiedniego kontekstu do modelu rozpoznawania mowy. Pomaga z technicznym żargonem, nazwami własnymi i słownictwem specyficznym dla kontekstu.";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "Skrót dyktowania";
+"settings.dictation_hotkey.description" = "Przytrzymaj aby nagrywać, puść aby transkrybować (tryb naciśnij-i-mów)";
+"settings.hands_free_mode.title" = "Tryb bez użycia rąk";
+"settings.hands_free_mode.description" = "Naciśnij raz aby mówić bez trzymania klawisza, naciśnij ponownie aby transkrybować";
+"settings.assistant_mode.title" = "Tryb poleceń Clio";
+"settings.assistant_mode.description" = "Wybierz tekst do transformacji lub zadaj pytanie aby szukać z Perplexity";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "Skróty klawiaturowe";
+"settings.edit_key" = "Edytuj klawisz";
+"common.coming_soon" = "Wkrótce";
+"hotkey.modal.description" = "Naciśnij dowolny klawisz lub kombinację klawiszy, których chcesz używać";
+
+/* System Settings */
+"settings.system_settings.header" = "Ustawienia systemu";
+"settings.ai_enhancement" = "Włącz edycję AI";
+"settings.ai_enhancement.description" = "Pozwól Clio przepisać transkrypcję za pomocą AI, aby brzmienie, ton i format były naturalne.";
+"settings.launch_at_login" = "Uruchom przy logowaniu";
+"settings.launch_at_login.subtitle" = "Automatycznie uruchom Clio przy logowaniu.";
+"settings.hide_dock_icon.title" = "Ukryj ikonę w docku";
+"settings.hide_dock_icon.description" = "Uruchom Clio w tle (tylko pasek menu)";
+"onboarding.tryit.command_prefix" = "Wybierz cały tekst poniżej, następnie przytrzymaj";
+"onboarding.tryit.command_instruction_suffix" = "Powiedz \"przetłumacz to na chiński\", następnie puść oba klawisze";
+
+/* Onboarding - App Descriptions */
+"onboarding.app.cursor.description" = "Kodowanie AI";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "Asystent AI";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "Jesteś gotowy do wypróbowania trybu naciśnij-i-mów Clio.";
+"onboarding.primer.hold_key_instruction" = "Przytrzymaj swój klawisz aby mówić.\nPuść a Clio natychmiast i czysto transkrybuje twój głos.";
+"onboarding.primer.try_it_now" = "Wypróbuj teraz";
+"onboarding.primer.back" = "Wstecz";
+"onboarding.primer.next_hands_free" = "Dalej, wypróbuj tryb bez użycia rąk";
+"onboarding.primer.double_tap_instruction" = "Dotknij dwukrotnie swój klawisz aby przełączyć na ciągłe nasłuchiwanie.";
+"onboarding.primer.next_command_mode" = "Dalej, wypróbuj tryb poleceń";
+"onboarding.primer.select_text_instruction" = "Wybierz tekst do transformacji, następnie przytrzymaj swój klawisz.";
+"onboarding.primer.command_instruction" = "Powiedz \"przetłumacz to na chiński\", następnie puść oba klawisze.";
+"onboarding.primer.next_personalization" = "Dalej, konfiguracja personalizacji";
+"onboarding.primer.personalization_instruction" = "Naucz Clio lepiej rozpoznawać twój głos.";
+
+/* Onboarding Personalization */
+"onboarding.personalization.title" = "Naucz Clio lepiej rozpoznawać twój głos";
+"onboarding.personalization.subtitle" = "Powiedz kilka zdań aby zapoznać Clio z twoim głosem i stylem mówienia.";
+"onboarding.personalization.start_recording" = "Rozpocznij nagrywanie";
+"onboarding.personalization.stop_recording" = "Zatrzymaj nagrywanie";
+"onboarding.personalization.recording_progress" = "Postęp nagrywania: %d/%d";
+"onboarding.personalization.recording_complete" = "Nagrywanie zakończone!";
+"onboarding.personalization.recording_error" = "Błąd nagrywania";
+"onboarding.personalization.recording_retry" = "Spróbuj ponownie";
+"onboarding.personalization.recording_skip" = "Pomiń";
+"onboarding.personalization.recording_next" = "Dalej";
+"onboarding.personalization.recording_finish" = "Zakończ";
+
+/* Updates Primer */
+"updates.primer.title" = "Mamy dla ciebie kilka ekscytujących aktualizacji!";
+"updates.primer.subtitle" = "Weź szybką wycieczkę aby zobaczyć tryb poleceń w akcji...";
+"updates.primer.primary" = "Pokaż mi co nowego";
+"updates.primer.secondary" = "Później";
+"updates.primer.skip" = "Pomiń";
+
+/* Language Settings */
+"settings.language_settings.header" = "Ustawienia języka";
+
+"common.coming_soon" = "Wkrótce";
+"ai_strength.toggle.off_hint" = "Wyłączone: surowa transkrypcja dociera najszybciej, praktycznie bez dodatkowej obróbki—jedynie minimalne usuwanie słów-pasażerów.";
+"ai_strength.toggle.on_hint" = "Włączone: Clio uruchamia edycję AI dla większej przejrzystości; spodziewaj się krótkiego opóźnienia, gdy tekst jest przepisywany z wybraną poniżej intensywnością.";

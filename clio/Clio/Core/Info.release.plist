@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSScreenCaptureUsageDescription</key>
+    <string>Clio needs screen recording access to understand context from your screen for improved transcription accuracy.</string>
+    <key>SUEnableAutomaticChecks</key>
+    <true/>
+    <key>SUEnableInstallerLauncherService</key>
+    <true/>
+    <key>SUEnableSystemProfiling</key>
+    <false/>
+    <key>SUFeedURL</key>
+    <string>https://www.cliovoice.com/online/appcast.xml</string>
+    <key>SupportEmail</key>
+    <string>jetson@cliovoice.com</string>
+    <key>SUPABASE_KEY</key>
+    <string>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpanhrdnZrZ3hmZGR6dnZzenltIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExNzc5MDQsImV4cCI6MjA2Njc1MzkwNH0.cCltErtxhlQaXFYx0wAPkf3SNAtZ7LX1odomO8-w428</string>
+    <key>SUPABASE_URL</key>
+    <string>https://dijxkvvkgxfddzvvszym.supabase.co</string>
+    <key>SUPublicEDKey</key>
+    <string>CnNFwroOCH4HhKIGZrbezBeZqKqYPHAboNdNss3DETc=</string>
+    <!-- Release-only: silence unified logging for this process at launch -->
+    <key>LSEnvironment</key>
+    <dict>
+        <key>OS_ACTIVITY_MODE</key>
+        <string>disable</string>
+    </dict>
+</dict>
+</plist>

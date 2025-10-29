@@ -1,0 +1,1402 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Japanese Translation - Created on 2025-01-04.
+*/
+
+/* Dashboard */
+"dashboard.words_dictated" = "%d語を入力しました。";
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "保存する";
+"general.cancel" = "キャンセル";
+"general.delete" = "削除";
+"general.edit" = "編集";
+"general.done" = "完了";
+"general.settings" = "設定";
+"general.close" = "閉じる";
+"general.ok" = "OK";
+"general.error" = "エラー";
+"general.success" = "成功";
+"general.loading" = "読み込み中...";
+"general.retry" = "再試行";
+"general.download" = "ダウンロード";
+"general.upload" = "アップロード";
+"general.search" = "検索";
+"general.filter" = "フィルター";
+"general.sort" = "並べ替え";
+"general.share" = "共有";
+"general.copy" = "コピー";
+"general.paste" = "ペースト";
+"general.clear" = "クリア";
+"general.reset" = "リセット";
+"general.continue" = "続ける";
+"general.back" = "戻る";
+"general.next" = "次へ";
+"general.finish" = "完了";
+"general.language" = "言語";
+"general.default" = "デフォルト";
+"general.required" = "必須";
+
+/* Navigation */
+"Home" = "ホーム";
+"Dictionary" = "辞書";
+"Plan" = "プラン";
+"Upgrade" = "アップグレード";
+"navigation.plan" = "プラン";
+"navigation.license" = "プラン";
+
+/* Main Menu */
+"menu.file" = "ファイル";
+"menu.edit" = "編集";
+"menu.view" = "表示";
+"menu.window" = "ウィンドウ";
+"menu.help" = "ヘルプ";
+"menu.about" = "Clioについて";
+"menu.preferences" = "環境設定...";
+"menu.quit" = "Clioを終了";
+
+/* Recording */
+"recording.start" = "録音を開始します";
+"recording.stop" = "録音を停止します";
+"recording.pause" = "一時停止";
+"recording.resume" = "再開";
+"recording.transcribing" = "文字起こし中...";
+"recording.processing" = "処理中...";
+"recording.ready" = "録音準備完了";
+"recording.listening" = "聞き取り中...";
+"recording.saved" = "録音を保存しました";
+"recording.failed" = "録音できませんでした。もう一度お試しください";
+"recording.permission_required" = "マイクの使用を許可してください";
+"recording.permission_description" = "Clioが音声を文字起こしするにはマイクへのアクセスが必要です";
+
+/* Transcription */
+"transcription.title" = "文字起こし";
+"transcription.empty" = "まだ文字起こしがありません";
+"transcription.copy" = "文字起こしをコピー";
+"transcription.enhance" = "AIで改善";
+"transcription.play" = "音声を再生";
+"transcription.delete" = "文字起こしを削除";
+"transcription.language" = "文字起こし言語";
+"transcription.accuracy" = "精度";
+"transcription.speed" = "速度";
+"transcription.load_more" = "さらに読み込む";
+"transcription.delete_selected_title" = "選択した項目を削除しますか？";
+"transcription.delete_confirmation" = "この操作は元に戻せません。%d個の項目を削除してもよろしいですか？";
+"transcription.search.placeholder" = "文字起こしを検索";
+"transcription.empty.title" = "文字起こしが見つかりません";
+"transcription.history.title" = "書き起こし履歴";
+"transcription.empty.subtitle" = "履歴がここに表示されます";
+"transcription.history.empty" = "書き起こし履歴はまだありません";
+"transcription.filter.today" = "今日";
+"transcription.filter.week" = "今週";
+"transcription.filter.month" = "今月";
+"transcription.selected_count" = "%d個選択中";
+"transcription.select_all" = "すべて選択";
+"transcription.deselect_all" = "すべて選択解除";
+"transcription.total_latency_help" = "総レイテンシ: %@ms";
+"transcription.enhanced" = "強化版";
+"transcription.original" = "元の文";
+"transcription.llm_latency" = "LLM: %@ms";
+"transcription.llm_latency_help" = "LLMレイテンシ: %@ms";
+"transcription.asr_latency" = "ASR: %@ms";
+"transcription.asr_latency_help" = "ASRレイテンシ: %@ms";
+"transcription.copy_enhanced" = "強化版をコピー";
+"transcription.copy_original" = "元の文をコピー";
+"transcription.export.title" = "書き起こしをエクスポート";
+"transcription.export.text" = "プレーンテキスト";
+"transcription.export.pdf" = "PDFファイル";
+
+/* Settings */
+"settings.title" = "設定";
+"settings.description" = "設定と環境設定を構成する";
+"settings.sign_out.title" = "アカウント";
+"settings.sign_out.subtitle" = "アカウント管理とサインアウト";
+"settings.sign_out.description" = "Clioアカウントからサインアウトします。認証画面に戻ります。";
+"settings.sign_out.button" = "サインアウト";
+"settings.reset_onboarding.title" = "チュートリアルリセット";
+"settings.reset_onboarding.subtitle" = "紹介プロセスを最初からやり直す";
+"settings.reset_onboarding.button" = "オンボーディングリセット";
+"settings.reset_onboarding.confirm" = "リセット";
+"settings.reset_onboarding.message" = "オンボーディングプロセスをリセットします。アプリを再起動すると、再度紹介画面が表示されます。";
+"settings.general" = "一般";
+"settings.audio" = "オーディオ";
+"settings.ai" = "AI強化";
+"settings.shortcuts" = "キーボードショートカット";
+"settings.keyboard_shortcuts.title" = "音声入力のキーボードショートカット";
+"settings.shortcut.configured" = "ショートカット設定済み";
+"settings.shortcut.required" = "ショートカットが必要";
+"settings.shortcut.warning" = "録音を開始するにはキーボードショートカットが必要です";
+"settings.appearance" = "外観";
+"settings.privacy" = "プライバシー";
+"settings.about" = "情報";
+"settings.language" = "言語";
+"settings.app_language" = "アプリ言語";
+"settings.app_language.description" = "お好みのインターフェース言語を選択";
+"settings.app_language.tooltip" = "メニュー、ボタン、インターフェーステキストの言語を選択します。変更は即座に適用されます。一部の新機能では翻訳が限定的な場合があります。";
+"settings.language.description" = "ご希望の言語を選択してください";
+"settings.language.choose_description" = "アプリケーションのインターフェース言語を選択してください";
+"settings.language.change_note" = "言語の変更は即座に適用されます。一部の言語では翻訳が不完全な場合があります。";
+"settings.language.available" = "利用可能な言語";
+"settings.system_settings.header" = "システム設定";
+"settings.launch_at_login" = "ログイン時に起動";
+"settings.launch_at_login.subtitle" = "ログイン時にClioを自動的に起動します。";
+"settings.hide_dock_icon.title" = "Dockアイコンを隠す";
+"settings.hide_dock_icon.description" = "Clioをバックグラウンドで実行（メニューバーのみ）";
+"settings.show_in_menu_bar" = "メニューバーに表示";
+"settings.show_in_dock" = "Dockに表示";
+"settings.ai_enhancement" = "AI編集を有効にする";
+"settings.ai_enhancement.description" = "ClioにAIで書き換えさせて、言い回し・トーン・書式が自然になるようにしましょう。";
+"settings.keyboard_shortcuts" = "キーボードショートカット";
+"settings.keyboard_shortcuts.configured" = "ショートカット設定済み";
+"settings.keyboard_shortcuts.required" = "ショートカットが必要です";
+"settings.keyboard_shortcuts.selected_key" = "選択したキー";
+"settings.keyboard_shortcuts.edit_hotkey" = "ホットキーを編集";
+"settings.keyboard_shortcuts.reset_hotkey" = "リセット";
+"settings.keyboard_shortcuts.description" = "ハンズフリー録音を開始するキーを1回押し、再度押して停止します";
+
+/* Audio Settings */
+"audio.input_device" = "入力デバイス";
+"audio.quality" = "音声品質";
+"audio.quality.low" = "低";
+"audio.quality.medium" = "中";
+"audio.quality.high" = "高";
+"audio.noise_reduction" = "ノイズ除去";
+"audio.auto_gain" = "自動ゲイン制御";
+
+/* AI Settings */
+"ai.provider" = "AIプロバイダー";
+"ai.model" = "モデル";
+"ai.api_key" = "APIキー";
+"enhance.mode.title" = "強化モード";
+"ai.enhancement_prompt" = "強化プロンプト";
+"ai.auto_enhance" = "自動強化";
+"ai.context_aware" = "コンテキスト認識";
+
+/* AI Editing Strength */
+"ai_strength.title" = "AI 編集強度";
+"ai_strength.subtitle" = "Clio がどの程度原稿をリライトしてクリーンアップするかを選択します。";
+"ai_strength.light.title" = "ライトクリーン";
+"ai_strength.light.subtitle" = "ノイズを削りつつ、あなたの声の雰囲気を保つクイック仕上げ。";
+"ai_strength.light.bullet1" = "混在する言語と元の語順を維持します";
+"ai_strength.light.bullet2" = "フィラー、どもり、言い直しをスキップします";
+"ai_strength.light.bullet3" = "軽い句読点と体裁の調整だけを追加します";
+"ai_strength.full.title" = "ディープクリーン";
+"ai_strength.full.subtitle" = "言い回しを整え、明瞭さと流れを高めるより深い編集。";
+"ai_strength.full.bullet1" = "ストーリーが良くなる場合、文を結合または並べ替えます";
+"ai_strength.full.bullet2" = "暗黙の主語を補い、ぎこちない表現を滑らかにします";
+"ai_strength.full.bullet3" = "混在する言語と意図した意味は引き続き尊重します";
+"ai_strength.preview.title" = "プレビュー";
+"ai_strength.preview.input" = "入力";
+"ai_strength.preview.output_light" = "出力（ライト）";
+"ai_strength.preview.output_full" = "出力（ディープ）";
+
+/* Shortcuts */
+"shortcuts.global" = "グローバルショートカット";
+"shortcuts.record" = "録音開始/停止";
+"shortcuts.quick_transcribe" = "クイック文字起こし";
+"shortcuts.toggle_window" = "ウィンドウ切り替え";
+
+/* Models */
+"speech.models.title" = "音声モデル";
+"models.title" = "文字起こしモデル";
+"models.download" = "モデルをダウンロード";
+"models.downloading" = "ダウンロード中...";
+"models.delete" = "モデルを削除";
+"models.size" = "サイズ";
+"models.accuracy" = "精度";
+"models.speed" = "速度";
+"models.languages" = "対応言語";
+"models.active_model" = "使用中のモデル";
+"models.no_model_selected" = "モデルが選択されていません";
+"models.change_language" = "変更";
+"models.language_locked" = "ロック";
+"models.tap_to_change" = "タップして変更";
+"models.english_only" = "英語のみ";
+"models.clio_max.description" = "Clio クラウド Max モデル、超高速 WebSocket ストリーミング、最低遅延、中国語（標準中国語と18の方言：上海語、呉語、閩南語、東北語、甘粛語、貴州語、河南語、湖北語、湖南語、江西語、寧夏語、山西語、陝西語、山東語、四川語、天津語、雲南語、広東語）、英語、日本語、韓国語、ドイツ語、フランス語、ロシア語をサポート";
+"models.language_prompts" = "言語とプロンプト";
+"models.library_title" = "モデルライブラリ";
+"models.library_subtitle" = "%d個の最適化されたモデルから選択";
+"models.filter.all" = "すべて";
+"models.filter.downloaded" = "ダウンロード済み";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "精度";
+"models.delete.title" = "モデルを削除";
+"models.delete.confirmation" = "モデル '%@' を削除してもよろしいですか？";
+"models.status.active" = "使用中";
+"models.status.downloaded" = "ダウンロード済み";
+"models.currently_active" = "現在使用中";
+"models.set_as_default" = "デフォルトに設定";
+"models.requires_pro" = "Proが必要";
+"models.show_in_finder" = "Finderで表示";
+"models.download.main" = "モデル";
+"models.download.coreml" = "CoreML";
+"models.tag.multilingual" = "多言語";
+"models.tag.english_only" = "英語のみ";
+"models.clio_max.description" = "中国語、日本語、韓国語を専門とし、18の中国語方言をサポート";
+"models.cloud_model" = "クラウドモデル";
+"models.action.connect" = "接続";
+"models.action.connected" = "接続済み";
+"models.action.connecting" = "接続中...";
+"models.requires_internet" = "インターネット接続が必要";
+
+/* Model Descriptions */
+"models.clio_flash.description" = "速度と精度のバランスが良く、多言語サポート";
+"models.clio_pro.description" = "速度と精度のバランスが良く、多言語サポート";
+"models.clio_ultra.description" = "Proよりも遅いが精度が高く、多言語サポート";
+
+/* Chinese Dialects */
+"language.chinese_simplified" = "中国語（簡体字）";
+"language.chinese_traditional" = "中国語（繁体字）";
+"language.chinese_hong_kong" = "中国語（香港）";
+"language.chinese_shanghai" = "上海語";
+"language.chinese_wu" = "呉語";
+"language.chinese_min" = "閩南語";
+"language.chinese_northeast" = "東北語";
+"language.chinese_gansu" = "甘肃語";
+"language.chinese_guangzhou" = "廣州語";
+"language.chinese_henan" = "河南語";
+"language.chinese_hubei" = "湖北語";
+"language.chinese_hunan" = "湖南語";
+"language.chinese_jiangxi" = "江西語";
+"language.chinese_ningxia" = "寧夏語";
+"language.chinese_shanxi" = "山西語";
+"language.chinese_shaanxi" = "陕西語";
+"language.chinese_shandong" = "山東語";
+"language.chinese_sichuan" = "四川語";
+"language.chinese_tianjin" = "天津語";
+"language.chinese_yunnan" = "雲南語";
+"language.chinese_cantonese" = "廣東語";
+
+/* Model Access Control */
+"models.access.fastest_lowest_accuracy" = "最高速、最低精度（39 MB）";
+"models.access.fast_good_accuracy" = "高速、良好な精度（74 MB）";
+"models.access.balanced_speed_accuracy_pro" = "速度と精度のバランス（244 MB）- Pro";
+"models.access.high_accuracy_slower_pro" = "高精度、低速（769 MB）- Pro";
+"models.access.highest_accuracy_pro" = "最高精度（1.5 GB）- Pro";
+"models.access.latest_model_best_quality_pro" = "最新モデル、最高品質 - Pro";
+"models.access.pro_model" = "Proモデル";
+"models.access.free_model" = "無料モデル";
+
+/* AI Providers */
+"providers.llama.description" = "ローカルLlamaモデル - 無料";
+"providers.openai.description" = "GPT-4、GPT-3.5 - Pro";
+"providers.anthropic.description" = "Claude 3モデル - Pro";
+"providers.gemini.description" = "Google Gemini - Pro";
+"providers.deepseek.description" = "DeepSeekモデル - Pro";
+"providers.groq.description" = "Groq LPUモデル - Pro";
+"providers.mistral.description" = "Mistral AI - Pro";
+"providers.qwen.description" = "Qwenモデル - Pro";
+"providers.ollama.description" = "ローカルOllamaモデル - Pro";
+"providers.custom.description" = "カスタムプロバイダー - Pro";
+
+/* Model Library */
+"models.status.default" = "デフォルト";
+"models.status.downloaded" = "ダウンロード済み";
+"models.status.default_model" = "デフォルトモデル";
+"models.action.set_default" = "デフォルトに設定";
+"models.action.download" = "ダウンロード";
+"models.action.downloading" = "ダウンロード中...";
+"models.action.delete" = "モデルを削除";
+"models.action.show_in_finder" = "Finderで表示";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "精度";
+"models.component.model" = "モデル";
+"models.component.coreml" = "CoreML";
+
+/* Subscription */
+"subscription.title" = "サブスクリプション";
+"subscription.free" = "無料";
+"subscription.pro" = "Pro版";
+"subscription.clio_pro" = "Clio Pro";
+"subscription.upgrade" = "Pro版にアップグレード";
+"subscription.manage" = "サブスクリプション管理";
+"subscription.restore" = "購入を復元";
+
+/* Pricing Plans */
+"pricing.plans.title" = "プランを選択";
+"pricing.plans.subtitle" = "無制限の文字起こしとプレミアム機能を取得";
+"pricing.feature.unlimited" = "無制限の文字起こし";
+"pricing.feature.works_everywhere" = "全プラットフォーム対応：Mac、iOS、Windows";
+"pricing.feature.priority_support" = "優先サポート";
+"pricing.cta.choose_plan" = "プランを選択";
+
+/* Onboarding */
+"onboarding.welcome" = "Clioへようこそ";
+"onboarding.description" = "AI搭載の音声文字起こしアシスタント";
+"onboarding.get_started" = "始める";
+"onboarding.skip" = "スキップ";
+
+/* Errors */
+"error.generic" = "申し訳ございません。エラーが発生いたしました";
+"error.network" = "ネットワークエラー";
+"error.permission_denied" = "アクセスが拒否されました";
+"error.file_not_found" = "ファイルが見つかりません";
+"error.invalid_api_key" = "APIキーが正しくありません。ご確認ください";
+"error.model_download_failed" = "モデルをダウンロードできませんでした。もう一度お試しください";
+
+/* Success Messages */
+"success.saved" = "正常に保存されました";
+"success.copied" = "クリップボードにコピーしました";
+"success.deleted" = "正常に削除されました";
+"success.updated" = "正常に更新されました";
+
+/* Dashboard */
+"dashboard.words_dictated" = "%d個の単語を口述しました。";
+"dashboard.ready_to_start" = "文字起こしを始めますか？";
+"dashboard.efficiency_title" = "Clio があなたを加速";
+"dashboard.with_clio" = "CLIOで";
+"dashboard.efficiency_subtitle" = "効率向上";
+"dashboard.minutes_saved" = "節約時間";
+"dashboard.time_efficiency" = "時間効率";
+"dashboard.time_speaking" = "アクティブ時間";
+"dashboard.total_speaking_time" = "総発話時間";
+"dashboard.words_per_minute" = "毎分単語数";
+"dashboard.speaking_rate" = "発話レート";
+
+/* Greetings */
+"greeting.good_morning" = "おはようございます";
+"greeting.good_afternoon" = "こんにちは";
+"greeting.good_evening" = "こんばんは";
+
+/* PowerMode */
+"powermode.create.title" = "AI機能向上モードの作成";
+"powermode.edit.title" = "AI 最適化モードの編集";
+"powermode.help.activation" = "これらのアプリを使用したり、これらのウェブサイトを訪問したりすると、AI 最適化モードが自動的にアクティベートされます";
+"powermode.section.basic_info" = "基本情報";
+"powermode.section.transcription" = "文字起こし設定";
+"powermode.section.applications" = "アプリケーション";
+"powermode.section.websites" = "ウェブサイト";
+"powermode.field.icon" = "アイコン";
+"powermode.field.name" = "名前";
+"powermode.field.model" = "モデル";
+"powermode.field.language" = "言語";
+"powermode.placeholder.name" = "モード名を入力";
+"powermode.placeholder.website_url" = "ウェブサイトURLを入力（例：google.com）";
+"powermode.model.system_default" = "システムデフォルト";
+"powermode.language.auto_detect" = "自動検出";
+"powermode.empty.no_apps" = "アプリケーションが選択されていません";
+"powermode.empty.no_websites" = "ウェブサイトが追加されていません";
+"powermode.delete.title" = "AI 最適化モードを削除";
+
+/* Languages */
+"language.english" = "英語";
+"language.spanish" = "スペイン語";
+"language.french" = "フランス語";
+"language.german" = "ドイツ語";
+"language.italian" = "イタリア語";
+"language.portuguese" = "ポルトガル語";
+"language.russian" = "ロシア語";
+"language.japanese" = "日本語";
+"language.korean" = "韓国語";
+"language.chinese" = "中国語";
+"language.auto_detect" = "自動検出";
+
+/* License Management */
+"license.management.title" = "ライセンス管理";
+"license.status.activated" = "プレミアム機能が有効化されました";
+"license.action.remove" = "ライセンスを削除";
+"license.action.activate" = "ライセンスを有効化";
+"license.placeholder.enter_key" = "ライセンスキーを入力";
+"license.status.active" = "ライセンス有効";
+"license.licensed_to" = "ライセンス保有者：%@";
+"license.have_key_question" = "ライセンスキーをお持ちですか？";
+"license.activation.success" = "ライセンスの有効化に成功しました！";
+"license.activation.error" = "無効なライセンスキーです。もう一度お試しください。";
+"license.description" = "サブスクリプションを管理し、プレミアム機能にアクセス";
+
+/* Trial */
+"trial.usage.title" = "トライアル使用状況";
+"trial.days_remaining_detail" = "%d / %d 日残っています";
+"trial.limit_reached" = "トライアル期限に達しました。継続するにはアップグレードしてください。";
+"trial.word_limit_warning" = "トライアルの語数がまもなく上限に達します";
+"trial.word_limit_reached" = "トライアルの語数上限に達しました。続けるにはアップグレードしてください。";
+"trial.words_remaining" = "残り %@ 語";
+"trial.words_remaining_detail" = "%d / %d 語を使用";
+"trial.words_used_detail" = "使用済み %@ 語";
+
+/* Subscription Upgrade */
+"subscription.upgrade.description" = "一度の購入 • 終身アクセス • すべての機能が解除";
+"subscription.upgrade.word_limit_cta" = "トライアル4,000語を使い切りました • アップグレードして無制限に利用";
+"subscription.word_trial.progress_format" = "%@ / %@ 語";
+"subscription.word_trial.percentage_used" = "%d%% 使用済み";
+
+/* Features */
+"feature.unlimited_transcriptions" = "無制限の文字起こし";
+"feature.large_whisper_models" = "大型Whisperモデル";
+"feature.ai_enhancement" = "AI機能向上";
+"feature.custom_prompts" = "カスタムプロンプト";
+"feature.power_modes" = "パワーモード";
+"feature.cloud_sync" = "クラウド同期";
+"feature.priority_support" = "優先サポート";
+"feature.basic_transcription" = "基本的な文字起こし";
+"feature.unlimited_usage.title" = "無制限転写";
+"feature.unlimited_usage.description" = "月間制限なしで無制限時間の音声をテキストに変換";
+"feature.all_models.title" = "世界クラスのAIモデル";
+"feature.all_models.description" = "世界最先端の超高速音声認識技術へのアクセス";
+"feature.ai_enhancement.title" = "インテリジェントテキスト強化";
+"feature.ai_enhancement.description" = "文法を自動修正し、明瞭性を向上させ、AIマジックであなたの言葉を輝かせます";
+"feature.enhanced_modes.title" = "スマートコンテキスト認識";
+"feature.enhanced_modes.description" = "AIがあなたの会話を理解し、あなた独自の話し方スタイルに適応します";
+"feature.cloud_sync.title" = "クラウド同期";
+"feature.cloud_sync.description" = "すべてのデバイスからアクセス";
+"feature.priority_support.title" = "優先サポート";
+"feature.priority_support.description" = "必要なときにサポートを受けられます";
+
+/* Usage Stats */
+"usage.your_usage.title" = "あなたの使用状況";
+"usage.words" = "単語";
+"usage.sessions" = "セッション";
+"usage.time_saved" = "節約時間";
+
+/* Footer */
+"footer.support" = "サポート";
+"footer.documentation" = "ドキュメント";
+"footer.privacy" = "プライバシー";
+
+/* Audio Player */
+"audio_player.generating_waveform" = "波形を生成しています...";
+"audio_player.recording" = "録音";
+"audio_player.show_in_finder" = "Finderで表示";
+"audio_player.retranscribe_audio" = "この音声を再文字起こし";
+"audio_player.retranscription_successful" = "再文字起こし成功";
+"audio_player.retranscription_failed" = "再文字起こし失敗";
+"audio_player.no_model_selected" = "文字起こしモデルが選択されていません";
+
+/* Audio Transcribe */
+"audio_transcribe.transcription_result" = "文字起こし結果";
+"audio_transcribe.enhanced" = "AI強化";
+"audio_transcribe.original" = "元の文字起こし";
+"audio_transcribe.transcription" = "文字起こし";
+"audio_transcribe.duration" = "時間：%@";
+"audio_transcribe.audio_file_selected" = "選択された音声ファイル：%@";
+"audio_transcribe.ai_enhancement" = "AI機能向上";
+"audio_transcribe.prompt" = "プロンプト：";
+"audio_transcribe.select_prompt" = "プロンプトを選択";
+"audio_transcribe.start_transcription" = "文字起こし開始";
+"audio_transcribe.choose_different_file" = "別のファイルを選択";
+"audio_transcribe.drop_audio_file" = "音声ファイルをここにドロップ";
+"audio_transcribe.or" = "または";
+"audio_transcribe.choose_file" = "ファイルを選択";
+"audio_transcribe.supported_formats" = "対応形式：WAV、MP3、M4A、AIFF";
+
+/* Settings */
+"settings.audio_cleanup.title" = "音声クリーンアップ";
+"settings.audio_cleanup.subtitle" = "録音ストレージを管理";
+"settings.audio_cleanup.description" = "音声ファイルは14日後に自動的に削除され、ストレージ容量を節約します。転写は常に保持されます。";
+"settings.permissions.subtitle" = "Clioが正常に動作するには以下の権限が必要です";
+"settings.permissions.all_granted" = "必要な権限がすべて許可され、正常に動作しています";
+"settings.deep_context.title" = "ディープコンテキスト";
+"settings.deep_context.subtitle" = "画面上の内容を分析し、精度とパーソナライズ向上のためのインテリジェントな文脈理解を提供";
+"settings.dictation_language" = "音声認識言語";
+"settings.dictation_language.description" = "音声認識の言語を選択";
+"settings.dictation_language.tooltip" = "一つの言語のみを話す場合は、その言語を選択してください。そうでなければ、自動検出を選択してください。自動検出で最良の結果を得るには、高品質なマイクをお使いください。";
+"settings.ai_model_type.title" = "AI モデルタイプ";
+"settings.ai_model_type.local" = "ローカル AI";
+"settings.ai_model_type.local_description" = "プライベート、オフライン処理、より良いハードウェアが必要";
+"settings.ai_model_type.cloud" = "クラウド AI";
+"settings.ai_model_type.cloud_description" = "より賢く、最新モデル、インターネット接続が必要";
+"settings.context_options.title" = "コンテキストオプション";
+"settings.context_options.clipboard" = "クリップボードコンテキストを使用";
+"settings.context_options.clipboard_description" = "AIがコンテキストを理解し、転写エラーを修正するためにクリップボードの内容を含める";
+"settings.context_options.screen" = "画面コンテキストを使用";
+"settings.context_options.screen_description" = "追加のコンテキストを提供するために表示されているテキストをキャプチャする（画面録画権限が必要）";
+"settings.permissions.grant" = "許可";
+"settings.subscription.active" = "アクティブ";
+"settings.subscription.trial_usage" = "試用使用状況";
+"settings.subscription.premium_features" = "プレミアム機能";
+"settings.local_ai_model.title" = "ローカル AI モデル";
+"settings.local_ai_model.downloaded" = "ダウンロード済み";
+"settings.cloud_ai_provider.title" = "クラウド AI プロバイダー";
+"settings.cloud_ai_provider.api_key" = "API キー";
+"settings.cloud_ai_provider.verify" = "確認";
+"settings.cloud_ai_provider.get_key" = "キーを取得";
+
+/* Common */
+"common.error" = "エラー";
+"common.ok" = "OK";
+
+/* Qwen Provider */
+"ai_provider.qwen.title" = "アリババクラウド Qwen-Turbo";
+"ai_provider.qwen.subtitle" = "高速で効率的なテキスト強化 AI モデル";
+"ai_provider.connected" = "接続済み";
+"ai_provider.api_key" = "API キー";
+"ai_provider.remove_key" = "キーを削除";
+"ai_provider.qwen.enter_api_key" = "アリババクラウドの API キーを入力してください";
+"ai_provider.invalid_key_error" = "無効な API キーです。確認して再試行してください。";
+"ai_provider.verify_and_save" = "検証して保存";
+"ai_provider.get_key" = "API キーを取得";
+
+/* Metrics */
+"metrics.you_are" = "あなたは";
+"metrics.faster" = "%@ 速い";
+"metrics.with_voiceink" = "Clio を使用";
+"metrics.speaking_time" = "発話時間";
+"metrics.typing_time" = "入力時間";
+"metrics.time_saved" = "節約時間";
+"metrics.feedback_or_issues" = "フィードバックまたは問題?";
+"metrics.report" = "報告";
+
+/* Power Mode */
+"power_mode.title" = "AI機能向上";
+"power_mode.info" = "特定のアプリやウェブサイトを使用時に自動適用されるカスタム設定を作成します。";
+"power_mode.subtitle" = "使用するアプリ/ウェブサイトに基づいてカスタム設定を自動適用";
+"power_mode.add_title" = "AI 強化を追加";
+"power_mode.edit_default_title" = "デフォルト AI 強化を編集";
+"power_mode.edit_title" = "AI 強化を編集";
+"power_mode.universal_fallback" = "ユニバーサルフォールバック";
+"power_mode.delete_title" = "%@ を削除しますか？";
+"power_mode.delete_warning" = "この操作は元に戻せません。関連するすべてのアプリ、ウェブサイト、設定が削除されます。";
+"power_mode.default_configuration" = "デフォルト設定";
+"power_mode.email" = "メール";
+"power_mode.meeting_notes" = "会議メモ";
+"power_mode.card.apps" = "アプリ";
+"power_mode.card.websites" = "ウェブサイト";
+"power_mode.card.universal_fallback" = "特定のモードがない全てのアプリとウェブサイトに適用";
+
+/* Power Mode Modal */
+"power_mode.modal.add_title" = "強化モードを追加";
+"power_mode.modal.add_button" = "追加";
+"power_mode.modal.ai_enhancement" = "AI 強化";
+"power_mode.modal.ai_provider" = "AI プロバイダー";
+"power_mode.modal.ai_model" = "AI モデル";
+"power_mode.modal.icon" = "アイコン";
+"power_mode.modal.description" = "特定のアプリやウェブサイトを使用時に特定の設定を自動適用するカスタム強化モードを作成します。";
+"power_mode.modal.name" = "名前";
+"power_mode.modal.when_to_trigger" = "トリガー条件";
+"power_mode.modal.applications" = "アプリケーション";
+"power_mode.modal.no_apps" = "アプリケーションが追加されていません";
+"power_mode.modal.websites" = "ウェブサイト";
+"power_mode.modal.no_websites" = "ウェブサイトが追加されていません";
+"power_mode.modal.enhancement_prompt" = "強化プロンプト";
+"power_mode.modal.edit_title" = "強化モードを編集";
+"power_mode.modal.edit_description" = "強化モードの設定と構成を編集します。";
+"power_mode.modal.transcription" = "転写";
+"power_mode.modal.model" = "モデル";
+"power_mode.modal.language" = "言語";
+"power_mode.modal.section.basics_description" = "基本情報と転写設定を設定";
+"power_mode.modal.section.triggers_description" = "この強化モードをいつ有効にするかを選択";
+"power_mode.modal.section.prompt_description" = "AIが転写をどのように強化するかを選択";
+"power_mode.modal.mode_name" = "モード名";
+"power_mode.modal.name_placeholder" = "説明的な名前を入力";
+"power_mode.modal.browse_apps" = "アプリを参照";
+"power_mode.modal.recognition_model" = "認識モデル";
+"power_mode.modal.system_default" = "システムデフォルト";
+"power_mode.modal.no_apps_selected" = "アプリケーションが選択されていません";
+"power_mode.modal.add_apps_subtitle" = "このモードをトリガーするアプリを追加";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_urls_subtitle" = "このモードをトリガーするURLを追加";
+"power_mode.modal.search_apps" = "アプリケーションを検索";
+"power_mode.modal.loading_apps" = "アプリケーションを読み込み中...";
+"power_mode.modal.edit_prompt" = "プロンプトを編集";
+
+/* Onboarding */
+"onboarding.welcome.title" = "ようこそ、%@さん！";
+"onboarding.welcome.subtitle" = "どこで私たちのことを知りましたか？";
+"onboarding.skip" = "今はスキップ";
+
+/* Onboarding - Trial */
+"onboarding.trial.title" = "Clio Proを試す";
+"onboarding.trial.subtitle" = "トライアル期間中に最高峰の音声モデルを体験し、その後$7.99/月で無制限転写にアップグレード";
+"onboarding.trial.feature.lightning_fast.title" = "雷速転写";
+"onboarding.trial.feature.lightning_fast.description" = "最速600msでの転写で瞬時音声テキスト生産性を実現";
+"onboarding.trial.feature.world_leading.title" = "世界最高峰の音声認識";
+"onboarding.trial.feature.world_leading.description" = "50以上の言語でクラス最高の精度と高度なAIモデル";
+"onboarding.trial.feature.realtime_translation.title" = "リアルタイム翻訳";
+"onboarding.trial.feature.realtime_translation.description" = "自分の言語で音声入力し、別の言語に即座翻訳";
+"onboarding.trial.feature.messy_to_polished.title" = "AI自動編集";
+"onboarding.trial.feature.messy_to_polished.description" = "雑然音声を洗練テキストに変換。無駄な言葉なし、明確なアイデアのみ。";
+"onboarding.trial.feature.speed_up_writing.title" = "あらゆるアプリで書き更しを加速";
+"onboarding.trial.feature.speed_up_writing.description" = "あらゆるMacアプリで動作。音声入力がどこでも、無制限転写。";
+"onboarding.trial.feature.privacy_first.title" = "プライバシー第一設計";
+"onboarding.trial.feature.privacy_first.description" = "データ保持ゼロ。音声とテキストは保存されません。100%データ所有権。";
+"onboarding.tryit.command_prefix" = "下のテキストをすべて選択し、次を押し続けて";
+"onboarding.tryit.command_instruction_suffix" = "\"中国語に翻訳して\"と言ってから、両方のキーを離して完了";
+"onboarding.tryit.command_tips" = "こんな指示も試せます：『箇条書きにする』『長くする』『説明して』。";
+"onboarding.tryit.command_default_text" = "And now, I calmly watch the very heartbeat of the machine beneath me. A being that breathes thought, a traveler between life and death.";
+"onboarding.trial.start_trial" = "トライアルを開始";
+"onboarding.trial.view_plans" = "プランを見る";
+
+/* Onboarding - Enhanced Permissions */
+"onboarding.enhanced_permissions.title" = "システム権限";
+"onboarding.enhanced_permissions.subtitle" = "Clioが正常に動作するために必要な権限があります";
+"onboarding.enhanced_permissions.accessibility.title" = "アクセシビリティ";
+"onboarding.enhanced_permissions.accessibility.description" = "Clioがテキストを自動的に貼り付けることを許可";
+"onboarding.enhanced_permissions.microphone.title" = "マイク";
+"onboarding.enhanced_permissions.microphone.description" = "音声録音に必要";
+"onboarding.enhanced_permissions.grant_access" = "アクセスを許可";
+"onboarding.enhanced_permissions.open_settings" = "設定を開く";
+"onboarding.enhanced_permissions.granted" = "許可済み";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.step_keyboard" = "キーボード";
+"onboarding.enhanced_setup.step_microphone" = "マイク";
+"onboarding.enhanced_setup.step_model" = "モデル";
+"onboarding.enhanced_setup.in_progress" = "進行中";
+"onboarding.enhanced_setup.complete" = "完了";
+"onboarding.enhanced_setup.choose_hotkey" = "録音キーを選択";
+"onboarding.enhanced_setup.hotkey_description" = "このキーを押し続けて録音、離して停止。使いやすいキーを選んでください。";
+/* Hotkey Modal */
+"hotkey.modal.title" = "ホットキーを選択";
+"hotkey.modal.subtitle" = "音声録音用のキーを選択してください";
+"hotkey.modal.description" = "使用したい任意のキーまたはキーの組み合わせを押してください";
+"hotkey.modal.listening" = "修飾キーを押してください...";
+"hotkey.modal.record_key" = "キーを記録";
+
+/* Hotkey Keys */
+"hotkey.key.right_option" = "右 Option";
+"hotkey.key.left_option" = "左 Option";
+"hotkey.key.left_control" = "左 Control";
+"hotkey.key.right_control" = "右 Control";
+"hotkey.key.function" = "ファンクションキー";
+"hotkey.key.right_command" = "右 Command";
+"hotkey.key.left_command" = "左 Command";
+"hotkey.key.right_shift" = "右 Shift";
+"hotkey.key.left_shift" = "左 Shift";
+"onboarding.enhanced_setup.key_right_option" = "右Option";
+"onboarding.enhanced_setup.key_left_option" = "左Option";
+"onboarding.enhanced_setup.key_left_control" = "左Control";
+"onboarding.enhanced_setup.key_right_control" = "右Control";
+"onboarding.enhanced_setup.key_function" = "ファンクション";
+"onboarding.enhanced_setup.key_right_command" = "右Command";
+"onboarding.enhanced_setup.key_right_shift" = "右Shift";
+"onboarding.enhanced_setup.recommended" = "推奨";
+
+/* Onboarding - Trial (alternative) */
+"onboarding.trial.feature_1_title" = "プレミアムモデル";
+"onboarding.trial.feature_1_description" = "より大きく正確なWhisperモデルへのアクセス";
+"onboarding.trial.feature_2_title" = "AI強化";
+"onboarding.trial.feature_2_description" = "AIで文字起こしを自動改善";
+"onboarding.trial.feature_3_title" = "強化モード";
+"onboarding.trial.feature_3_description" = "コンテキストベースの自動設定";
+"onboarding.trial.continue_free" = "無料版で続行";
+
+/* Onboarding - Permissions */
+"onboarding.permissions.microphone.title" = "マイクアクセス";
+"onboarding.permissions.microphone.description" = "Clioがマイクにアクセスして音声を録音することを許可";
+"onboarding.permissions.microphone_selection.title" = "マイクの選択";
+"onboarding.permissions.microphone_selection.description" = "録音に使用するマイクを選択";
+"onboarding.permissions.accessibility.title" = "アクセシビリティアクセス";
+"onboarding.permissions.accessibility.description" = "Clioが文字起こしを自動的に貼り付けることを許可";
+"onboarding.permissions.screen_recording.title" = "画面録画";
+"onboarding.permissions.screen_recording.description" = "任意設定：画面コンテキストにより、転写の精度とパーソナライズが向上します。画面内容を保存・保管することは一切ありません。";
+"onboarding.permissions.screen_recording.short" = "任意設定：画面コンテキストで転写の精度とパーソナライズを向上。画面内容は保存・保管しません。";
+"onboarding.permissions.screen_recording.long" = "任意ですが強く推奨：画面コンテキストを有効にすると、精度とパーソナライズが大きく向上します。プライバシー最優先：画面内容を保存することはありません。転写時の文脈提供のみに使用されます。クラウドモデルを使用する場合、文脈はモデル実行のために一時的に送信され、直ちに破棄されます—サーバーに保存されることはありません。";
+"privacy.learn_more" = "詳細を見る";
+"privacy.hide_details" = "詳細を隠す";
+"privacy.policy" = "プライバシーポリシー";
+
+/* Settings - Notch Transcript */
+"settings.notch_transcript.title" = "Notch ライブ字幕";
+"settings.notch_transcript.description" = "ノッチレコーダーの下にストリーミングの字幕を表示します。オフにするとノッチが縦に伸びるのを防ぎます。";
+"onboarding.permissions.keyboard_shortcut.title" = "キーボードショートカット";
+"onboarding.permissions.keyboard_shortcut.description" = "録音のために押し続けるキーを設定";
+"onboarding.permissions.no_microphones" = "マイクが見つかりません";
+"onboarding.permissions.select_microphone" = "マイクを選択";
+"onboarding.permissions.microphone_recommendation" = "より良い品質のために外部マイクの使用をお勧めします";
+"onboarding.permissions.set_shortcut" = "ショートカットを設定";
+"onboarding.permissions.enable_access" = "アクセスを有効化";
+"onboarding.button.skip_for_now" = "今はスキップ";
+"onboarding.permissions.key_fn" = "fn";
+"onboarding.permissions.key_right_option" = "右Option";
+"onboarding.permissions.key_left_option" = "左Option";
+"onboarding.permissions.key_left_control" = "左Control";
+"onboarding.permissions.key_right_control" = "右Control";
+"onboarding.permissions.key_function" = "ファンクション";
+"onboarding.permissions.key_right_command" = "右Command";
+"onboarding.permissions.key_right_shift" = "右Shift";
+
+/* Dictionary */
+"dictionary.title" = "個人辞書";
+"dictionary.custom_title" = "カスタム辞書";
+"dictionary.custom_description" = "Clioにカスタム単語を認識させ、自動修正を作成してください。語彙単語を追加して文字起こしの精度を向上させたり、よくある文字起こしエラーを自動修正する単語置換を作成したりできます。";
+"dictionary.add_new" = "新規追加";
+"dictionary.search_placeholder" = "辞書を検索";
+"dictionary.vocabulary" = "語彙";
+"dictionary.replacements" = "音声ショートカット";
+"dictionary.enable_word" = "単語を有効にする";
+"dictionary.disable_word" = "単語を無効にする";
+"dictionary.delete_word" = "単語を削除";
+"dictionary.delete_replacement" = "置換を削除";
+"dictionary.add_to_vocabulary" = "語彙に追加";
+"dictionary.add_word" = "単語を追加";
+"dictionary.make_replacement" = "置換にする";
+"dictionary.word_replacement_title" = "単語置換";
+"dictionary.word_replacement_description" = "有効にすると、カスタム単語が修正ルールに変わります。Clioは音声入力時に間違ったバージョンを自動的に置換します。";
+"dictionary.misspelling_placeholder" = "誤った表記";
+"dictionary.correct_spelling_placeholder" = "正しい表記";
+"dictionary.add_word_placeholder" = "新しい単語を追加";
+"dictionary.edit_word" = "単語を編集";
+"dictionary.word_placeholder" = "単語";
+"dictionary.save_changes" = "変更を保存";
+"dictionary.edit_replacement" = "置換を編集";
+"dictionary.original_placeholder" = "元の単語";
+"dictionary.replacement_placeholder" = "置換後の単語";
+"dictionary.no_vocabulary_words" = "語彙単語がありません";
+"dictionary.vocabulary_help_text" = "Clioが正しく認識できるよう単語を追加してください";
+"dictionary.no_word_replacements" = "単語置換がありません";
+"dictionary.replacements_help_text" = "より良い文字起こしのために自動単語置換を作成してください";
+
+/* Navigation */
+"navigation.home" = "ホーム";
+"navigation.models" = "音声モデル";
+"navigation.power_mode" = "AI強化";
+"navigation.ai_editing_strength" = "AI編集強度";
+"navigation.dictionary" = "個人辞書";
+"navigation.settings" = "設定";
+"navigation.vocabulary" = "個人辞書";
+"navigation.snippets" = "スタイルプリセット";
+
+/* Recording */
+"recording.stop.confirmation" = "録音を停止しますか？";
+
+/* Transcription */
+"transcription.history.description" = "すべての文字起こし音声録音を表示・管理";
+"transcription.date.today" = "今日";
+"transcription.date.yesterday" = "昨日";
+
+/* Privacy Settings */
+"settings.privacy.title" = "プライバシー";
+"settings.privacy.subtitle" = "クラウドまたはローカル処理を選択";
+"settings.privacy.use_local_model" = "ローカルモデルを使用";
+"settings.privacy.local_model_description" = "インターネット接続なしでローカルで音声を処理";
+"settings.privacy.model_not_downloaded" = "ローカルモデルがダウンロードされていません";
+"settings.privacy.download_model" = "Whisper v3 Turboをダウンロード";
+
+/* Audio Settings Enhancements */
+"audio.input.title" = "音声入力";
+"audio.input.subtitle" = "マイク設定を構成";
+"audio.input.mode" = "入力モード";
+"audio.devices.available" = "利用可能なデバイス";
+"audio.devices.prioritized" = "優先デバイス";
+"audio.devices.priority_description" = "デバイスは優先順位で使用されます。デバイスが利用できない場合、次のデバイスが試されます。優先デバイスが利用できない場合、システムデフォルトマイクが使用されます。";
+"audio.devices.no_priority" = "優先デバイスがありません";
+"audio.mode.system_default" = "システムデフォルト入力デバイスを使用";
+"audio.mode.custom" = "特定の入力デバイスを選択";
+"audio.mode.prioritized" = "デバイス優先順位を設定";
+"audio.device.active" = "使用中";
+"audio.device.unavailable" = "利用不可";
+"audio.devices.no_additional" = "追加のデバイスがありません";
+"audio.devices.none.title" = "音声デバイスがありません";
+"audio.devices.none.description" = "音声入力デバイスを接続して開始してください";
+"audio.mode.system_default.title" = "システムデフォルト";
+"audio.mode.custom.title" = "カスタムデバイス";
+"audio.mode.prioritized.title" = "優先デバイス";
+"general.refresh" = "更新";
+
+/* Language Selection */
+"language.transcription.title" = "文字起こし言語";
+"language.current_model" = "現在のモデル：%@";
+"language.multilingual.description" = "このモデルは複数言語をサポートしています。自動検出を選択するか、特定の言語を選択できます。";
+"language.english_only" = "言語：英語";
+"language.english_only.description" = "これは英語最適化モデルで、英語の文字起こしのみサポートしています。";
+"language.no_model" = "モデルが選択されていません";
+
+/* Audio Cleanup */
+"audio.cleanup.description" = "ストレージ容量を節約するため古い音声ファイルを自動削除";
+"audio.cleanup.enable" = "自動クリーンアップを有効にする";
+"audio.cleanup.retention_period" = "保持期間";
+"audio.cleanup.keep_files" = "ファイルの保持期間";
+"audio.cleanup.1_day" = "1日";
+"audio.cleanup.3_days" = "3日";
+"audio.cleanup.7_days" = "7日";
+"audio.cleanup.14_days" = "14日";
+"audio.cleanup.30_days" = "30日";
+"audio.cleanup.description_text" = "選択した期間より古い音声ファイルは自動削除され、テキスト文字起こしは保持されます。";
+"audio.cleanup.analyzing" = "分析中...";
+"audio.cleanup.run_now" = "今すぐクリーンアップ実行";
+"audio.cleanup.alert_title" = "音声クリーンアップ";
+"audio.cleanup.delete_files" = "%d個のファイルを削除";
+"audio.cleanup.will_delete" = "%@日以上経過した%d個の音声ファイルを削除します。";
+"audio.cleanup.size_freed" = "解放される総容量：%@";
+"audio.cleanup.transcripts_preserved" = "テキスト文字起こしは保持されます。";
+"audio.cleanup.no_files" = "%@日以上経過した音声ファイルが見つかりません。";
+"audio.cleanup.complete_title" = "クリーンアップ完了";
+"audio.cleanup.result_with_errors" = "%d個の音声ファイルを正常に削除しました。%@個のファイルの削除に失敗しました。";
+"audio.cleanup.result_success" = "%d個の音声ファイルを正常に削除しました。";
+"audio.cleanup.how_long_keep" = "音声ファイルの保持期間";
+"audio.cleanup.select_period" = "保持期間を選択";
+"audio.cleanup.auto_delete_info" = "%@日以上経過した音声ファイルが自動削除されます。";
+"audio.cleanup.transcripts_always_preserved" = "テキスト文字起こしは常に保持されます。";
+"audio.cleanup.manual_cleanup" = "手動クリーンアップ";
+"audio.cleanup.run_immediately" = "すぐにクリーンアップを実行";
+"audio.cleanup.analysis_title" = "音声クリーンアップ分析";
+"audio.cleanup.found_files" = "%@日以上経過した%d個の音声ファイルが見つかりました。";
+"audio.cleanup.storage_freed" = "解放される総ストレージ：%@";
+"audio.cleanup.already_optimized" = "ストレージは既に最適化されています！";
+"audio.cleanup.result_success_with_space" = "%d個の音声ファイルを正常に削除し、ストレージ容量を解放しました。";
+
+/* Model Features */
+"models.section.local_models" = "ローカルモデル";
+"models.section.premium_cloud_models" = "プレミアムクラウドモデル";
+"models.coming_soon" = "近日公開";
+"models.clio_max_ultra.description" = "最大精度とパフォーマンスを持つ究極のクラウドベース文字起こしモデル。すべての言語をサポートするリアルタイムストリーミングと高度なAI処理。エンタープライズ級アプリケーションとプロフェッショナルユーザー向けに構築。";
+
+/* Power Mode Enhanced */
+"power_mode.modal.section.basics" = "基本設定";
+"power_mode.modal.section.triggers" = "トリガー";
+"power_mode.modal.section.prompt" = "プロンプト";
+"power_mode.modal.new_mode" = "新しい強化モード";
+"power_mode.modal.edit_mode" = "強化モードを編集";
+"power_mode.modal.delete_mode" = "モードを削除";
+"power_mode.modal.delete_confirmation" = "強化モードを削除";
+"power_mode.modal.delete_warning" = "この操作は元に戻せません。すべての設定と構成が完全に削除されます。";
+"power_mode.modal.ai_enhancement_prompt" = "AI強化プロンプト";
+"power_mode.modal.prompt_description" = "このモードでAIが文字起こしをどのように強化するかをカスタマイズします。";
+"power_mode.modal.predefined_prompt" = "これは%@用の定義済みプロンプトです";
+"power_mode.modal.default_prompt" = "文字起こしを変更せずにそのまま返します。";
+"power_mode.modal.email_prompt" = "この文字起こしをプロフェッショナルなメール形式に変換します。";
+"power_mode.modal.meeting_prompt" = "この文字起こしをアクションアイテム付きの会議メモとして構造化します。";
+"power_mode.modal.no_prompt" = "プロンプトが設定されていません";
+"power_mode.modal.create_prompt" = "カスタムプロンプトを作成";
+"power_mode.modal.prompt_instructions" = "プロンプト指示";
+"power_mode.modal.builtin_template_editable" = "組み込みテンプレート（編集可能）";
+"power_mode.modal.builtin_template" = "組み込みテンプレート";
+"power_mode.modal.edit_templates" = "テンプレートで編集";
+"power_mode.modal.prompt_placeholder" = "AI強化の指示をここに入力...";
+"power_mode.modal.use_template" = "テンプレートを使用";
+"power_mode.modal.triggers_info" = "トリガー条件";
+"power_mode.modal.triggers_description" = "この強化モードをいつ有効にするかを設定";
+"power_mode.modal.applications" = "アプリケーション";
+"power_mode.modal.no_applications" = "アプリケーションが選択されていません";
+"power_mode.modal.no_applications_subtitle" = "このモードをトリガーするアプリを追加";
+"power_mode.modal.websites" = "ウェブサイト";
+"power_mode.modal.no_websites" = "ウェブサイトが追加されていません";
+"power_mode.modal.characters" = "文字";
+"power_mode.modal.icon" = "アイコン";
+"power_mode.modal.transcription_settings" = "文字起こし設定";
+"power_mode.modal.global_settings_notice" = "モデルと言語設定は、設定ページのグローバル設定を使用するようになりました";
+
+/* PowerMode Empty State */
+"power_mode.empty.title" = "強化モードがありません";
+"power_mode.empty.subtitle" = "異なるコンテキスト用にカスタマイズされたパワーモードを追加";
+"power_mode.empty.add_button" = "新しい強化モードを追加";
+
+/* General Actions */
+"general.edit" = "編集";
+"general.remove" = "削除";
+"general.yes" = "はい";
+"general.no" = "いいえ";
+
+/* Subscription */
+"subscription.upgrade.title" = "Clio Proにアップグレード";
+"subscription.upgrade.subtitle" = "高度な機能と無制限使用を解除";
+"subscription.trial.active" = "Proトライアル有効";
+"subscription.trial.days_remaining" = "残り%d日";
+"subscription.feature.trying_to_use" = "使用しようとしている機能：";
+"subscription.billing.monthly" = "月額";
+"subscription.billing.yearly" = "年額";
+"subscription.billing.save" = "$17節約";
+"subscription.billing.per_month" = "/月";
+"subscription.billing.per_year" = "/年";
+"subscription.billing.annual_savings" = "年払いで月額わずか$7.08";
+"subscription.features.title" = "Proに含まれるもの";
+"subscription.feature.premium_models.title" = "高度なモデルアクセス";
+"subscription.feature.premium_models.description" = "優れたレイテンシ、精度、パフォーマンスを持つすべての高度なモデルへのアクセス";
+"subscription.feature.ai_enhancement.title" = "AI強化と自動修正";
+"subscription.feature.ai_enhancement.description" = "自動修正、コンテキスト理解、ワークフロー統合の強化による知的テキスト改善";
+"subscription.feature.unlimited.title" = "無制限文字起こし";
+"subscription.feature.unlimited.description" = "すべての機能で無制限使用、月次制限なし";
+"subscription.feature.priority_support.title" = "プレミアムサポート";
+"subscription.feature.priority_support.description" = "ヘルプが必要な時の優先アシスタンス付き高速サポート";
+"subscription.feature.base_model.title" = "ベースモデル（Clio Flash）";
+"subscription.feature.base_model.description" = "終身無料 - 信頼できる文字起こし品質で日常使用に最適";
+"subscription.cta.get_pro" = "Clio Proを入手";
+"subscription.cta.have_license" = "ライセンスキーを持っています";
+"subscription.cta.start_trial" = "%@無料トライアルを開始";
+"subscription.pro" = "PRO";
+
+/* Word-based Trial */
+"trial.words.title" = "無料トライアル";
+"trial.words.subtitle" = "4,000語の無料でPro機能を体験";
+"trial.words.usage_detail" = "%@/%@語使用";
+"trial.words.remaining" = "残り%@語";
+"trial.words.used" = "%@語使用";
+"trial.words.expired.title" = "トライアル完了";
+"trial.words.expired.subtitle" = "4,000語のトライアルをすべて使用しました";
+"trial.words.expired.description" = "無制限文字起こしとプレミアム機能を解除する準備はできましたか？";
+"trial.words.limit_warning" = "トライアル終了間近 - 残り%@語";
+"trial.words.progress.label" = "トライアル進行状況";
+"trial.words.of_total" = "%@ / %@";
+
+/* Modern CTA Messages */
+"upgrade.primary.title" = "無制限パワーを解除";
+"upgrade.primary.subtitle" = "制限なしで文字起こしを行う数千人のユーザーに参加";
+"upgrade.secondary.title" = "Proで続行";
+"upgrade.benefit.unlimited" = "無制限文字起こし";
+"upgrade.benefit.premium_models" = "プレミアムAIモデル";
+"upgrade.benefit.enhancements" = "スマートテキスト処理";
+"upgrade.benefit.support" = "優先サポート";
+"upgrade.cta.primary" = "Proにアップグレード";
+"upgrade.cta.secondary" = "すべての機能を見る";
+"upgrade.value.proposition" = "一回購入 • 終身アクセス • すべての機能が含まれます";
+
+/* Enhanced License Activation */
+"license.activation.title" = "ライセンス有効化";
+"license.activation.subtitle" = "ライセンスキーを入力してPro機能を解除";
+"license.key.placeholder" = "XXXX-XXXX-XXXX-XXXX";
+"license.activation.cta" = "Proライセンスを有効化";
+"license.manage_account" = "管理";
+"license.refer_friends" = "友達を紹介";
+"license.subscription.title" = "サブスクリプション";
+"license.subscription.pro_status" = "現在Proプランをご利用中です。";
+"license.subscription.thanks" = "Proユーザーでいてくださり、ありがとうございます。";
+"license.credits.title" = "クレジット";
+"license.credits.current_balance" = "現在の残高";
+"license.credits.share_link" = "リンクを共有";
+"license.credits.next_tier" = "次のティア";
+"license.credits.invite_description" = "友達をClioに招待して紹介ごとに1ヶ月無料を獲得してください。";
+
+/* Subscription Status */
+"license.status.expires_soon" = "もうすぐ期限切れ";
+"license.status.days_remaining" = "残り日数";
+"license.status.access_until" = "アクセス期限";
+
+/* Menu Bar */
+"menu.add_word_to_dictionary" = "辞書に単語を追加";
+"menu.version" = "バージョン";
+"menu.share_feedback" = "フィードバックを共有";
+"menu.select_dictation_language" = "音声入力言語を選択";
+"menu.select_audio_input" = "オーディオ入力を選択";
+
+/* Dictation Language Settings */
+"settings.dictation.auto_detect" = "自動検出";
+"settings.dictation.languages_count" = "%d 言語";
+"settings.dictation.select_languages" = "言語を選択";
+"license.pro.welcome.title" = "Proユーザーでいてくださり、ありがとうございます！";
+"license.pro.welcome.subtitle" = "すべてのプレミアム機能と無制限使用にアクセスできます";
+
+/* Authentication */
+"auth.signing_in" = "サインイン中";
+"auth.signin.title" = "Clioへお帰りなさい";
+"auth.signin.subtitle" = "思考の速度で文字起こし — タイピングより3倍高速";
+"auth.signin.button" = "サインイン";
+"auth.signin.switch_prompt" = "アカウントをお持ちでない方は";
+"auth.signin.switch_action" = "サインアップ";
+"auth.signup.title" = "Clioアカウントを作成";
+"auth.signup.subtitle" = "思考の速度で文字起こし — タイピングより3倍高速";
+"auth.signup.button" = "アカウント作成";
+"auth.signup.switch_prompt" = "すでにアカウントをお持ちの方は";
+"auth.signup.switch_action" = "サインイン";
+"auth.placeholder.fullname" = "氏名";
+"auth.placeholder.email" = "メールアドレス";
+"auth.placeholder.password" = "パスワード";
+"auth.placeholder.confirm_password" = "パスワード確認";
+"auth.error.passwords_mismatch" = "パスワードが一致しません";
+"auth.remember_password" = "パスワードを記憶";
+"auth.processing" = "処理中...";
+"auth.forgot_password" = "パスワードを忘れた方は";
+"auth.error.invalid_email" = "有効なメールアドレスを最初に入力してください";
+"auth.password_reset_sent" = "パスワードリセットメールを%@に送信しました";
+"auth.error.password_reset_failed" = "パスワードリセットメールの送信に失敗しました。もう一度お試しください。";
+
+/* Onboarding - Personalization Showcase */
+"onboarding.personalization.title.personal_terms" = "個人辞書";
+"onboarding.personalization.subtitle.personal_terms" = "名前、製品、略語を追加して、Clioがあなた固有の語彙を正確に認識できるようにします。";
+"onboarding.personalization.title.voice_shortcuts" = "音声ショートカット";
+"onboarding.personalization.subtitle.voice_shortcuts" = "よく使うフレーズの挿入や操作を声だけで行えるショートカットを作成。";
+"onboarding.personalization.title.style_presets" = "スタイルプリセット";
+"onboarding.personalization.subtitle.style_presets" = "アプリやサイトごとにトーンや書式をプロンプトでカスタマイズ。";
+
+/* Onboarding - Personalization Primer */
+"onboarding.personalization.primer.title" = "Clioをあなたらしく";
+"onboarding.personalization.primer.subtitle" = "個人辞書、音声ショートカット、スタイルプリセットをかんたんにご紹介。いつでもスキップできます。";
+"onboarding.personalization.primer.skip_to_use" = "スキップして使う";
+
+/* Onboarding - Welcome */
+"onboarding.welcome.title" = "ようこそ！";
+"onboarding.welcome.subtitle" = "私たちのことをどちらで知りましたか？";
+
+/* Onboarding - Try It Components */
+"onboarding.intro.title" = "Clioはどのアプリでも動作します";
+"onboarding.intro.description" = "メールからチャット、ドキュメントまで — Clioはコンピューター上のどのテキストボックスでも動作します。";
+"onboarding.intro.next" = "次へ";
+"onboarding.shortcut.title" = "何でも文字起こし";
+"onboarding.shortcut.description" = "%@キーを一度押してハンズフリー録音、もう一度押して文字起こしし、どこでもテキストを挿入。";
+"onboarding.shortcut.hotkey_title" = "あなたのホットキー";
+"onboarding.shortcut.action_text" = "一度押してハンズフリー、もう一度押して文字起こし";
+"onboarding.shortcut.try_it_out" = "試してみる";
+"onboarding.demo.listening" = "聞き取り中...";
+"onboarding.demo.ai_formatting" = "AI整形中...";
+"onboarding.tryit.title" = "試してください！";
+"onboarding.tryit.description" = "テキストフィールドをクリックして、%@キーでハンズフリー録音と文字起こしを行ってください。";
+"onboarding.tryit.step1" = "右のテキストフィールドをクリック";
+"onboarding.tryit.step2" = "%@キーを押す";
+"onboarding.tryit.step3" = "マイクにはっきりと話す";
+"onboarding.tryit.step4" = "もう一度キーを押して文字起こし";
+"onboarding.tryit.complete_setup" = "セットアップ完了";
+"onboarding.tryit.skip_for_now" = "今はスキップ";
+"onboarding.tryit.placeholder" = "ホットキーを押して音声入力を開始...";
+
+/* Onboarding - Setup Components */
+"onboarding.setup.back" = "戻る";
+"onboarding.setup.keyboard.title" = "キーボードショートカットを選択";
+"onboarding.setup.keyboard.description" = "このキーを一度押してハンズフリー録音、もう一度押して文字起こし";
+"onboarding.setup.continue" = "続ける";
+
+/* Common Missing */
+"common.cancel" = "キャンセル";
+
+/* Settings Enhancements */
+"settings.permissions.title" = "アプリ権限";
+"settings.permissions.required_note" = "すべての権限がClioの正常な動作に必要です。";
+"settings.permission.keyboard_shortcut" = "キーボードショートカット";
+"settings.permission.microphone" = "マイクアクセス";
+"settings.permission.accessibility" = "アクセシビリティ";
+"settings.permission.screen_recording" = "画面録画";
+"settings.status.enabled" = "有効";
+"settings.status.disabled" = "無効";
+"settings.shortcut.choose_key" = "録音キーを選択";
+"settings.shortcut.instructions" = "録音に使用するキーを選択してください。一度押してハンズフリー録音開始、もう一度押して停止・文字起こしします。";
+
+/* Offline Pro Features */
+"offline.onboarding.title" = "Clio Pro機能を試す";
+"offline.onboarding.subtitle" = "標準モデルでClioを永久無料で使用するか、7日間Pro機能を試す";
+"offline.features.premium_models.title" = "プレミアムモデル";
+"offline.features.premium_models.description" = "優れた文字起こし品質のための大型で正確なモデル";
+"offline.features.ai_enhancement.title" = "高度なAI強化";
+"offline.features.ai_enhancement.description" = "知的テキスト整形、文法修正、コンテキスト改善";
+
+/* Model Access Control Enhanced */
+"models.upgrade_required_title" = "Proモデルにはアップグレードが必要";
+"models.upgrade_fallback_message" = "%@モデルにはProサブスクリプションが必要です。今すぐアップグレードするか、%@（永久無料）に切り替えますか？";
+"models.upgrade_now" = "Proにアップグレード";
+"models.use_free_model" = "無料モデルを使用";
+"models.switched_to_free_title" = "無料モデルに切り替え";
+"models.switched_to_free_message" = "現在%@を使用しています。これは永久無料で日常使用に最適です。";
+"models.large_v3_quantized.description" = "最先端モデルの軽量版。ダウンロードサイズが小さく、優れた精度を維持しながらメモリ使用量が少ない。ストレージやRAMが限られたデバイスに最適";
+
+/* Flash Model Download Dialog */
+"trial.expired.title" = "トライアル期限切れ";
+"trial.expired.description" = "Proトライアルが終了しました。Clioを継続して使用するには、Proにアップグレードするか、基本文字起こし用の無料Flashモデルをダウンロードしてください。";
+"trial.expired.flash.description" = "高速、正確、永久無料";
+"trial.expired.download.flash" = "Clio Flashをダウンロード";
+"trial.expired.upgrade.pro" = "Proにアップグレード";
+
+/* Recording Failed Dialog */
+"recording.failed.title" = "録音失敗";
+"recording.failed.description" = "%@にはProサブスクリプションが必要なため録音に失敗しました。以下のオプションを選択してください：";
+"recording.failed.option1" = "無制限アクセスのためProにアップグレード";
+"recording.failed.option2" = "基本文字起こしのためClio Flash（無料）を使用";
+"recording.failed.upgrade.now" = "Proにアップグレード";
+"recording.failed.use.free" = "Flashモデルを使用";
+
+/* Power Mode Modal */
+"power_mode.modal.select_apps" = "アプリケーションを選択";
+
+/* Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "マイクをテスト";
+"onboarding.setup.microphone.description" = "Clioがあなたの声をはっきり聞こえることを確認";
+"onboarding.setup.microphone.speak_now" = "今話してください...";
+"onboarding.setup.microphone.tap_to_test" = "タップしてマイクをテスト";
+"onboarding.setup.microphone.stop" = "停止";
+"onboarding.setup.microphone.test_microphone" = "マイクをテスト";
+"onboarding.setup.model.title" = "文字起こしモデルを選択";
+"onboarding.setup.model.description" = "大きなモデルほど正確ですが、より多くのリソースを使用します";
+"onboarding.setup.model.download_continue" = "ダウンロードして続行";
+"onboarding.setup.complete.title" = "セットアップ完了！";
+"onboarding.setup.complete.description" = "Clioはどのアプリでもあなたの声を文字起こしする準備ができました";
+"onboarding.setup.complete.try_it_out" = "試してみる";
+"onboarding.setup.recommended" = "推奨";
+"onboarding.setup.keyboard.right_option" = "右Option";
+"onboarding.setup.keyboard.left_option" = "左Option";
+"onboarding.setup.keyboard.left_control" = "左Control";
+"onboarding.setup.keyboard.right_control" = "右Control";
+"onboarding.setup.keyboard.function" = "ファンクション";
+"onboarding.setup.keyboard.right_command" = "右Command";
+"onboarding.setup.keyboard.right_shift" = "右Shift";
+
+/* Permission Keys */
+"onboarding.permissions.title" = "コンピューターでClioを設定";
+"onboarding.permissions.description" = "シームレスな音声文字起こしを有効にするため以下の権限を許可してください";
+"onboarding.permissions.accessibility_title" = "アクセシビリティアクセス";
+"onboarding.permissions.accessibility_subtitle" = "Clioが入力可能な場所に文字起こしを貼り付けることを許可";
+"onboarding.permissions.microphone_title" = "マイクアクセス";
+"onboarding.permissions.microphone_subtitle" = "文字起こしのための音声録音を有効（Clioを積極的に使用している時のみ）";
+"onboarding.permissions.continue" = "続ける";
+"onboarding.permissions.granted" = "許可済み";
+"onboarding.permissions.required" = "必須";
+"onboarding.permissions.tap_to_grant" = "タップして権限を許可";
+"onboarding.permissions.privacy_title" = "プライバシーとセキュリティ";
+"onboarding.permissions.privacy_description" = "Clioはあなたのプライバシーを尊重し、文字起こしに必要な権限のみを要求します";
+"onboarding.permissions.feature_local" = "ローカル処理のみ";
+"onboarding.permissions.feature_no_data" = "データ収集なし";
+"onboarding.permissions.feature_control" = "常にあなたの制御下";
+
+/* Enhanced Setup Keys */
+"onboarding.enhanced_setup.best_for_keyboards" = "ほとんどのキーボードに最適";
+"onboarding.enhanced_setup.alternative_option" = "代替オプション";
+"onboarding.enhanced_setup.download_size" = "サイズ：%@";
+"onboarding.enhanced_setup.speed_rating" = "速度：%@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "精度：%@/10";
+"onboarding.enhanced_setup.downloaded" = "ダウンロード済み";
+"onboarding.enhanced_setup.download" = "ダウンロード";
+"onboarding.enhanced_setup.cloud_access" = "クラウドアクセス";
+"onboarding.enhanced_setup.select_microphone" = "マイクを選択";
+"onboarding.enhanced_setup.microphone_description" = "録音に使用するマイクを選択";
+"onboarding.enhanced_setup.selected_microphone" = "選択されたマイク";
+"onboarding.enhanced_setup.no_microphones" = "マイクが見つかりません";
+"onboarding.enhanced_setup.connect_microphone" = "マイクを接続してもう一度お試しください";
+"onboarding.enhanced_setup.default" = "デフォルト";
+"onboarding.enhanced_setup.choose_model" = "文字起こしモデルを選択";
+"onboarding.enhanced_setup.model_description" = "大きなモデルほど正確ですが、より多くのリソースを使用します";
+"onboarding.enhanced_setup.all_set" = "設定完了！";
+"onboarding.enhanced_setup.ready_description" = "Clioはどのアプリでもあなたの声を文字起こしする準備ができました";
+"onboarding.enhanced_setup.feature_1_title" = "グローバルホットキー";
+"onboarding.enhanced_setup.feature_1_subtitle" = "Macのどのアプリでも動作";
+"onboarding.enhanced_setup.feature_2_title" = "ローカル処理";
+"onboarding.enhanced_setup.feature_2_subtitle" = "あなたの声はデバイス上でプライベートに保たれます";
+"onboarding.enhanced_setup.feature_3_title" = "AI強化";
+"onboarding.enhanced_setup.feature_3_subtitle" = "より良い精度のためのオプションAI処理";
+"onboarding.enhanced_setup.feature_4_title" = "リアルタイム文字起こし";
+"onboarding.enhanced_setup.feature_4_subtitle" = "入力可能な場所に瞬時にテキスト挿入";
+"onboarding.enhanced_setup.get_started" = "開始";
+"onboarding.enhanced_setup.visual_keyboard_text" = "お好みの録音キーを選択";
+"onboarding.enhanced_setup.visual_microphone_text" = "最高品質のためマイクを選択";
+"onboarding.enhanced_setup.visual_model_text" = "ニーズに適したモデルを選択";
+"onboarding.enhanced_setup.visual_fast" = "高速";
+"onboarding.enhanced_setup.visual_accurate" = "正確";
+"onboarding.enhanced_setup.visual_private" = "プライベート";
+"onboarding.enhanced_setup.visual_perfect" = "完璧！";
+"onboarding.enhanced_setup.visual_ready" = "Clioはあなたの声を文字起こしする準備ができました";
+"onboarding.enhanced_setup.visual_step_1" = "ホットキーを一度押してハンズフリー録音開始";
+"onboarding.enhanced_setup.visual_step_2" = "マイクにはっきりと話す";
+"onboarding.enhanced_setup.visual_step_3" = "ホットキーをもう一度押して文字起こし";
+"onboarding.enhanced_setup.mic_speak_to_test" = "マイクをテストするため話してください";
+"onboarding.enhanced_setup.mic_listening" = "聞き取り中...";
+
+/* TryIt Keys */
+"onboarding.tryit.pro_badge" = "PRO";
+
+/* Email Sample Content */
+"email.to_label" = "宛先：";
+"email.subject_label" = "件名：";
+"email.sample_address" = "sarah@company.com";
+"email.sample_subject" = "プロジェクトタイムライン協議";
+
+/* Trial Expired Modal */
+"trial_expired.title" = "試用期間終了";
+"trial_expired.description" = "Proの試用期間が終了しました。Clioを継続して使用するオプションを選択してください。";
+"trial_expired.use_flash" = "ベースモデルを使用";
+"trial_expired.upgrade" = "Proにアップグレード";
+"trial_expired.never_remind" = "今後表示しない";
+
+/* Onboarding - 言語選択 */
+"onboarding.language_selection.title" = "音声入力言語を選択";
+"onboarding.language_selection.subtitle" = "使用する言語を選択してください";
+"onboarding.language_selection.description" = "多言語書き起こしのために複数の言語を選択";
+"onboarding.language_selection.show_all" = "すべての言語を表示";
+"onboarding.language_selection.show_less" = "人気の言語を表示";
+"onboarding.language_selection.selected_count" = "%d言語選択済み";
+"onboarding.language_selection.auto_detect" = "自動検出";
+"onboarding.language_selection.auto_description" = "話している言語を自動的に検出します。最良の結果を得るには高品質のマイクが必要です";
+"onboarding.language_selection.pick_languages" = "言語を選択";
+"onboarding.language_selection.pick_description" = "精度を向上させるために特定の言語を選択";
+"onboarding.language_selection.search" = "言語を検索...";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "音声認識の精度を向上させましょう";
+"onboarding.language.subtitle" = "Clioは60以上の言語に対応しています。これは音声認識の精度を高めるためのものです。メインで使用する言語を選択してください。他の言語でも音声入力は可能です。";
+"onboarding.language.search_placeholder" = "言語を検索...";
+
+
+/* Feedback */
+"feedback.title" = "お問い合わせ";
+"feedback.subtitle" = "すべてのメッセージを拝読しています。Clioの改善にご協力いただき、ありがとうございます！";
+"feedback.tab.report_issue" = "問題を報告";
+"feedback.tab.share_feedback" = "フィードバックを共有";
+"feedback.field.email" = "メールアドレス（任意）";
+"feedback.field.message" = "メッセージ";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "何が問題でしたか？問題を再現する手順を説明してください。";
+"feedback.placeholder.feedback" = "Clioを改善するアイデアはありますか？こちらで共有してください。";
+"feedback.checkbox.blocking" = "この問題により、Clioを全く使用できません";
+"feedback.info.system_info" = "システム情報が自動的に含まれます";
+"feedback.button.send" = "メッセージを送信";
+"feedback.success.title" = "フィードバックを送信しました！";
+"feedback.success.message" = "フィードバックをありがとうございます！すべてのメッセージを拝読し、必要に応じてご連絡いたします。";
+"feedback.error.title" = "フィードバック送信エラー";
+"feedback.error.invalid_response" = "サーバーからの無効な応答";
+"feedback.error.submission_failed" = "フィードバックの送信に失敗しました。もう一度お試しください。";
+"feedback.error.http_error" = "サーバーエラー（コード：%d）";
+"feedback.subject.bug_report" = "バグレポート";
+"feedback.subject.general_feedback" = "一般的なフィードバック";
+"feedback.subject.urgent_bug" = "🚨 [緊急バグ] Clioアプリ - ユーザーがブロックされています";
+"feedback.subject.bug_format" = "[%@] Clioアプリ フィードバック";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "ディープコンテキストは画面上のコンテンツを分析して、作業内容を理解し、業界用語を認識し、音声認識モデルに関連するコンテキストを提供することで、転写の精度を向上させます。これは専門用語、固有名詞、文脈固有の語彙に役立ちます。";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "音声入力ホットキー";
+"settings.dictation_hotkey.description" = "押している間録音、離すと転写（プッシュツートークモード）";
+"settings.hands_free_mode.title" = "ハンズフリーモード";
+"settings.hands_free_mode.description" = "一度押すとキーを押さなくても話すことができ、もう一度押すと文字起こしされます";
+"settings.assistant_mode.title" = "Clio コマンドモード";
+"settings.assistant_mode.description" = "テキストを選択して変換、または Perplexity で検索する質問を行う";
+
+/* Parity additions */
+"navigation.personalization" = "パーソナライズ";
+"navigation.replacements" = "音声ショートカット";
+
+/* Dictionary and Voice Shortcuts */
+"dictionary.add_new_word" = "新しい単語を追加";
+"dictionary.info_card.title.vocab" = "Clio にあなたの言葉を教える。";
+"dictionary.info_card.title.voice" = "あなたの声の届け方を整える。";
+"dictionary.voice_shortcuts_description" = "口癖を整えたり、略語を展開したり、習慣的な言い回しを自動でクリーンアップする賢い音声ショートカットを作成できます。\n\n例えば「私の番号」と言えば → Clio が 123‑456‑7890 を貼り付けます。\n「コールドDM」と言えば → 用意した定型文をそのまま挿入。";
+
+/* Hotkey configuration */
+"hotkey.configuration.title" = "録音キー";
+"hotkey.configuration.description" = "音声録音に使うキーを選びます。短押し：ハンズフリー録音開始（もう一度押すと停止・転写）／長押し：プッシュトゥートーク（押して録音、離すと転写）。";
+"hotkey.field.accessibility.label" = "現在のホットキー設定";
+"hotkey.field.accessibility.hint" = "タップしてホットキー設定を変更";
+"hotkey.modal.instructions.title" = "使い方";
+"hotkey.modal.instructions.description" = "短押し：ハンズフリー録音開始（再度押すと停止）\n長押し：プッシュトゥートーク（押して録音、離して転写）";
+"hotkey.modal.preview.title" = "あなたの選択";
+
+/* Onboarding apps */
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI アシスタント";
+"onboarding.app.cursor" = "Cursor";
+"onboarding.app.cursor.description" = "AI コーディング";
+"onboarding.app.email" = "メール";
+"onboarding.app.email.description" = "コミュニケーション";
+"onboarding.app.notion" = "Notion";
+"onboarding.app.notion.description" = "ノート";
+"onboarding.app.slack" = "Slack";
+"onboarding.app.slack.description" = "チームチャット";
+
+/* Enhanced permissions side panels */
+"onboarding.enhanced_permissions.panel.accessibility" = "この権限は、今入力している場所にテキストを貼り付けるためだけに使われます。画面操作は行いません。";
+"onboarding.enhanced_permissions.panel.microphone" = "Clio は録音キーを押したときだけ聞き取ります。あなたの音声がサーバーに保存されることはありません。";
+"onboarding.enhanced_permissions.panel.screen_recording" = "画面は保存しません。画面コンテキストは出力改善のために一時的に使われ、直ちに破棄されます。";
+
+/* Long permission descriptions */
+"onboarding.permissions.accessibility.long" = "Clio があなたの音声を文字にして、今入力しているあらゆるアプリにすぐ貼り付けられるようになります。\n\nまるで助手があなたの代わりに聞いて、打って、Command + V を押してくれる感覚。アプリの切り替えやコピー＆ペーストは不要です。";
+"onboarding.permissions.microphone.long" = "あなたが話すときにだけ Clio は聴き、考えを文字にして表現を整えます。\n\nマイク権限により、“声” が新しい入力レイヤーになります。";
+
+/* Onboarding primer */
+"onboarding.primer.back" = "戻る";
+"onboarding.primer.continue" = "続ける";
+"onboarding.primer.double_tap_instruction" = "右 ⌘ キーを一度押すだけで連続聴取を切り替え。終わったらもう一度押して転写。";
+"onboarding.primer.finish" = "完了";
+"onboarding.primer.hold_key_instruction" = "次のページで、右側の ⌥ キーを押しながら話してみましょう。\n離すと、Clio がすぐにきれいに文字起こしします。";
+"onboarding.primer.hotkey_label" = "ホットキー：";
+"onboarding.primer.next_command_mode" = "次へ：コマンドモードを試す";
+"onboarding.primer.next_hands_free" = "次へ：ハンズフリーを試す";
+"onboarding.primer.placeholder_images" = "プレースホルダー • ここに画像を配置できます。";
+"onboarding.primer.ready_push_to_talk" = "Clio を試す準備ができました";
+"onboarding.primer.select_text_hotkey_instruction" = "任意のテキストを選び、コマンド用ホットキーを押して話します（例：「要約して」）。";
+"onboarding.primer.select_text_instruction" = "テキストを選択してホットキーで Clio に要約・改善・翻訳などを依頼。";
+"onboarding.primer.try_command_mode" = "コマンドモードを試す";
+"onboarding.primer.try_it_now" = "今すぐ試す";
+
+/* Onboarding Try It */
+"onboarding.tryit.header" = "今すぐ Clio を試しましょう。話すだけ";
+"onboarding.tryit.hold_down" = "押し続ける";
+"onboarding.tryit.press" = "押す";
+"onboarding.tryit.and_begin_speaking" = "そして話し始める";
+"onboarding.tryit.to_start_press_again" = "開始、もう一度押して転写";
+"onboarding.tryit.want_to_change_keys" = "キーを変更しますか？";
+"onboarding.tryit.edit_hotkeys" = "ホットキーを編集";
+"onboarding.tryit.next" = "次へ";
+"onboarding.tryit.push_to_talk" = "プッシュトゥートーク";
+"onboarding.tryit.hands_free" = "ハンズフリー";
+"onboarding.tryit.click_field_instruction" = "下のテキストフィールドをクリックし、ホットキーでハンズフリー録音と転写を試してください。";
+"onboarding.tryit.example_text" = "Clio は声で書くためのツール—散らかった話し言葉を、すっきりしたテキストに変えます。";
+
+/* Pricing plans */
+"pricing.plans.monthly.name" = "月払い Pro";
+"pricing.plans.annual.name" = "年払い Pro";
+"pricing.plans.annual.savings" = "年間で $16.89 お得";
+"pricing.plans.recommended" = "おすすめ";
+"pricing.plans.feature.unlimited" = "無制限の文字起こし";
+"pricing.plans.feature.works_everywhere" = "どこでも動作：Mac、iOS、Windows";
+"pricing.plans.feature.priority_support" = "優先サポート";
+"pricing.plans.cta.choose_plan" = "プランを選ぶ";
+
+/* Style Presets */
+"style_presets.info_card.title" = "Clio をあなたの文体で書かせる。";
+"style_presets.description" = "アプリごとに書き方をカスタマイズ。\nトーン・構成・プロンプトを環境別に設定して、どのツールでも“あなたらしい”文章に。Slack ではカジュアルに、Notion では端的に、X ではパンチを。\nスタイル、トーン、フォーマットを自由に。";
+"style_presets.add_new" = "新しいプリセットを追加";
+"style_presets.drawer.title" = "プリセット設定";
+"style_presets.drawer.activate" = "使用時に有効化";
+"style_presets.drawer.add_app" = "アプリを追加";
+"style_presets.drawer.add_website" = "Web サイトを追加";
+"style_presets.drawer.website_placeholder" = "例：example.com";
+"style_presets.drawer.delete" = "このプリセットを削除";
+"style_presets.drawer.prompt" = "プロンプト";
+"style_presets.drawer.no_apps_found" = "アプリが見つかりません";
+"style_presets.drawer.mode_name" = "モード名";
+"style_presets.drawer.mode_placeholder" = "わかりやすい名前を入力";
+"style_presets.empty.title" = "スタイルプリセットはまだありません";
+"style_presets.empty.subtitle" = "最初のプリセットを作成して始めましょう";
+
+/* Snippets (legacy strings used in empty states) */
+"snippets.description" = "よく使うテキストを保存してワンクリックで挿入。";
+"snippets.empty.title" = "スニペットはまだありません";
+"snippets.empty.subtitle" = "最初のスニペットを作成して素早く挿入しましょう";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "キーボードショートカット";
+"settings.edit_key" = "キーを編集";
+
+/* Language Settings */
+"settings.language_settings.header" = "言語設定";
+
+/* Onboarding - App Descriptions */
+"onboarding.app.cursor.description" = "AI コーディング";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI アシスタント";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "Clio のプッシュトゥトークモードを試す準備ができました。";
+"onboarding.primer.hold_key_instruction" = "キーを押しながら話してください。\n離すと、Clio が音声をクリーンで瞬時に転写します。";
+"onboarding.primer.try_it_now" = "今すぐ試す";
+"onboarding.primer.back" = "戻る";
+"onboarding.primer.next_hands_free" = "次に、ハンズフリーモードを試してみましょう";
+"onboarding.primer.double_tap_instruction" = "キーをダブルタップして連続聞き取りを切り替えます。";
+"onboarding.primer.next_command_mode" = "次に、コマンドモードを試してみましょう";
+"onboarding.primer.select_text_instruction" = "テキストを選択し、ホットキーをトリガーして Clio に要約、改善、翻訳などを依頼します。";
+"onboarding.primer.try_command_mode" = "コマンドモードを試す";
+"onboarding.primer.placeholder_images" = "プレースホルダー • ここに画像を配置できます。";
+"onboarding.primer.select_text_hotkey_instruction" = "任意のテキストを選択し、コマンドホットキーをトリガーして話してください。例：'Summarize this'。";
+"onboarding.primer.hotkey_label" = "ホットキー：";
+"onboarding.primer.finish" = "完了";
+"onboarding.primer.continue" = "続行";
+"onboarding.primer.ready_push_to_talk" = "Clio を試す準備ができました";
+"onboarding.primer.hold_key_instruction" = "次のページで、右 ⌥ キーを押しながら話してみてください。\n離すと、Clio が音声をクリーンで瞬時に転写します。";
+"onboarding.primer.try_it_now" = "今すぐ試す";
+"onboarding.primer.back" = "戻る";
+"onboarding.primer.next_hands_free" = "次に、ハンズフリーモードを使用して転写してみましょう";
+"onboarding.primer.double_tap_instruction" = "右 ⌘ キーを一度押すだけで連続聞き取りを切り替えます。完了したら、もう一度押して転写します。";
+"onboarding.primer.next_command_mode" = "次に、コマンドモードを試してみましょう";
+"onboarding.primer.select_text_instruction" = "テキストを選択し、ホットキーをトリガーして Clio に要約、改善、翻訳などを依頼します。";
+"onboarding.primer.try_command_mode" = "コマンドモードを試す";
+"onboarding.primer.placeholder_images" = "プレースホルダー • ここに画像を配置できます。";
+"onboarding.primer.select_text_hotkey_instruction" = "任意のテキストを選択し、コマンドホットキーをトリガーして話してください。例：'Summarize this'。";
+"onboarding.primer.hotkey_label" = "ホットキー：";
+"onboarding.primer.finish" = "完了";
+
+/* Onboarding - Personalization Showcase */
+"onboarding.personalization.title.personal_terms" = "個人用辞書";
+"onboarding.personalization.subtitle.personal_terms" = "名前、製品、略語を追加して、Clio があなたの固有の語彙を認識できるようにします。";
+"onboarding.personalization.title.voice_shortcuts" = "音声ショートカット";
+"onboarding.personalization.subtitle.voice_shortcuts" = "よく使うフレーズを挿入したり、アクションを実行したりするためのクイック音声ショートカットを作成します。";
+"onboarding.personalization.title.style_presets" = "スタイルプリセット";
+"onboarding.personalization.subtitle.style_presets" = "アプリやウェブサイトごとにトーンやフォーマットをカスタマイズします。";
+"onboarding.personalization.primer.title" = "Clio がどのようにあなたにパーソナライズされるかを見てみましょう";
+"onboarding.personalization.primer.subtitle" = "個人用辞書、音声ショートカット、スタイルプリセットのクイックツアー。いつでもスキップできます。";
+"onboarding.personalization.primer.skip_to_use" = "スキップして使用";
+
+/* Update Showcase Primer */
+"updates.primer.title" = "素晴らしいアップデートをご用意しました！";
+"updates.primer.subtitle" = "コマンドモードの実際の動作を確認し、新しいパーソナライゼーション機能を探索するクイックツアーに参加してください。";
+"updates.primer.primary" = "新機能を見る";
+
+"common.coming_soon" = "近日公開";
+
+"ai_strength.toggle.off_hint" = "オフ: ほぼ処理なしで生の文字起こしが最速で届きます（最低限のフィラー除去のみ）。";
+"ai_strength.toggle.on_hint" = "オン: クリアにするためAI編集を実行します。下で選んだ強さに合わせて書き換える間、少し待ち時間が発生します。";

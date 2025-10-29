@@ -1,0 +1,214 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Created on 2025-01-04.
+*/
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "حفظ";
+"general.cancel" = "إلغاء";
+"general.delete" = "حذف";
+"general.edit" = "تعديل";
+"general.done" = "تم";
+"general.settings" = "الإعدادات";
+"general.close" = "إغلاق";
+"general.ok" = "موافق";
+"general.yes" = "نعم";
+"general.no" = "لا";
+"general.error" = "خطأ";
+"general.success" = "نجح";
+"general.loading" = "جاري التحميل...";
+"general.retry" = "إعادة المحاولة";
+"general.download" = "تحميل";
+"general.upload" = "رفع";
+"general.search" = "بحث";
+"general.filter" = "تصفية";
+"general.sort" = "ترتيب";
+"general.share" = "مشاركة";
+"general.copy" = "نسخ";
+"general.paste" = "لصق";
+"general.clear" = "مسح";
+"general.reset" = "إعادة تعيين";
+"general.continue" = "متابعة";
+"general.back" = "رجوع";
+"general.next" = "التالي";
+"general.finish" = "إنهاء";
+"general.language" = "اللغة";
+"general.default" = "افتراضي";
+"general.required" = "مطلوب";
+
+/* Navigation */
+"Home" = "الرئيسية";
+"Dictionary" = "القاموس";
+"Plan" = "الخطة";
+"Upgrade" = "ترقية";
+"navigation.home" = "الرئيسية";
+"navigation.models" = "نماذج الكلام";
+"navigation.power_mode" = "تحسين الذكاء الاصطناعي";
+"navigation.dictionary" = "المصطلحات الشخصية";
+"navigation.personalization" = "التخصيص";
+"navigation.vocabulary" = "المفردات";
+"navigation.replacements" = "اختصارات الصوت";
+"navigation.snippets" = "إعدادات النمط";
+"navigation.settings" = "الإعدادات";
+"navigation.plan" = "الخطة";
+"navigation.license" = "الخطة";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "ساعدنا في التعرف على صوتك بشكل أفضل";
+"onboarding.language.subtitle" = "Clio يعمل مع أكثر من 60 لغة. هذا يساعدنا فقط في التعرف على كلامك بشكل أفضل. اختر لغاتك الأساسية للحصول على دقة أفضل—يمكنك الإملاء بأي لغة.";
+"onboarding.language.search_placeholder" = "البحث في اللغات...";
+
+/* Dictionary */
+"dictionary.title" = "المصطلحات الشخصية";
+"dictionary.custom_title" = "القاموس المخصص";
+"dictionary.custom_description" = "أضف الأسماء والاختصارات والمصطلحات الخاصة التي تستخدمها كثيراً—حتى يسمعها Clio بوضوح ويحصل عليها بشكل صحيح في كل مرة.\nمن أسماء العلامات التجارية إلى لغة الفريق العامية إلى الاختصارات الصعبة، يتعلم Clio الكلمات الفريدة التي تهمك.\nكلما علمته أكثر، كلما أصبح أكثر طلاقة.";
+"dictionary.add_new" = "إضافة جديد";
+"dictionary.search_placeholder" = "البحث في القاموس";
+"dictionary.vocabulary" = "المفردات";
+"dictionary.replacements" = "اختصارات الصوت";
+"dictionary.enable_word" = "تفعيل الكلمة";
+"dictionary.disable_word" = "إلغاء تفعيل الكلمة";
+"dictionary.delete_word" = "حذف الكلمة";
+"dictionary.delete_replacement" = "حذف الاستبدال";
+"dictionary.add_to_vocabulary" = "إضافة إلى المفردات";
+"dictionary.add_word" = "إضافة كلمة";
+"dictionary.make_replacement" = "جعله استبدالاً";
+"dictionary.word_replacement_title" = "استبدال الكلمة";
+"dictionary.word_replacement_description" = "عند التفعيل، يحول هذا كلمتك المخصصة إلى قاعدة تصحيح. سيقوم Clio تلقائياً باستبدال النسخة الخاطئة كلما تم إملاؤها.";
+"dictionary.misspelling_placeholder" = "الإملاء الخاطئ";
+"dictionary.correct_spelling_placeholder" = "الإملاء الصحيح";
+"dictionary.add_word_placeholder" = "إضافة كلمة جديدة";
+"dictionary.edit_word" = "تعديل الكلمة";
+"dictionary.word_placeholder" = "الكلمة";
+"dictionary.save_changes" = "حفظ التغييرات";
+"dictionary.edit_replacement" = "تعديل الاستبدال";
+"dictionary.original_placeholder" = "الأصلي";
+"dictionary.replacement_placeholder" = "الاستبدال";
+"dictionary.no_vocabulary_words" = "لا توجد كلمات في المفردات";
+"dictionary.vocabulary_help_text" = "أضف كلمات لمساعدة Clio في التعرف عليها بشكل صحيح";
+"dictionary.no_word_replacements" = "لا توجد استبدالات للكلمات";
+"dictionary.replacements_help_text" = "إنشاء استبدالات كلمات تلقائية لتحسين النسخ";
+"dictionary.voice_shortcuts_description" = "إنشاء اختصارات صوتية ذكية لإعادة كتابة الحشو، وتوسيع الاختصارات، أو تنظيف العادات—تلقائياً، أثناء تحدثك.\nقل \"رقمي\" → Clio يلصق 123‑456‑7890.\nقل \"رسالة باردة\" → Clio يضع عرضك الكامل.\nقلها بطريقتك. Clio ينعمها، ويحددها، ويسلمها.";
+"dictionary.info_card.title.vocab" = "علم Clio لغتك.";
+"dictionary.info_card.title.voice" = "شكل كيف يصل صوتك.";
+"dictionary.add_new_word" = "إضافة كلمة جديدة";
+
+/* Style Presets */
+"style_presets.info_card.title" = "دع Clio يكتب مثلك.";
+"style_presets.info_card.description" = "علم عاداتك في الكتابة. يتعلم Clio كيف تبني الجمل، وكيف تكسر الفقرات، وكيف تضع علامات الترقيم.\nكلما علمته أكثر، كلما كتب أكثر مثل صوتك.";
+"style_presets.add_new" = "إضافة جديد";
+"style_presets.search_placeholder" = "البحث في الإعدادات";
+"style_presets.no_presets" = "لا توجد إعدادات";
+"style_presets.presets_help_text" = "إنشاء إعدادات نمط لتعليم عاداتك في الكتابة";
+"style_presets.add_new_preset" = "إضافة إعداد جديد";
+"style_presets.edit_preset" = "تعديل الإعداد";
+"style_presets.preset_name_placeholder" = "اسم الإعداد";
+"style_presets.preset_description_placeholder" = "الوصف (اختياري)";
+"style_presets.preset_rules_placeholder" = "القواعد (واحدة في كل سطر)";
+"style_presets.preset_rules_help" = "مثال: \"ضع دائماً مسافتين بين الجمل\"، \"لا تبدأ الجمل بـ 'و' أبداً\"";
+"style_presets.delete_preset" = "حذف الإعداد";
+"style_presets.preset_name" = "اسم الإعداد";
+"style_presets.preset_description" = "الوصف";
+"style_presets.preset_rules" = "القواعد";
+"style_presets.preset_rules_help_text" = "إضافة قواعد لتعليم عاداتك في الكتابة";
+
+/* Feedback */
+"feedback.title" = "اتصل بنا";
+"feedback.subtitle" = "نقرأ كل رسالة. شكراً لمساعدتك في جعل Clio أفضل!";
+"feedback.tab.report_issue" = "الإبلاغ عن مشكلة";
+"feedback.tab.share_feedback" = "مشاركة التعليقات";
+"feedback.field.email" = "بريدك الإلكتروني (اختياري)";
+"feedback.field.message" = "الرسالة";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "ماذا حدث خطأ؟ يرجى وصف خطوات إعادة إنتاج المشكلة.";
+"feedback.placeholder.feedback" = "هل لديك أفكار لجعل Clio أفضل؟ شاركها هنا.";
+"feedback.checkbox.blocking" = "هذه المشكلة تمنعني تماماً من استخدام Clio";
+"feedback.info.system_info" = "سيتم تضمين معلومات النظام تلقائياً";
+"feedback.button.send" = "إرسال الرسالة";
+"feedback.success.title" = "تم إرسال التعليقات!";
+"feedback.success.message" = "شكراً لتعليقاتك! نقرأ كل رسالة وسنتواصل معك إذا لزم الأمر.";
+"feedback.error.title" = "خطأ في إرسال التعليقات";
+"feedback.error.invalid_response" = "استجابة غير صالحة من الخادم";
+"feedback.error.submission_failed" = "فشل في إرسال التعليقات. يرجى المحاولة مرة أخرى.";
+"feedback.error.http_error" = "خطأ في الخادم (الرمز: %d)";
+"feedback.subject.bug_report" = "تقرير خطأ";
+"feedback.subject.general_feedback" = "تعليقات عامة";
+"feedback.subject.urgent_bug" = "🚨 [خطأ عاجل] تطبيق Clio - المستخدم محجوب";
+"feedback.subject.bug_format" = "[%@] تعليقات تطبيق Clio";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "يحسن دقة النسخ من خلال تحليل محتوى الشاشة، وفهم ما تعمل عليه، والتعرف على المصطلحات الصناعية، وتوفير السياق المناسب لنموذج التعرف على الكلام. يساعد في المصطلحات التقنية والأسماء الصحيحة والمفردات الخاصة بالسياق.";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "اختصار الإملاء";
+"settings.dictation_hotkey.description" = "اضغط مع الاستمرار للتسجيل، اترك للنسخ (وضع الضغط للتحدث)";
+"settings.hands_free_mode.title" = "وضع اليدين الحر";
+"settings.hands_free_mode.description" = "اضغط مرة واحدة للتحدث بدون ضغط أي مفتاح، اضغط مرة أخرى للنسخ";
+"settings.assistant_mode.title" = "وضع أوامر Clio";
+"settings.assistant_mode.description" = "اختر النص للتحويل أو اسأل سؤال للبحث مع Perplexity";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "اختصارات لوحة المفاتيح";
+"settings.edit_key" = "تعديل المفتاح";
+"common.coming_soon" = "قريباً";
+"hotkey.modal.description" = "اضغط على أي مفتاح أو مجموعة مفاتيح تريد استخدامها";
+
+/* System Settings */
+"settings.system_settings.header" = "إعدادات النظام";
+"settings.launch_at_login" = "بدء التشغيل عند تسجيل الدخول";
+"settings.launch_at_login.subtitle" = "بدء Clio تلقائياً عند تسجيل الدخول.";
+"settings.hide_dock_icon.title" = "إخفاء أيقونة الشريط";
+"settings.hide_dock_icon.description" = "تشغيل Clio في الخلفية (شريط القائمة فقط)";
+"settings.ai_enhancement" = "تفعيل تحرير النص بالذكاء الاصطناعي";
+"settings.ai_enhancement.description" = "اسمح لـ Clio بإعادة كتابة النصوص بالذكاء الاصطناعي بحيث تبدو العبارات والنبرة والتنسيق طبيعية.";
+"onboarding.tryit.command_prefix" = "اختر كل النص أدناه، ثم اضغط مع الاستمرار";
+"onboarding.tryit.command_instruction_suffix" = "قل \"ترجم هذا إلى الصينية\"، ثم اترك كلا المفتاحين";
+
+/* Onboarding - App Descriptions */
+"onboarding.app.cursor.description" = "البرمجة بالذكاء الاصطناعي";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "مساعد الذكاء الاصطناعي";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "أنت مستعد لتجربة وضع الضغط للتحدث في Clio.";
+"onboarding.primer.hold_key_instruction" = "اضغط مع الاستمرار على مفتاحك للتحدث.\nعند الإفلات، سينسخ Clio صوتك فوراً وبشكل نظيف.";
+"onboarding.primer.try_it_now" = "جربه الآن";
+"onboarding.primer.back" = "رجوع";
+"onboarding.primer.next_hands_free" = "التالي، جرب وضع اليدين الحر";
+"onboarding.primer.double_tap_instruction" = "اضغط مرتين على مفتاحك للتبديل إلى الاستماع المستمر.";
+"onboarding.primer.next_command_mode" = "التالي، جرب وضع الأوامر";
+"onboarding.primer.select_text_instruction" = "اختر النص للتحويل، ثم اضغط مع الاستمرار على مفتاحك.";
+"onboarding.primer.command_instruction" = "قل \"ترجم هذا إلى الصينية\"، ثم اترك كلا المفتاحين.";
+"onboarding.primer.next_personalization" = "التالي، إعداد التخصيص";
+"onboarding.primer.personalization_instruction" = "علم Clio للتعرف على صوتك بشكل أفضل.";
+
+/* Onboarding Personalization */
+"onboarding.personalization.title" = "علم Clio للتعرف على صوتك بشكل أفضل";
+"onboarding.personalization.subtitle" = "تحدث بضع جمل لتعريف Clio على صوتك وطريقة تحدثك.";
+"onboarding.personalization.start_recording" = "بدء التسجيل";
+"onboarding.personalization.stop_recording" = "إيقاف التسجيل";
+"onboarding.personalization.recording_progress" = "تقدم التسجيل: %d/%d";
+"onboarding.personalization.recording_complete" = "اكتمل التسجيل!";
+"onboarding.personalization.recording_error" = "خطأ في التسجيل";
+"onboarding.personalization.recording_retry" = "إعادة المحاولة";
+"onboarding.personalization.recording_skip" = "تخطي";
+"onboarding.personalization.recording_next" = "التالي";
+"onboarding.personalization.recording_finish" = "إنهاء";
+
+/* Updates Primer */
+"updates.primer.title" = "لدينا بعض التحديثات المثيرة لك!";
+"updates.primer.subtitle" = "خذ جولة سريعة لرؤية وضع الأوامر في العمل...";
+"updates.primer.primary" = "أرني ما الجديد";
+"updates.primer.secondary" = "لاحقاً";
+"updates.primer.skip" = "تخطي";
+
+/* Language Settings */
+"settings.language_settings.header" = "إعدادات اللغة";
+
+"common.coming_soon" = "قريباً";
+"ai_strength.toggle.off_hint" = "إيقاف: تحصل على النسخة الخام بأسرع وقت مع معالجة شبه معدومة—يُزال فقط القليل من الحشو.";
+"ai_strength.toggle.on_hint" = "تشغيل: يقوم Clio بتحرير النص بالذكاء الاصطناعي لتحسين الوضوح؛ توقّع تأخيرًا بسيطًا بينما يُعيد الصياغة وفق مستوى التنظيف المختار أدناه.";
+"ai_strength.toggle.on_hint" = "AI editing adds a short delay while rewriting using the selected clean strength.";

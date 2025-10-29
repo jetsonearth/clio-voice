@@ -1,0 +1,65 @@
+t=000001 sess=8t8 lvl=INFO cat=audio evt=devices_scan
+t=000002 sess=8t8 lvl=INFO cat=audio evt=devices count=2
+t=000002 sess=8t8 lvl=INFO cat=audio evt=device ch=1 uid_hash=-2290550308593812417 name=iMac麦克风
+t=000003 sess=8t8 lvl=INFO cat=audio evt=device name=OrayVirtualAudioDevice ch=2 uid_hash=-2417378788379419338
+t=000304 sess=8t8 lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000326 sess=8t8 lvl=INFO cat=hotkey evt=open_config ready=false
+t=000326 sess=8t8 lvl=INFO cat=hotkey evt=register ok=true
+t=013898 sess=8t8 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=014006 sess=8t8 lvl=INFO cat=audio evt=input_selected name=iMac麦克风 ch=1 uid_hash=-2290550308593812417
+t=014113 sess=8t8 lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=014113 sess=8t8 lvl=INFO cat=audio evt=devices_scan
+t=014114 sess=8t8 lvl=INFO cat=audio evt=devices count=3
+t=014114 sess=8t8 lvl=INFO cat=audio evt=device uid_hash=-2290550308593812417 name=iMac麦克风 ch=1
+t=014114 sess=8t8 lvl=INFO cat=audio evt=device ch=1 uid_hash=-140927317951784851 name=CADefaultDeviceAggregate-2920-0
+t=014114 sess=8t8 lvl=INFO cat=audio evt=device name=OrayVirtualAudioDevice uid_hash=-2417378788379419338 ch=2
+t=014154 sess=8t8 lvl=INFO cat=stream evt=ws_bind socket=sock_-997205633273449098@attempt_1
+t=014215 sess=8t8 lvl=INFO cat=audio evt=first_buffer
+t=015207 sess=8t8 lvl=INFO cat=stream evt=start_sent attempt=1
+t=015207 sess=8t8 lvl=INFO cat=stream evt=ready socket=sock_-997205633273449098@attempt_1 attempt=1
+t=020479 sess=8t8 lvl=INFO cat=audio evt=input_selected uid_hash=-2290550308593812417 name=iMac麦克风 ch=1
+t=022412 sess=8t8 lvl=INFO cat=transcript evt=final text=
+t=022412 sess=8t8 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=029940 sess=8t8 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=030043 sess=8t8 lvl=INFO cat=audio evt=input_selected ch=1 uid_hash=-2290550308593812417 name=iMac麦克风
+t=030235 sess=8t8 lvl=INFO cat=audio evt=first_buffer
+t=030645 sess=8t8 lvl=WARN cat=stream evt=state code=1001 state=closed
+t=030855 sess=8t8 lvl=INFO cat=stream evt=ws_bind socket=sock_3370496141328053576@attempt_2
+t=032705 sess=8t8 lvl=INFO cat=stream evt=start_sent attempt=2
+t=032705 sess=8t8 lvl=INFO cat=stream evt=ready socket=sock_3370496141328053576@attempt_2 attempt=2
+t=039102 sess=8t8 lvl=INFO cat=transcript evt=final text=
+t=039102 sess=8t8 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+
+
+t=000000 sess=PI4 lvl=INFO cat=audio evt=devices_scan
+t=000001 sess=PI4 lvl=INFO cat=audio evt=devices count=2
+t=000002 sess=PI4 lvl=INFO cat=audio evt=device name=iMac麦克风 ch=1 uid_hash=-4199401989524985513
+t=000002 sess=PI4 lvl=INFO cat=audio evt=device ch=2 name=OrayVirtualAudioDevice uid_hash=-1941602532563980365
+t=000371 sess=PI4 lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000394 sess=PI4 lvl=INFO cat=hotkey evt=open_config ready=false
+t=000394 sess=PI4 lvl=INFO cat=hotkey evt=register ok=true
+t=011897 sess=PI4 lvl=INFO cat=audio evt=select_device uid_hash=-4199401989524985513 name=iMac麦克风
+t=018131 sess=PI4 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=018246 sess=PI4 lvl=INFO cat=audio evt=input_selected uid_hash=-4199401989524985513 name=iMac麦克风 ch=1
+t=018335 sess=PI4 lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=018335 sess=PI4 lvl=INFO cat=audio evt=devices_scan
+t=018336 sess=PI4 lvl=INFO cat=audio evt=devices count=3
+t=018336 sess=PI4 lvl=INFO cat=audio evt=device ch=1 name=iMac麦克风 uid_hash=-4199401989524985513
+t=018336 sess=PI4 lvl=INFO cat=audio evt=device name=CADefaultDeviceAggregate-3137-0 ch=1 uid_hash=-4219153587492440338
+t=018336 sess=PI4 lvl=INFO cat=audio evt=device ch=2 name=OrayVirtualAudioDevice uid_hash=-1941602532563980365
+t=018374 sess=PI4 lvl=INFO cat=stream evt=ws_bind socket=sock_3276852274752534373@attempt_1
+t=018438 sess=PI4 lvl=INFO cat=audio evt=first_buffer
+t=020145 sess=PI4 lvl=INFO cat=stream evt=start_sent attempt=1
+t=020145 sess=PI4 lvl=INFO cat=stream evt=ready attempt=1 socket=sock_3276852274752534373@attempt_1
+t=024698 sess=PI4 lvl=INFO cat=audio evt=input_selected name=iMac麦克风 uid_hash=-4199401989524985513 ch=1
+t=027235 sess=PI4 lvl=INFO cat=transcript evt=final text=
+t=027235 sess=PI4 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=046491 sess=PI4 lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=046582 sess=PI4 lvl=INFO cat=audio evt=input_selected uid_hash=-4199401989524985513 name=iMac麦克风 ch=1
+t=046765 sess=PI4 lvl=INFO cat=audio evt=first_buffer
+t=047209 sess=PI4 lvl=WARN cat=stream evt=state code=1001 state=closed
+t=047415 sess=PI4 lvl=INFO cat=stream evt=ws_bind socket=sock_8490603365959759858@attempt_2
+t=048685 sess=PI4 lvl=INFO cat=stream evt=start_sent attempt=2
+t=048685 sess=PI4 lvl=INFO cat=stream evt=ready attempt=2 socket=sock_8490603365959759858@attempt_2
+t=053569 sess=PI4 lvl=INFO cat=transcript evt=final text=
+t=053569 sess=PI4 lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"

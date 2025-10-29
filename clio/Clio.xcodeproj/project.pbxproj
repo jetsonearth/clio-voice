@@ -1,0 +1,1074 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12413D4B2E176AAA00971E8D /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D4A2E176AAA00971E8D /* Auth */; };
+		12413D4D2E176AAA00971E8D /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D4C2E176AAA00971E8D /* Functions */; };
+		12413D4F2E176AAA00971E8D /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D4E2E176AAA00971E8D /* PostgREST */; };
+		12413D512E176AAA00971E8D /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D502E176AAA00971E8D /* Realtime */; };
+		12413D532E176AAA00971E8D /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D522E176AAA00971E8D /* Storage */; };
+		12413D552E176AAA00971E8D /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D542E176AAA00971E8D /* Supabase */; };
+		124B75C32E47539700636CB7 /* OpenCC in Frameworks */ = {isa = PBXBuildFile; productRef = 124B75C22E47539700636CB7 /* OpenCC */; };
+		125323352E4DFF0F0017DA1B /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 125323342E4DFF0F0017DA1B /* DynamicNotchKit */; };
+		126FDA942E5021A9004F1E1E /* Orb in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA932E5021A9004F1E1E /* Orb */; };
+		126FDA972E50711F004F1E1E /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA962E50711F004F1E1E /* Shimmer */; };
+		126FDAA02E5083D2004F1E1E /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA9F2E5083D2004F1E1E /* SwiftfulLoadingIndicators */; };
+		126FDD3D2E530DF3004F1E1E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDD3C2E530DF3004F1E1E /* GoogleSignIn */; };
+		126FDD3F2E530DF3004F1E1E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */; };
+		128D5BC42E37DB77007EDD00 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128D5BC32E37DB77007EDD00 /* AVKit.framework */; };
+		128D5FBD2E38F3CB007EDD00 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 128D5FBC2E38F3CB007EDD00 /* RiveRuntime */; };
+		12B5A2F12E62917900525C49 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 12B5A2F02E62917900525C49 /* Yams */; };
+		12C055572E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C0554B2E18AAA400FCCFA9 /* Localizable.strings */; };
+		12C055582E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055482E18AAA400FCCFA9 /* Localizable.strings */; };
+		12C055592E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055452E18AAA400FCCFA9 /* Localizable.strings */; };
+		12C5D49A2E2E8F3500DA9BF7 /* SonioxConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */; };
+		E10340512DE1F666008BCBE5 /* whisper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; };
+		E10340522DE1F666008BCBE5 /* whisper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1A261122CC143AC00B233D1 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = E1A261112CC143AC00B233D1 /* KeyboardShortcuts */; };
+		E1ADD45A2CC5352A00303ECB /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = E1ADD4592CC5352A00303ECB /* LaunchAtLogin */; };
+		E1ADD45F2CC544F100303ECB /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = E1ADD45E2CC544F100303ECB /* Sparkle */; };
+		E1F5FA7A2DA6CBF900B1FD8A /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = E1F5FA792DA6CBF900B1FD8A /* Zip */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E11473C42CBE0F0B00318EE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E11473A82CBE0F0A00318EE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E11473AF2CBE0F0A00318EE4;
+			remoteInfo = Clio;
+		};
+		E11473CE2CBE0F0B00318EE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E11473A82CBE0F0A00318EE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E11473AF2CBE0F0A00318EE4;
+			remoteInfo = Clio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1C7A8132DE06FC70034EDA0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E10340522DE1F666008BCBE5 /* whisper.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		128D5BC32E37DB77007EDD00 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		12C055442E18AAA400FCCFA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		12C055472E18AAA400FCCFA9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		12C0554A2E18AAA400FCCFA9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
+		12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SonioxConfig.plist; sourceTree = "<group>"; };
+		E11473B02CBE0F0A00318EE4 /* Clio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11473C32CBE0F0B00318EE4 /* IoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11473CD2CBE0F0B00318EE4 /* IoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E136D0102DA3EE57000E1E8A /* whisper.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = whisper.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E11473B22CBE0F0A00318EE4 /* Clio */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Clio;
+			sourceTree = "<group>";
+		};
+		E11473C62CBE0F0B00318EE4 /* ClioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ClioTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E11473AD2CBE0F0A00318EE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126FDA972E50711F004F1E1E /* Shimmer in Frameworks */,
+				124B75C32E47539700636CB7 /* OpenCC in Frameworks */,
+				128D5BC42E37DB77007EDD00 /* AVKit.framework in Frameworks */,
+				126FDD3D2E530DF3004F1E1E /* GoogleSignIn in Frameworks */,
+				12413D552E176AAA00971E8D /* Supabase in Frameworks */,
+				12413D512E176AAA00971E8D /* Realtime in Frameworks */,
+				E1ADD45A2CC5352A00303ECB /* LaunchAtLogin in Frameworks */,
+				E1ADD45F2CC544F100303ECB /* Sparkle in Frameworks */,
+				126FDA942E5021A9004F1E1E /* Orb in Frameworks */,
+				12413D4B2E176AAA00971E8D /* Auth in Frameworks */,
+				125323352E4DFF0F0017DA1B /* DynamicNotchKit in Frameworks */,
+				E1A261122CC143AC00B233D1 /* KeyboardShortcuts in Frameworks */,
+				126FDAA02E5083D2004F1E1E /* SwiftfulLoadingIndicators in Frameworks */,
+				12413D4F2E176AAA00971E8D /* PostgREST in Frameworks */,
+				128D5FBD2E38F3CB007EDD00 /* RiveRuntime in Frameworks */,
+				126FDD3F2E530DF3004F1E1E /* GoogleSignInSwift in Frameworks */,
+				12413D4D2E176AAA00971E8D /* Functions in Frameworks */,
+				E10340512DE1F666008BCBE5 /* whisper.xcframework in Frameworks */,
+				12413D532E176AAA00971E8D /* Storage in Frameworks */,
+				12B5A2F12E62917900525C49 /* Yams in Frameworks */,
+				E1F5FA7A2DA6CBF900B1FD8A /* Zip in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473C02CBE0F0B00318EE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473CA2CBE0F0B00318EE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12C055422E18AAA400FCCFA9 /* ar.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ar.lproj;
+			path = Clio/Localization/ar.lproj;
+			sourceTree = "<group>";
+		};
+		12C055432E18AAA400FCCFA9 /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = de.lproj;
+			path = Clio/Localization/de.lproj;
+			sourceTree = "<group>";
+		};
+		12C055462E18AAA400FCCFA9 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				12C055452E18AAA400FCCFA9 /* Localizable.strings */,
+			);
+			name = en.lproj;
+			path = Clio/Localization/en.lproj;
+			sourceTree = "<group>";
+		};
+		12C055492E18AAA400FCCFA9 /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				12C055482E18AAA400FCCFA9 /* Localizable.strings */,
+			);
+			name = es.lproj;
+			path = Clio/Localization/es.lproj;
+			sourceTree = "<group>";
+		};
+		12C0554C2E18AAA400FCCFA9 /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				12C0554B2E18AAA400FCCFA9 /* Localizable.strings */,
+			);
+			name = fr.lproj;
+			path = Clio/Localization/fr.lproj;
+			sourceTree = "<group>";
+		};
+		12C0554D2E18AAA400FCCFA9 /* hi.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = hi.lproj;
+			path = Clio/Localization/hi.lproj;
+			sourceTree = "<group>";
+		};
+		12C0554E2E18AAA400FCCFA9 /* it.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = it.lproj;
+			path = Clio/Localization/it.lproj;
+			sourceTree = "<group>";
+		};
+		12C0554F2E18AAA400FCCFA9 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ja.lproj;
+			path = Clio/Localization/ja.lproj;
+			sourceTree = "<group>";
+		};
+		12C055502E18AAA400FCCFA9 /* ko.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ko.lproj;
+			path = Clio/Localization/ko.lproj;
+			sourceTree = "<group>";
+		};
+		12C055512E18AAA400FCCFA9 /* nl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = nl.lproj;
+			path = Clio/Localization/nl.lproj;
+			sourceTree = "<group>";
+		};
+		12C055522E18AAA400FCCFA9 /* pl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pl.lproj;
+			path = Clio/Localization/pl.lproj;
+			sourceTree = "<group>";
+		};
+		12C055532E18AAA400FCCFA9 /* pt.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = pt.lproj;
+			path = Clio/Localization/pt.lproj;
+			sourceTree = "<group>";
+		};
+		12C055542E18AAA400FCCFA9 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ru.lproj;
+			path = Clio/Localization/ru.lproj;
+			sourceTree = "<group>";
+		};
+		12C055552E18AAA400FCCFA9 /* zh-Hans.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "zh-Hans.lproj";
+			path = "Clio/Localization/zh-Hans.lproj";
+			sourceTree = "<group>";
+		};
+		12C055562E18AAA400FCCFA9 /* zh-Hant.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "zh-Hant.lproj";
+			path = "Clio/Localization/zh-Hant.lproj";
+			sourceTree = "<group>";
+		};
+		E11473A72CBE0F0A00318EE4 = {
+			isa = PBXGroup;
+			children = (
+				12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */,
+				12C055422E18AAA400FCCFA9 /* ar.lproj */,
+				12C055432E18AAA400FCCFA9 /* de.lproj */,
+				12C055462E18AAA400FCCFA9 /* en.lproj */,
+				12C055492E18AAA400FCCFA9 /* es.lproj */,
+				12C0554C2E18AAA400FCCFA9 /* fr.lproj */,
+				12C0554D2E18AAA400FCCFA9 /* hi.lproj */,
+				12C0554E2E18AAA400FCCFA9 /* it.lproj */,
+				12C0554F2E18AAA400FCCFA9 /* ja.lproj */,
+				12C055502E18AAA400FCCFA9 /* ko.lproj */,
+				12C055512E18AAA400FCCFA9 /* nl.lproj */,
+				12C055522E18AAA400FCCFA9 /* pl.lproj */,
+				12C055532E18AAA400FCCFA9 /* pt.lproj */,
+				12C055542E18AAA400FCCFA9 /* ru.lproj */,
+				12C055552E18AAA400FCCFA9 /* zh-Hans.lproj */,
+				12C055562E18AAA400FCCFA9 /* zh-Hant.lproj */,
+				E11473B22CBE0F0A00318EE4 /* Clio */,
+				E11473C62CBE0F0B00318EE4 /* ClioTests */,
+				E114741C2CBE1DE200318EE4 /* Frameworks */,
+				E11473B12CBE0F0A00318EE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E11473B12CBE0F0A00318EE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E11473B02CBE0F0A00318EE4 /* Clio.app */,
+				E11473C32CBE0F0B00318EE4 /* IoTests.xctest */,
+				E11473CD2CBE0F0B00318EE4 /* IoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E114741C2CBE1DE200318EE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				128D5BC32E37DB77007EDD00 /* AVKit.framework */,
+				E136D0102DA3EE57000E1E8A /* whisper.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E11473AF2CBE0F0A00318EE4 /* Clio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "Clio" */;
+			buildPhases = (
+				E11473AC2CBE0F0A00318EE4 /* Sources */,
+				E11473AD2CBE0F0A00318EE4 /* Frameworks */,
+				E11473AE2CBE0F0A00318EE4 /* Resources */,
+				E1C7A8132DE06FC70034EDA0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E11473B22CBE0F0A00318EE4 /* Clio */,
+			);
+			name = Clio;
+			packageProductDependencies = (
+				E1A261112CC143AC00B233D1 /* KeyboardShortcuts */,
+				E1ADD4592CC5352A00303ECB /* LaunchAtLogin */,
+				E1ADD45E2CC544F100303ECB /* Sparkle */,
+				E1F5FA792DA6CBF900B1FD8A /* Zip */,
+				12413D4A2E176AAA00971E8D /* Auth */,
+				12413D4C2E176AAA00971E8D /* Functions */,
+				12413D4E2E176AAA00971E8D /* PostgREST */,
+				12413D502E176AAA00971E8D /* Realtime */,
+				12413D522E176AAA00971E8D /* Storage */,
+				12413D542E176AAA00971E8D /* Supabase */,
+				128D5FBC2E38F3CB007EDD00 /* RiveRuntime */,
+				124B75C22E47539700636CB7 /* OpenCC */,
+				125323342E4DFF0F0017DA1B /* DynamicNotchKit */,
+				126FDA932E5021A9004F1E1E /* Orb */,
+				126FDA962E50711F004F1E1E /* Shimmer */,
+				126FDA9F2E5083D2004F1E1E /* SwiftfulLoadingIndicators */,
+				126FDD3C2E530DF3004F1E1E /* GoogleSignIn */,
+				126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */,
+				12B5A2F02E62917900525C49 /* Yams */,
+			);
+			productName = Clio;
+			productReference = E11473B02CBE0F0A00318EE4 /* Clio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E11473C22CBE0F0B00318EE4 /* IoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "IoTests" */;
+			buildPhases = (
+				E11473BF2CBE0F0B00318EE4 /* Sources */,
+				E11473C02CBE0F0B00318EE4 /* Frameworks */,
+				E11473C12CBE0F0B00318EE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E11473C52CBE0F0B00318EE4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E11473C62CBE0F0B00318EE4 /* ClioTests */,
+			);
+			name = IoTests;
+			packageProductDependencies = (
+			);
+			productName = ClioTests;
+			productReference = E11473C32CBE0F0B00318EE4 /* IoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E11473CC2CBE0F0B00318EE4 /* IoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "IoUITests" */;
+			buildPhases = (
+				E11473C92CBE0F0B00318EE4 /* Sources */,
+				E11473CA2CBE0F0B00318EE4 /* Frameworks */,
+				E11473CB2CBE0F0B00318EE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E11473CF2CBE0F0B00318EE4 /* PBXTargetDependency */,
+			);
+			name = IoUITests;
+			packageProductDependencies = (
+			);
+			productName = ClioUITests;
+			productReference = E11473CD2CBE0F0B00318EE4 /* IoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E11473A82CBE0F0A00318EE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					E11473AF2CBE0F0A00318EE4 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					E11473C22CBE0F0B00318EE4 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = E11473AF2CBE0F0A00318EE4;
+					};
+					E11473CC2CBE0F0B00318EE4 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = E11473AF2CBE0F0A00318EE4;
+					};
+				};
+			};
+			buildConfigurationList = E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "Clio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+				fr,
+				nl,
+				ko,
+				"zh-Hant",
+				hi,
+				ar,
+				pl,
+				"zh-Hans",
+				ja,
+				ru,
+				pt,
+				de,
+				it,
+			);
+			mainGroup = E11473A72CBE0F0A00318EE4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E1A261102CC143AC00B233D1 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				E1ADD4582CC5352A00303ECB /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+				E1ADD45D2CC544F100303ECB /* XCRemoteSwiftPackageReference "Sparkle" */,
+				E1F5FA782DA6CBF900B1FD8A /* XCRemoteSwiftPackageReference "Zip" */,
+				12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				124B75C12E47539700636CB7 /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */,
+				125323332E4DFF0F0017DA1B /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
+				126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */,
+				126FDA952E50711F004F1E1E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				126FDA9E2E5083D2004F1E1E /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
+				126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				12B5A2EF2E62917800525C49 /* XCRemoteSwiftPackageReference "Yams" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E11473B12CBE0F0A00318EE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E11473AF2CBE0F0A00318EE4 /* Clio */,
+				E11473C22CBE0F0B00318EE4 /* IoTests */,
+				E11473CC2CBE0F0B00318EE4 /* IoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E11473AE2CBE0F0A00318EE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12C5D49A2E2E8F3500DA9BF7 /* SonioxConfig.plist in Resources */,
+				12C055572E18AAA400FCCFA9 /* Localizable.strings in Resources */,
+				12C055582E18AAA400FCCFA9 /* Localizable.strings in Resources */,
+				12C055592E18AAA400FCCFA9 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473C12CBE0F0B00318EE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473CB2CBE0F0B00318EE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E11473AC2CBE0F0A00318EE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473BF2CBE0F0B00318EE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E11473C92CBE0F0B00318EE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E11473C52CBE0F0B00318EE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E11473AF2CBE0F0A00318EE4 /* Clio */;
+			targetProxy = E11473C42CBE0F0B00318EE4 /* PBXContainerItemProxy */;
+		};
+		E11473CF2CBE0F0B00318EE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E11473AF2CBE0F0A00318EE4 /* Clio */;
+			targetProxy = E11473CE2CBE0F0B00318EE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12C055452E18AAA400FCCFA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12C055442E18AAA400FCCFA9 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		12C055482E18AAA400FCCFA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12C055472E18AAA400FCCFA9 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		12C0554B2E18AAA400FCCFA9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12C0554A2E18AAA400FCCFA9 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E11473D52CBE0F0B00318EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG CLIO_ENABLE_LOCAL_MODEL $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E11473D62CBE0F0B00318EE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CLIO_ENABLE_LOCAL_MODEL $(inherited)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E11473D82CBE0F0B00318EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clio/Core/Clio.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_ASSET_PATHS = "\"Clio/Preview Content\"";
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clio/Core/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clio;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Io needs to interact with your browser to detect the current website for applying website-specific configurations.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Clio transcribes your speech; microphone access is required to capture audio.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliovoice.clio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Clio/Clio-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E11473D92CBE0F0B00318EE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clio/Core/Clio.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_ASSET_PATHS = "\"Clio/Preview Content\"";
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clio/Core/Info.release.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Clio;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSUIElement = NO;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Io needs to interact with your browser to detect the current website for applying website-specific configurations.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Clio transcribes your speech; microphone access is required to capture audio.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliovoice.clio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Clio/Clio-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E11473DB2CBE0F0B00318EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetsonai.clioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E11473DC2CBE0F0B00318EE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetsonai.clioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E11473DE2CBE0F0B00318EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetsonai.clioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Clio;
+			};
+			name = Debug;
+		};
+		E11473DF2CBE0F0B00318EE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1650;
+				DEVELOPMENT_TEAM = MFDGY9T8T9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.65.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jetsonai.clioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Clio;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E11473AB2CBE0F0A00318EE4 /* Build configuration list for PBXProject "Clio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11473D52CBE0F0B00318EE4 /* Debug */,
+				E11473D62CBE0F0B00318EE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11473D72CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "Clio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11473D82CBE0F0B00318EE4 /* Debug */,
+				E11473D92CBE0F0B00318EE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11473DA2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "IoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11473DB2CBE0F0B00318EE4 /* Debug */,
+				E11473DC2CBE0F0B00318EE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11473DD2CBE0F0B00318EE4 /* Build configuration list for PBXNativeTarget "IoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11473DE2CBE0F0B00318EE4 /* Debug */,
+				E11473DF2CBE0F0B00318EE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		124B75C12E47539700636CB7 /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ddddxxx/SwiftyOpenCC";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		125323332E4DFF0F0017DA1B /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrKai77/DynamicNotchKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/itssali/Orb.git";
+			requirement = {
+				branch = "macOS-Support";
+				kind = branch;
+			};
+		};
+		126FDA952E50711F004F1E1E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+		126FDA9E2E5083D2004F1E1E /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulLoadingIndicators";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
+		126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.11.0;
+			};
+		};
+		12B5A2EF2E62917800525C49 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		E1A261102CC143AC00B233D1 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		E1ADD4582CC5352A00303ECB /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		E1ADD45D2CC544F100303ECB /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.4;
+			};
+		};
+		E1F5FA782DA6CBF900B1FD8A /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		12413D4A2E176AAA00971E8D /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		12413D4C2E176AAA00971E8D /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		12413D4E2E176AAA00971E8D /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		12413D502E176AAA00971E8D /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		12413D522E176AAA00971E8D /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		12413D542E176AAA00971E8D /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		124B75C22E47539700636CB7 /* OpenCC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 124B75C12E47539700636CB7 /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */;
+			productName = OpenCC;
+		};
+		125323342E4DFF0F0017DA1B /* DynamicNotchKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 125323332E4DFF0F0017DA1B /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
+			productName = DynamicNotchKit;
+		};
+		126FDA932E5021A9004F1E1E /* Orb */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */;
+			productName = Orb;
+		};
+		126FDA962E50711F004F1E1E /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126FDA952E50711F004F1E1E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+		126FDA9F2E5083D2004F1E1E /* SwiftfulLoadingIndicators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126FDA9E2E5083D2004F1E1E /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
+			productName = SwiftfulLoadingIndicators;
+		};
+		126FDD3C2E530DF3004F1E1E /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		128D5FBC2E38F3CB007EDD00 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+		12B5A2F02E62917900525C49 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12B5A2EF2E62917800525C49 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+		E1A261112CC143AC00B233D1 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1A261102CC143AC00B233D1 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+		E1ADD4592CC5352A00303ECB /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1ADD4582CC5352A00303ECB /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
+		E1ADD45E2CC544F100303ECB /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1ADD45D2CC544F100303ECB /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		E1F5FA792DA6CBF900B1FD8A /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F5FA782DA6CBF900B1FD8A /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E11473A82CBE0F0A00318EE4 /* Project object */;
+}

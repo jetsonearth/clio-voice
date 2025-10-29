@@ -1,0 +1,50 @@
+t=000000 sess=JUh lvl=INFO cat=audio evt=devices_scan
+t=000001 sess=JUh lvl=INFO cat=audio evt=devices count=2
+t=000001 sess=JUh lvl=INFO cat=audio evt=device uid_hash=8390910044708506188 name="Ivan's Air pods2 - Find My" ch=1
+t=000001 sess=JUh lvl=INFO cat=audio evt=device uid_hash=-3968789454979043079 name="MacBook Air麦克风" ch=1
+t=000219 sess=JUh lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000240 sess=JUh lvl=INFO cat=hotkey evt=open_config ready=false
+t=000240 sess=JUh lvl=INFO cat=hotkey evt=register ok=true
+t=169093 sess=JUh lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=169266 sess=JUh lvl=INFO cat=audio evt=input_selected uid_hash=8390910044708506188 name="Ivan's Air pods2 - Find My" ch=1
+t=169388 sess=JUh lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=169388 sess=JUh lvl=INFO cat=audio evt=current_default id=99 name="Ivan's Air pods2 - Find My" uid_hash=8390910044708506188
+t=169388 sess=JUh lvl=INFO cat=audio evt=current_default_output id=93 name="Ivan's Air pods2 - Find My" uid_hash=-3394528470432795598
+t=169388 sess=JUh lvl=INFO cat=audio evt=devices_scan
+t=169402 sess=JUh lvl=INFO cat=audio evt=devices count=3
+t=169402 sess=JUh lvl=INFO cat=audio evt=device uid_hash=8390910044708506188 ch=1 name="Ivan's Air pods2 - Find My"
+t=169402 sess=JUh lvl=INFO cat=audio evt=device name="MacBook Air麦克风" ch=1 uid_hash=-3968789454979043079
+t=169402 sess=JUh lvl=INFO cat=audio evt=device name=CADefaultDeviceAggregate-94464-0 ch=1 uid_hash=-582683872857374500
+t=169477 sess=JUh lvl=INFO cat=stream evt=ws_bind socket=sock_-7657890629369565135@attempt_1
+t=169508 sess=JUh lvl=INFO cat=audio evt=first_buffer
+t=169510 sess=JUh lvl=INFO cat=audio evt=level avg_db=-120 peak_db=-120
+t=171550 sess=JUh lvl=INFO cat=stream evt=start_sent attempt=1
+t=171550 sess=JUh lvl=INFO cat=stream evt=ready socket=sock_-7657890629369565135@attempt_1 attempt=1
+t=171611 sess=JUh lvl=INFO cat=audio evt=level avg_db=-1 peak_db=-1
+t=173713 sess=JUh lvl=INFO cat=audio evt=level avg_db=-9 peak_db=-9
+t=174515 sess=JUh lvl=INFO cat=stream evt=send_audio seq=50 bytes=3200
+t=174813 sess=JUh lvl=INFO cat=transcript evt=raw_final text="Hello, hello! Can you hear me?<end>"
+t=175802 sess=JUh lvl=INFO cat=audio evt=level peak_db=-31 avg_db=-31
+t=177810 sess=JUh lvl=INFO cat=audio evt=level avg_db=-14 peak_db=-14
+t=179507 sess=JUh lvl=INFO cat=stream evt=send_audio seq=100 bytes=3200
+t=179910 sess=JUh lvl=INFO cat=audio evt=level avg_db=-1 peak_db=-1
+t=181939 sess=JUh lvl=INFO cat=audio evt=level avg_db=-5 peak_db=-5
+t=182407 sess=JUh lvl=INFO cat=transcript evt=raw_final text=" Hello, hello! Can you hear me?<end>"
+t=184006 sess=JUh lvl=INFO cat=audio evt=level peak_db=-16 avg_db=-16
+t=184508 sess=JUh lvl=INFO cat=stream evt=send_audio bytes=3200 seq=150
+t=186011 sess=JUh lvl=INFO cat=audio evt=level peak_db=-2 avg_db=-2
+t=187538 sess=JUh lvl=INFO cat=transcript evt=raw_final text=" 现在测试的是Claude AirPods的版本。<end>"
+t=188115 sess=JUh lvl=INFO cat=audio evt=level peak_db=-17 avg_db=-17
+t=189513 sess=JUh lvl=INFO cat=stream evt=send_audio bytes=3200 seq=200
+t=190202 sess=JUh lvl=INFO cat=audio evt=level peak_db=-22 avg_db=-22
+t=192209 sess=JUh lvl=INFO cat=audio evt=level peak_db=-22 avg_db=-22
+t=192230 sess=JUh lvl=INFO cat=transcript evt=raw_final text=" 对的。<end>"
+t=194380 sess=JUh lvl=INFO cat=audio evt=level peak_db=-24 avg_db=-24
+t=194513 sess=JUh lvl=INFO cat=stream evt=send_audio seq=250 bytes=3200
+t=196412 sess=JUh lvl=INFO cat=audio evt=level peak_db=-17 avg_db=-17
+t=196529 sess=JUh lvl=INFO cat=transcript evt=raw_final text=" Okay,<end>"
+t=198537 sess=JUh lvl=INFO cat=transcript evt=final text="Hello, hello! Can you hear me? Hello, hello! Can you hear me? 现在测试的是Claude AirPods的版本。 对的。 Okay,"
+t=198537 sess=JUh lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=199225 sess=JUh lvl=INFO cat=transcript evt=llm_final text="现在测试的是Clio AirPods的版本。"
+t=199351 sess=JUh lvl=INFO cat=transcript evt=insert_attempt text="现在测试的是Clio AirPods的版本。 " chars=23 target=Clio
+t=199365 sess=JUh lvl=INFO cat=transcript evt=insert_result ok=true

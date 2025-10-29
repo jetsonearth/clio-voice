@@ -1,0 +1,198 @@
+{
+  "contexts": {
+    "email": {
+      "display_name": "Email",
+      "priority": 100,
+      "confidence_boost": 0.5,
+      "applications": [
+        {"bundle_id": "com.apple.Mail", "priority": 100},
+        {"bundle_id": "com.microsoft.Outlook", "priority": 100},
+        {"bundle_id": "org.mozilla.thunderbird", "priority": 100}
+      ],
+      "browser_rules": {
+        "valid_browsers": [
+          "com.google.Chrome",
+          "com.apple.Safari",
+          "org.mozilla.firefox",
+          "com.microsoft.edgemac",
+          "com.brave.Browser"
+        ],
+        "url_patterns": [
+          {"pattern": "mail\\.google\\.com", "confidence": 0.9},
+          {"pattern": "outlook\\.live\\.com", "confidence": 0.9},
+          {"pattern": "outlook\\.office\\.com", "confidence": 0.9},
+          {"pattern": "mail\\.yahoo\\.com", "confidence": 0.8},
+          {"pattern": "protonmail\\.com", "confidence": 0.8}
+        ]
+      },
+      "window_title_patterns": [
+        {"pattern": ".*@.*\\.(com|org|net|edu) - Gmail", "confidence": 0.7},
+        {"pattern": "Gmail - Compose", "confidence": 0.8},
+        {"pattern": "Outlook - Compose", "confidence": 0.8},
+        {"pattern": "Mail - New Message", "confidence": 0.7},
+        {"pattern": ".*Message.*- (Mail|Outlook|Gmail)", "confidence": 0.6}
+      ],
+      "content_patterns": [
+        {"pattern": "(?i)\\bcompose\\b", "confidence": 0.1},
+        {"pattern": "(?i)\\bsubject:\\b", "confidence": 0.1},
+        {"pattern": "(?i)\\b(to|from|cc|bcc):\\b", "confidence": 0.1}
+      ]
+    },
+    "code": {
+      "display_name": "Code",
+      "priority": 90,
+      "confidence_boost": 0.4,
+      "applications": [
+        {"bundle_id": "com.microsoft.VSCode", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.microsoft.VSCode.Insiders", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.apple.dt.Xcode", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.jetbrains.intellij", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.jetbrains.pycharm", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.jetbrains.webstorm", "priority": 100, "confidence": 1.0},
+        {"bundle_id": "com.sublimetext.4", "priority": 95, "confidence": 1.0},
+        {"bundle_id_pattern": "com.todesktop.*", "process_names": ["Cursor"], "priority": 100, "confidence": 0.9},
+        {"bundle_id_pattern": "com.codeium.*", "process_names": ["Windsurf"], "priority": 100, "confidence": 0.9},
+        {"bundle_id": "com.apple.Terminal", "priority": 95, "confidence": 1.0},
+        {"bundle_id": "com.googlecode.iterm2", "priority": 95, "confidence": 1.0},
+        {"bundle_id": "dev.warp.Warp", "priority": 95, "confidence": 1.0},
+        {"process_names": [
+          "Terminal", "iTerm2", "Warp", "Code", "Xcode",
+          "Cursor", "Windsurf", "Devin", "Augment",
+          "AI", "Assistant", "Copilot", "Coder", "Coding", "Developer"
+        ], "priority": 80, "confidence": 0.7},
+        {"bundle_id_pattern": ".*ai.*", "priority": 75, "confidence": 0.6},
+        {"bundle_id_pattern": ".*coder.*", "priority": 75, "confidence": 0.6},
+        {"bundle_id_pattern": ".*dev.*", "priority": 75, "confidence": 0.6},
+        {"bundle_id": "com.github.GitHubDesktop", "priority": 90, "confidence": 1.0},
+        {"bundle_id": "com.axosoft.gitkraken", "priority": 90, "confidence": 1.0}
+      ],
+      "browser_rules": {
+        "valid_browsers": [
+          "com.google.Chrome",
+          "com.apple.Safari",
+          "org.mozilla.firefox",
+          "com.microsoft.edgemac",
+          "com.brave.Browser"
+        ],
+        "url_patterns": [
+          {"pattern": "github\\.com", "confidence": 0.9},
+          {"pattern": "gitlab\\.com", "confidence": 0.9},
+          {"pattern": "bitbucket\\.org", "confidence": 0.8},
+          {"pattern": "stackoverflow\\.com", "confidence": 0.8},
+          {"pattern": "codespaces\\.github\\.com", "confidence": 0.9},
+          {"pattern": "replit\\.com", "confidence": 0.9},
+          {"pattern": "repl\\.it", "confidence": 0.8},
+          {"pattern": "codesandbox\\.io", "confidence": 0.8},
+          {"pattern": "stackblitz\\.com", "confidence": 0.9},
+          {"pattern": "codepen\\.io", "confidence": 0.7},
+          {"pattern": "glitch\\.com", "confidence": 0.8},
+          {"pattern": "gitpod\\.io", "confidence": 0.9},
+          {"pattern": "v0\\.dev", "confidence": 0.9},
+          {"pattern": "bolt\\.new", "confidence": 0.9},
+          {"pattern": "lovable\\.dev", "confidence": 0.9},
+          {"pattern": "same\\.dev", "confidence": 0.9},
+          {"pattern": "cursor\\.com", "confidence": 0.8},
+          {"pattern": "windsurf\\.com", "confidence": 0.8},
+          {"pattern": "orchids\\.app", "confidence": 0.9},
+          {"pattern": ".*\\.dev", "confidence": 0.6},
+          {"pattern": ".*ai.*\\.(com|io|dev)", "confidence": 0.7},
+          {"pattern": ".*code.*\\.(com|io|dev)", "confidence": 0.6},
+          {"pattern": ".*copilot.*", "confidence": 0.8},
+          {"pattern": "anthropic\\.com", "confidence": 0.8},
+          {"pattern": "openai\\.com", "confidence": 0.8},
+          {"pattern": "sourcegraph\\.com", "confidence": 0.8},
+          {"pattern": "codeium\\.com", "confidence": 0.8},
+          {"pattern": "tabnine\\.com", "confidence": 0.8},
+          {"pattern": "aws\\.amazon\\.com.*kiro", "confidence": 0.7}
+        ]
+      },
+      "window_title_patterns": [
+        {"pattern": ".*Terminal.*", "confidence": 0.8},
+        {"pattern": ".*iTerm.*", "confidence": 0.8},
+        {"pattern": ".*Warp.*", "confidence": 0.8},
+        {"pattern": ".*— Python.*", "confidence": 0.7},
+        {"pattern": ".*claude.*GIT.*", "confidence": 0.6},
+        {"pattern": ".*\\.(py|js|ts|tsx|jsx|swift|java|cpp|c|h|rs|go|php|rb|kt).*", "confidence": 0.6},
+        {"pattern": ".*Visual Studio Code.*", "confidence": 0.9},
+        {"pattern": ".*Xcode.*", "confidence": 0.9},
+        {"pattern": ".*IntelliJ.*", "confidence": 0.9},
+        {"pattern": ".*PyCharm.*", "confidence": 0.9},
+        {"pattern": ".*Cursor.*", "confidence": 0.9},
+        {"pattern": ".*Windsurf.*", "confidence": 0.9},
+        {"pattern": ".*Devin.*", "confidence": 0.8},
+        {"pattern": ".*same\\.dev.*", "confidence": 0.8},
+        {"pattern": ".*v0\\.dev.*", "confidence": 0.8},
+        {"pattern": ".*bolt\\.new.*", "confidence": 0.8},
+        {"pattern": ".*lovable\\.dev.*", "confidence": 0.8},
+        {"pattern": ".*orchids\\.app.*", "confidence": 0.8},
+        {"pattern": ".*Replit.*", "confidence": 0.8},
+        {"pattern": ".*CodeSandbox.*", "confidence": 0.8},
+        {"pattern": ".*StackBlitz.*", "confidence": 0.8},
+        {"pattern": ".*(AI|ai).*cod.*", "confidence": 0.6},
+        {"pattern": ".*(AI|ai).*(assist|help).*", "confidence": 0.6},
+        {"pattern": ".*copilot.*", "confidence": 0.7},
+        {"pattern": ".*\\bcode\\b.*", "confidence": 0.5},
+        {"pattern": ".*\\bdevelop.*", "confidence": 0.5},
+        {"pattern": ".*GitHub.*", "confidence": 0.8},
+        {"pattern": ".*GitKraken.*", "confidence": 0.8},
+        {"pattern": ".*Sourcetree.*", "confidence": 0.8}
+      ],
+      "content_patterns": [
+        {"pattern": "(?i)\\bfunction\\s+\\w+", "confidence": 0.1},
+        {"pattern": "(?i)\\bclass\\s+\\w+", "confidence": 0.1},
+        {"pattern": "(?i)\\bimport\\s+\\w+", "confidence": 0.1},
+        {"pattern": "(?i)\\bgit\\s+(commit|push|pull|merge)", "confidence": 0.1}
+      ]
+    },
+    "social_media": {
+      "display_name": "Social Media",
+      "priority": 10,
+      "confidence_boost": 0.2,
+      "applications": [
+        {"bundle_id": "com.twitter.twitter-mac", "priority": 90},
+        {"bundle_id": "com.facebook.archon", "priority": 90},
+        {"bundle_id": "com.tinyspeck.slackmacgap", "priority": 80},
+        {"bundle_id": "com.hnc.Discord", "priority": 80}
+      ],
+      "browser_rules": {
+        "valid_browsers": [
+          "com.google.Chrome",
+          "com.apple.Safari",
+          "org.mozilla.firefox",
+          "com.microsoft.edgemac",
+          "com.brave.Browser"
+        ],
+        "url_patterns": [
+          {"pattern": "twitter\\.com", "confidence": 0.9},
+          {"pattern": "x\\.com", "confidence": 0.9},
+          {"pattern": "facebook\\.com", "confidence": 0.9},
+          {"pattern": "instagram\\.com", "confidence": 0.9},
+          {"pattern": "linkedin\\.com", "confidence": 0.8},
+          {"pattern": "tiktok\\.com", "confidence": 0.9},
+          {"pattern": "youtube\\.com", "confidence": 0.8},
+          {"pattern": "reddit\\.com", "confidence": 0.7}
+        ]
+      },
+      "window_title_patterns": [
+        {"pattern": ".*Twitter.*", "confidence": 0.8},
+        {"pattern": ".*Facebook.*", "confidence": 0.8},
+        {"pattern": ".*Instagram.*", "confidence": 0.8},
+        {"pattern": ".*LinkedIn.*", "confidence": 0.8},
+        {"pattern": ".*TikTok.*", "confidence": 0.8},
+        {"pattern": ".*YouTube.*", "confidence": 0.7},
+        {"pattern": ".*Reddit.*", "confidence": 0.7},
+        {"pattern": ".*Discord.*", "confidence": 0.7},
+        {"pattern": ".*Slack.*", "confidence": 0.7}
+      ]
+    }
+  },
+  "detection_config": {
+    "minimum_confidence": 0.3,
+    "bundle_id_override_threshold": 0.8,
+    "url_confidence_boost": 0.3,
+    "max_patterns_per_type": 50,
+    "cache_duration_seconds": 5
+  },
+  "user_overrides": {}
+}
+

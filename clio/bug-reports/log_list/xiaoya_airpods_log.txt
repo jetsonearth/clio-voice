@@ -1,0 +1,191 @@
+t=000000 sess=6qE lvl=INFO cat=audio evt=devices_scan
+t=000003 sess=6qE lvl=INFO cat=audio evt=devices count=3
+t=000003 sess=6qE lvl=INFO cat=audio evt=device ch=1 name="AirPods Pro - Find My" uid_hash=-5786594200257487073
+t=000003 sess=6qE lvl=INFO cat=audio evt=device ch=1 name=iMac麦克风 uid_hash=-9082573602755952055
+t=000003 sess=6qE lvl=INFO cat=audio evt=device uid_hash=7716189126532043094 name=OrayVirtualAudioDevice ch=2
+t=000269 sess=6qE lvl=INFO cat=sys evt=app_launch ver=1.44.0
+t=000289 sess=6qE lvl=INFO cat=hotkey evt=open_config ready=false
+t=000289 sess=6qE lvl=INFO cat=hotkey evt=register ok=true
+t=007516 sess=6qE lvl=INFO cat=audio evt=route_change reason=default_input_change
+t=007733 sess=6qE lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=007842 sess=6qE lvl=INFO cat=audio evt=input_selected ch=1 uid_hash=-9082573602755952055 name=iMac麦克风
+t=007858 sess=6qE lvl=INFO cat=audio evt=device_pin_start desired_name=iMac麦克风 prev_name=iMac麦克风 prev_uid_hash=-9082573602755952055 desired_id=80 prev_id=80 desired_uid_hash=-9082573602755952055
+t=007934 sess=6qE lvl=INFO cat=audio evt=device_pin_verify desired_id=80 current_id=80 current_uid_hash=-9082573602755952055 desired_uid_hash=-9082573602755952055 ok=true current_name=iMac麦克风 desired_name=iMac麦克风
+t=007935 sess=6qE lvl=INFO cat=audio evt=route_change reason=devices_changed
+t=007935 sess=6qE lvl=INFO cat=audio evt=devices_scan
+t=007936 sess=6qE lvl=INFO cat=audio evt=devices count=4
+t=007936 sess=6qE lvl=INFO cat=audio evt=device ch=1 name="AirPods Pro - Find My" uid_hash=-5786594200257487073
+t=007936 sess=6qE lvl=INFO cat=audio evt=device uid_hash=-9082573602755952055 ch=1 name=iMac麦克风
+t=007936 sess=6qE lvl=INFO cat=audio evt=device uid_hash=-7190884044329500414 name=CADefaultDeviceAggregate-6481-0 ch=1
+t=007936 sess=6qE lvl=INFO cat=audio evt=device ch=2 name=OrayVirtualAudioDevice uid_hash=7716189126532043094
+t=007976 sess=6qE lvl=INFO cat=stream evt=ws_bind socket=sock_-5836731343891782221@attempt_1
+t=008040 sess=6qE lvl=INFO cat=audio evt=first_buffer
+t=008040 sess=6qE lvl=INFO cat=audio evt=level avg_db=-120 peak_db=-120
+t=008860 sess=6qE lvl=INFO cat=stream evt=start_sent attempt=1
+t=008860 sess=6qE lvl=INFO cat=stream evt=ready attempt=1 socket=sock_-5836731343891782221@attempt_1
+t=009878 sess=6qE lvl=INFO cat=transcript evt=raw_final text=Hello.<end>
+t=010141 sess=6qE lvl=INFO cat=audio evt=level avg_db=-10 peak_db=-10
+t=012243 sess=6qE lvl=INFO cat=audio evt=level avg_db=-8 peak_db=-8
+t=013043 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=50
+t=013510 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 嘿, 你好。<end>"
+t=014337 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=016339 sess=6qE lvl=INFO cat=audio evt=level peak_db=-9 avg_db=-9
+t=018038 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=100
+t=018466 sess=6qE lvl=INFO cat=audio evt=level avg_db=-9 peak_db=-9
+t=019282 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" What does this say?<end>"
+t=020542 sess=6qE lvl=INFO cat=audio evt=level peak_db=-9 avg_db=-9
+t=022454 sess=6qE lvl=INFO cat=audio evt=device_restore restored_uid_hash=-9082573602755952055 restored_name=iMac麦克风 restored_id=80
+t=022483 sess=6qE lvl=INFO cat=transcript evt=final text="Hello. 嘿, 你好。 What does this say?"
+t=022483 sess=6qE lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=036741 sess=6qE lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=036837 sess=6qE lvl=INFO cat=audio evt=input_selected name=iMac麦克风 ch=1 uid_hash=-9082573602755952055
+t=036853 sess=6qE lvl=INFO cat=audio evt=device_pin_start desired_uid_hash=-9082573602755952055 desired_id=80 prev_uid_hash=-9082573602755952055 prev_id=80 prev_name=iMac麦克风 desired_name=iMac麦克风
+t=036927 sess=6qE lvl=INFO cat=audio evt=device_pin_verify desired_name=iMac麦克风 current_name=iMac麦克风 current_uid_hash=-9082573602755952055 desired_id=80 current_id=80 desired_uid_hash=-9082573602755952055 ok=true
+t=037032 sess=6qE lvl=INFO cat=audio evt=first_buffer
+t=037032 sess=6qE lvl=INFO cat=audio evt=level avg_db=-120 peak_db=-120
+t=037033 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=0
+t=037437 sess=6qE lvl=WARN cat=stream evt=state state=closed code=1001
+t=037639 sess=6qE lvl=INFO cat=stream evt=ws_bind socket=sock_-2295475970423619744@attempt_2
+t=038916 sess=6qE lvl=INFO cat=stream evt=start_sent attempt=2
+t=038916 sess=6qE lvl=INFO cat=stream evt=ready socket=sock_-2295475970423619744@attempt_2 attempt=2
+t=039138 sess=6qE lvl=INFO cat=audio evt=level avg_db=-6 peak_db=-6
+t=041235 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=041768 sess=6qE lvl=INFO cat=transcript evt=raw_final text=预算小妹到珠宝处理人。<end>
+t=042037 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=50
+t=043326 sess=6qE lvl=INFO cat=audio evt=level peak_db=-9 avg_db=-9
+t=045331 sess=6qE lvl=INFO cat=audio evt=level avg_db=-7 peak_db=-7
+t=047028 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=100
+t=047432 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=047797 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 预算小妹到珠宝处理人。<end>"
+t=049537 sess=6qE lvl=INFO cat=audio evt=level peak_db=-9 avg_db=-9
+t=051637 sess=6qE lvl=INFO cat=audio evt=level avg_db=-6 peak_db=-6
+t=052031 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=150
+t=053165 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 好爱瑞士的松弛感。<end>"
+t=053726 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=055731 sess=6qE lvl=INFO cat=audio evt=level avg_db=-6 peak_db=-6
+t=057033 sess=6qE lvl=INFO cat=stream evt=send_audio seq=200 bytes=3200
+t=057746 sess=6qE lvl=INFO cat=audio evt=level peak_db=-7 avg_db=-7
+t=058996 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" I'm just trying to do audio transcription.<end>"
+t=059827 sess=6qE lvl=INFO cat=audio evt=level avg_db=-7 peak_db=-7
+t=061832 sess=6qE lvl=INFO cat=audio evt=level peak_db=-8 avg_db=-8
+t=062059 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=250
+t=063811 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" Um, sometimes it's working well, sometimes it's not.<end>"
+t=063886 sess=6qE lvl=INFO cat=audio evt=level avg_db=-9 peak_db=-9
+t=065929 sess=6qE lvl=INFO cat=audio evt=level avg_db=-7 peak_db=-7
+t=067036 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=300
+t=067937 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=067996 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" Most of the time it's not.<end>"
+t=070038 sess=6qE lvl=INFO cat=audio evt=level avg_db=-10 peak_db=-10
+t=072031 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=350
+t=072126 sess=6qE lvl=INFO cat=audio evt=level avg_db=-10 peak_db=-10
+t=072499 sess=6qE lvl=INFO cat=audio evt=device_restore restored_uid_hash=-9082573602755952055 restored_id=80 restored_name=iMac麦克风
+t=073015 sess=6qE lvl=INFO cat=transcript evt=final text="预算小妹到珠宝处理人。 预算小妹到珠宝处理人。 好爱瑞士的松弛感。 I'm just trying to do audio transcription. Um, sometimes it's working well, sometimes it's not. Most of the time it's not."
+t=073016 sess=6qE lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=073625 sess=6qE lvl=INFO cat=transcript evt=llm_final text="预算小妹到珠宝处理人。 好爱瑞士的松弛感。 I'm just trying to do audio transcription. Sometimes it's working well, sometimes it's not.
+
+Most of the time it's not."
+t=073711 sess=6qE lvl=INFO cat=transcript evt=insert_attempt text="预算小妹到珠宝处理人。 好爱瑞士的松弛感。 I'm just trying to do audio transcription. Sometimes it's working well, sometimes it's not.
+
+Most of the time it's not. " chars=142 target=备忘录
+t=073728 sess=6qE lvl=INFO cat=transcript evt=insert_result ok=true
+t=106309 sess=6qE lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
+t=106418 sess=6qE lvl=INFO cat=audio evt=input_selected uid_hash=-9082573602755952055 ch=1 name=iMac麦克风
+t=106431 sess=6qE lvl=INFO cat=audio evt=device_pin_start desired_uid_hash=-9082573602755952055 prev_uid_hash=-9082573602755952055 desired_name=iMac麦克风 prev_id=80 desired_id=80 prev_name=iMac麦克风
+t=106498 sess=6qE lvl=INFO cat=audio evt=device_pin_verify current_name=iMac麦克风 current_id=80 desired_id=80 desired_name=iMac麦克风 current_uid_hash=-9082573602755952055 ok=true desired_uid_hash=-9082573602755952055
+t=106603 sess=6qE lvl=INFO cat=audio evt=first_buffer
+t=106604 sess=6qE lvl=INFO cat=audio evt=level peak_db=-120 avg_db=-120
+t=106604 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106619 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106625 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106631 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106637 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106643 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106648 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106654 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106660 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106666 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106672 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106678 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106684 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106689 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106695 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106700 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106707 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106713 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106718 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106724 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106731 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106737 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106743 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106748 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106754 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106760 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106767 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106773 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106779 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106785 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106791 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106797 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106804 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106810 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106816 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106822 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106829 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106835 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106841 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106847 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106854 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106860 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106866 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106872 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106878 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106884 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106890 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106896 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106902 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106908 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106914 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106920 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106926 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106933 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106938 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106944 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106950 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106957 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106963 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=106969 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106974 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106981 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106987 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=106994 sess=6qE lvl=ERR cat=stream evt=error phase=send seq=502
+t=107000 sess=6qE lvl=ERR cat=stream evt=error seq=502 phase=send
+t=107006 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=0
+t=107209 sess=6qE lvl=INFO cat=stream evt=ws_bind socket=sock_-806119354793836186@attempt_3
+t=108706 sess=6qE lvl=INFO cat=audio evt=level avg_db=-8 peak_db=-8
+t=109406 sess=6qE lvl=INFO cat=stream evt=start_sent attempt=3
+t=109406 sess=6qE lvl=INFO cat=stream evt=ready socket=sock_-806119354793836186@attempt_3 attempt=3
+t=110806 sess=6qE lvl=INFO cat=audio evt=level avg_db=-10 peak_db=-10
+t=111403 sess=6qE lvl=INFO cat=transcript evt=raw_final text="下午好, 李修雅。<end>"
+t=111608 sess=6qE lvl=INFO cat=stream evt=send_audio seq=50 bytes=3200
+t=112898 sess=6qE lvl=INFO cat=audio evt=level avg_db=-9 peak_db=-9
+t=114904 sess=6qE lvl=INFO cat=audio evt=level avg_db=-9 peak_db=-9
+t=116600 sess=6qE lvl=INFO cat=stream evt=send_audio seq=100 bytes=3200
+t=117048 sess=6qE lvl=INFO cat=audio evt=level avg_db=-7 peak_db=-7
+t=119106 sess=6qE lvl=INFO cat=audio evt=level peak_db=-6 avg_db=-6
+t=121206 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=121604 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=150
+t=121765 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 现在有一个更大"
+t=122421 sess=6qE lvl=INFO cat=transcript evt=raw_final text="的问题, 就是, 有时候语音转录它会不见。<end>"
+t=123297 sess=6qE lvl=INFO cat=audio evt=level avg_db=-6 peak_db=-6
+t=125305 sess=6qE lvl=INFO cat=audio evt=level peak_db=-10 avg_db=-10
+t=126589 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 所以,"
+t=126706 sess=6qE lvl=INFO cat=stream evt=send_audio bytes=3200 seq=200
+t=127404 sess=6qE lvl=INFO cat=audio evt=level avg_db=-10 peak_db=-10
+t=127763 sess=6qE lvl=INFO cat=audio evt=device_restore restored_name=iMac麦克风 restored_uid_hash=-9082573602755952055 restored_id=80
+t=128158 sess=6qE lvl=INFO cat=transcript evt=raw_final text=" 我不是很确定这"
+t=128209 sess=6qE lvl=INFO cat=transcript evt=raw_final text="个问题出在哪里。 我现在要想办法去 debug。<end>"
+t=128946 sess=6qE lvl=INFO cat=transcript evt=final text="下午好, 李修雅。 现在有一个更大 的问题, 就是, 有时候语音转录它会不见。 所以, 我不是很确定这 个问题出在哪里。 我现在要想办法去 debug。"
+t=128946 sess=6qE lvl=INFO cat=transcript evt=session_end divider="────────── session end ──────────"
+t=129682 sess=6qE lvl=INFO cat=transcript evt=llm_final text="下午好, 李修雅。 现在有一个更大的问题,就是有时候语音转录会丢失。 所以,我不是很确定这个问题出在哪里。 我现在要想办法去debug。"
+t=129778 sess=6qE lvl=INFO cat=transcript evt=insert_attempt chars=69 target=备忘录 text="下午好, 李修雅。 现在有一个更大的问题,就是有时候语音转录会丢失。 所以,我不是很确定这个问题出在哪里。 我现在要想办法去debug。 "
+t=129779 sess=6qE lvl=INFO cat=transcript evt=insert_result ok=true

@@ -1,0 +1,1420 @@
+/* 
+  Localizable.strings
+  Clio
+  
+  Simplified Chinese Translation - Created on 2025-01-04.
+*/
+
+/* Hotkey Modal */
+"hotkey.modal.listening" = "请按任意键";
+
+/* Dashboard */
+"dashboard.words_dictated" = "您已输入了 %d 个词。";
+
+/* General */
+"app.name" = "Clio";
+"general.save" = "保存";
+"general.cancel" = "取消";
+"general.delete" = "删除";
+"general.edit" = "编辑";
+"general.done" = "完成";
+"general.settings" = "设置";
+"general.close" = "关闭";
+"general.ok" = "确定";
+"general.yes" = "是";
+"general.no" = "否";
+"general.error" = "错误";
+"general.success" = "成功";
+"general.loading" = "加载中...";
+"general.retry" = "重试";
+"general.download" = "下载";
+"general.upload" = "上传";
+"general.search" = "搜索";
+"general.filter" = "筛选";
+"general.sort" = "排序";
+"general.share" = "分享";
+"general.copy" = "复制";
+"general.paste" = "粘贴";
+"general.clear" = "清空";
+"general.reset" = "重置";
+"general.continue" = "继续";
+"general.back" = "返回";
+"general.next" = "下一步";
+"general.finish" = "完成";
+"general.language" = "语言";
+"general.default" = "默认";
+"general.required" = "必填";
+
+/* Navigation */
+"Home" = "首页";
+"Dictionary" = "自定义词库";
+"Plan" = "订阅方案";
+"Upgrade" = "升级";
+"navigation.home" = "首页";
+"navigation.models" = "语音模型";
+"navigation.power_mode" = "AI 优化";
+"navigation.dictionary" = "自定义词典";
+"navigation.settings" = "设置";
+"navigation.plan" = "订阅方案";
+"navigation.license" = "订阅方案";
+"navigation.personalization" = "个性化";
+"navigation.vocabulary" = "个人词典";
+"navigation.ai_editing_strength" = "AI 润色强度";
+
+/* Dictionary */
+"dictionary.title" = "个人词典";
+"dictionary.custom_title" = "自定义词典";
+"dictionary.custom_description" = "训练 Clio 识别自定义词汇并创建自动纠正。添加词汇以提高转录准确性，或创建词汇替换以自动修复常见转录错误。";
+"dictionary.add_new" = "添加新项";
+"dictionary.search_placeholder" = "搜索词典";
+"dictionary.vocabulary" = "词汇表";
+"dictionary.replacements" = "语音捷径";
+"dictionary.enable_word" = "启用词汇";
+"dictionary.disable_word" = "禁用词汇";
+"dictionary.delete_word" = "删除词汇";
+"dictionary.delete_replacement" = "删除替换";
+"dictionary.add_to_vocabulary" = "添加到词汇表";
+"dictionary.add_word" = "添加词汇";
+"dictionary.make_replacement" = "设为替换规则";
+"dictionary.word_replacement_title" = "词汇替换";
+"dictionary.word_replacement_description" = "启用后，将把您的自定义词汇转换为纠正规则。Clio 将在听写时自动替换错误版本。";
+"dictionary.misspelling_placeholder" = "错误拼写";
+"dictionary.correct_spelling_placeholder" = "正确拼写";
+"dictionary.add_word_placeholder" = "添加新词汇";
+"dictionary.edit_word" = "编辑词汇";
+"dictionary.word_placeholder" = "词汇";
+"dictionary.save_changes" = "保存更改";
+"dictionary.edit_replacement" = "编辑替换";
+"dictionary.original_placeholder" = "原文";
+"dictionary.replacement_placeholder" = "替换文本";
+"dictionary.no_vocabulary_words" = "暂无词汇";
+"dictionary.vocabulary_help_text" = "添加词汇以帮助 Clio 正确识别";
+"dictionary.no_word_replacements" = "暂无替换规则";
+"dictionary.replacements_help_text" = "创建自动词汇替换以提高转录质量";
+"dictionary.voice_shortcuts_description" = "创建智能语音捷径，自动在你说话时清理口头禅、展开缩写、修正习惯用法。\n说“我的号码” → Clio 自动粘贴 123‑456‑7890。\n说“cold DM” → Clio 自动插入你的完整话术。\n按你的说法来，Clio 会润色、强化并准确送达。";
+"dictionary.info_card.title.vocab" = "教会 Clio 你的语言。";
+"dictionary.info_card.title.voice" = "自定义你的表达方式。";
+"navigation.replacements" = "语音捷径";
+
+/* Style Presets */
+"style_presets.info_card.title" = "让 Clio 像你一样写。";
+"style_presets.description" = "为不同应用定制写作风格。\n按环境设置语气、结构或提示词——让你的声音在各个工具里都感觉自然。\n定义写作方式：Slack 上更随性，Notion 里更干练，X 上更有力度。\n风格、语气、格式，尽在掌控。";
+"style_presets.add_new" = "新建预设";
+"style_presets.drawer.title" = "预设设置";
+"style_presets.drawer.activate" = "在以下应用中启用";
+"style_presets.drawer.add_app" = "添加应用";
+"style_presets.drawer.add_website" = "添加网站";
+"style_presets.drawer.website_placeholder" = "如：example.com";
+"style_presets.drawer.delete" = "删除此预设";
+"style_presets.drawer.prompt" = "提示词";
+"style_presets.drawer.no_apps_found" = "未找到应用";
+"style_presets.drawer.mode_name" = "模式名称";
+"style_presets.drawer.mode_placeholder" = "输入一个易懂的名称";
+
+/* AI Editing Strength */
+"ai_strength.title" = "AI 润色强度";
+"ai_strength.subtitle" = "选择 AI 对转录文本的改写力度。";
+"ai_strength.light.title" = "轻度清理";
+"ai_strength.light.subtitle" = "快速润色，清理噪音同时保留你的原本语气。";
+"ai_strength.light.bullet1" = "保持混合语言表达和原句顺序";
+"ai_strength.light.bullet2" = "过滤口头填充词、结巴与重复开头";
+"ai_strength.light.bullet3" = "仅做轻量标点与格式调整";
+"ai_strength.full.title" = "深度清理";
+"ai_strength.full.subtitle" = "更深入的润色，让措辞更清晰顺畅。";
+"ai_strength.full.bullet1" = "在更通顺时合并、拆分或调整句序";
+"ai_strength.full.bullet2" = "补充隐含主语并润色生硬表达";
+"ai_strength.full.bullet3" = "依然尊重混合语言表达与原始语义";
+"ai_strength.preview.title" = "预览";
+"ai_strength.preview.input" = "输入";
+"ai_strength.preview.output_light" = "输出（轻度）";
+"ai_strength.preview.output_full" = "输出（深度清理）";
+
+/* Snippets (placeholders) */
+"style_presets.empty.title" = "暂无风格预设";
+"style_presets.empty.subtitle" = "创建你的第一个预设以开始";
+
+/* Main Menu */
+"menu.file" = "文件";
+"menu.edit" = "编辑";
+"menu.view" = "视图";
+"menu.window" = "窗口";
+"menu.help" = "帮助";
+"menu.about" = "关于 Clio";
+"menu.preferences" = "偏好设置...";
+"menu.quit" = "退出 Clio";
+
+/* Recording */
+"recording.start" = "开始录音";
+"recording.stop" = "停止录音";
+"recording.stop.confirmation" = "停止录音？";
+"recording.pause" = "暂停";
+"recording.resume" = "继续";
+"recording.transcribing" = "语音识别中...";
+"recording.processing" = "处理中...";
+"recording.ready" = "准备录音";
+"recording.listening" = "聆听中...";
+"recording.saved" = "录音已保存";
+"recording.failed" = "录音失败";
+"recording.permission_required" = "请开启麦克风权限以开始语音输入";
+"recording.permission_description" = "Clio 需要访问您的麦克风来转录语音";
+
+/* Transcription */
+"transcription.title" = "转录";
+"transcription.empty" = "暂无转录";
+"transcription.copy" = "复制转录";
+"transcription.enhance" = "智能润色";
+"transcription.play" = "播放音频";
+"transcription.delete" = "删除转录";
+"transcription.language" = "转录语言";
+"transcription.accuracy" = "准确度";
+"transcription.speed" = "速度";
+"transcription.load_more" = "加载更多";
+"transcription.delete_selected_title" = "删除所选项目？";
+"transcription.delete_confirmation" = "此操作无法撤销。您确定要删除 %d 个项目吗？";
+"transcription.search.placeholder" = "搜索语音记录";
+"transcription.empty.title" = "没有语音记录";
+"transcription.empty.subtitle" = "您的语音记录将会显示在这里";
+"transcription.history.description" = "查看和管理所有录音转录记录";
+"transcription.selected_count" = "已选择 %d 个";
+"transcription.select_all" = "全选";
+"transcription.deselect_all" = "取消全选";
+"transcription.total_latency_help" = "总延迟：%@ms";
+"transcription.enhanced" = "AI 优化版";
+"transcription.original" = "原始";
+"transcription.llm_latency" = "LLM：%@ms";
+"transcription.llm_latency_help" = "LLM 延迟：%@ms";
+"transcription.asr_latency" = "ASR：%@ms";
+"transcription.asr_latency_help" = "ASR 延迟：%@ms";
+"transcription.copy_enhanced" = "复制 AI 优化版";
+"transcription.copy_original" = "复制原始版";
+"transcription.date.today" = "今天";
+"transcription.date.yesterday" = "昨天";
+
+/* Settings */
+"settings.title" = "设置";
+"settings.description" = "配置您的偏好和应用程序设置";
+"settings.sign_out.title" = "账户与重置";
+"settings.sign_out.subtitle" = "管理您的账户、新手教程和身份验证";
+"settings.sign_out.description" = "从您的Clio账户登出。这将返回到认证界面。";
+"settings.sign_out.button" = "登出";
+"settings.reset_onboarding.title" = "重置新手教程";
+"settings.reset_onboarding.subtitle" = "重新开始介绍流程";
+"settings.reset_onboarding.button" = "重置新手教程";
+"settings.reset_onboarding.confirm" = "重置";
+"settings.reset_onboarding.message" = "这将重置引导流程。重启应用程序时，您将再次看到介绍界面。";
+"settings.general" = "通用";
+"settings.audio" = "音频";
+"settings.ai" = "AI 优化";
+"settings.shortcuts" = "键盘快捷键";
+"settings.keyboard_shortcuts.title" = "语音输入键盘快捷键";
+"settings.shortcut.configured" = "快捷键已配置";
+"settings.shortcut.required" = "需要快捷键";
+"settings.shortcut.warning" = "需要设置键盘快捷键才能开始录音";
+"settings.appearance" = "外观";
+"settings.privacy" = "隐私";
+"settings.about" = "关于";
+"settings.language" = "语言";
+"settings.app_language" = "应用语言";
+"settings.app_language.description" = "选择您的首选界面语言";
+"settings.app_language.tooltip" = "选择菜单、按钮和界面文本的首选语言。更改会立即生效。某些较新功能的翻译可能有限。";
+"settings.language.description" = "选择您偏好的语言";
+"settings.language.choose_description" = "为应用界面选择您偏好的语言";
+"settings.language.change_note" = "语言更改会立即生效。某些语言可能翻译不完整。";
+"settings.language.available" = "可用语言";
+"settings.system_settings.header" = "系统设置";
+"settings.launch_at_login" = "登录时启动";
+"settings.launch_at_login.subtitle" = "登录时自动启动 Clio。";
+"settings.hide_dock_icon.title" = "隐藏 Dock 图标";
+"settings.hide_dock_icon.description" = "让 Clio 在后台运行（仅菜单栏）";
+"settings.show_in_menu_bar" = "显示在菜单栏";
+"settings.show_in_dock" = "显示在程序坞";
+"settings.ai_enhancement" = "启用 AI 编辑";
+"settings.ai_enhancement.description" = "让 Clio 利用 AI 重写转写内容，使措辞、语气和排版更加自然。";
+"settings.keyboard_shortcuts" = "键盘快捷键";
+"settings.keyboard_shortcuts.configured" = "快捷键已配置";
+"settings.keyboard_shortcuts.required" = "需要快捷键";
+"settings.keyboard_shortcuts.selected_key" = "选择的按键";
+"settings.keyboard_shortcuts.edit_hotkey" = "编辑热键";
+"settings.keyboard_shortcuts.reset_hotkey" = "重置";
+"settings.keyboard_shortcuts.description" = "设置一个按键，按一次开始免提录音，再按一次停止";
+
+/* Audio Settings */
+"audio.input_device" = "输入设备";
+"audio.quality" = "音频质量";
+"audio.quality.low" = "低";
+"audio.quality.medium" = "中";
+"audio.quality.high" = "高";
+"audio.noise_reduction" = "降噪";
+"audio.auto_gain" = "自动增益控制";
+"audio.input.title" = "音频输入";
+"audio.input.subtitle" = "配置您的麦克风偏好";
+"audio.input.mode" = "输入模式";
+"audio.devices.available" = "可用设备";
+"audio.devices.prioritized" = "优先级设备";
+"audio.devices.priority_description" = "设备将按优先级顺序使用。如果设备不可用，将尝试下一个设备。如果没有优先级设备可用，将使用系统默认麦克风。";
+"audio.devices.no_priority" = "无优先级设备";
+"audio.mode.system_default" = "使用系统默认输入设备";
+"audio.mode.custom" = "选择特定的输入设备";
+"audio.mode.prioritized" = "设置设备优先级顺序";
+"audio.device.active" = "活跃";
+"audio.device.unavailable" = "不可用";
+"audio.devices.no_additional" = "没有其他可用设备";
+"audio.devices.none.title" = "无音频设备";
+"audio.devices.none.description" = "连接音频输入设备以开始使用";
+"audio.mode.system_default.title" = "系统默认";
+"audio.mode.custom.title" = "自定义设备";
+"audio.mode.prioritized.title" = "优先级设备";
+"general.refresh" = "刷新";
+
+/* Language Selection */
+"language.transcription.title" = "转录语言";
+"language.current_model" = "当前模型：%@";
+"language.multilingual.description" = "此模型支持多种语言。您可以选择自动检测或选择特定语言。";
+"language.english_only" = "语言：英语";
+"language.english_only.description" = "这是一个英语优化模型，仅支持英语转录。";
+"language.no_model" = "未选择模型";
+
+/* Audio Cleanup */
+"audio.cleanup.description" = "自动清理旧音频文件以节省存储空间";
+"audio.cleanup.enable" = "启用自动清理";
+"audio.cleanup.retention_period" = "保留期限";
+"audio.cleanup.keep_files" = "保留文件";
+"audio.cleanup.1_day" = "1 天";
+"audio.cleanup.3_days" = "3 天";
+"audio.cleanup.7_days" = "7 天";
+"audio.cleanup.14_days" = "14 天";
+"audio.cleanup.30_days" = "30 天";
+"audio.cleanup.description_text" = "超过选定期限的音频文件将被自动删除，同时保留文本转录内容。";
+"audio.cleanup.analyzing" = "分析中...";
+"audio.cleanup.run_now" = "立即运行清理";
+"audio.cleanup.alert_title" = "音频清理";
+"audio.cleanup.delete_files" = "删除 %d 个文件";
+"audio.cleanup.will_delete" = "将删除 %d 个超过 %@ 天的音频文件。";
+"audio.cleanup.size_freed" = "将释放的总大小：%@";
+"audio.cleanup.transcripts_preserved" = "文本转录将被保留。";
+"audio.cleanup.no_files" = "未找到超过 %@ 天的音频文件。";
+"audio.cleanup.complete_title" = "清理完成";
+"audio.cleanup.result_with_errors" = "成功删除了 %d 个音频文件。删除 %@ 个文件失败。";
+"audio.cleanup.result_success" = "成功删除了 %d 个音频文件。";
+"audio.cleanup.how_long_keep" = "音频文件保留时长";
+"audio.cleanup.select_period" = "选择保留期限";
+"audio.cleanup.auto_delete_info" = "超过 %@ 天的音频文件将被自动删除。";
+"audio.cleanup.transcripts_always_preserved" = "文本转录将始终被保留。";
+"audio.cleanup.manual_cleanup" = "手动清理";
+"audio.cleanup.run_immediately" = "立即运行清理";
+"audio.cleanup.analysis_title" = "音频清理分析";
+"audio.cleanup.found_files" = "找到 %d 个超过 %@ 天的音频文件。";
+"audio.cleanup.storage_freed" = "将释放的总存储空间：%@";
+"audio.cleanup.already_optimized" = "您的存储空间已经优化！";
+"audio.cleanup.result_success_with_space" = "成功删除了 %d 个音频文件并释放了存储空间。";
+
+/* AI Settings */
+"ai.provider" = "AI 提供商";
+"ai.model" = "模型";
+"ai.api_key" = "API 密钥";
+"enhance.mode.title" = "AI 优化模式";
+"ai.enhancement_prompt" = "增强提示";
+"ai.auto_enhance" = "自动增强";
+"ai.context_aware" = "上下文感知";
+
+/* Shortcuts */
+"shortcuts.global" = "全局快捷键";
+"shortcuts.record" = "开始/停止录音";
+"shortcuts.quick_transcribe" = "快速转录";
+"shortcuts.toggle_window" = "切换窗口";
+
+/* Models */
+"speech.models.title" = "语音识别模型";
+"models.title" = "转录模型";
+"models.download" = "下载模型";
+"models.downloading" = "下载中...";
+"models.delete" = "删除模型";
+"models.size" = "大小";
+"models.accuracy" = "准确度";
+"models.speed" = "速度";
+"models.languages" = "支持语言";
+"models.active_model" = "当前模型";
+"models.no_model_selected" = "未选择模型";
+"models.change_language" = "更改";
+"models.language_locked" = "锁定";
+"models.tap_to_change" = "点击更改";
+"models.english_only" = "仅英语";
+"models.clio_max.description" = "云端旗舰模型，毫秒级响应速度。深度优化中日韩英四语，支持粤语、吴语等18种中文方言。为多语言专业人士和国际团队量身打造。";
+"models.cloud_model" = "云端模型";
+"models.action.connect" = "连接";
+"models.action.connected" = "已连接";
+"models.action.connecting" = "连接中...";
+"models.requires_internet" = "需要网络连接";
+"models.clio_max_ultra.description" = "最强云端转录模型，极致精准度与性能表现。先进智能实时流式处理，全语种支持，为企业级应用和专业用户量身打造。";
+
+/* Model Descriptions */
+"models.clio_flash.description" = "超快转录速度，准确度良好。永久免费使用，本地处理";
+"models.clio_pro.description" = "速度和准确度完美平衡，增强隐私保护。本地处理确保音频完全私密";
+"models.clio_ultra.description" = "比 Pro 版慢但准确度更高，支持多种语言";
+
+/* Chinese Dialects */
+"language.chinese_simplified" = "中文（简体）";
+"language.chinese_traditional" = "中文（繁体）";
+"language.chinese_hong_kong" = "中文（香港）";
+"language.chinese_shanghai" = "上海话";
+"language.chinese_wu" = "吴语";
+"language.chinese_min" = "闽南语";
+"language.chinese_northeast" = "东北话";
+"language.chinese_gansu" = "甘肃话";
+"language.chinese_guangzhou" = "广州话";
+"language.chinese_henan" = "河南话";
+"language.chinese_hubei" = "湖北话";
+"language.chinese_hunan" = "湖南话";
+"language.chinese_jiangxi" = "江西话";
+"language.chinese_ningxia" = "宁夏话";
+"language.chinese_shanxi" = "山西话";
+"language.chinese_shaanxi" = "陕西话";
+"language.chinese_shandong" = "山东话";
+"language.chinese_sichuan" = "四川话";
+"language.chinese_tianjin" = "天津话";
+"language.chinese_yunnan" = "云南话";
+"language.chinese_cantonese" = "粤语";
+
+/* Model Access Control */
+"models.access.fastest_lowest_accuracy" = "最快速度，最低准确度（39 MB）";
+"models.access.fast_good_accuracy" = "快速，准确度良好（74 MB）";
+"models.access.balanced_speed_accuracy_pro" = "速度和准确度平衡（244 MB）- 专业版";
+"models.access.high_accuracy_slower_pro" = "高准确度，较慢（769 MB）- 专业版";
+"models.access.highest_accuracy_pro" = "最高准确度（1.5 GB）- 专业版";
+"models.access.latest_model_best_quality_pro" = "最新模型，最佳质量 - 专业版";
+"models.access.pro_model" = "专业版模型";
+"models.access.free_model" = "免费模型";
+
+/* AI Providers */
+"providers.llama.description" = "本地 Llama 模型 - 免费";
+"providers.openai.description" = "GPT-4、GPT-3.5 - 专业版";
+"providers.anthropic.description" = "Claude 3 模型 - 专业版";
+"providers.gemini.description" = "Google Gemini - 专业版";
+"providers.deepseek.description" = "DeepSeek 模型 - 专业版";
+"providers.groq.description" = "Groq LPU 模型 - 专业版";
+"providers.mistral.description" = "Mistral AI - 专业版";
+"providers.qwen.description" = "Qwen 模型 - 专业版";
+"providers.ollama.description" = "本地 Ollama 模型 - 专业版";
+"providers.custom.description" = "自定义提供商 - 专业版";
+"models.language_prompts" = "语言与提示";
+"models.library_title" = "模型库";
+"models.library_subtitle" = "从 %d 个语音模型中选择";
+"models.section.local_models" = "本地模型";
+"models.section.premium_cloud_models" = "高级云模型";
+"models.filter.all" = "全部";
+"models.filter.downloaded" = "已下载";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "准确度";
+"models.delete.title" = "删除模型";
+"models.delete.confirmation" = "您确定要删除模型 '%@' 吗？";
+"models.status.active" = "使用中";
+"models.status.downloaded" = "已下载";
+"models.currently_active" = "当前使用中";
+"models.set_as_default" = "设为默认";
+"models.requires_pro" = "需要 Pro 版";
+"models.show_in_finder" = "在访达中显示";
+"models.download.main" = "模型";
+"models.download.coreml" = "CoreML";
+
+/* Subscription */
+"subscription.title" = "订阅";
+"subscription.free" = "免费";
+"subscription.pro" = "专业版";
+"subscription.upgrade" = "升级到专业版";
+"subscription.manage" = "管理订阅";
+"subscription.restore" = "恢复购买";
+
+/* Pricing Plans */
+"pricing.plans.title" = "选择您的方案";
+"pricing.plans.subtitle" = "获取无限转录和高级功能";
+"pricing.plans.monthly.name" = "月付专业版";
+"pricing.plans.annual.name" = "年付专业版";
+"pricing.plans.annual.savings" = "每年节省 $16.89";
+"pricing.plans.recommended" = "推荐";
+"pricing.plans.feature.unlimited" = "无限转录";
+"pricing.plans.feature.works_everywhere" = "全平台支持：Mac、iOS、Windows";
+"pricing.plans.feature.priority_support" = "优先客户支持";
+"pricing.plans.cta.choose_plan" = "选择方案";
+
+/* Onboarding */
+"onboarding.welcome" = "欢迎使用 Clio";
+"onboarding.description" = "您的 AI 语音转录助手";
+"onboarding.get_started" = "开始使用";
+"onboarding.skip" = "跳过";
+
+/* Errors */
+"error.generic" = "发生错误";
+"error.network" = "网络错误";
+"error.permission_denied" = "权限被拒绝";
+"error.file_not_found" = "文件未找到";
+"error.invalid_api_key" = "无效的 API 密钥";
+"error.model_download_failed" = "模型下载失败，请检查网络连接后重试";
+
+/* Success Messages */
+"success.saved" = "保存成功";
+"success.copied" = "已复制到剪贴板";
+"success.deleted" = "删除成功";
+"success.updated" = "更新成功";
+
+/* Dashboard */
+"dashboard.words_dictated" = "您已记录了 %d 个字。";
+"dashboard.ready_to_start" = "准备开始记录吗？";
+"dashboard.efficiency_title" = "Clio 为您加速";
+"dashboard.with_clio" = "使用 CLIO";
+"dashboard.efficiency_subtitle" = "效率提升";
+"dashboard.minutes_saved" = "节省时间";
+"dashboard.time_efficiency" = "时间效率";
+"dashboard.time_speaking" = "说话时长";
+"dashboard.total_speaking_time" = "总说话时长";
+"dashboard.words_per_minute" = "词/分";
+"dashboard.speaking_rate" = "语速";
+
+// Authentication
+"auth.signing_in" = "正在登录";
+
+/* Greetings */
+"greeting.good_morning" = "早上好";
+"greeting.good_afternoon" = "下午好";
+"greeting.good_evening" = "晚上好";
+
+/* PowerMode */
+"powermode.create.title" = "创建 AI 优化模式";
+"powermode.edit.title" = "编辑 AI 优化模式";
+"powermode.help.activation" = "当您使用这些应用或访问这些网站时，AI 优化模式将自动激活";
+"powermode.section.basic_info" = "基本信息";
+"powermode.section.transcription" = "语音识别设置";
+"powermode.section.applications" = "应用程序";
+"powermode.section.websites" = "网站";
+"powermode.field.icon" = "图标";
+"powermode.field.name" = "名称";
+"powermode.field.model" = "模型";
+"powermode.field.language" = "语言";
+"powermode.placeholder.name" = "请输入模式名称";
+"powermode.placeholder.website_url" = "请输入网站地址（例：google.com）";
+"powermode.model.system_default" = "系统默认";
+"powermode.language.auto_detect" = "自动检测";
+"powermode.empty.no_apps" = "暂未选择应用程序";
+"powermode.empty.no_websites" = "暂未添加网站";
+"powermode.delete.title" = "删除 AI 优化模式";
+
+/* Languages */
+"language.english" = "英语";
+"language.spanish" = "西班牙语";
+"language.french" = "法语";
+"language.german" = "德语";
+"language.italian" = "意大利语";
+"language.portuguese" = "葡萄牙语";
+"language.russian" = "俄语";
+"language.japanese" = "日语";
+"language.korean" = "韩语";
+"language.chinese" = "中文";
+"language.auto_detect" = "自动检测";
+
+/* Settings */
+"settings.keyboard_shortcuts.title" = "键盘快捷键";
+"settings.shortcut.configured" = "快捷键已配置";
+"settings.shortcut.required" = "需要设置快捷键";
+"settings.shortcut.warning" = "⚠️ 请设置键盘快捷键以使用 Clio";
+"settings.shortcut.choose_key" = "选择您的录音按键";
+"settings.shortcut.instructions" = "选择用于录音的按键。按住按键开始录音，松开停止录音。";
+"settings.permissions.title" = "应用权限";
+"settings.permissions.subtitle" = "Clio 需要以下权限才能正常工作";
+"settings.permissions.required_note" = "所有权限都是 Clio 正常工作所必需的。";
+"settings.permission.keyboard_shortcut" = "键盘快捷键";
+"settings.permission.microphone" = "麦克风访问权限";
+"settings.permission.accessibility" = "辅助功能权限";
+"settings.permission.screen_recording" = "屏幕录制权限";
+"settings.status.enabled" = "已启用";
+"settings.status.disabled" = "已禁用";
+
+/* Authentication */
+"auth.signin.title" = "欢迎来到 Clio Voice";
+"auth.signin.subtitle" = "既然可以语音输入，何必受键盘束缚？";
+"auth.signin.button" = "登录";
+"auth.signin.switch_prompt" = "还没有账户？";
+"auth.signin.switch_action" = "注册";
+"auth.signup.title" = "创建您的 Clio 账户";
+"auth.signup.subtitle" = "既然可以语音输入，何必受键盘束缚？";
+"auth.signup.button" = "创建账户";
+"auth.signup.switch_prompt" = "已有账户？";
+"auth.signup.switch_action" = "登录";
+"auth.placeholder.fullname" = "姓名";
+"auth.placeholder.email" = "邮箱";
+"auth.placeholder.password" = "密码";
+"auth.placeholder.confirm_password" = "确认密码";
+"auth.error.passwords_mismatch" = "密码不匹配";
+"auth.remember_password" = "记住密码";
+"auth.processing" = "处理中...";
+"auth.forgot_password" = "忘记密码？";
+"auth.error.invalid_email" = "请先输入有效的邮箱地址";
+"auth.password_reset_sent" = "密码重置邮件已发送至 %@";
+"auth.error.password_reset_failed" = "发送密码重置邮件失败，请重试。";
+
+/* Onboarding */
+"onboarding.welcome.title" = "欢迎，%@！";
+"onboarding.welcome.subtitle" = "您是从哪里了解我们的？";
+"onboarding.skip" = "暂时跳过";
+
+/* Onboarding - Trial */
+"onboarding.trial.title" = "试用 Clio Pro";
+"onboarding.trial.subtitle" = "在试用期间体验一流的语音模型，然后升级到无限转录服务，仅需 $7.99/月";
+"onboarding.trial.feature.lightning_fast.title" = "闪电般快速转录";
+"onboarding.trial.feature.lightning_fast.description" = "600毫秒极速转录，实现即时语音转文字生产力";
+"onboarding.trial.feature.world_leading.title" = "世界领先的语音识别";
+"onboarding.trial.feature.world_leading.description" = "在50+种语言中提供同类最佳的准确性和先进AI模型";
+"onboarding.trial.feature.realtime_translation.title" = "实时翻译";
+"onboarding.trial.feature.realtime_translation.description" = "用您的语言说话，即时翻译成另一种语言";
+"onboarding.trial.feature.messy_to_polished.title" = "AI智能编辑";
+"onboarding.trial.feature.messy_to_polished.description" = "将杂乱语音转化为精美文本。无填充词，只有清晰想法。";
+"onboarding.trial.feature.speed_up_writing.title" = "在任何应用中加速写作";
+"onboarding.trial.feature.speed_up_writing.description" = "在每个Mac应用中工作。语音输入随处可用，无限转录。";
+"onboarding.trial.feature.privacy_first.title" = "隐私优先设计";
+"onboarding.trial.feature.privacy_first.description" = "隐私至上承诺：语音文字绝不上传存储，数据主权完全掌控。";
+"onboarding.trial.start_trial" = "开始试用";
+"onboarding.tryit.command_prefix" = "先选中下方的全部文本，然后按住";
+"onboarding.tryit.command_instruction_suffix" = "对我说：\"把这段翻译成中文\"，然后同时松开两个键完成";
+"onboarding.tryit.command_tips" = "也可以试试：‘把这段整理为要点’、‘把它写长一点’、或‘解释一下’。";
+"onboarding.tryit.command_default_text" = "And now, I calmly watch the very heartbeat of the machine beneath me. A being that breathes thought, a traveler between life and death.";
+"onboarding.trial.view_plans" = "查看Pro计划";
+
+/* Onboarding - Enhanced Permissions */
+"onboarding.enhanced_permissions.title" = "在您的电脑上设置 Clio";
+"onboarding.enhanced_permissions.subtitle" = "授予权限以启用语音转录";
+"onboarding.enhanced_permissions.accessibility.title" = "让 Clio 为你执笔";
+"onboarding.enhanced_permissions.accessibility.description" = "允许 Clio 在任何应用中粘贴转录文本";
+"onboarding.enhanced_permissions.microphone.title" = "让 Clio 倾听你的心声";
+"onboarding.enhanced_permissions.microphone.description" = "语音转录所必需";
+"onboarding.enhanced_permissions.granted" = "已授权";
+"onboarding.enhanced_permissions.grant_access" = "授予访问权限";
+"onboarding.enhanced_permissions.open_settings" = "打开设置";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.choose_hotkey" = "选择您的快捷键";
+"onboarding.enhanced_setup.hotkey_description" = "按住此键录音，松开停止。选择你感觉顺手的按键。";
+
+/* Subscription */
+"subscription.upgrade.title" = "升级到 Clio Pro";
+"subscription.upgrade.subtitle" = "解锁高级功能和无限使用";
+"subscription.trial.active" = "Pro 试用进行中";
+"subscription.trial.days_remaining" = "剩余 %d 天";
+"subscription.feature.trying_to_use" = "您正在尝试使用：";
+"subscription.billing.monthly" = "月付";
+"subscription.billing.yearly" = "年付";
+"subscription.billing.save" = "节省 $17";
+"subscription.billing.per_month" = "/月";
+"subscription.billing.per_year" = "/年";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "您已准备好尝试 Clio";
+"onboarding.primer.hold_key_instruction" = "在下一页，按住右侧 ⌥ 键说话。\n松开后，Clio 会即时而干净地转录您的语音。";
+"onboarding.primer.try_it_now" = "现在试试";
+"onboarding.primer.back" = "返回";
+"onboarding.primer.next_hands_free" = "下一步，尝试免提模式";
+"onboarding.primer.double_tap_instruction" = "只需按一下右 ⌘ 键即可切换持续聆听。完成时再按一次进行转录。";
+"onboarding.primer.next_command_mode" = "下一步，试试命令模式";
+"onboarding.primer.select_text_instruction" = "选中文本，然后触发快捷键让 Clio 总结、润色、翻译等。";
+"onboarding.primer.try_command_mode" = "试试命令模式";
+"onboarding.primer.placeholder_images" = "占位图 • 你可以在此放置图片。";
+"onboarding.primer.select_text_hotkey_instruction" = "选择任意文本后触发命令快捷键并说话，例如 'Summarize this'。";
+"onboarding.primer.hotkey_label" = "快捷键：";
+"onboarding.primer.finish" = "完成";
+"onboarding.primer.continue" = "继续";
+
+/* Onboarding - Personalization Showcase */
+"onboarding.personalization.title.personal_terms" = "个人词典";
+"onboarding.personalization.subtitle.personal_terms" = "添加姓名、产品和缩写，让 Clio 识别你的专属词汇。";
+"onboarding.personalization.title.voice_shortcuts" = "语音捷径";
+"onboarding.personalization.subtitle.voice_shortcuts" = "创建语音捷径以插入常用短语或执行操作。";
+"onboarding.personalization.title.style_presets" = "风格预设";
+"onboarding.personalization.subtitle.style_presets" = "按应用或网站自定义语气与格式。";
+
+/* Onboarding - Personalization Primer */
+"onboarding.personalization.primer.title" = "看看 Clio 如何为你更个性化";
+"onboarding.personalization.primer.subtitle" = "快速了解个人词典、语音捷径和风格预设。你随时可以跳过。";
+"onboarding.personalization.primer.skip_to_use" = "跳过并使用";
+"subscription.billing.annual_savings" = "年付仅需每月 $7.08";
+"subscription.features.title" = "Pro 版包含功能";
+"subscription.feature.premium_models.title" = "高级模型访问权限";
+"subscription.feature.premium_models.description" = "访问所有高级模型，具备卓越的延迟、准确性和性能表现";
+"subscription.feature.ai_enhancement.title" = "AI 智能增强与自动纠错";
+"subscription.feature.ai_enhancement.description" = "智能文本改进，包含自动纠错、上下文理解和增强工作流程集成";
+"subscription.feature.unlimited.title" = "无限语音转录";
+"subscription.feature.unlimited.description" = "转录次数无限制，所有功能均可无限使用";
+"subscription.feature.priority_support.title" = "专属客服支持";
+"subscription.feature.priority_support.description" = "优先处理通道，需要帮助时享受优先协助服务";
+"subscription.feature.base_model.title" = "基础模型（Clio Flash）";
+"subscription.feature.base_model.description" = "终身免费使用 - 适合日常使用，提供可靠的转录质量";
+"subscription.cta.get_pro" = "获取 Clio Pro";
+"subscription.cta.have_license" = "我有许可证密钥";
+"subscription.cta.start_trial" = "开始 %@ 免费试用";
+"subscription.pro" = "专业版";
+"subscription.clio_pro" = "Clio 专业版";
+"subscription.upgrade" = "升级";
+
+/* License Management */
+"license.management.title" = "许可证管理";
+"license.status.activated" = "专业功能已激活";
+"license.action.remove" = "移除许可证";
+"license.action.activate" = "激活许可证";
+"license.placeholder.enter_key" = "请输入许可证密钥";
+"license.status.active" = "许可证已激活";
+"license.pro.welcome.title" = "感谢您成为专业版用户！";
+"license.pro.welcome.subtitle" = "您可以使用所有高级功能和无限使用量";
+"license.licensed_to" = "许可给：%@";
+"license.have_key_question" = "有许可证密钥？";
+"license.activation.success" = "许可证激活成功！";
+"license.activation.error" = "无效的许可证密钥，请重试。";
+"license.description" = "管理您的订阅并访问高级功能";
+"license.manage_account" = "管理";
+"license.refer_friends" = "推荐朋友";
+"license.subscription.title" = "订阅";
+"license.subscription.pro_status" = "您目前使用的是专业版套餐。";
+"license.subscription.thanks" = "感谢您成为专业版用户。";
+"license.credits.title" = "积分";
+"license.credits.current_balance" = "当前余额";
+"license.credits.share_link" = "分享链接";
+"license.credits.next_tier" = "下一等级";
+"license.credits.invite_description" = "邀请朋友使用 Clio，每次推荐可获得一个月免费使用。";
+
+/* Subscription Status */
+"license.status.expires_soon" = "即将到期";
+"license.status.days_remaining" = "剩余天数";
+"license.status.access_until" = "访问有效期至";
+
+/* Menu Bar */
+"menu.add_word_to_dictionary" = "将单词添加到词典";
+"menu.version" = "版本";
+"menu.share_feedback" = "分享反馈";
+"menu.select_dictation_language" = "选择语音识别语言";
+"menu.select_audio_input" = "选择音频输入";
+
+/* Dictation Language Settings */
+"settings.dictation.auto_detect" = "自动检测";
+"settings.dictation.languages_count" = "%d 种语言";
+"settings.dictation.select_languages" = "选择语言";
+
+/* Trial */
+"trial.usage.title" = "试用使用情况";
+"trial.days_remaining_detail" = "剩余 %d / %d 天";
+"trial.words_remaining_detail" = "已使用 %d / %d 词";
+"trial.words_used_detail" = "已使用 %@ 词";
+"trial.words_remaining" = "剩余 %@ 词";
+"trial.word_limit_reached" = "试用词数已用完。请升级以继续使用。";
+"trial.word_limit_warning" = "试用词数即将用完";
+"trial.limit_reached" = "试用期已结束。请升级以继续使用。";
+
+/* Subscription Upgrade */
+"subscription.upgrade.description" = "一次性购买 • 终身使用 • 解锁所有功能";
+"subscription.upgrade.word_limit_cta" = "试用 4000 词已用完 • 升级享受无限使用";
+"subscription.word_trial.progress_format" = "%@ / %@ 词";
+"subscription.word_trial.percentage_used" = "已使用 %d%%";
+
+/* 现代化试用界面 */
+"trial.words.title" = "免费试用";
+"trial.words.subtitle" = "体验专业功能，免费获得 4000 词额度";
+"trial.words.usage_detail" = "已使用 %@ / %@ 词";
+"trial.words.remaining" = "剩余 %@ 词";
+"trial.words.used" = "已使用 %@ 词";
+
+/* New: fill parity with en */
+"dictionary.add_new_word" = "添加新词";
+"hotkey.configuration.description" = "选择用于语音录制的按键。短按：开始免提录音（再次按下停止并转录）；长按：按住说话模式（松开后转录）。";
+"hotkey.configuration.title" = "按住说话按键";
+"hotkey.field.accessibility.hint" = "点按以更改热键设置";
+"hotkey.field.accessibility.label" = "当前热键设置";
+"hotkey.modal.instructions.description" = "短按：开始免提录音（再次按下停止）\n长按：按住说话（按住录音，松开转录）";
+"hotkey.modal.instructions.title" = "使用说明";
+"hotkey.modal.preview.title" = "你的选择";
+"models.tag.english_only" = "仅英语";
+"models.tag.multilingual" = "多语言";
+"navigation.snippets" = "风格预设";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI 助手";
+"onboarding.app.cursor" = "Cursor";
+"onboarding.app.cursor.description" = "AI 编码";
+"onboarding.app.email" = "电子邮件";
+"onboarding.app.email.description" = "通信";
+"onboarding.app.notion" = "Notion";
+"onboarding.app.notion.description" = "笔记";
+"onboarding.app.slack" = "Slack";
+"onboarding.app.slack.description" = "团队聊天";
+"onboarding.tryit.example_text" = "Clio 是我的语音写作工具——把零散的口语变成清晰、干净的文字。";
+"power_mode.modal.builtin_template" = "内置模板";
+"power_mode.modal.builtin_template_editable" = "内置模板（可编辑）";
+"settings.privacy.download_model" = "下载模型";
+"settings.privacy.local_model_description" = "在本地运行模型以保护隐私。";
+"settings.privacy.model_not_downloaded" = "模型尚未下载";
+"settings.privacy.subtitle" = "隐私偏好";
+"settings.privacy.title" = "隐私";
+"settings.privacy.use_local_model" = "使用本地模型";
+"snippets.description" = "保存你常用的文本并一键插入。";
+"snippets.empty.subtitle" = "还没有片段。创建你的第一个片段以便快速插入。";
+"snippets.empty.title" = "没有片段";
+"trial.words.expired.title" = "试用完成";
+"trial.words.expired.subtitle" = "您已用完全部 4000 词试用额度";
+"trial.words.expired.description" = "准备解锁无限转录和高级功能了吗？";
+"trial.words.limit_warning" = "试用即将结束 - 剩余 %@ 词";
+"trial.words.progress.label" = "试用进度";
+"trial.words.of_total" = "%@ / %@";
+
+/* 现代化升级消息 */
+"upgrade.primary.title" = "解锁无限能力";
+"upgrade.primary.subtitle" = "加入数千名用户，享受无限制转录";
+"upgrade.secondary.title" = "继续使用专业版";
+"upgrade.benefit.unlimited" = "无限转录";
+"upgrade.benefit.premium_models" = "高级 AI 模型";
+"upgrade.benefit.enhancements" = "智能文本处理";
+"upgrade.benefit.support" = "优先客服支持";
+"upgrade.cta.primary" = "升级到专业版";
+"upgrade.cta.secondary" = "查看全部功能";
+"upgrade.value.proposition" = "一次购买 • 终身使用 • 包含全部功能";
+
+/* 增强的许可证激活 */
+"license.activation.title" = "激活许可证";
+"license.activation.subtitle" = "输入您的许可证密钥以解锁专业功能";
+"license.key.placeholder" = "XXXX-XXXX-XXXX-XXXX";
+"license.activation.cta" = "激活专业许可证";
+
+/* Features */
+"feature.unlimited_transcriptions" = "无限语音转录";
+"feature.large_whisper_models" = "高级模型访问权限（卓越延迟、准确性等）";
+"feature.ai_enhancement" = "AI 智能增强与自动纠错";
+"feature.custom_prompts" = "智能文本处理与优化";
+"feature.power_modes" = "高级工作流程集成";
+"feature.cloud_sync" = "暂不支持云端同步";
+"feature.priority_support" = "专属客服支持";
+"feature.basic_transcription" = "基础模型（终身免费使用）";
+"feature.unlimited_usage.title" = "无限制转录";
+"feature.unlimited_usage.description" = "将无限小时的语音转换为文字，无任何月度限制";
+"feature.all_models.title" = "世界级AI模型";
+"feature.all_models.description" = "访问全球最先进、最快速的转录技术";
+"feature.ai_enhancement.title" = "智能文本增强";
+"feature.ai_enhancement.description" = "自动修复语法，提升清晰度，让您的文字闪闪发光";
+"feature.enhanced_modes.title" = "智能上下文识别";
+"feature.enhanced_modes.description" = "AI理解您的对话内容，适应您的独特说话风格";
+"feature.cloud_sync.title" = "云端同步";
+"feature.cloud_sync.description" = "在所有设备上访问";
+"feature.priority_support.title" = "优先支持";
+"feature.priority_support.description" = "需要时获得帮助";
+
+/* Usage Stats */
+"usage.your_usage.title" = "您的使用情况";
+"usage.words" = "单词";
+"usage.sessions" = "会话";
+"usage.time_saved" = "节省时间";
+
+/* Footer */
+"footer.support" = "支持";
+"footer.documentation" = "文档";
+"footer.privacy" = "隐私";
+
+/* Flash Model Download Dialog */
+"trial.expired.title" = "试用期已结束";
+"trial.expired.description" = "您的专业版试用已结束。要继续使用 Clio，您可以升级到专业版或下载免费的 Flash 模型进行基础转录。";
+"trial.expired.flash.description" = "快速、精准、永久免费";
+"trial.expired.download.flash" = "下载 Clio Flash";
+"trial.expired.upgrade.pro" = "升级到专业版";
+
+/* Recording Failed Dialog */
+"recording.failed.title" = "录音失败";
+"recording.failed.description" = "录音失败，因为 %@ 需要专业版订阅。请选择以下选项：";
+"recording.failed.option1" = "升级到专业版获得无限访问权限";
+"recording.failed.option2" = "使用 Clio Flash（免费）进行基础转录";
+"recording.failed.upgrade.now" = "立即升级到专业版";
+"recording.failed.use.free" = "使用 Flash 模型";
+
+/* Common */
+"common.cancel" = "取消";
+
+/* Audio Player */
+"audio_player.generating_waveform" = "正在生成波形...";
+"audio_player.recording" = "录音";
+"audio_player.show_in_finder" = "在访达中显示";
+"audio_player.retranscribe_audio" = "重新转录此音频";
+"audio_player.retranscription_successful" = "重新转录成功";
+"audio_player.retranscription_failed" = "重新转录失败";
+"audio_player.no_model_selected" = "未选择转录模型";
+
+/* Audio Transcribe */
+"audio_transcribe.transcription_result" = "转录结果";
+"audio_transcribe.enhanced" = "AI 优化";
+"audio_transcribe.original" = "原始";
+"audio_transcribe.transcription" = "转录";
+"audio_transcribe.duration" = "时长：%@";
+"audio_transcribe.audio_file_selected" = "已选择音频文件：%@";
+"audio_transcribe.ai_enhancement" = "智能增强";
+"audio_transcribe.prompt" = "提示：";
+"audio_transcribe.select_prompt" = "选择提示";
+"audio_transcribe.start_transcription" = "开始转录";
+"audio_transcribe.choose_different_file" = "选择其他文件";
+"audio_transcribe.drop_audio_file" = "将音频文件拖拽到此处";
+"audio_transcribe.or" = "或";
+"audio_transcribe.choose_file" = "选择文件";
+"audio_transcribe.supported_formats" = "支持的格式：WAV、MP3、M4A、AIFF";
+
+/* Settings */
+"settings.audio_cleanup.title" = "音频清理";
+"settings.audio_cleanup.subtitle" = "管理录音存储";
+"settings.audio_cleanup.description" = "音频文件将在14天后自动删除以节省存储空间。转录内容始终保留。";
+"settings.permissions.subtitle" = "为了给您提供最佳体验，Clio 需要获得以下权限";
+"settings.permissions.all_granted" = "所有必需权限已授予且运行正常";
+"settings.deep_context.title" = "深度语境";
+"settings.deep_context.subtitle" = "分析屏幕内容，提供智能上下文理解，提升准确性与个性化";
+"settings.dictation_language" = "语音识别语言";
+"settings.dictation_language.description" = "选择语音识别语言";
+"settings.dictation_language.tooltip" = "如果您只说一种语言，请选择该语言。否则，选择自动检测。为了获得使用自动检测的最佳效果，请确保您有高质量的麦克风。";
+"settings.ai_model_type.title" = "AI 模型类型";
+"settings.ai_model_type.local" = "本地 AI";
+"settings.ai_model_type.local_description" = "私人离线处理，需要更好的硬件";
+"settings.ai_model_type.cloud" = "云端 AI";
+"settings.ai_model_type.cloud_description" = "更智能，最新模型，需要网络连接";
+"settings.context_options.title" = "上下文选项";
+"settings.context_options.clipboard" = "使用剪贴板上下文";
+"settings.context_options.clipboard_description" = "包含剪贴板内容以帮助 AI 理解上下文并修正转录错误";
+"settings.context_options.screen" = "使用屏幕上下文";
+"settings.context_options.screen_description" = "捕获可见文本以提供额外上下文（需要屏幕录制权限）";
+"settings.permissions.grant" = "授权";
+"settings.subscription.active" = "活跃";
+"settings.subscription.trial_usage" = "试用情况";
+"settings.subscription.premium_features" = "高级功能";
+"settings.local_ai_model.title" = "本地 AI 模型";
+"settings.local_ai_model.downloaded" = "已下载";
+"settings.cloud_ai_provider.title" = "云端 AI 提供商";
+"settings.cloud_ai_provider.api_key" = "API 密钥";
+"settings.cloud_ai_provider.verify" = "验证";
+"settings.cloud_ai_provider.get_key" = "获取密钥";
+
+/* Common */
+"common.error" = "错误";
+"common.ok" = "确定";
+
+/* Qwen Provider */
+"ai_provider.qwen.title" = "阿里云千问 Turbo";
+"ai_provider.qwen.subtitle" = "快速高效的文本增强 AI 模型";
+"ai_provider.connected" = "已连接";
+"ai_provider.api_key" = "API 密钥";
+"ai_provider.remove_key" = "移除密钥";
+"ai_provider.qwen.enter_api_key" = "请输入您的阿里云 API 密钥";
+"ai_provider.invalid_key_error" = "无效的 API 密钥，请检查后重试。";
+"ai_provider.verify_and_save" = "验证并保存";
+"ai_provider.get_key" = "获取 API 密钥";
+
+/* Metrics */
+"metrics.you_are" = "你比";
+"metrics.faster" = "%@ 更快";
+"metrics.with_voiceink" = "使用 Clio";
+"metrics.speaking_time" = "说话时间";
+"metrics.typing_time" = "打字时间";
+"metrics.time_saved" = "节省时间";
+"metrics.feedback_or_issues" = "反馈或问题？";
+"metrics.report" = "报告";
+
+/* Model Library */
+"models.status.default" = "默认";
+"models.status.downloaded" = "已下载";
+"models.status.default_model" = "默认模型";
+"models.action.set_default" = "设为默认";
+"models.action.download" = "下载";
+"models.action.downloading" = "正在下载...";
+"models.action.delete" = "删除模型";
+"models.action.show_in_finder" = "在访达中显示";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "准确度";
+"models.component.model" = "模型";
+"models.component.coreml" = "CoreML";
+
+/* Power Mode */
+"power_mode.title" = "AI 优化";
+"power_mode.info" = "根据所使用的应用或网站自动应用自定义配置。";
+"power_mode.subtitle" = "根据应用/网站自动应用自定义配置";
+"power_mode.add_title" = "添加 AI 优化";
+"power_mode.edit_default_title" = "编辑默认 AI 优化";
+"power_mode.edit_title" = "编辑 AI 优化";
+"power_mode.universal_fallback" = "通用回退";
+"power_mode.delete_title" = "删除 %@？";
+"power_mode.delete_warning" = "此操作无法撤销，所有关联的应用、网站和设置将被删除。";
+"power_mode.default_configuration" = "默认配置";
+"power_mode.email" = "邮件";
+"power_mode.meeting_notes" = "会议记录";
+"power_mode.card.apps" = "应用程序";
+"power_mode.card.websites" = "网站";
+"power_mode.card.universal_fallback" = "适用于没有特定模式的所有应用程序和网站";
+
+/* Power Mode Modal */
+"power_mode.modal.add_title" = "添加优化模式";
+"power_mode.modal.add_button" = "添加";
+"power_mode.modal.ai_enhancement" = "AI 优化";
+"power_mode.modal.ai_provider" = "AI 提供商";
+"power_mode.modal.ai_model" = "AI 模型";
+"power_mode.modal.icon" = "图标";
+"power_mode.modal.description" = "创建自定义优化模式，在使用特定应用或网站时自动应用特定设置。";
+"power_mode.modal.name" = "名称";
+"power_mode.modal.when_to_trigger" = "触发条件";
+"power_mode.modal.applications" = "应用程序";
+"power_mode.modal.no_apps" = "未添加应用程序";
+"power_mode.modal.websites" = "网站";
+"power_mode.modal.no_websites" = "未添加网站";
+"power_mode.modal.enhancement_prompt" = "优化提示";
+"power_mode.modal.edit_title" = "编辑优化模式";
+"power_mode.modal.edit_description" = "编辑您的优化模式设置和配置。";
+"power_mode.modal.transcription" = "转录";
+"power_mode.modal.model" = "模型";
+"power_mode.modal.language" = "语言";
+"power_mode.modal.section.basics" = "基础设置";
+"power_mode.modal.section.triggers" = "触发条件";
+"power_mode.modal.section.prompt" = "提示";
+"power_mode.modal.section.basics_description" = "设置基本信息和转录设置";
+"power_mode.modal.section.triggers_description" = "选择何时激活此优化模式";
+"power_mode.modal.section.prompt_description" = "选择AI如何优化您的转录";
+"power_mode.modal.mode_name" = "模式名称";
+"power_mode.modal.name_placeholder" = "输入描述性名称";
+"power_mode.modal.browse_apps" = "浏览应用";
+"power_mode.modal.recognition_model" = "识别模型";
+"power_mode.modal.system_default" = "系统默认";
+"power_mode.modal.no_apps_selected" = "未选择应用程序";
+"power_mode.modal.add_apps_subtitle" = "添加应用以触发此模式";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_urls_subtitle" = "添加URL以触发此模式";
+"power_mode.modal.search_apps" = "搜索应用程序";
+"power_mode.modal.loading_apps" = "正在加载应用程序...";
+"power_mode.modal.edit_prompt" = "编辑提示";
+"power_mode.modal.new_mode" = "新优化模式";
+"power_mode.modal.edit_mode" = "编辑优化模式";
+"power_mode.modal.delete_mode" = "删除模式";
+"power_mode.modal.delete_confirmation" = "删除优化模式";
+"power_mode.modal.delete_warning" = "此操作无法撤销。所有设置和配置将被永久删除。";
+"power_mode.modal.ai_enhancement_prompt" = "AI 优化提示";
+"power_mode.modal.prompt_description" = "自定义AI如何为此模式优化您的转录。";
+"power_mode.modal.predefined_prompt" = "这是 %@ 的预定义提示";
+"power_mode.modal.default_prompt" = "按原样返回转录，不做任何修改。";
+"power_mode.modal.email_prompt" = "将此转录转换为专业邮件格式。";
+"power_mode.modal.meeting_prompt" = "将此转录整理为带有行动项目的会议记录。";
+"power_mode.modal.no_prompt" = "未配置提示";
+"power_mode.modal.create_prompt" = "创建自定义提示";
+"power_mode.modal.use_template" = "使用模板";
+"power_mode.modal.triggers_info" = "触发条件";
+"power_mode.modal.triggers_description" = "设置何时激活此优化模式";
+"power_mode.modal.applications" = "应用程序";
+"power_mode.modal.no_applications" = "未选择应用程序";
+"power_mode.modal.no_applications_subtitle" = "添加应用以触发此模式";
+"power_mode.modal.browse_apps" = "浏览应用";
+"power_mode.modal.websites" = "网站";
+"power_mode.modal.no_websites" = "未添加网站";
+"power_mode.modal.add_urls_subtitle" = "添加URL以触发此模式";
+"power_mode.modal.website_placeholder" = "example.com";
+"power_mode.modal.add_button" = "添加";
+"power_mode.modal.select_apps" = "选择应用程序";
+"power_mode.modal.mode_name" = "模式名称";
+"power_mode.modal.name_placeholder" = "输入模式名称";
+"power_mode.modal.characters" = "个字符";
+"power_mode.modal.icon" = "图标";
+"power_mode.modal.recognition_model" = "识别模型";
+"power_mode.modal.system_default" = "系统默认";
+"power_mode.modal.transcription_settings" = "转录设置";
+"power_mode.modal.global_settings_notice" = "模型和语言设置现在使用设置页面的全局首选项";
+"power_mode.modal.prompt_instructions" = "创建自定义AI提示来优化您的转录";
+"power_mode.modal.edit_templates" = "编辑模板";
+"power_mode.modal.prompt_placeholder" = "输入您的AI优化提示...";
+/* PowerMode Empty State */
+"power_mode.empty.title" = "无优化模式";
+"power_mode.empty.subtitle" = "为不同场景添加自定义优化模式";
+"power_mode.empty.add_button" = "添加新优化模式";
+
+/* General Actions */
+"general.edit" = "编辑";
+"general.remove" = "移除";
+
+/* Onboarding - Enhanced Setup */
+"onboarding.enhanced_setup.step_keyboard" = "键盘";
+"onboarding.enhanced_setup.step_microphone" = "麦克风";
+"onboarding.enhanced_setup.step_model" = "模型";
+"onboarding.enhanced_setup.in_progress" = "进行中";
+"onboarding.enhanced_setup.complete" = "完成";
+"onboarding.enhanced_setup.choose_hotkey" = "选择录音按键";
+"onboarding.enhanced_setup.hotkey_description" = "按住此键录音，松开停止。选择您觉得舒适的按键。";
+/* Hotkey Modal */
+"hotkey.modal.title" = "选择热键";
+"hotkey.modal.subtitle" = "选择您用于语音录制的首选按键";
+"hotkey.modal.description" = "按下您想要使用的任意按键或组合键";
+"hotkey.modal.listening" = "请按任何修饰键...";
+"hotkey.modal.record_key" = "录制按键";
+
+/* Hotkey Keys */
+"hotkey.key.right_option" = "右 Option";
+"hotkey.key.left_option" = "左 Option";
+"hotkey.key.left_control" = "左 Control";
+"hotkey.key.right_control" = "右 Control";
+"hotkey.key.function" = "功能键";
+"hotkey.key.right_command" = "右 Command";
+"hotkey.key.left_command" = "左 Command";
+"hotkey.key.right_shift" = "右 Shift";
+"hotkey.key.left_shift" = "左 Shift";
+"onboarding.enhanced_setup.key_right_option" = "右Option";
+"onboarding.enhanced_setup.key_left_option" = "左Option";
+"onboarding.enhanced_setup.key_left_control" = "左Control";
+"onboarding.enhanced_setup.key_right_control" = "右Control";
+"onboarding.enhanced_setup.key_function" = "功能键";
+"onboarding.enhanced_setup.key_right_command" = "右Command";
+"onboarding.enhanced_setup.key_right_shift" = "右Shift";
+"onboarding.enhanced_setup.recommended" = "推荐";
+
+/* Onboarding - Trial (alternative) */
+"onboarding.trial.feature_1_title" = "高级模型";
+"onboarding.trial.feature_1_description" = "访问更大、更准确的Whisper模型";
+"onboarding.trial.feature_2_title" = "AI优化";
+"onboarding.trial.feature_2_description" = "用AI自动改善转录";
+"onboarding.trial.feature_3_title" = "优化模式";
+"onboarding.trial.feature_3_description" = "基于上下文的自动设置";
+"onboarding.trial.continue_free" = "继续使用免费版";
+
+/* Onboarding - Permissions */
+"onboarding.permissions.microphone.title" = "麦克风访问";
+"onboarding.permissions.microphone.description" = "允许Clio访问您的麦克风来录制音频";
+"onboarding.permissions.microphone_selection.title" = "选择麦克风";
+"onboarding.permissions.microphone_selection.description" = "选择用于录音的麦克风";
+"onboarding.permissions.accessibility.title" = "辅助功能访问";
+"onboarding.permissions.accessibility.description" = "允许Clio自动粘贴转录文本";
+"onboarding.permissions.screen_recording.title" = "让 Clio 看见你的世界";
+"onboarding.permissions.screen_recording.description" = "可选：通过屏幕上下文提升转录准确性与个性化。我们绝不保存或存储您的屏幕内容。";
+"onboarding.permissions.screen_recording.short" = "可选：使用屏幕上下文提升准确性与个性化。我们绝不保存或存储您的屏幕内容。";
+"onboarding.permissions.screen_recording.long" = "可选但强烈推荐：开启屏幕上下文能显著提升准确性与个性化。隐私至上：我们从不保存您的屏幕内容。该内容仅用于转录过程中的上下文提供。若使用云端模型，所需上下文仅为运行模型而临时发送，随后立即删除——服务器不会存储任何数据。";
+"onboarding.permissions.accessibility.long" = "这将赋予 Clio 即时粘贴能力：把你的语音转写为文本，并立即插入到你正在使用的任何应用（如 Discord、Notion、Cursor 或浏览器）。\n\n就像有个助手听你说、替你打、再帮你按下 Command + V。无需切换窗口，没有复制粘贴的麻烦。";
+"onboarding.permissions.microphone.long" = "当你开口时，Clio 才会聆听——把你的想法转为文字、润色表达，帮助你保持专注。\n\n麦克风权限让“声音”成为你的全新输入方式。";
+"privacy.learn_more" = "了解更多";
+"privacy.hide_details" = "收起详情";
+"privacy.policy" = "隐私政策";
+
+/* Settings - Notch Transcript */
+"settings.notch_transcript.title" = "Notch 实时字幕";
+"settings.notch_transcript.description" = "在 Notch 录音器下方显示实时转录。关闭后可防止 Notch 区域纵向增高。";
+
+/* 增强权限页 - 右侧提示气泡 */
+"onboarding.enhanced_permissions.panel.microphone" = "Clio 只会在你按下录音键时聆听。你的语音永远不会保存在我们的服务器上。";
+"onboarding.enhanced_permissions.panel.screen_recording" = "我们绝不会保存你的屏幕。屏幕上下文仅用于一次性改进输出，随后立即丢弃。";
+"onboarding.enhanced_permissions.panel.accessibility" = "此权限仅用于在你输入的位置插入文本——绝不会控制你的屏幕。";
+"onboarding.permissions.keyboard_shortcut.title" = "键盘快捷键";
+"onboarding.permissions.keyboard_shortcut.description" = "设置按住录音的按键";
+"onboarding.permissions.no_microphones" = "未找到麦克风";
+"onboarding.permissions.select_microphone" = "选择麦克风";
+"onboarding.permissions.microphone_recommendation" = "我们建议使用外置麦克风以获得更好的质量";
+"onboarding.permissions.set_shortcut" = "设置快捷键";
+"onboarding.permissions.enable_access" = "启用访问";
+"onboarding.button.skip_for_now" = "暂时跳过";
+"onboarding.permissions.key_fn" = "fn";
+"onboarding.permissions.key_right_option" = "右Option";
+"onboarding.permissions.key_left_option" = "左Option";
+"onboarding.permissions.key_left_control" = "左Control";
+"onboarding.permissions.key_right_control" = "右Control";
+"onboarding.permissions.key_function" = "功能键";
+"onboarding.permissions.key_right_command" = "右Command";
+"onboarding.permissions.key_right_shift" = "右Shift";
+
+/* Model Coming Soon */
+"models.coming_soon" = "即将推出";
+
+/* Onboarding - Try It Components */
+"onboarding.intro.title" = "Clio 在任何应用中使用";
+"onboarding.tryit.header" = "现在就试试 Clio。只需开口说话";
+"onboarding.tryit.hold_down" = "按住";
+"onboarding.tryit.press" = "按下";
+"onboarding.tryit.and_begin_speaking" = "然后开始说话";
+"onboarding.tryit.to_start_press_again" = "开始录音，再次按下即可转录";
+"onboarding.tryit.want_to_change_keys" = "想要更改按键？";
+"onboarding.tryit.edit_hotkeys" = "编辑热键";
+"onboarding.tryit.next" = "下一步";
+"onboarding.tryit.push_to_talk" = "按住说话";
+"onboarding.tryit.hands_free" = "免提";
+"onboarding.tryit.click_field_instruction" = "点击下方文本框，然后使用你的热键进行免提录音与转录。";
+"onboarding.intro.description" = "从电子邮件到聊天到文档——Clio 在您计算机上的任何文本框中都能使用。";
+"onboarding.intro.next" = "下一步";
+"onboarding.shortcut.title" = "转录任何内容";
+"onboarding.shortcut.description" = "按下 %@ 键开始免提录音，再按一次即可转录并在任何地方插入文本。";
+"onboarding.shortcut.hotkey_title" = "您的热键";
+"onboarding.shortcut.action_text" = "按一次开始免提录音，再按一次转录";
+"onboarding.shortcut.try_it_out" = "试试看";
+"onboarding.demo.listening" = "正在听取...";
+"onboarding.demo.ai_formatting" = "AI 格式化中...";
+"onboarding.tryit.title" = "试试看！";
+"onboarding.tryit.description" = "点击文本字段并使用您的 %@ 键实时转录语音。";
+"onboarding.tryit.step1" = "点击右侧的文本字段";
+"onboarding.tryit.step2" = "按下 %@ 键";
+"onboarding.tryit.step3" = "清晰地对着麦克风说话";
+"onboarding.tryit.step4" = "再按一次快捷键进行转录";
+"onboarding.tryit.complete_setup" = "完成设置";
+"onboarding.tryit.skip_for_now" = "暂时跳过";
+"onboarding.tryit.placeholder" = "按下热键开始听写...";
+
+/* Onboarding - Setup Components */
+"onboarding.setup.back" = "返回";
+"onboarding.setup.keyboard.title" = "选择您的键盘快捷键";
+"onboarding.setup.keyboard.description" = "说话时按下此键进行转录";
+"onboarding.setup.continue" = "继续";
+
+/* Missing Onboarding Setup Keys */
+"onboarding.setup.microphone.title" = "测试您的麦克风";
+"onboarding.setup.microphone.description" = "确保 Clio 能清楚地听到您的声音";
+"onboarding.setup.microphone.speak_now" = "现在开始说话...";
+"onboarding.setup.microphone.tap_to_test" = "点击测试麦克风";
+"onboarding.setup.microphone.stop" = "停止";
+"onboarding.setup.microphone.test_microphone" = "测试麦克风";
+"onboarding.setup.model.title" = "选择转录模型";
+"onboarding.setup.model.description" = "较大的模型更准确但使用更多资源";
+"onboarding.setup.model.download_continue" = "下载并继续";
+"onboarding.setup.complete.title" = "设置完成！";
+"onboarding.setup.complete.description" = "Clio 已准备好在任何应用中转录您的语音";
+"onboarding.setup.complete.try_it_out" = "试用";
+"onboarding.setup.recommended" = "推荐";
+"onboarding.setup.keyboard.right_option" = "右Option";
+"onboarding.setup.keyboard.left_option" = "左Option";
+"onboarding.setup.keyboard.left_control" = "左Control";
+"onboarding.setup.keyboard.right_control" = "右Control";
+"onboarding.setup.keyboard.function" = "功能键";
+"onboarding.setup.keyboard.right_command" = "右Command";
+"onboarding.setup.keyboard.right_shift" = "右Shift";
+
+/* Missing Permission Keys */
+"onboarding.permissions.title" = "在您的电脑上设置 Clio";
+"onboarding.permissions.description" = "授予以下权限以启用无缝语音转录";
+"onboarding.permissions.accessibility_title" = "辅助功能访问";
+"onboarding.permissions.accessibility_subtitle" = "允许 Clio 在任何地方粘贴转录";
+"onboarding.permissions.microphone_title" = "麦克风访问";
+"onboarding.permissions.microphone_subtitle" = "启用语音录制进行转录（仅在主动使用 Clio 时）";
+"onboarding.permissions.continue" = "继续";
+"onboarding.permissions.granted" = "已授权";
+"onboarding.permissions.required" = "必需";
+"onboarding.permissions.tap_to_grant" = "点击授予权限";
+"onboarding.permissions.privacy_title" = "隐私与安全";
+"onboarding.permissions.privacy_description" = "Clio 尊重您的隐私，仅请求转录所需的权限";
+"onboarding.permissions.feature_local" = "仅本地处理";
+"onboarding.permissions.feature_no_data" = "不收集数据";
+"onboarding.permissions.feature_control" = "始终在您的控制之下";
+
+/* Missing Enhanced Setup Keys */
+"onboarding.enhanced_setup.best_for_keyboards" = "最适合大多数键盘";
+"onboarding.enhanced_setup.alternative_option" = "替代选项";
+"onboarding.enhanced_setup.download_size" = "大小：%@";
+"onboarding.enhanced_setup.speed_rating" = "速度：%@/10";
+"onboarding.enhanced_setup.accuracy_rating" = "准确性：%@/10";
+"onboarding.enhanced_setup.downloaded" = "已下载";
+"onboarding.enhanced_setup.download" = "下载";
+"onboarding.enhanced_setup.cloud_access" = "云端访问";
+"onboarding.enhanced_setup.select_microphone" = "选择麦克风";
+"onboarding.enhanced_setup.microphone_description" = "选择要用于录制的麦克风";
+"onboarding.enhanced_setup.selected_microphone" = "已选择的麦克风";
+"onboarding.enhanced_setup.no_microphones" = "未找到麦克风";
+"onboarding.enhanced_setup.connect_microphone" = "请连接麦克风并重试";
+"onboarding.enhanced_setup.default" = "默认";
+"onboarding.enhanced_setup.choose_model" = "选择转录模型";
+"onboarding.enhanced_setup.model_description" = "较大的模型更准确但使用更多资源";
+"onboarding.enhanced_setup.all_set" = "准备就绪！";
+"onboarding.enhanced_setup.ready_description" = "Clio 已准备好在任何应用中转录您的语音";
+"onboarding.enhanced_setup.feature_1_title" = "全局热键";
+"onboarding.enhanced_setup.feature_1_subtitle" = "在 Mac 上的任何应用中工作";
+"onboarding.enhanced_setup.feature_2_title" = "本地处理";
+"onboarding.enhanced_setup.feature_2_subtitle" = "您的语音保持在设备上的私密性";
+"onboarding.enhanced_setup.feature_3_title" = "AI 优化";
+"onboarding.enhanced_setup.feature_3_subtitle" = "可选的 AI 处理以提高准确性";
+"onboarding.enhanced_setup.feature_4_title" = "实时转录";
+"onboarding.enhanced_setup.feature_4_subtitle" = "在任何输入位置即时插入文本";
+"onboarding.enhanced_setup.get_started" = "开始使用";
+"onboarding.enhanced_setup.visual_keyboard_text" = "选择您偏好的录制键";
+"onboarding.enhanced_setup.visual_microphone_text" = "选择您的麦克风以获得最佳质量";
+"onboarding.enhanced_setup.visual_model_text" = "选择适合您需求的模型";
+"onboarding.enhanced_setup.visual_fast" = "快速";
+"onboarding.enhanced_setup.visual_accurate" = "准确";
+"onboarding.enhanced_setup.visual_private" = "隐私";
+"onboarding.enhanced_setup.visual_perfect" = "完美！";
+"onboarding.enhanced_setup.visual_ready" = "Clio 已准备好转录您的语音";
+"onboarding.enhanced_setup.visual_step_1" = "按住您的热键";
+"onboarding.enhanced_setup.visual_step_2" = "清楚地对着麦克风说话";
+"onboarding.enhanced_setup.visual_step_3" = "再按一次快捷键进行转录";
+"onboarding.enhanced_setup.mic_speak_to_test" = "说话以测试您的麦克风";
+"onboarding.enhanced_setup.mic_listening" = "正在监听...";
+
+/* Missing TryIt Keys */
+"onboarding.tryit.pro_badge" = "专业版";
+
+/* Email Sample Content */
+"email.to_label" = "收件人：";
+"email.subject_label" = "主题：";
+"email.sample_address" = "sarah@company.com";
+"email.sample_subject" = "项目时间表讨论";
+
+/* Model Access Control */
+"models.upgrade_required_title" = "专业版模型需要升级";
+"models.upgrade_fallback_message" = "%@ 模型需要专业版订阅。您想要立即升级还是切换到 %@（永久免费）？";
+"models.upgrade_now" = "升级到专业版";
+"models.use_free_model" = "使用免费模型";
+"models.switched_to_free_title" = "已切换到免费模型";
+"models.switched_to_free_message" = "您现在使用的是 %@，该模型永久免费且非常适合日常使用。";
+
+/* Trial Expired Modal */
+"trial_expired.title" = "试用已过期";
+"trial_expired.description" = "您的专业版试用已结束。选择一个选项以继续使用 Clio。";
+"trial_expired.use_flash" = "使用基础模型";
+"trial_expired.upgrade" = "升级到专业版";
+"trial_expired.never_remind" = "不再提醒";
+
+/* Offline Pro Features */
+"offline.onboarding.title" = "试用 Clio Pro 功能";
+"offline.onboarding.subtitle" = "免费永久使用 Clio 标准模型，或试用 Pro 功能 7 天";
+"offline.features.premium_models.title" = "高级模型";
+"offline.features.premium_models.description" = "更大、更准确的模型，提供卓越的转录质量";
+"offline.features.ai_enhancement.title" = "高级 AI 增强";
+"offline.features.ai_enhancement.description" = "智能文本格式化、语法纠正和上下文改进";
+
+/* Missing Model Library Strings */
+"models.language_prompts" = "语言与提示";
+"models.library_title" = "模型库";
+"models.library_subtitle" = "从 %d 个语音模型中选择";
+"models.section.local_models" = "本地模型";
+"models.section.premium_cloud_models" = "高级云模型";
+"models.filter.all" = "全部";
+"models.filter.downloaded" = "已下载";
+"models.performance.speed" = "速度";
+"models.performance.accuracy" = "准确度";
+"models.delete.title" = "删除模型";
+"models.delete.confirmation" = "确定要删除此模型吗？";
+"models.status.active" = "使用中";
+"models.status.downloaded" = "已下载";
+"models.currently_active" = "当前使用";
+"models.set_as_default" = "设为默认";
+"models.requires_pro" = "需要 Pro 版本";
+"models.coming_soon" = "即将推出";
+"models.show_in_finder" = "在访达中显示";
+"models.action.download" = "下载";
+"models.action.downloading" = "下载中...";
+"models.action.delete" = "删除模型";
+"models.action.show_in_finder" = "在访达中显示";
+"models.component.model" = "模型";
+"models.component.coreml" = "CoreML";
+"models.large_v3_quantized.description" = "我们最先进模型的轻量版本。下载体积更小，内存占用更少，同时保持出色的准确性。适合存储或内存有限的设备";
+
+/* Missing Transcription Strings */
+"transcription.empty.subtitle" = "开始录音来生成转录";
+"transcription.load_more" = "加载更多";
+"transcription.history.title" = "转录历史";
+"transcription.history.empty" = "暂无转录历史";
+"transcription.search.placeholder" = "搜索转录内容...";
+"transcription.filter.today" = "今天";
+"transcription.filter.week" = "本周";
+"transcription.filter.month" = "本月";
+"transcription.export.title" = "导出转录";
+"transcription.export.text" = "纯文本";
+"transcription.export.pdf" = "PDF 文件";
+
+/* Onboarding - 语言选择 */
+"onboarding.language_selection.title" = "选择听写语言";
+"onboarding.language_selection.subtitle" = "选择您将使用的语言";
+"onboarding.language_selection.description" = "选择多种语言以实现多语言转录";
+"onboarding.language_selection.show_all" = "显示所有语言";
+"onboarding.language_selection.show_less" = "显示常用语言";
+"onboarding.language_selection.selected_count" = "已选择 %d 种语言";
+"onboarding.language_selection.auto_detect" = "自动检测";
+"onboarding.language_selection.auto_description" = "自动检测您说的语言。需要优质麦克风以获得最佳效果";
+"onboarding.language_selection.pick_languages" = "选择语言";
+"onboarding.language_selection.pick_description" = "选择特定语言以提高准确性";
+"onboarding.language_selection.search" = "搜索语言...";
+
+/* Onboarding - Language Selection */
+"onboarding.language.title" = "帮助我们更好地识别您的语音";
+"onboarding.language.subtitle" = "Clio支持60多种语言。这只是帮助我们更好地识别您的语音。选择您的主要语言以提高准确性——您仍可以使用任何语言进行语音输入。";
+"onboarding.language.search_placeholder" = "搜索语言...";
+
+
+/* Feedback */
+"feedback.title" = "联系我们";
+"feedback.subtitle" = "我们阅读每条消息。感谢帮助改进Clio！";
+"feedback.tab.report_issue" = "报告问题";
+"feedback.tab.share_feedback" = "分享反馈";
+"feedback.field.email" = "您的邮箱（可选）";
+"feedback.field.message" = "消息";
+"feedback.placeholder.email" = "email@example.com";
+"feedback.placeholder.issue" = "出了什么问题？请描述重现问题的步骤。";
+"feedback.placeholder.feedback" = "对改进Clio有想法吗？在这里分享吧。";
+"feedback.checkbox.blocking" = "此问题完全阻止我使用Clio";
+"feedback.info.system_info" = "系统信息将自动包含";
+"feedback.button.send" = "发送消息";
+"feedback.success.title" = "反馈已发送！";
+"feedback.success.message" = "感谢您的反馈！我们阅读每条消息，必要时会与您联系。";
+"feedback.error.title" = "发送反馈时出错";
+"feedback.error.invalid_response" = "服务器响应无效";
+"feedback.error.submission_failed" = "发送反馈失败。请重试。";
+"feedback.error.http_error" = "服务器错误（代码：%d）";
+"feedback.subject.bug_report" = "错误报告";
+"feedback.subject.general_feedback" = "一般反馈";
+"feedback.subject.urgent_bug" = "🚨 [紧急错误] Clio应用 - 用户被阻止";
+"feedback.subject.bug_format" = "[%@] Clio应用反馈";
+
+/* Deep Context */
+"settings.deep_context.tooltip" = "深度语境通过分析屏幕内容来提高转录准确性，理解您的工作内容，识别行业术语，并为语音识别模型提供相关语境。这有助于处理技术术语、专有名词和特定语境词汇。";
+
+/* Keyboard Shortcuts */
+"settings.dictation_hotkey.title" = "听写热键";
+"settings.dictation_hotkey.description" = "按住录音，松开转录（一键通模式）";
+"settings.hands_free_mode.title" = "免提模式";
+"settings.hands_free_mode.description" = "按一次即可说话而无需按住任何键，再按一次进行转录";
+"settings.assistant_mode.title" = "Clio 命令模式";
+"settings.assistant_mode.description" = "选择文本进行转换，或提出问题通过 Perplexity 搜索";
+
+/* Missing keys */
+"settings.keyboard_shortcuts.header" = "键盘快捷键";
+"settings.edit_key" = "编辑按键";
+
+/* Language Settings */
+"settings.language_settings.header" = "语言设置";
+
+/* Onboarding - App Descriptions */
+"onboarding.app.cursor.description" = "AI 编码";
+"onboarding.app.chatgpt" = "ChatGPT";
+"onboarding.app.chatgpt.description" = "AI 助手";
+
+/* Onboarding Primer Views */
+"onboarding.primer.ready_push_to_talk" = "您已准备好尝试 Clio，按住说话模式。";
+"onboarding.primer.hold_key_instruction" = "按住您的按键说话。\n松开后，Clio 会立即干净地转录您的语音。";
+"onboarding.primer.try_it_now" = "现在试试";
+"onboarding.primer.back" = "返回";
+"onboarding.primer.next_hands_free" = "下一步，试试免提模式";
+"onboarding.primer.double_tap_instruction" = "双击您的按键切换持续聆听。";
+"onboarding.primer.next_command_mode" = "下一步，试试命令模式";
+"onboarding.primer.select_text_instruction" = "选择文本，然后触发快捷键让 Clio 总结、改进、翻译等。";
+"onboarding.primer.try_command_mode" = "试试命令模式";
+"onboarding.primer.placeholder_images" = "占位图 • 您可以在此提供图片。";
+"onboarding.primer.select_text_hotkey_instruction" = "选择任意文本，然后触发您的命令快捷键并说话，例如 'Summarize this'。";
+"onboarding.primer.hotkey_label" = "快捷键：";
+"onboarding.primer.finish" = "完成";
+"onboarding.primer.continue" = "继续";
+"onboarding.primer.ready_push_to_talk" = "您已准备好尝试 Clio";
+"onboarding.primer.hold_key_instruction" = "在下一页，尝试按住右 ⌥ 键说话。\n松开后，Clio 会立即干净地转录您的语音。";
+"onboarding.primer.try_it_now" = "现在试试";
+"onboarding.primer.back" = "返回";
+"onboarding.primer.next_hands_free" = "下一步，尝试使用免提模式进行转录";
+"onboarding.primer.double_tap_instruction" = "只需按一下右 ⌘ 键即可切换持续聆听。完成时再按一次进行转录。";
+"onboarding.primer.next_command_mode" = "下一步，试试命令模式";
+"onboarding.primer.select_text_instruction" = "选择文本，然后触发快捷键让 Clio 总结、改进、翻译等。";
+"onboarding.primer.try_command_mode" = "试试命令模式";
+"onboarding.primer.placeholder_images" = "占位图 • 您可以在此提供图片。";
+"onboarding.primer.select_text_hotkey_instruction" = "选择任意文本，然后触发您的命令快捷键并说话，例如 'Summarize this'。";
+"onboarding.primer.hotkey_label" = "快捷键：";
+"onboarding.primer.finish" = "完成";
+
+/* Onboarding - Personalization Showcase */
+"onboarding.personalization.title.personal_terms" = "个人词典";
+"onboarding.personalization.subtitle.personal_terms" = "添加姓名、产品和缩写，让 Clio 识别您的专属词汇。";
+"onboarding.personalization.title.voice_shortcuts" = "语音捷径";
+"onboarding.personalization.subtitle.voice_shortcuts" = "创建快速语音捷径以插入常用短语或执行操作。";
+"onboarding.personalization.title.style_presets" = "风格预设";
+"onboarding.personalization.subtitle.style_presets" = "按应用或网站自定义语气与格式。";
+"onboarding.personalization.primer.title" = "看看 Clio 如何为您更个性化";
+"onboarding.personalization.primer.subtitle" = "快速了解个人词典、语音捷径和风格预设。您随时可以跳过。";
+"onboarding.personalization.primer.skip_to_use" = "跳过并使用";
+
+/* Update Showcase Primer */
+"updates.primer.title" = "我们为您准备了一些令人兴奋的更新！";
+"updates.primer.subtitle" = "快速了解命令模式的实际应用，探索新的个性化升级功能。";
+"updates.primer.primary" = "让我看看有什么新功能";
+
+"common.coming_soon" = "即将推出";
+
+"ai_strength.toggle.off_hint" = "关闭：几乎不做额外处理即可最快返回原始转写，仅少量清理口头填充词。";
+"ai_strength.toggle.on_hint" = "开启：Clio 会运行 AI 编辑提升清晰度；在根据下方所选力度重写时会有短暂延迟。";
