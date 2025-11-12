@@ -82,4 +82,9 @@ final class RawDisfluencySanitizerTests: XCTestCase {
         let input = "我觉得没什么问题。 okay, great!"
         XCTAssertEqual(RawDisfluencySanitizer.clean(input), "我觉得没什么问题。okay, great!")
     }
+
+    func testRemovesSpaceAfterChineseCommaBeforeHan() {
+        let input = "我发现了， 他很棒。"
+        XCTAssertEqual(RawDisfluencySanitizer.clean(input), "我发现了，他很棒。")
+    }
 }

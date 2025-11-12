@@ -141,7 +141,7 @@ enum RawDisfluencySanitizer {
         result = result.replacingOccurrences(of: "\\s{2,}", with: " ", options: .regularExpression)
         result = result.replacingOccurrences(of: " ([,.;:?!])", with: "$1", options: .regularExpression)
         result = result.replacingOccurrences(of: " ([，。？！、；：])", with: "$1", options: .regularExpression)
-        result = result.replacingOccurrences(of: "([。？！])\\s+(?=[\\p{Han}])", with: "$1", options: .regularExpression)
+        result = result.replacingOccurrences(of: "([，。？！、；：])\\s+(?=[\\p{Han}])", with: "$1", options: .regularExpression)
         result = result.replacingOccurrences(of: "([，。？！、；：])\\s+(?=[\\p{Latin}])", with: "$1", options: .regularExpression)
         result = removeDanglingDashes(result)
         result = result.replacingOccurrences(of: "(,|，){2,}", with: "$1", options: .regularExpression)

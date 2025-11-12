@@ -144,6 +144,11 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
     // Expose the last final output (enhanced if available) so views can render without system paste
     @Published var lastOutputText: String = ""
     
+    // Track recording sessions so duplicate stop invocations do not re-run the pipeline
+    private var currentRecordingSessionID: UUID?
+    private var stopPipelineInFlightSessionID: UUID?
+    private var lastCompletedRecordingSessionID: UUID?
+    
     // PHASE 3: Update @Published properties from state machine's view model
     func updateFromStateMachine() async {
         guard useStateMachineForState, let stateMachine = recorderStateMachine else { return }
@@ -699,6 +704,39 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             }
             logger.notice("🛑 Stopping recording")
             
+            if let inFlight = stopPipelineInFlightSessionID {
+                logger.notice("🧯 [STOP GUARD] Stop pipeline already running for session \(inFlight); ignoring duplicate request.")
+                return
+            }
+            
+            var resolvedSessionID = currentRecordingSessionID
+            if resolvedSessionID == nil {
+                resolvedSessionID = UUID()
+                currentRecordingSessionID = resolvedSessionID
+                if let resolved = resolvedSessionID {
+                    logger.debug("🧩 [STOP GUARD] Generated session id for legacy path: \(resolved)")
+                }
+            }
+            
+            if let lastCompleted = lastCompletedRecordingSessionID,
+               let resolved = resolvedSessionID,
+               lastCompleted == resolved {
+                logger.notice("🧯 [STOP GUARD] Session \(resolved) already finalized; skipping duplicate stop pipeline.")
+                return
+            }
+            
+            guard let activeSessionID = resolvedSessionID else {
+                logger.warning("⚠️ [STOP GUARD] Unable to resolve session id; skipping duplicate guard fallback.")
+                return
+            }
+            
+            stopPipelineInFlightSessionID = activeSessionID
+            defer {
+                stopPipelineInFlightSessionID = nil
+                lastCompletedRecordingSessionID = activeSessionID
+                currentRecordingSessionID = nil
+            }
+            
             // Check if we're using streaming transcription
             let isSonioxModel = currentModel?.name == "soniox-realtime-streaming" // Clio Ultra
             let isStreamingModel = isSonioxModel
@@ -837,7 +875,9 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             // Set up OCR completion callback for NER pre-warming instead of immediate pre-warming
             setupOCRCompletionCallback()
             
-            requestRecordPermission { [self] granted in
+            let pendingSessionID = UUID()
+            
+            requestRecordPermission { [self, pendingSessionID] granted in
                 // print("🎙️ [RECORD PERMISSION DEBUG] Permission granted: \(granted)")
                 // print("🎙️ [RECORD PERMISSION DEBUG] Thread: \(Thread.current)")
                 // print("🎙️ [RECORD PERMISSION DEBUG] Time since app launch: \(String(format: "%.2f", Date().timeIntervalSince(Date())))s")
@@ -845,6 +885,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                     Task {
                         // print("🎙️ [ASYNC TASK DEBUG] Starting async recording task...")
                         // print("🎙️ [ASYNC TASK DEBUG] Task thread: \(Thread.current)")
+                        var sessionAssigned = false
                         do {
                             // Route policy: Prefer built-in mic when AirPods (Bluetooth) are output to avoid HFP switch
                             if RuntimeConfig.preferBuiltinMicForAirPodsOutput && AudioDeviceManager.shared.isCurrentOutputBluetooth {
@@ -925,6 +966,10 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                     self.isRecording = true
                                     self.isVisualizerActive = true
                                 }
+                                self.currentRecordingSessionID = pendingSessionID
+                                self.stopPipelineInFlightSessionID = nil
+                                self.lastCompletedRecordingSessionID = nil
+                                sessionAssigned = true
                                 await self.setSessionStateRecording(mode: self.recorderMode)
                                 await MainActor.run {
                                     // Enable high-activity animation mode during recording
@@ -970,6 +1015,10 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                     self.isRecording = true
                                     self.isVisualizerActive = true
                                 }
+                                self.currentRecordingSessionID = pendingSessionID
+                                self.stopPipelineInFlightSessionID = nil
+                                self.lastCompletedRecordingSessionID = nil
+                                sessionAssigned = true
                                 print("🎙️ [BATCH DEBUG] Set isRecording=true, isVisualizerActive=true")
                             }
                             
@@ -984,6 +1033,10 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                     // SECURITY: Stop recording immediately if model access is denied
                                     if error is WhisperStateError && (error as! WhisperStateError) == .accessDenied {
                                         self.logger.error("🚨 [SECURITY] Access denied - stopping recording immediately")
+                                        self.currentRecordingSessionID = nil
+                                        self.stopPipelineInFlightSessionID = nil
+                                        self.lastCompletedRecordingSessionID = nil
+                                        sessionAssigned = false
                                         await self.recorder.stopRecording()
                                         return
                                     }
@@ -999,6 +1052,12 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                 print("🚨 [ERROR DEBUG] NSError userInfo: \(nsError.userInfo)")
                             }
                             self.logger.error("❌ Failed to start recording: \(error.localizedDescription)")
+                            if sessionAssigned {
+                                self.currentRecordingSessionID = nil
+                                self.stopPipelineInFlightSessionID = nil
+                                self.lastCompletedRecordingSessionID = nil
+                                sessionAssigned = false
+                            }
                             // Ensure recorder is properly stopped on start failure
                             await self.recorder.stopRecording()
                             await MainActor.run {
