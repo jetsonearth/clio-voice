@@ -3,15 +3,10 @@ import AppKit
 import SwiftData
 import KeyboardShortcuts
 
-extension Notification.Name {
-    static let navigateToDestination = Notification.Name("navigateToDestination")
-    static let showFeedbackModal = Notification.Name("showFeedbackModal")
-    static let showRecordingFailedDialog = Notification.Name("showRecordingFailedDialog")
-}
-
 // ViewType enum with all cases
 enum ViewType: String, CaseIterable {
     case home = "Home"
+    case aiModels = "AI Models"
     // case metrics = "Dashboard"
     // case record = "Record Audio"
     // COMMENTED OUT: Transcribe Audio sidebar item - replace with your own features
@@ -35,6 +30,7 @@ enum ViewType: String, CaseIterable {
     var localizedName: String {
         switch self {
         case .home: return NSLocalizedString("Home", comment: "")
+        case .aiModels: return NSLocalizedString("AI Models", comment: "")
         // case .models: return NSLocalizedString("speech.models.title", comment: "") // Disabled for proxy architecture
 //        case .powerMode: return NSLocalizedString("enhance.mode.title", comment: "")
         case .personalizationEditingStrength: return NSLocalizedString("navigation.ai_editing_strength", comment: "")
@@ -49,6 +45,7 @@ enum ViewType: String, CaseIterable {
     var icon: String {
         switch self {
         case .home: return "macbook"
+        case .aiModels: return "brain"
         // case .metrics: return "gauge.medium"
         // case .record: return "mic.circle.fill"
         // case .transcribeAudio: return "waveform.circle.fill"
@@ -64,6 +61,152 @@ enum ViewType: String, CaseIterable {
         case .settings: return "gearshape"
         // case .profile: return "person.circle.fill"
         case .license: return "envelope"
+        }
+    }
+}
+
+struct AIModelsView: View {
+    @State private var selectedCategory: ModelCategory = .llm
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                PageHeaderView(
+                    title: "AI Models",
+                    subtitle: "Connect Groq, Gemini, and Soniox directly with your own API keys—nothing routes through our proxy."
+                )
+                .padding(.top, 40)
+                
+                overviewCard
+                providerSwitcherSection
+            }
+            .padding(.horizontal, 40)
+            .padding(.bottom, 40)
+        }
+    }
+    
+    private var overviewCard: some View {
+        GlassCard {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack(alignment: .center, spacing: 16) {
+                    Image(systemName: "brain.head.profile")
+                        .font(.system(size: 24))
+                        .foregroundColor(.accentColor)
+                        .frame(width: 48, height: 48)
+                        .background(
+                            Circle()
+                                .fill(Color.accentColor.opacity(0.12))
+                        )
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Connect once, keep it local")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(DarkTheme.textPrimary)
+                        Text("Keys live in the macOS Keychain and never leave your device. Swap providers or rotate credentials whenever you need.")
+                            .font(.system(size: 14))
+                            .foregroundColor(DarkTheme.textSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                
+                Divider().background(Color.white.opacity(0.1))
+                
+                HStack(spacing: 12) {
+                    AddNewButton(
+                        "Groq Dashboard",
+                        action: { openPortal("https://console.groq.com/keys") },
+                        backgroundColor: DarkTheme.surfaceBackground,
+                        textColor: DarkTheme.textPrimary,
+                        systemImage: "link"
+                    )
+                    AddNewButton(
+                        "Soniox Dashboard",
+                        action: { openPortal("https://soniox.com/dashboard/api-keys") },
+                        backgroundColor: DarkTheme.surfaceBackground,
+                        textColor: DarkTheme.textSecondary,
+                        systemImage: "link"
+                    )
+                    AddNewButton(
+                        "Google AI Studio",
+                        action: { openPortal("https://aistudio.google.com/app/apikey") },
+                        backgroundColor: DarkTheme.surfaceBackground,
+                        textColor: DarkTheme.textPrimary,
+                        systemImage: "sparkles"
+                    )
+                    Spacer()
+                }
+            }
+        }
+    }
+    
+    private var providerSwitcherSection: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            Text("Provider Keys")
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundColor(DarkTheme.textSecondary)
+                .textCase(.uppercase)
+                .padding(.top, 4)
+            
+            categoryTabs
+            
+            VStack(spacing: 16) {
+                if selectedCategory == .llm {
+                    GroqAPIConfigurationSection()
+                    GeminiAPIConfigurationSection()
+                } else {
+                    SonioxAPIConfigurationSection()
+                }
+            }
+        }
+    }
+    
+    private var categoryTabs: some View {
+        HStack(spacing: 12) {
+            ForEach(ModelCategory.allCases, id: \.self) { category in
+                Button {
+                    selectedCategory = category
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(category.rawValue)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundColor(category == selectedCategory ? DarkTheme.textPrimary : DarkTheme.textSecondary)
+                        Text(category.subtitle)
+                            .font(.system(size: 12))
+                            .foregroundColor(DarkTheme.textSecondary)
+                    }
+                    .padding(.horizontal, 18)
+                    .padding(.vertical, 14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(category == selectedCategory ? DarkTheme.surfaceBackground.opacity(0.95) : DarkTheme.surfaceBackground.opacity(0.4))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(category == selectedCategory ? Color.accentColor.opacity(0.5) : Color.white.opacity(0.08), lineWidth: 1)
+                            )
+                    )
+                    .animation(.easeInOut(duration: 0.2), value: selectedCategory)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+    
+    private func openPortal(_ urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        NSWorkspace.shared.open(url)
+    }
+    
+    private enum ModelCategory: String, CaseIterable {
+        case llm = "Language Models"
+        case voice = "Voice Models"
+        
+        var subtitle: String {
+            switch self {
+            case .llm:
+                return "Configure Groq + Gemini keys and models."
+            case .voice:
+                return "Control Soniox streaming for ASR."
+            }
         }
     }
 }
@@ -134,22 +277,35 @@ struct DynamicSidebar: View {
             .padding(.bottom, 24)
             
 // Navigation Items
-            VStack(spacing: 4) {
-                // Home
-                DynamicSidebarButton(
-                    title: getLocalizedTitle(for: .home),
-                    systemImage: ViewType.home.icon,
-                    isSelected: selectedView == .home,
-                    isHovered: hoveredView == .home,
-                    namespace: buttonAnimation
-                ) {
-                    selectedView = .home
-                }
-                .onHover { isHovered in
-                    hoveredView = isHovered ? .home : nil
-                }
+        VStack(spacing: 4) {
+            // Home
+            DynamicSidebarButton(
+                title: getLocalizedTitle(for: .home),
+                systemImage: ViewType.home.icon,
+                isSelected: selectedView == .home,
+                isHovered: hoveredView == .home,
+                namespace: buttonAnimation
+            ) {
+                selectedView = .home
+            }
+            .onHover { isHovered in
+                hoveredView = isHovered ? .home : nil
+            }
+            
+            DynamicSidebarButton(
+                title: getLocalizedTitle(for: .aiModels),
+                systemImage: ViewType.aiModels.icon,
+                isSelected: selectedView == .aiModels,
+                isHovered: hoveredView == .aiModels,
+                namespace: buttonAnimation
+            ) {
+                selectedView = .aiModels
+            }
+            .onHover { isHovered in
+                hoveredView = isHovered ? .aiModels : nil
+            }
 
-                // Personalization group header
+            // Personalization group header
                 Button(action: { withAnimation { isPersonalizationExpanded.toggle() } }) {
                     HStack(spacing: 10) {
                         Image(systemName: "person.fill.viewfinder")
@@ -307,10 +463,9 @@ struct DynamicSidebar: View {
     private func getLocalizedTitle(for viewType: ViewType) -> String {
         switch viewType {
         case .home: return localizationManager.localizedString("navigation.home")
-        // case .models: return localizationManager.localizedString("navigation.models") // Disabled for proxy architecture
-//        case .powerMode: return localizationManager.localizedString("navigation.power_mode")
+        case .aiModels: return "AI Models"
         case .personalizationEditingStrength: return localizationManager.localizedString("navigation.ai_editing_strength")
-case .personalizationVocabulary: return localizationManager.localizedString("navigation.vocabulary")
+        case .personalizationVocabulary: return localizationManager.localizedString("navigation.vocabulary")
         case .personalizationReplacements: return localizationManager.localizedString("dictionary.replacements")
         case .personalizationSnippets: return localizationManager.localizedString("navigation.snippets")
         case .settings: return localizationManager.localizedString("navigation.settings")
@@ -931,6 +1086,8 @@ struct ContentView: View {
         switch selectedView {
         case .home:
             TranscriptionHistoryView()
+        case .aiModels:
+            AIModelsView()
         // case .metrics:
         //     MetricsView(skipSetupCheck: true)
         // case .models: // Disabled for proxy architecture

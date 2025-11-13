@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsSection<Content: View>: View {
-    let icon: String
+    let icon: String?
     let title: String
     let subtitle: String
     let content: Content
@@ -12,7 +12,7 @@ struct SettingsSection<Content: View>: View {
     var hideContent: Bool = false
     var badgeText: String? = nil
     
-    init(icon: String, title: String, subtitle: String, showWarning: Bool = false, trailingButton: (() -> Void)? = nil, trailingButtonIcon: String? = nil, trailingButtonText: String = "Edit", hideContent: Bool = false, badgeText: String? = nil, @ViewBuilder content: () -> Content) {
+    init(icon: String? = nil, title: String, subtitle: String, showWarning: Bool = false, trailingButton: (() -> Void)? = nil, trailingButtonIcon: String? = nil, trailingButtonText: String = "Edit", hideContent: Bool = false, badgeText: String? = nil, @ViewBuilder content: () -> Content) {
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
@@ -27,11 +27,13 @@ struct SettingsSection<Content: View>: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 12) {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(showWarning ? .orange : .accentColor)
-                    .frame(width: 24, height: 24)
+            HStack(spacing: icon == nil ? 0 : 12) {
+                if let icon {
+                    Image(systemName: icon)
+                        .font(.system(size: 20))
+                        .foregroundColor(showWarning ? .orange : .accentColor)
+                        .frame(width: 24, height: 24)
+                }
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)

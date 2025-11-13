@@ -5,67 +5,68 @@ struct SonioxAPIConfigurationSection: View {
     @State private var draftKey: String = ""
     @State private var isRevealed = false
 
+    private var hasKeyConfigured: Bool {
+        guard let key = keyStore.apiKey else { return false }
+        return !key.isEmpty
+    }
+
     var body: some View {
         SettingsSection(
-            icon: "antenna.radiowaves.left.and.right",
             title: "Soniox Cloud Access",
-            subtitle: "Store your own API key to enable Soniox streaming"
+            subtitle: "Soniox is our fastest cloud ASR—enable it when you want ultra-accurate streaming transcription while recordings stay local."
         ) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Keys are saved only on this Mac via the system keychain. Remove the value to fall back to local-only transcription.")
-                    .settingsDescription()
-
-                HStack(spacing: 12) {
-                    Group {
-                        if isRevealed {
-                            TextField("sk-soniox-...", text: $draftKey)
-                                .textFieldStyle(.roundedBorder)
-                        } else {
-                            SecureField("sk-soniox-...", text: $draftKey)
-                                .textFieldStyle(.roundedBorder)
-                        }
-                    }
-                    .textInputAutocapitalization(.never)
-                    .disableAutocorrection(true)
-
-                    Button {
-                        isRevealed.toggle()
-                    } label: {
-                        Image(systemName: isRevealed ? "eye.slash" : "eye")
-                            .foregroundColor(.secondary)
-                    }
-                    .buttonStyle(.plain)
-                }
+            VStack(alignment: .leading, spacing: 16) {
+                credentialField
 
                 HStack(spacing: 12) {
                     Button("Save") {
                         keyStore.update(apiKey: draftKey)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(SettingsPillButtonStyle())
 
-                    Button("Clear", role: .destructive) {
+                    Button("Clear") {
                         draftKey = ""
                         keyStore.update(apiKey: nil)
                     }
-                    .buttonStyle(.bordered)
-                    .disabled(keyStore.apiKey == nil && draftKey.isEmpty)
+                    .buttonStyle(SettingsPillButtonStyle(style: .secondary))
+                    .disabled(!hasKeyConfigured && draftKey.isEmpty)
 
                     Spacer()
 
-                    if let key = keyStore.apiKey, !key.isEmpty {
-                        Label("Configured", systemImage: "checkmark.seal.fill")
-                            .font(.footnote)
-                            .foregroundColor(.green)
-                    } else {
-                        Label("API key required for Soniox", systemImage: "exclamationmark.triangle")
-                            .font(.footnote)
-                            .foregroundColor(.orange)
-                    }
+                    ConfigurationStatusBadge(
+                        status: hasKeyConfigured ? .ready : .required,
+                        text: hasKeyConfigured ? "Streaming unlocked" : "Voice key required"
+                    )
                 }
             }
         }
         .onAppear {
             draftKey = keyStore.apiKey ?? ""
+        }
+        .onReceive(keyStore.$apiKey) { newValue in
+            draftKey = newValue ?? ""
+        }
+    }
+    
+    private var credentialField: some View {
+        HStack(spacing: 12) {
+            Group {
+                if isRevealed {
+                    TextField("sk-soniox-...", text: $draftKey)
+                        .textFieldStyle(.roundedBorder)
+                } else {
+                    SecureField("sk-soniox-...", text: $draftKey)
+                        .textFieldStyle(.roundedBorder)
+                }
+            }
+
+            Button {
+                isRevealed.toggle()
+            } label: {
+                Image(systemName: isRevealed ? "eye.slash" : "eye")
+                    .foregroundColor(.secondary)
+            }
+            .buttonStyle(.plain)
         }
     }
 }
