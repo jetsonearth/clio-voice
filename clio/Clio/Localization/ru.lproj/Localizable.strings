@@ -458,25 +458,6 @@
 "greeting.good_afternoon" = "Добрый день";
 "greeting.good_evening" = "Добрый вечер";
 
-/* PowerMode */
-"powermode.create.title" = "Создать усиленный режим";
-"powermode.edit.title" = "Редактировать усиленный режим";
-"powermode.help.activation" = "Усиленный режим будет автоматически активироваться при использовании этих приложений или посещении этих веб-сайтов";
-"powermode.section.basic_info" = "Основная информация";
-"powermode.section.transcription" = "Настройки транскрипции";
-"powermode.section.applications" = "Приложения";
-"powermode.section.websites" = "Веб-сайты";
-"powermode.field.icon" = "Иконка";
-"powermode.field.name" = "Название";
-"powermode.field.model" = "Модель";
-"powermode.field.language" = "Язык";
-"powermode.placeholder.name" = "Введите название режима";
-"powermode.placeholder.website_url" = "Введите URL веб-сайта (напр., google.com)";
-"powermode.model.system_default" = "Системный по умолчанию";
-"powermode.language.auto_detect" = "Автоопределение";
-"powermode.empty.no_apps" = "Приложения не выбраны";
-"powermode.empty.no_websites" = "Веб-сайты не добавлены";
-"powermode.delete.title" = "Удалить усиленный режим";
 
 /* Languages */
 "language.english" = "Английский";
@@ -833,7 +814,6 @@
 "models.component.model" = "Модель";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "ИИ улучшение";
 "power_mode.info" = "Создавайте пользовательские конфигурации, которые автоматически применяются при использовании определенных приложений/веб-сайтов.";
 "power_mode.subtitle" = "Автоматически применять пользовательские конфигурации в зависимости от используемого приложения/веб-сайта";
@@ -850,7 +830,6 @@
 "power_mode.card.websites" = "Веб-сайты";
 "power_mode.card.universal_fallback" = "Применяется ко всем приложениям и веб-сайтам без специальных режимов";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "Добавить усиленный режим";
 "power_mode.modal.add_button" = "Добавить";
 "power_mode.modal.ai_enhancement" = "ИИ улучшение";
@@ -927,7 +906,6 @@
 "power_mode.modal.transcription_settings" = "Настройки транскрипции";
 "power_mode.modal.global_settings_notice" = "Настройки модели и языка теперь используют глобальные предпочтения со страницы настроек";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "Нет усиленных режимов";
 "power_mode.empty.subtitle" = "Добавьте настроенные мощные режимы для разных контекстов";
 "power_mode.empty.add_button" = "Добавить новый усиленный режим";
@@ -1025,7 +1003,6 @@
 "onboarding.setup.keyboard.description" = "Удерживайте эту клавишу один раз, чтобы начать запись без рук, затем нажмите ещё раз для транскрипции";
 "onboarding.setup.continue" = "Продолжить";
 
-/* Power Mode Modal */
 "power_mode.modal.select_apps" = "Выбрать приложения";
 
 /* Missing Onboarding Setup Keys */
@@ -1318,3 +1295,66 @@
 
 "ai_strength.toggle.off_hint" = "Выкл.: вы получите сырую расшифровку максимально быстро, почти без дополнительной обработки — лишь минимальное удаление слов‑паразитов.";
 "ai_strength.toggle.on_hint" = "Вкл.: Clio выполняет редактирование ИИ для большей ясности; ожидайте небольшую задержку, пока текст переписывается с выбранной ниже интенсивностью.";
+
+/* AI Models */
+"ai_models.header.title" = "ИИ-модели";
+"ai_models.header.subtitle" = "Подключайтесь напрямую к провайдерам LLM (Groq, Gemini) и провайдерам голосовых моделей (Soniox) с вашими собственными ключами API.";
+"ai_models.hero.title" = "Подключитесь один раз, храните локально";
+"ai_models.hero.subtitle" = "Ключи хранятся в связке ключей macOS и никогда не покидают ваше устройство. Меняйте провайдеров или ротируйте учетные данные когда угодно.";
+"ai_models.button.groq_dashboard" = "Панель Groq";
+"ai_models.button.soniox_dashboard" = "Панель Soniox";
+"ai_models.button.google_ai" = "Google AI Studio";
+"ai_models.section.provider_keys" = "Ключи провайдеров";
+"ai_models.tab.llm.title" = "Языковые модели";
+"ai_models.tab.llm.subtitle" = "Настройте ключи и модели Groq + Gemini.";
+"ai_models.tab.voice.title" = "Голосовые модели";
+"ai_models.tab.voice.subtitle" = "Управляйте потоковым ASR от Soniox.";
+"ai_models.section.groq.title" = "API Groq";
+"ai_models.section.groq.subtitle" = "Groq запускает основной LLM Clio, чтобы ваша диктовка мгновенно очищалась. Предоставьте свой ключ и выберите модель, которая подходит вашему рабочему процессу.";
+"ai_models.section.groq.model_label" = "Предпочитаемый LLM";
+"ai_models.section.gemini.title" = "Резерв Gemini";
+"ai_models.section.gemini.subtitle" = "Добавьте ключ Google AI Studio, чтобы Clio мог мгновенно переключиться на Gemini, сохраняя улучшение онлайн без касания наших серверов.";
+"ai_models.section.gemini.model_label" = "Резервная модель";
+"ai_models.section.soniox.title" = "Доступ к облаку Soniox";
+"ai_models.section.soniox.subtitle" = "Soniox — наш самый быстрый облачный ASR: включите его, когда вам нужна ультра-точная потоковая транскрипция, пока записи остаются локальными.";
+"ai_models.status.ready" = "Улучшение готово";
+"ai_models.status.required" = "Требуется ключ API";
+"ai_models.status.auto_ready" = "Автоматический резерв готов";
+"ai_models.status.optional" = "Опциональный резерв";
+"ai_models.status.voice_ready" = "Потоковая передача разблокирована";
+"ai_models.status.voice_required" = "Требуется голосовой ключ";
+"ai_models.model.qwen32.title" = "Qwen 3 32B";
+"ai_models.model.qwen32.detail" = "Сбалансированное качество редактирования с самым быстрым TTFT от Groq — идеальный вариант по умолчанию.";
+"ai_models.model.llama_scout.title" = "Llama 4 Scout 17B";
+"ai_models.model.llama_scout.detail" = "Ультранизкая латентность черновиков, когда вы цените отзывчивость над мощностью.";
+"ai_models.model.llama_maverick.title" = "Llama 4 Maverick 17B";
+"ai_models.model.llama_maverick.detail" = "Креативные переписывания с более теплым тоном и лучшим резюмированием.";
+"ai_models.model.llama33.title" = "Llama 3.3 70B";
+"ai_models.model.llama33.detail" = "Модель Groq высочайшего качества для сложных переписываний (немного медленнее).";
+"ai_models.model.llama31.title" = "Llama 3.1 8B Instant";
+"ai_models.model.llama31.detail" = "Легкий вариант, который ставит цену и скорость выше глубины.";
+"ai_models.model.gemini25.title" = "Gemini 2.5 Flash Lite";
+"ai_models.model.gemini25.detail" = "Резерв по умолчанию — молниеносный и оптимизированный для потоков редактирования.";
+"ai_models.model.gemini20exp.title" = "Gemini 2.0 Flash Experimental";
+"ai_models.model.gemini20exp.detail" = "Последние улучшения рассуждений с аналогичной латентностью.";
+"ai_models.model.gemini15flash.title" = "Gemini 1.5 Flash";
+"ai_models.model.gemini15flash.detail" = "Проверенная в боях потоковая модель для предсказуемых ответов.";
+"ai_models.model.gemini15pro.title" = "Gemini 1.5 Pro";
+"ai_models.model.gemini15pro.detail" = "Максимальное качество для длинных правок, когда скорость менее критична.";
+
+/* Plan */
+"plan.community.title" = "Издание для сообщества";
+"plan.community.subtitle" = "Этот OSS-план дает вам полный опыт Clio — никаких лицензионных ключей, никаких прокси-сервисов и никаких ограничений функций.";
+"plan.overview.heading" = "Обзор плана";
+"plan.highlight.everything.title" = "Всё разблокировано";
+"plan.highlight.everything.detail" = "ИИ-улучшение, потоковая транскрипция и функции персонализации навсегда включены в этой сборке.";
+"plan.highlight.accounts.title" = "Учетные записи не требуются";
+"plan.highlight.accounts.detail" = "Все экраны аутентификации удалены — управляйте всем локально с вашими собственными ключами API.";
+"plan.highlight.providers.title" = "Используйте своих провайдеров";
+"plan.highlight.providers.detail" = "Groq, Gemini и Soniox работают с вашими учетными данными, чтобы вы контролировали стоимость и доступ.";
+"plan.share.title" = "Поделитесь Clio с другом";
+"plan.share.subtitle" = "Скопируйте ссылку ниже, чтобы направить товарищей по команде на веб-сайт или в репозиторий GitHub для сборки с открытым исходным кодом.";
+"plan.share.website.title" = "Поделиться веб-сайтом";
+"plan.share.website.caption" = "Отправьте другу официальную страницу загрузки.";
+"plan.share.repo.title" = "Поделиться репозиторием GitHub";
+"plan.share.repo.caption" = "Сделайте форк или поставьте звезду проекту с открытым исходным кодом.";

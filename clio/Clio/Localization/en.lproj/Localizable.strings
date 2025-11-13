@@ -570,25 +570,6 @@
 "greeting.good_afternoon" = "Good afternoon";
 "greeting.good_evening" = "Good evening";
 
-/* PowerMode */
-"powermode.create.title" = "Create Enhanced Mode";
-"powermode.edit.title" = "Edit Enhanced Mode";
-"powermode.help.activation" = "Enhanced Mode will automatically activate when you use these apps or visit these websites";
-"powermode.section.basic_info" = "Basic Information";
-"powermode.section.transcription" = "Transcription Settings";
-"powermode.section.applications" = "Applications";
-"powermode.section.websites" = "Websites";
-"powermode.field.icon" = "Icon";
-"powermode.field.name" = "Name";
-"powermode.field.model" = "Model";
-"powermode.field.language" = "Language";
-"powermode.placeholder.name" = "Enter mode name";
-"powermode.placeholder.website_url" = "Enter website URL (e.g., google.com)";
-"powermode.model.system_default" = "System Default";
-"powermode.language.auto_detect" = "Auto-detect";
-"powermode.empty.no_apps" = "No applications selected";
-"powermode.empty.no_websites" = "No websites added";
-"powermode.delete.title" = "Delete Enhanced Mode";
 
 /* Languages */
 "language.english" = "English";
@@ -999,7 +980,6 @@
 "models.component.model" = "Model";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "AI Enhancement";
 "power_mode.info" = "Create custom configurations that automatically apply when using specific apps/websites.";
 "power_mode.subtitle" = "Automatically apply custom configurations based on the app/website you are using";
@@ -1016,7 +996,6 @@
 "power_mode.card.websites" = "Websites";
 "power_mode.card.universal_fallback" = "Applies to all apps and websites without specific modes";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "Add Enhanced Mode";
 "power_mode.modal.add_button" = "Add";
 "power_mode.modal.ai_enhancement" = "AI Enhancement";
@@ -1093,7 +1072,6 @@
 "power_mode.modal.transcription_settings" = "Transcription Settings";
 "power_mode.modal.global_settings_notice" = "Model and language settings now use global preferences from the Settings page";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "No Enhanced Modes";
 "power_mode.empty.subtitle" = "Add customized power modes for different contexts";
 "power_mode.empty.add_button" = "Add New Enhanced Mode";
@@ -1187,7 +1165,6 @@
 "onboarding.setup.keyboard.description" = "Press this key once to start hands-free recording, press again to transcribe";
 "onboarding.setup.continue" = "Continue";
 
-/* Power Mode Modal */
 "power_mode.modal.select_apps" = "Select Applications";
 
 /* Missing Onboarding Setup Keys */

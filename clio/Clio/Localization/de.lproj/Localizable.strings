@@ -586,25 +586,6 @@
 "greeting.good_afternoon" = "Guten Tag";
 "greeting.good_evening" = "Guten Abend";
 
-/* PowerMode */
-"powermode.create.title" = "Erweiterten Modus erstellen";
-"powermode.edit.title" = "Erweiterten Modus bearbeiten";
-"powermode.help.activation" = "Der erweiterte Modus wird automatisch aktiviert, wenn Sie diese Apps verwenden oder diese Websites besuchen";
-"powermode.section.basic_info" = "Grundinformationen";
-"powermode.section.transcription" = "Transkriptionseinstellungen";
-"powermode.section.applications" = "Anwendungen";
-"powermode.section.websites" = "Websites";
-"powermode.field.icon" = "Symbol";
-"powermode.field.name" = "Name";
-"powermode.field.model" = "Modell";
-"powermode.field.language" = "Sprache";
-"powermode.placeholder.name" = "Modusnamen eingeben";
-"powermode.placeholder.website_url" = "Website-URL eingeben (z.B. google.com)";
-"powermode.model.system_default" = "Systemstandard";
-"powermode.language.auto_detect" = "Auto-Erkennung";
-"powermode.empty.no_apps" = "Keine Anwendungen ausgewählt";
-"powermode.empty.no_websites" = "Keine Websites hinzugefügt";
-"powermode.delete.title" = "Erweiterten Modus löschen";
 
 /* Languages */
 "language.english" = "Englisch";
@@ -937,7 +918,6 @@
 "models.component.model" = "Modell";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "KI-Verbesserung";
 "power_mode.info" = "Erstellen Sie benutzerdefinierte Konfigurationen, die automatisch angewendet werden, wenn Sie bestimmte Apps/Websites verwenden.";
 "power_mode.subtitle" = "Wenden Sie automatisch benutzerdefinierte Konfigurationen basierend auf der App/Website an, die Sie verwenden";
@@ -954,7 +934,6 @@
 "power_mode.card.websites" = "Websites";
 "power_mode.card.universal_fallback" = "Gilt für alle Apps und Websites ohne spezifische Modi";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "Erweiterten Modus hinzufügen";
 "power_mode.modal.add_button" = "Hinzufügen";
 "power_mode.modal.ai_enhancement" = "KI-Verbesserung";
@@ -1020,7 +999,6 @@
 "power_mode.modal.global_settings_notice" = "Modell- und Spracheinstellungen verwenden jetzt globale Einstellungen von der Einstellungsseite";
 "power_mode.modal.select_apps" = "Anwendungen auswählen";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "Keine erweiterten Modi";
 "power_mode.empty.subtitle" = "Fügen Sie angepasste Power-Modi für verschiedene Kontexte hinzu";
 "power_mode.empty.add_button" = "Neuen erweiterten Modus hinzufügen";
@@ -1383,3 +1361,66 @@
 
 "ai_strength.toggle.off_hint" = "Aus: Du erhältst das Roh-Transkript am schnellsten, nahezu ohne Nachbearbeitung – nur minimale Füllwortbereinigung.";
 "ai_strength.toggle.on_hint" = "Ein: Clio führt eine KI-Bearbeitung für mehr Klarheit aus; rechne mit einer kurzen Verzögerung, während entsprechend der unten gewählten Stärke umgeschrieben wird.";
+
+/* AI Models */
+"ai_models.header.title" = "KI-Modelle";
+"ai_models.header.subtitle" = "Verbinde dich direkt mit LLM-Anbietern (Groq, Gemini) und Sprachmodell-Anbietern (Soniox) mit deinen eigenen API-Schlüsseln.";
+"ai_models.hero.title" = "Einmal verbinden, lokal speichern";
+"ai_models.hero.subtitle" = "Schlüssel leben im macOS-Schlüsselbund und verlassen nie dein Gerät. Wechsle Anbieter oder rotiere Zugangsdaten wann immer du willst.";
+"ai_models.button.groq_dashboard" = "Groq Dashboard";
+"ai_models.button.soniox_dashboard" = "Soniox Dashboard";
+"ai_models.button.google_ai" = "Google AI Studio";
+"ai_models.section.provider_keys" = "Anbieter-Schlüssel";
+"ai_models.tab.llm.title" = "Sprachmodelle";
+"ai_models.tab.llm.subtitle" = "Konfiguriere Groq + Gemini Schlüssel und Modelle.";
+"ai_models.tab.voice.title" = "Sprachmodelle";
+"ai_models.tab.voice.subtitle" = "Steuer das Soniox-Streaming-ASR.";
+"ai_models.section.groq.title" = "Groq API";
+"ai_models.section.groq.subtitle" = "Groq führt Clios Haupt-LLM aus, damit dein Diktat sofort bereinigt wird. Gib deinen Schlüssel an und wähle das Modell, das zu deinem Workflow passt.";
+"ai_models.section.groq.model_label" = "Bevorzugtes LLM";
+"ai_models.section.gemini.title" = "Gemini-Fallback";
+"ai_models.section.gemini.subtitle" = "Füge einen Google AI Studio-Schlüssel hinzu, damit Clio sofort zu Gemini wechseln kann und die Verbesserung online bleibt, ohne unsere Server zu berühren.";
+"ai_models.section.gemini.model_label" = "Fallback-Modell";
+"ai_models.section.soniox.title" = "Soniox Cloud-Zugriff";
+"ai_models.section.soniox.subtitle" = "Soniox ist unser schnellstes Cloud-ASR – aktiviere es, wenn du ultra-präzise Streaming-Transkription brauchst, während Aufnahmen lokal bleiben.";
+"ai_models.status.ready" = "Verbesserung bereit";
+"ai_models.status.required" = "API-Schlüssel erforderlich";
+"ai_models.status.auto_ready" = "Auto-Fallback bereit";
+"ai_models.status.optional" = "Optionaler Fallback";
+"ai_models.status.voice_ready" = "Streaming freigeschaltet";
+"ai_models.status.voice_required" = "Sprachschlüssel erforderlich";
+"ai_models.model.qwen32.title" = "Qwen 3 32B";
+"ai_models.model.qwen32.detail" = "Ausgewogene Bearbeitungsqualität mit Groqs schnellstem TTFT – ideale Standardwahl.";
+"ai_models.model.llama_scout.title" = "Llama 4 Scout 17B";
+"ai_models.model.llama_scout.detail" = "Ultra-niedrige Latenz-Entwürfe, wenn dir Reaktionsfähigkeit wichtiger ist als rohe Power.";
+"ai_models.model.llama_maverick.title" = "Llama 4 Maverick 17B";
+"ai_models.model.llama_maverick.detail" = "Kreative Umschreibungen mit wärmerem Ton und stärkerer Zusammenfassung.";
+"ai_models.model.llama33.title" = "Llama 3.3 70B";
+"ai_models.model.llama33.detail" = "Groq-Modell höchster Qualität für komplexe Umschreibungen (etwas langsamer).";
+"ai_models.model.llama31.title" = "Llama 3.1 8B Instant";
+"ai_models.model.llama31.detail" = "Leichte Option, die Kosten und Geschwindigkeit über Tiefe priorisiert.";
+"ai_models.model.gemini25.title" = "Gemini 2.5 Flash Lite";
+"ai_models.model.gemini25.detail" = "Standard-Fallback – blitzschnell und für Bearbeitungsabläufe optimiert.";
+"ai_models.model.gemini20exp.title" = "Gemini 2.0 Flash Experimental";
+"ai_models.model.gemini20exp.detail" = "Neueste Reasoning-Verbesserungen mit ähnlicher Latenz.";
+"ai_models.model.gemini15flash.title" = "Gemini 1.5 Flash";
+"ai_models.model.gemini15flash.detail" = "Kampferprobtes Streaming-Modell für vorhersehbare Antworten.";
+"ai_models.model.gemini15pro.title" = "Gemini 1.5 Pro";
+"ai_models.model.gemini15pro.detail" = "Höchste Qualität für lange Bearbeitungen, wenn Geschwindigkeit weniger kritisch ist.";
+
+/* Plan */
+"plan.community.title" = "Community Edition";
+"plan.community.subtitle" = "Dieser OSS-Plan gibt dir die volle Clio-Erfahrung – keine Lizenzschlüssel, keine Proxy-Dienste und keine Feature-Beschränkungen.";
+"plan.overview.heading" = "Plan-Überblick";
+"plan.highlight.everything.title" = "Alles freigeschaltet";
+"plan.highlight.everything.detail" = "KI-Verbesserung, Streaming-Transkription und Personalisierungsfunktionen sind in diesem Build dauerhaft aktiviert.";
+"plan.highlight.accounts.title" = "Keine Konten erforderlich";
+"plan.highlight.accounts.detail" = "Alle Authentifizierungsbildschirme wurden entfernt – verwalte alles lokal mit deinen eigenen API-Schlüsseln.";
+"plan.highlight.providers.title" = "Bring deine eigenen Anbieter mit";
+"plan.highlight.providers.detail" = "Groq, Gemini und Soniox laufen mit deinen Zugangsdaten, sodass du Kosten und Zugriff kontrollierst.";
+"plan.share.title" = "Teile Clio mit einem Freund";
+"plan.share.subtitle" = "Kopiere einen Link unten, um Teammitglieder zur Website oder zum GitHub-Repository des Open-Source-Builds zu leiten.";
+"plan.share.website.title" = "Website teilen";
+"plan.share.website.caption" = "Sende die offizielle Download-Seite an einen Freund.";
+"plan.share.repo.title" = "GitHub-Repository teilen";
+"plan.share.repo.caption" = "Fork oder star das Open-Source-Projekt.";

@@ -496,25 +496,6 @@
 "greeting.good_afternoon" = "午安";
 "greeting.good_evening" = "晚安";
 
-/* PowerMode */
-"powermode.create.title" = "建立增強模式";
-"powermode.edit.title" = "編輯增強模式";
-"powermode.help.activation" = "當您使用這些應用程式或造訪這些網站時，增強模式將自動啟用";
-"powermode.section.basic_info" = "基本資訊";
-"powermode.section.transcription" = "轉錄設定";
-"powermode.section.applications" = "應用程式";
-"powermode.section.websites" = "網站";
-"powermode.field.icon" = "圖示";
-"powermode.field.name" = "名稱";
-"powermode.field.model" = "模型";
-"powermode.field.language" = "語言";
-"powermode.placeholder.name" = "輸入模式名稱";
-"powermode.placeholder.website_url" = "輸入網站網址（例如：google.com）";
-"powermode.model.system_default" = "系統預設";
-"powermode.language.auto_detect" = "自動偵測";
-"powermode.empty.no_apps" = "未選擇應用程式";
-"powermode.empty.no_websites" = "未新增網站";
-"powermode.delete.title" = "刪除增強模式";
 
 /* Languages */
 "language.english" = "英語";
@@ -905,7 +886,6 @@
 "models.component.model" = "模型";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "AI 增強";
 "power_mode.info" = "根據所使用的應用程式或網站自動套用自訂設定。";
 "power_mode.subtitle" = "根據使用的應用程式/網站自動套用自訂設定";
@@ -922,7 +902,6 @@
 "power_mode.card.websites" = "網站";
 "power_mode.card.universal_fallback" = "適用於沒有特定模式的所有應用程式和網站";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "新增增強模式";
 "power_mode.modal.add_button" = "新增";
 "power_mode.modal.ai_enhancement" = "AI 增強";
@@ -1000,7 +979,6 @@
 "power_mode.modal.global_settings_notice" = "模型和語言設定現在使用設定頁面的全域偏好設定";
 "power_mode.modal.select_apps" = "選擇應用程式";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "無增強模式";
 "power_mode.empty.subtitle" = "為不同情境新增自訂增強模式";
 "power_mode.empty.add_button" = "新增增強模式";

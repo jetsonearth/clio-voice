@@ -477,25 +477,6 @@
 "greeting.good_afternoon" = "下午好";
 "greeting.good_evening" = "晚上好";
 
-/* PowerMode */
-"powermode.create.title" = "创建 AI 优化模式";
-"powermode.edit.title" = "编辑 AI 优化模式";
-"powermode.help.activation" = "当您使用这些应用或访问这些网站时，AI 优化模式将自动激活";
-"powermode.section.basic_info" = "基本信息";
-"powermode.section.transcription" = "语音识别设置";
-"powermode.section.applications" = "应用程序";
-"powermode.section.websites" = "网站";
-"powermode.field.icon" = "图标";
-"powermode.field.name" = "名称";
-"powermode.field.model" = "模型";
-"powermode.field.language" = "语言";
-"powermode.placeholder.name" = "请输入模式名称";
-"powermode.placeholder.website_url" = "请输入网站地址（例：google.com）";
-"powermode.model.system_default" = "系统默认";
-"powermode.language.auto_detect" = "自动检测";
-"powermode.empty.no_apps" = "暂未选择应用程序";
-"powermode.empty.no_websites" = "暂未添加网站";
-"powermode.delete.title" = "删除 AI 优化模式";
 
 /* Languages */
 "language.english" = "英语";
@@ -923,7 +904,6 @@
 "models.component.model" = "模型";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "AI 优化";
 "power_mode.info" = "根据所使用的应用或网站自动应用自定义配置。";
 "power_mode.subtitle" = "根据应用/网站自动应用自定义配置";
@@ -940,7 +920,6 @@
 "power_mode.card.websites" = "网站";
 "power_mode.card.universal_fallback" = "适用于没有特定模式的所有应用程序和网站";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "添加优化模式";
 "power_mode.modal.add_button" = "添加";
 "power_mode.modal.ai_enhancement" = "AI 优化";
@@ -1015,7 +994,6 @@
 "power_mode.modal.prompt_instructions" = "创建自定义AI提示来优化您的转录";
 "power_mode.modal.edit_templates" = "编辑模板";
 "power_mode.modal.prompt_placeholder" = "输入您的AI优化提示...";
-/* PowerMode Empty State */
 "power_mode.empty.title" = "无优化模式";
 "power_mode.empty.subtitle" = "为不同场景添加自定义优化模式";
 "power_mode.empty.add_button" = "添加新优化模式";

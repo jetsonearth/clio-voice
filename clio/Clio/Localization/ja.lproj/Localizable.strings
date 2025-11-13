@@ -361,25 +361,6 @@
 "greeting.good_afternoon" = "こんにちは";
 "greeting.good_evening" = "こんばんは";
 
-/* PowerMode */
-"powermode.create.title" = "AI機能向上モードの作成";
-"powermode.edit.title" = "AI 最適化モードの編集";
-"powermode.help.activation" = "これらのアプリを使用したり、これらのウェブサイトを訪問したりすると、AI 最適化モードが自動的にアクティベートされます";
-"powermode.section.basic_info" = "基本情報";
-"powermode.section.transcription" = "文字起こし設定";
-"powermode.section.applications" = "アプリケーション";
-"powermode.section.websites" = "ウェブサイト";
-"powermode.field.icon" = "アイコン";
-"powermode.field.name" = "名前";
-"powermode.field.model" = "モデル";
-"powermode.field.language" = "言語";
-"powermode.placeholder.name" = "モード名を入力";
-"powermode.placeholder.website_url" = "ウェブサイトURLを入力（例：google.com）";
-"powermode.model.system_default" = "システムデフォルト";
-"powermode.language.auto_detect" = "自動検出";
-"powermode.empty.no_apps" = "アプリケーションが選択されていません";
-"powermode.empty.no_websites" = "ウェブサイトが追加されていません";
-"powermode.delete.title" = "AI 最適化モードを削除";
 
 /* Languages */
 "language.english" = "英語";
@@ -539,7 +520,6 @@
 "metrics.feedback_or_issues" = "フィードバックまたは問題?";
 "metrics.report" = "報告";
 
-/* Power Mode */
 "power_mode.title" = "AI機能向上";
 "power_mode.info" = "特定のアプリやウェブサイトを使用時に自動適用されるカスタム設定を作成します。";
 "power_mode.subtitle" = "使用するアプリ/ウェブサイトに基づいてカスタム設定を自動適用";
@@ -556,7 +536,6 @@
 "power_mode.card.websites" = "ウェブサイト";
 "power_mode.card.universal_fallback" = "特定のモードがない全てのアプリとウェブサイトに適用";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "強化モードを追加";
 "power_mode.modal.add_button" = "追加";
 "power_mode.modal.ai_enhancement" = "AI 強化";
@@ -834,7 +813,6 @@
 "models.coming_soon" = "近日公開";
 "models.clio_max_ultra.description" = "最大精度とパフォーマンスを持つ究極のクラウドベース文字起こしモデル。すべての言語をサポートするリアルタイムストリーミングと高度なAI処理。エンタープライズ級アプリケーションとプロフェッショナルユーザー向けに構築。";
 
-/* Power Mode Enhanced */
 "power_mode.modal.section.basics" = "基本設定";
 "power_mode.modal.section.triggers" = "トリガー";
 "power_mode.modal.section.prompt" = "プロンプト";
@@ -869,7 +847,6 @@
 "power_mode.modal.transcription_settings" = "文字起こし設定";
 "power_mode.modal.global_settings_notice" = "モデルと言語設定は、設定ページのグローバル設定を使用するようになりました";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "強化モードがありません";
 "power_mode.empty.subtitle" = "異なるコンテキスト用にカスタマイズされたパワーモードを追加";
 "power_mode.empty.add_button" = "新しい強化モードを追加";
@@ -1083,7 +1060,6 @@
 "recording.failed.upgrade.now" = "Proにアップグレード";
 "recording.failed.use.free" = "Flashモデルを使用";
 
-/* Power Mode Modal */
 "power_mode.modal.select_apps" = "アプリケーションを選択";
 
 /* Onboarding Setup Keys */
@@ -1400,3 +1376,66 @@
 
 "ai_strength.toggle.off_hint" = "オフ: ほぼ処理なしで生の文字起こしが最速で届きます（最低限のフィラー除去のみ）。";
 "ai_strength.toggle.on_hint" = "オン: クリアにするためAI編集を実行します。下で選んだ強さに合わせて書き換える間、少し待ち時間が発生します。";
+
+/* AI Models */
+"ai_models.header.title" = "AIモデル";
+"ai_models.header.subtitle" = "自分のAPIキーでLLMプロバイダー（Groq、Gemini）と音声モデルプロバイダー（Soniox）に直接接続できます。";
+"ai_models.hero.title" = "一度接続すれば、ローカルに保存";
+"ai_models.hero.subtitle" = "キーはmacOSキーチェーンに保存され、デバイスから外に出ることはありません。プロバイダーの切り替えや認証情報の変更はいつでも可能です。";
+"ai_models.button.groq_dashboard" = "Groqダッシュボード";
+"ai_models.button.soniox_dashboard" = "Sonioxダッシュボード";
+"ai_models.button.google_ai" = "Google AI Studio";
+"ai_models.section.provider_keys" = "プロバイダーキー";
+"ai_models.tab.llm.title" = "言語モデル";
+"ai_models.tab.llm.subtitle" = "GroqとGeminiのキーとモデルを設定します。";
+"ai_models.tab.voice.title" = "音声モデル";
+"ai_models.tab.voice.subtitle" = "SonioxのストリーミングASRを制御します。";
+"ai_models.section.groq.title" = "Groq API";
+"ai_models.section.groq.subtitle" = "GroqはClioのメインLLMを実行し、ディクテーションを瞬時にクリーンにします。キーを提供し、ワークフローに合ったモデルを選択してください。";
+"ai_models.section.groq.model_label" = "優先LLM";
+"ai_models.section.gemini.title" = "Geminiフォールバック";
+"ai_models.section.gemini.subtitle" = "Google AI StudioのキーをAddすることで、Clioは当社のサーバーに触れることなく、拡張機能をオンラインに保ちながら即座にGeminiに切り替えられます。";
+"ai_models.section.gemini.model_label" = "フォールバックモデル";
+"ai_models.section.soniox.title" = "Sonioxクラウドアクセス";
+"ai_models.section.soniox.subtitle" = "Sonioxは最速のクラウドASRです。超高精度のストリーミング文字起こしが必要なときに有効にし、録音はローカルに残します。";
+"ai_models.status.ready" = "拡張機能準備完了";
+"ai_models.status.required" = "APIキーが必要";
+"ai_models.status.auto_ready" = "自動フォールバック準備完了";
+"ai_models.status.optional" = "オプションのフォールバック";
+"ai_models.status.voice_ready" = "ストリーミング解除済み";
+"ai_models.status.voice_required" = "音声キーが必要";
+"ai_models.model.qwen32.title" = "Qwen 3 32B";
+"ai_models.model.qwen32.detail" = "Groqの最速TTFTでバランスの取れた編集品質 — 理想的なデフォルト。";
+"ai_models.model.llama_scout.title" = "Llama 4 Scout 17B";
+"ai_models.model.llama_scout.detail" = "パワーよりもレスポンスを重視する場合の超低遅延ドラフト。";
+"ai_models.model.llama_maverick.title" = "Llama 4 Maverick 17B";
+"ai_models.model.llama_maverick.detail" = "より温かいトーンと強力な要約機能でクリエイティブな書き直し。";
+"ai_models.model.llama33.title" = "Llama 3.3 70B";
+"ai_models.model.llama33.detail" = "複雑な書き直しに最高品質のGroqモデル（やや低速）。";
+"ai_models.model.llama31.title" = "Llama 3.1 8B Instant";
+"ai_models.model.llama31.detail" = "深さよりもコストと速度を重視した軽量オプション。";
+"ai_models.model.gemini25.title" = "Gemini 2.5 Flash Lite";
+"ai_models.model.gemini25.detail" = "デフォルトのフォールバック — 超高速で編集フローに最適化。";
+"ai_models.model.gemini20exp.title" = "Gemini 2.0 Flash Experimental";
+"ai_models.model.gemini20exp.detail" = "同様のレイテンシーで最新の推論改善。";
+"ai_models.model.gemini15flash.title" = "Gemini 1.5 Flash";
+"ai_models.model.gemini15flash.detail" = "予測可能な応答のための実証済みストリーミングモデル。";
+"ai_models.model.gemini15pro.title" = "Gemini 1.5 Pro";
+"ai_models.model.gemini15pro.detail" = "速度がそれほど重要でない場合の長文編集に最高品質。";
+
+/* Plan */
+"plan.community.title" = "コミュニティエディション";
+"plan.community.subtitle" = "このOSSプランは完全なClio体験を提供します—ライセンスキー不要、プロキシサービス不要、機能制限なし。";
+"plan.overview.heading" = "プラン概要";
+"plan.highlight.everything.title" = "すべてがアンロック";
+"plan.highlight.everything.detail" = "AI拡張、ストリーミング文字起こし、パーソナライゼーション機能がこのビルドで永久に有効になります。";
+"plan.highlight.accounts.title" = "アカウント不要";
+"plan.highlight.accounts.detail" = "すべての認証画面が削除されました—独自のAPIキーですべてをローカルで管理します。";
+"plan.highlight.providers.title" = "独自のプロバイダーを使用";
+"plan.highlight.providers.detail" = "Groq、Gemini、Sonioxは自分の認証情報で実行されるため、コストとアクセスを制御できます。";
+"plan.share.title" = "友達とClioを共有";
+"plan.share.subtitle" = "下のリンクをコピーして、チームメイトにウェブサイトまたはオープンソースビルドのGitHubリポジトリを案内します。";
+"plan.share.website.title" = "ウェブサイトを共有";
+"plan.share.website.caption" = "公式ダウンロードページを友達に送る。";
+"plan.share.repo.title" = "GitHubリポジトリを共有";
+"plan.share.repo.caption" = "オープンソースプロジェクトをフォークまたはスターする。";

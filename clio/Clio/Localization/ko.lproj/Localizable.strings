@@ -469,25 +469,6 @@
 "greeting.good_afternoon" = "좋은 오후입니다";
 "greeting.good_evening" = "좋은 저녁입니다";
 
-/* PowerMode */
-"powermode.create.title" = "강화 모드 생성";
-"powermode.edit.title" = "강화 모드 편집";
-"powermode.help.activation" = "이러한 앱을 사용하거나 이러한 웹사이트를 방문할 때 강화 모드가 자동으로 활성화됩니다";
-"powermode.section.basic_info" = "기본 정보";
-"powermode.section.transcription" = "전사 설정";
-"powermode.section.applications" = "애플리케이션";
-"powermode.section.websites" = "웹사이트";
-"powermode.field.icon" = "아이콘";
-"powermode.field.name" = "이름";
-"powermode.field.model" = "모델";
-"powermode.field.language" = "언어";
-"powermode.placeholder.name" = "모드 이름 입력";
-"powermode.placeholder.website_url" = "웹사이트 URL 입력 (예: google.com)";
-"powermode.model.system_default" = "시스템 기본값";
-"powermode.language.auto_detect" = "자동 감지";
-"powermode.empty.no_apps" = "선택된 애플리케이션 없음";
-"powermode.empty.no_websites" = "추가된 웹사이트 없음";
-"powermode.delete.title" = "강화 모드 삭제";
 
 /* Languages */
 "language.english" = "영어";
@@ -959,7 +940,6 @@
 "models.component.model" = "모델";
 "models.component.coreml" = "CoreML";
 
-/* Power Mode */
 "power_mode.title" = "AI 강화";
 "power_mode.info" = "특정 앱/웹사이트를 사용할 때 자동으로 적용되는 사용자 정의 구성을 만듭니다.";
 "power_mode.subtitle" = "사용하는 앱/웹사이트에 따라 자동으로 사용자 정의 구성 적용";
@@ -976,7 +956,6 @@
 "power_mode.card.websites" = "웹사이트";
 "power_mode.card.universal_fallback" = "특정 모드가 없는 모든 앱과 웹사이트에 적용";
 
-/* Power Mode Modal */
 "power_mode.modal.add_title" = "강화 모드 추가";
 "power_mode.modal.add_button" = "추가";
 "power_mode.modal.ai_enhancement" = "AI 강화";
@@ -1053,7 +1032,6 @@
 "power_mode.modal.transcription_settings" = "전사 설정";
 "power_mode.modal.global_settings_notice" = "모델과 언어 설정은 이제 설정 페이지의 전역 환경설정을 사용합니다";
 
-/* PowerMode Empty State */
 "power_mode.empty.title" = "강화 모드 없음";
 "power_mode.empty.subtitle" = "다양한 컨텍스트에 맞는 사용자 정의 파워 모드를 추가하세요";
 "power_mode.empty.add_button" = "새 강화 모드 추가";
@@ -1155,7 +1133,6 @@
 "onboarding.setup.keyboard.description" = "이 키를 한 번 누르면 핸즈프리 녹음이 시작되고, 다시 누르면 전사합니다";
 "onboarding.setup.continue" = "계속";
 
-/* Power Mode Modal */
 "power_mode.modal.select_apps" = "애플리케이션 선택";
 
 /* Model Access Control */
@@ -1356,3 +1333,66 @@
 
 "ai_strength.toggle.off_hint" = "끄기: 거의 추가 처리 없이 원본 전사가 가장 빠르게 제공되며, 최소한의 군더더기만 정리됩니다.";
 "ai_strength.toggle.on_hint" = "켜기: Clio가 명확성을 위해 AI 편집을 수행하므로, 아래에서 선택한 강도에 따라 다시 쓰는 동안 약간의 지연이 발생할 수 있습니다.";
+
+/* AI Models */
+"ai_models.header.title" = "AI 모델";
+"ai_models.header.subtitle" = "자신의 API 키로 LLM 제공업체(Groq, Gemini) 및 음성 모델 제공업체(Soniox)에 직접 연결하세요.";
+"ai_models.hero.title" = "한 번 연결하면 로컬에 저장";
+"ai_models.hero.subtitle" = "키는 macOS 키체인에 저장되며 기기를 떠나지 않습니다. 언제든지 제공업체를 전환하거나 자격 증명을 교체할 수 있습니다.";
+"ai_models.button.groq_dashboard" = "Groq 대시보드";
+"ai_models.button.soniox_dashboard" = "Soniox 대시보드";
+"ai_models.button.google_ai" = "Google AI Studio";
+"ai_models.section.provider_keys" = "제공업체 키";
+"ai_models.tab.llm.title" = "언어 모델";
+"ai_models.tab.llm.subtitle" = "Groq + Gemini 키와 모델을 구성합니다.";
+"ai_models.tab.voice.title" = "음성 모델";
+"ai_models.tab.voice.subtitle" = "Soniox 스트리밍 ASR을 제어합니다.";
+"ai_models.section.groq.title" = "Groq API";
+"ai_models.section.groq.subtitle" = "Groq는 Clio의 메인 LLM을 실행하여 받아쓰기를 즉시 정리합니다. 키를 제공하고 워크플로에 맞는 모델을 선택하세요.";
+"ai_models.section.groq.model_label" = "선호 LLM";
+"ai_models.section.gemini.title" = "Gemini 대체";
+"ai_models.section.gemini.subtitle" = "Google AI Studio 키를 추가하면 Clio가 서버를 거치지 않고 즉시 Gemini로 전환하여 향상 기능을 온라인 상태로 유지할 수 있습니다.";
+"ai_models.section.gemini.model_label" = "대체 모델";
+"ai_models.section.soniox.title" = "Soniox 클라우드 액세스";
+"ai_models.section.soniox.subtitle" = "Soniox는 가장 빠른 클라우드 ASR입니다. 초고정밀 스트리밍 전사가 필요할 때 활성화하면 녹음은 로컬에 유지됩니다.";
+"ai_models.status.ready" = "향상 준비 완료";
+"ai_models.status.required" = "API 키 필요";
+"ai_models.status.auto_ready" = "자동 대체 준비 완료";
+"ai_models.status.optional" = "선택적 대체";
+"ai_models.status.voice_ready" = "스트리밍 잠금 해제됨";
+"ai_models.status.voice_required" = "음성 키 필요";
+"ai_models.model.qwen32.title" = "Qwen 3 32B";
+"ai_models.model.qwen32.detail" = "Groq의 가장 빠른 TTFT로 균형 잡힌 편집 품질 제공 — 이상적인 기본값.";
+"ai_models.model.llama_scout.title" = "Llama 4 Scout 17B";
+"ai_models.model.llama_scout.detail" = "강력한 성능보다 응답성을 중시할 때의 초저지연 초안.";
+"ai_models.model.llama_maverick.title" = "Llama 4 Maverick 17B";
+"ai_models.model.llama_maverick.detail" = "더 따뜻한 톤과 강력한 요약 기능으로 창의적인 재작성.";
+"ai_models.model.llama33.title" = "Llama 3.3 70B";
+"ai_models.model.llama33.detail" = "복잡한 재작성을 위한 최고 품질의 Groq 모델(약간 느림).";
+"ai_models.model.llama31.title" = "Llama 3.1 8B Instant";
+"ai_models.model.llama31.detail" = "깊이보다 비용과 속도를 우선시하는 경량 옵션.";
+"ai_models.model.gemini25.title" = "Gemini 2.5 Flash Lite";
+"ai_models.model.gemini25.detail" = "기본 대체 — 초고속이며 편집 플로우에 최적화됨.";
+"ai_models.model.gemini20exp.title" = "Gemini 2.0 Flash Experimental";
+"ai_models.model.gemini20exp.detail" = "유사한 지연 시간으로 최신 추론 개선.";
+"ai_models.model.gemini15flash.title" = "Gemini 1.5 Flash";
+"ai_models.model.gemini15flash.detail" = "예측 가능한 응답을 위한 검증된 스트리밍 모델.";
+"ai_models.model.gemini15pro.title" = "Gemini 1.5 Pro";
+"ai_models.model.gemini15pro.detail" = "속도가 덜 중요할 때 장문 편집에 최고 품질.";
+
+/* Plan */
+"plan.community.title" = "커뮤니티 에디션";
+"plan.community.subtitle" = "이 OSS 플랜은 전체 Clio 경험을 제공합니다 — 라이선스 키 없음, 프록시 서비스 없음, 기능 제한 없음.";
+"plan.overview.heading" = "플랜 개요";
+"plan.highlight.everything.title" = "모두 잠금 해제";
+"plan.highlight.everything.detail" = "AI 향상, 스트리밍 전사, 개인화 기능이 이 빌드에서 영구적으로 활성화됩니다.";
+"plan.highlight.accounts.title" = "계정 불필요";
+"plan.highlight.accounts.detail" = "모든 인증 화면이 제거되었습니다 — 자신의 API 키로 모든 것을 로컬에서 관리하세요.";
+"plan.highlight.providers.title" = "자체 제공업체 사용";
+"plan.highlight.providers.detail" = "Groq, Gemini, Soniox는 자신의 자격 증명으로 실행되므로 비용과 액세스를 제어할 수 있습니다.";
+"plan.share.title" = "친구와 Clio 공유";
+"plan.share.subtitle" = "아래 링크를 복사하여 팀원들에게 웹사이트 또는 오픈 소스 빌드의 GitHub 저장소를 안내하세요.";
+"plan.share.website.title" = "웹사이트 공유";
+"plan.share.website.caption" = "공식 다운로드 페이지를 친구에게 보내세요.";
+"plan.share.repo.title" = "GitHub 저장소 공유";
+"plan.share.repo.caption" = "오픈 소스 프로젝트를 포크하거나 스타하세요.";
