@@ -1,12 +1,11 @@
+![Finish your work 4x faster with voice typing](clio/Image/README_Banner.png)
+
 # Clio
 
+**macOS dictation that feels personal, intentional, and yours**
 <p align="center">
   <img src="clio/Image/banner2.png" alt="Clio hero banner" width="720" />
 </p>
-
-**macOS dictation that feels personal, intentional, and yours**
-
-![Finish your work 4x faster with voice typing](clio/Image/README_Banner.png)
 
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Platform](https://img.shields.io/badge/platform-macOS%2014.0%2B-brightgreen)
