@@ -23,7 +23,6 @@ struct SettingsView: View {
     @EnvironmentObject private var contextService: ContextService
     @EnvironmentObject private var whisperState: WhisperState
     @StateObject private var deviceManager = AudioDeviceManager.shared
-    @StateObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showResetOnboardingAlert = false
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("emailSignatureEnabled") private var emailSignatureEnabled = false
@@ -62,8 +61,9 @@ struct SettingsView: View {
                 // Privacy Section (commented out for proxy architecture)
                 // PrivacySection()
                 
-                // Soniox API Configuration Section
-//                SonioxAPIConfigurationSection()
+                // Cloud API keys
+                GroqAPIConfigurationSection()
+                SonioxAPIConfigurationSection()
                 
                 // Updates Section
                 // SettingsSection(
@@ -1353,4 +1353,3 @@ struct FeatureStatusCard: View {
 
 
  
-

@@ -25,9 +25,6 @@ final class TempKeyCache: ObservableObject {
     private let cacheQueue = DispatchQueue(label: "com.cliovoice.clio.tempkey-cache", attributes: .concurrent)
     private let logger = Logger(subsystem: "com.cliovoice.clio", category: "TempKeyCache")
     
-    // MARK: - Dependencies
-    private let tokenManager = TokenManager.shared
-    
     // MARK: - Background Prefetch Management
     private var prefetchTimer: Timer?
     private var isPrefetching = false
@@ -262,71 +259,35 @@ final class TempKeyCache: ObservableObject {
     
     private func fetchFreshTempKey(languages: [String]) async throws -> TemporaryKeyInfo {
         let startTime = Date()
-        
-        // Use existing requestTemporaryApiKey logic from SonioxStreamingService
-        let jwtToken = try await tokenManager.getValidToken()
-        
-        let url = URL(string: APIConfig.asrTempKeyURL)!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
-        
-        let requestBody: [String: Any] = [
-            "languages": languages,
-            "duration": 3600  // 1 hour temp key lifetime
-        ]
-        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
-        
-        let (data, response) = try await ProxySessionManager.shared.session.data(for: request)
-        let totalTime = Date().timeIntervalSince(startTime) * 1000 // Convert to milliseconds
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw TempKeyCacheError.fetchFailed(statusCode: (response as? HTTPURLResponse)?.statusCode ?? -1)
+
+        guard let apiKey = SonioxAPIKeyStore.shared.apiKey, !apiKey.isEmpty else {
+            throw TempKeyCacheError.missingAPIKey
         }
-        
-        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let tempApiKey = json["temporaryApiKey"] as? String,
-              let expiresAt = json["expiresAt"] as? String,
-              let websocketUrl = json["websocketUrl"] as? String,
-              let configDict = json["config"] as? [String: Any] else {
-            throw TempKeyCacheError.invalidResponse
-        }
-        
-        // Log ASR latency breakdown if timing data is available
-        if let timingData = json["timing"] as? [String: Any] {
-            let proxyTotal = timingData["proxy_total"] as? Int ?? 0
-            let sonioxActual = timingData["soniox_actual"] as? Int ?? 0
-            let networkOverhead = timingData["network_overhead"] as? Int ?? 0
-            // Client↔Proxy here refers to the HTTP call from app → proxy ONLY for temp-key fetch
-            // This does NOT reflect the live ASR streaming path (which is client → Soniox WebSocket)
-            let clientToProxyMs = max(0, Int(totalTime) - proxyTotal)
-            logger.notice("🌐 [ASR TEMPKEY] client_total=\(Int(totalTime))ms | client↔proxy=\(clientToProxyMs)ms | server↔soniox=\(sonioxActual)ms | server_net=\(networkOverhead)ms")
-        } else {
-            logger.notice("⏱️ [ASR TEMPKEY] client_total=\(Int(totalTime))ms (no server breakdown available)")
-        }
-        
-        // Parse the config (similar to SonioxStreamingService.requestTemporaryApiKey)
-        let configLanguageHints = (configDict["language_hints"] as? [String]) ?? languages
-        
+
+        let expiresAtDate = Date().addingTimeInterval(3600)
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let expiresAt = isoFormatter.string(from: expiresAtDate)
+
         let config = SonioxConfig(
-            api_key: tempApiKey,
+            api_key: apiKey,
             model: "stt-rt-v3",
             audio_format: "pcm_s16le",
-            sample_rate: 16000, // Default, will be updated when used
-            num_channels: 1,    // Default, will be updated when used
-            language_hints: configLanguageHints,
+            sample_rate: 16000,
+            num_channels: 1,
+            language_hints: languages,
             enable_non_final_tokens: true,
-            enable_endpoint_detection: true, // Default, will be set to true when used
-            // max_non_final_tokens_duration_ms: 6000, // Deprecated by Soniox as of Sept 1st 2024
-            context: nil // Will be set when used
+            enable_endpoint_detection: true,
+            context: nil
         )
-        
+
+        let totalLatency = Date().timeIntervalSince(startTime) * 1000
+        logger.notice("🔑 [FRESH-KEY] Using local Soniox API key (prepared in \(String(format: "%.0f", totalLatency))ms)")
+
         return TemporaryKeyInfo(
-            apiKey: tempApiKey,
+            apiKey: apiKey,
             expiresAt: expiresAt,
-            websocketUrl: websocketUrl,
+            websocketUrl: "wss://stt-rt.soniox.com/transcribe-websocket",
             config: config
         )
     }
@@ -507,6 +468,7 @@ enum TempKeyCacheError: LocalizedError {
     case fetchFailed(statusCode: Int)
     case invalidResponse
     case cacheCorrupted
+    case missingAPIKey
     
     var errorDescription: String? {
         switch self {
@@ -516,6 +478,8 @@ enum TempKeyCacheError: LocalizedError {
             return "Invalid response from temp key API"
         case .cacheCorrupted:
             return "Temp key cache is corrupted"
+        case .missingAPIKey:
+            return "Add your Soniox API key in Settings → Cloud Access"
         }
     }
 }

@@ -1792,7 +1792,12 @@ if await UnifiedAudioManager.shared.isCapturing {
         // Get user's language preferences
         var languageHints = getSonioxLanguageHints()
         languageHints.removeAll(where: { $0.lowercased() == "zh-hant" })
-        let tempKeyInfo = try await tempKeyCache.getCachedTempKey(languages: languageHints)
+        let tempKeyInfo: TemporaryKeyInfo
+        do {
+            tempKeyInfo = try await tempKeyCache.getCachedTempKey(languages: languageHints)
+        } catch TempKeyCacheError.missingAPIKey {
+            throw SonioxError.missingAPIKey
+        }
         
         var updatedConfig = tempKeyInfo.config
         // Build context on the main actor (depends on ContextService state)
@@ -2834,21 +2839,6 @@ if await UnifiedAudioManager.shared.isCapturing {
         warmupManager.stopSystemKeepalive()
     }
     
-    private func warmupNetworkConnections() async {
-        logger.debug("🔥 [SYSTEM-WARMUP] Warming up network connections")
-        
-        do {
-            // Pre-fetch JWT token to warm up that connection
-            _ = try await TokenManager.shared.getValidToken()
-            logger.debug("✅ [SYSTEM-WARMUP] JWT token pre-fetched")
-            
-            // We could pre-fetch temp API key here, but they expire in 5 minutes
-            // so it's better to fetch fresh when actually needed
-        } catch {
-            logger.warning("⚠️ [SYSTEM-WARMUP] Network warm-up failed: \(error)")
-        }
-    }
-    
     @objc private func forceCleanup() {
         logger.notice("🧹 Force cleanup triggered by app termination")
         stopSystemKeepalive()
@@ -3050,6 +3040,7 @@ enum SonioxError: LocalizedError {
     case invalidEndpoint
     case sessionNotConfigured
     case audioFormatSetupFailed
+    case missingAPIKey
     
     var errorDescription: String? {
         switch self {
@@ -3059,6 +3050,8 @@ enum SonioxError: LocalizedError {
             return "URL session not configured"
         case .audioFormatSetupFailed:
             return "Failed to setup audio format"
+        case .missingAPIKey:
+            return "Add a Soniox API key in Settings → Cloud Access"
         }
     }
 }
