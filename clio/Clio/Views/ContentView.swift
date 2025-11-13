@@ -66,14 +66,15 @@ enum ViewType: String, CaseIterable {
 }
 
 struct AIModelsView: View {
+    @EnvironmentObject private var localizationManager: LocalizationManager
     @State private var selectedCategory: ModelCategory = .llm
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 PageHeaderView(
-                    title: "AI Models",
-                    subtitle: "Connect Groq, Gemini, and Soniox directly with your own API keys—nothing routes through our proxy."
+                    title: localizationManager.localizedString("ai_models.header.title"),
+                    subtitle: localizationManager.localizedString("ai_models.header.subtitle")
                 )
                 .padding(.top, 40)
                 
@@ -98,10 +99,10 @@ struct AIModelsView: View {
                                 .fill(Color.accentColor.opacity(0.12))
                         )
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Connect once, keep it local")
+                        Text(localizationManager.localizedString("ai_models.hero.title"))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(DarkTheme.textPrimary)
-                        Text("Keys live in the macOS Keychain and never leave your device. Swap providers or rotate credentials whenever you need.")
+                        Text(localizationManager.localizedString("ai_models.hero.subtitle"))
                             .font(.system(size: 13))
                             .foregroundColor(DarkTheme.textSecondary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -112,21 +113,21 @@ struct AIModelsView: View {
                 
                 HStack(spacing: 12) {
                     AddNewButton(
-                        "Groq Dashboard",
+                        localizationManager.localizedString("ai_models.button.groq_dashboard"),
                         action: { openPortal("https://console.groq.com/keys") },
                         backgroundColor: DarkTheme.accent.opacity(0.16),
                         textColor: DarkTheme.accent,
                         systemImage: "link"
                     )
                     AddNewButton(
-                        "Soniox Dashboard",
+                        localizationManager.localizedString("ai_models.button.soniox_dashboard"),
                         action: { openPortal("https://soniox.com/dashboard/api-keys") },
                         backgroundColor: DarkTheme.accent.opacity(0.16),
                         textColor: DarkTheme.accent,
                         systemImage: "link"
                     )
                     AddNewButton(
-                        "Google AI Studio",
+                        localizationManager.localizedString("ai_models.button.google_ai"),
                         action: { openPortal("https://aistudio.google.com/app/apikey") },
                         backgroundColor: DarkTheme.accent.opacity(0.16),
                         textColor: DarkTheme.accent,
@@ -140,7 +141,7 @@ struct AIModelsView: View {
     
     private var providerSwitcherSection: some View {
         VStack(alignment: .leading, spacing: 18) {
-            Text("Provider Keys")
+            Text(localizationManager.localizedString("ai_models.section.provider_keys"))
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(DarkTheme.textSecondary)
                 .textCase(.uppercase)
@@ -166,10 +167,10 @@ struct AIModelsView: View {
                     selectedCategory = category
                 } label: {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(category.rawValue)
+                        Text(category.title(using: localizationManager))
                             .font(.system(size: 14, weight: .medium))
                             .foregroundColor(category == selectedCategory ? DarkTheme.textPrimary : DarkTheme.textSecondary.opacity(0.7))
-                        Text(category.subtitle)
+                        Text(category.subtitle(using: localizationManager))
                             .font(.system(size: 11))
                             .foregroundColor(DarkTheme.textSecondary.opacity(0.6))
                     }
@@ -196,16 +197,25 @@ struct AIModelsView: View {
         NSWorkspace.shared.open(url)
     }
     
-    private enum ModelCategory: String, CaseIterable {
-        case llm = "Language Models"
-        case voice = "Voice Models"
+    private enum ModelCategory: CaseIterable {
+        case llm
+        case voice
         
-        var subtitle: String {
+        func title(using manager: LocalizationManager) -> String {
             switch self {
             case .llm:
-                return "Configure Groq + Gemini keys and models."
+                return manager.localizedString("ai_models.tab.llm.title")
             case .voice:
-                return "Control Soniox streaming for ASR."
+                return manager.localizedString("ai_models.tab.voice.title")
+            }
+        }
+        
+        func subtitle(using manager: LocalizationManager) -> String {
+            switch self {
+            case .llm:
+                return manager.localizedString("ai_models.tab.llm.subtitle")
+            case .voice:
+                return manager.localizedString("ai_models.tab.voice.subtitle")
             }
         }
     }
@@ -267,7 +277,6 @@ struct DynamicSidebar: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 12)
                 
-                // Status Badge (Pro / Trial / Free)
                 HStack {
                     Spacer()
                     statusBadge
@@ -476,7 +485,7 @@ struct DynamicSidebar: View {
     
     @ViewBuilder
     private var statusBadge: some View {
-        Text("COMMUNITY")
+        Text("OPEN SOURCE")
             .font(.system(size: 9, weight: .heavy))
             .foregroundColor(.white)
             .padding(.horizontal, 8)
