@@ -73,11 +73,11 @@ Problems I'm seeing in this log: one is losing connections halfway. And the othe
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🎯 Found window: ~/clio-project/Clio (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ~/clio-project/Clio (ID: 61)
 ✅ Successfully captured window: 3840.000000x2110.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -158,7 +158,7 @@ t=28911215 sess=8Hv lvl=INFO cat=stream evt=ws_bind socket=sock_-604352373830657
 ✅ [CAPTURE DEBUG] Screen capture successful: 2751 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|~/clio-project/Clio (2751 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2751 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

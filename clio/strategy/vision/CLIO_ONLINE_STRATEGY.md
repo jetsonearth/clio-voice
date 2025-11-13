@@ -31,7 +31,7 @@ Clio Online prioritizes ease-of-use and intelligent defaults while offering priv
 ├─────────────────────────────────────────┤
 │  Settings: [Use Local Model] Toggle     │
 ├─────────────────────────────────────────┤
-│    WhisperState (Central Coordinator)   │
+│    RecordingEngine (Central Coordinator)   │
 ├─────────────────────────────────────────┤
 │  SonioxStreamingService │ AudioTranscription │
 │  (Multi-Account Pool)   │ Service (Local)     │
@@ -313,7 +313,7 @@ SHOW_ADVANCED_SETTINGS=false
 - **Sparkle**: Automatic updates
 
 ### **Internal Service Boundaries**
-- **WhisperState**: Central coordination and state management
+- **RecordingEngine**: Central coordination and state management
 - **SonioxStreamingService**: Cloud transcription and account management
 - **AudioTranscriptionService**: Local processing pipeline
 - **HotkeyManager**: Global shortcuts and user interaction

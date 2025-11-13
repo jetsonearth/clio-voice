@@ -230,11 +230,11 @@ t=004406 sess=GbC lvl=INFO cat=audio evt=capture_backend_selected backend=avcapt
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Shrinking Details (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches Context Preset detection
 🎯 Found window: ✳ Shrinking Details (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Shrinking Details (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ✳ Shrinking Details (ID: 61)
 185859          HALC_ProxyIOContext.cpp:1622  HALC_ProxyIOContext::IOWorkLoop: skipping cycle due to overload
 ✅ Successfully captured window: 3840.000000x2110.000000
@@ -296,7 +296,7 @@ nw_connection_copy_protocol_metadata_internal_block_invoke [C11] Client called n
 ✅ [CAPTURE DEBUG] Screen capture successful: 4656 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Shrinking Details (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Shrinking Details (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|✳ Shrinking Details (4656 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (4656 chars)
 🔥 [NER-PREWARM] Triggering NER pre-warming with OCR text (4656 chars)
@@ -818,11 +818,11 @@ t=1502221 sess=GbC lvl=INFO cat=audio evt=device name="Mixed Input" ch=2 uid_has
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Git Commit (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches Context Preset detection
 🎯 Found window: ✳ Git Commit (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Git Commit (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ✳ Git Commit (ID: 61)
 ✅ Successfully captured window: 3840.000000x2110.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -907,7 +907,7 @@ t=1541488 sess=GbC lvl=INFO cat=audio evt=device uid_hash=5480335608799147459 na
 ✅ [CAPTURE DEBUG] Screen capture successful: 5214 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ✳ Git Commit (Warp) - layer:0, pid:642
-🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ✳ Git Commit (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|✳ Git Commit (5214 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (5214 chars)
 🔥 [NER-PREWARM] Triggering NER pre-warming with OCR text (5214 chars)
@@ -1071,7 +1071,7 @@ t=3481549 sess=GbC lvl=INFO cat=audio evt=device_pin_start prev_uid_hash=9053272
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Comet (ai.perplexity.comet)
 🎯 Found matching window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - layer:0, pid:663
-🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches PowerMode detection
+🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: dev.warp.Warp-Stable|✳ Git Branches
 🔄 [CACHE]   New: ai.perplexity.comet|Can you get me the pricing for all the voice agent builder platforms? So,...
@@ -1090,13 +1090,13 @@ t=3481603 sess=GbC lvl=INFO cat=audio evt=capture_backend_selected backend=avcap
 🎙️ [SONIOX DEBUG] Soniox streaming started successfully!
 ⏱️ [TIMING] mic_engaged @ 1755868574.726
 🎯 Found matching window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - layer:0, pid:663
-🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches PowerMode detection
+🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches Context Preset detection
 🎯 Found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet)
 ⏱️ [TIMING] WebSocket connect task completed — will flush after READY
 pass
 🎯 ScreenCapture detected frontmost app: Comet (ai.perplexity.comet)
 🎯 Found matching window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - layer:0, pid:663
-🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches PowerMode detection
+🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Can you get me the pricing for all the voice agent builder platforms? So,... (ID: 37735)
 ✅ Successfully captured window: 3456.000000x2040.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -1162,7 +1162,7 @@ t=3482197 sess=GbC lvl=INFO cat=audio evt=device name="Mixed Input" ch=2 uid_has
 ✅ [CAPTURE DEBUG] Screen capture successful: 1719 characters
 🎯 ScreenCapture detected frontmost app: Comet (ai.perplexity.comet)
 🎯 Found matching window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - layer:0, pid:663
-🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches PowerMode detection
+🎯 ScreenCapture found window: Can you get me the pricing for all the voice agent builder platforms? So,... (Comet) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: ai.perplexity.comet|Can you get me the pricing for all the voice agent builder platforms? So,... (1719 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (1719 chars)
 🔥 [NER-PREWARM] Triggering NER pre-warming with OCR text (1719 chars)

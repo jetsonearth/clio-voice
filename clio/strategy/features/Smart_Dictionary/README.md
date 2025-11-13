@@ -10,7 +10,7 @@
 ### Background
 Dictation systems frequently repeat user-specific errors (names, jargon, project terms). Users often correct these manually. Smart Dictionary closes the loop: detect those corrections near-real time, mine them as structured entries, and bias the recognizer on subsequent segments/sessions. This increases accuracy, reduces friction, and creates compounding personalization with minimal user effort.
 
-This document defines the product, UX, data model, and system design for implementing Smart Dictionary in Clio, referencing existing insertion flows (`ClipboardManager.swift`, `CursorPaster.swift`) and ASR stack (`WhisperState.swift`, `AIEnhancementService.swift`).
+This document defines the product, UX, data model, and system design for implementing Smart Dictionary in Clio, referencing existing insertion flows (`ClipboardManager.swift`, `CursorPaster.swift`) and ASR stack (`RecordingEngine.swift`, `AIEnhancementService.swift`).
 
 ---
 
@@ -96,7 +96,7 @@ flowchart TD
 Key Code Touchpoints:
 - `Clio/Clio/Managers/ClipboardManager.swift`: text insertion/paste flows
 - `Clio/Clio/Managers/CursorPaster.swift`: cursor-aware insertion
-- `Clio/Clio/Whisper/WhisperState.swift`: segment lifecycle, prompts
+- `Clio/Clio/Whisper/RecordingEngine.swift`: segment lifecycle, prompts
 - `Clio/Clio/Services/AI/AIEnhancementService.swift`: reranking, context packaging
 
 ---
@@ -132,7 +132,7 @@ Key Code Touchpoints:
    - Separate “style” entries (capitalization, punctuation) from lexical entries.
 
 7) Runtime Injection to ASR
-   - Prompt/Prefix Injection: add top-K hotwords + minimal context to `initial_prompt` for each segment in `WhisperState`.
+   - Prompt/Prefix Injection: add top-K hotwords + minimal context to `initial_prompt` for each segment in `RecordingEngine`.
    - Grammar (GBNF) Injection: synthesize a small alternation for top-K phrases where grammar support exists.
    - Logit Biasing: apply token-level bias for hotwords when decoder API supports it; cap max bias.
    - N-best Reranking: boost hypotheses that contain high-score entries with contextual alignment.
@@ -141,7 +141,7 @@ Key Code Touchpoints:
 ---
 
 ### Integration with Whisper (Clio)
-- Prompt Path: extend `WhisperState` to generate an `initial_prompt` that includes top-K scored phrases per active language and domain; ensure size/latency limits.
+- Prompt Path: extend `RecordingEngine` to generate an `initial_prompt` that includes top-K scored phrases per active language and domain; ensure size/latency limits.
 - Grammar Path: if using whisper.cpp grammars, emit a scoped GBNF for the current segment with an alternation of top-K phrases. Example:
 
 ```bnf

@@ -518,7 +518,7 @@ Full Report
   "parentPid" : 1,
   "coalitionName" : "com.cliovoice.clio",
   "crashReporterKey" : "E5B72D03-86A0-23FA-46D9-B406AECBD6A2",
-  "lowPowerMode" : 1,
+  "lowContext Preset" : 1,
   "codeSigningID" : "com.cliovoice.clio",
   "codeSigningTeamID" : "MFDGY9T8T9",
   "codeSigningFlags" : 570520337,

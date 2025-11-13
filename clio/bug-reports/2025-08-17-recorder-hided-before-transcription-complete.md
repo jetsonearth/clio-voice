@@ -39,7 +39,7 @@ client log:
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: com.apple.Terminal|Clio — ioreg ◂ claude GIT_PS1_SHOWDIRTYSTATE=1 — 80×24
 🔄 [CACHE]   New: com.todesktop.230313mzl4w4u92|2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace)
@@ -51,11 +51,11 @@ client log:
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🔊 Setting up audio engine...
 🎯 Found matching window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches Context Preset detection
 🎯 Found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor)
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (ID: 113)
 ✅ Successfully captured window: 1920.000000x1055.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -115,7 +115,7 @@ Task <2FE81A4C-C9B5-42FD-A7AF-BE7255F5257A>.<8> finished with error [57] Error D
 ✅ [CAPTURE DEBUG] Screen capture successful: 3953 characters
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: 2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (Cursor) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.todesktop.230313mzl4w4u92|2025-08-17-possible-omission-of-final-sentence.md — clio-project (Workspace) (3953 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (3953 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -423,7 +423,7 @@ evidence 2:
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — HotkeyManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: com.todesktop.230313mzl4w4u92|2025-08-17-ptt-losing-initial-audio.md — clio-project (Workspace) — Untracked
 🔄 [CACHE]   New: com.apple.dt.Xcode|Clio — HotkeyManager.swift
@@ -435,11 +435,11 @@ evidence 2:
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🔊 Setting up audio engine...
 🎯 Found matching window: Clio — HotkeyManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches Context Preset detection
 🎯 Found window: Clio — HotkeyManager.swift (Xcode)
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — HotkeyManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Clio — HotkeyManager.swift (ID: 14557)
 ✅ Successfully captured window: 3456.000000x2038.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -496,7 +496,7 @@ nw_write_request_report [C16] Send failed with error "Socket is not connected"
 ✅ [CAPTURE DEBUG] Screen capture successful: 2388 characters
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — HotkeyManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — HotkeyManager.swift (Xcode) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.apple.dt.Xcode|Clio — HotkeyManager.swift (2388 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2388 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -673,7 +673,7 @@ NER Context Entities:
 - **LaunchAgentInstaller** (Class)
 - **KeyboardShortcuts** (Library/Framework)
 - **ContextService** (Class)
-- **WhisperState+UI** (Class)
+- **RecordingEngine+UI** (Class)
 </CONTEXT_INFORMATION>
 
 DICTIONARY USAGE:

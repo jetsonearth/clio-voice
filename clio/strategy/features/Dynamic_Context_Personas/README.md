@@ -1,7 +1,7 @@
 # Dynamic Context & Persona-Based Hot Words Feature Specification
 
 **Version:** 1.0  
-**Date:** July 30, 2025  
+**Date:** Feb 30, 2025  
 **Status:** Planning Phase  
 
 ## Executive Summary
@@ -13,7 +13,7 @@ Transform Clio from a generic voice transcription tool into an intelligent, cont
 - **Differentiation**: Unique positioning as the only voice transcription app that understands technical contexts
 - **User Retention**: Significantly improved accuracy leads to higher user satisfaction and reduced churn
 - **Market Expansion**: Opens new market segments (developers, medical professionals, designers, etc.)
-- **Competitive Advantage**: Leverages existing PowerMode architecture for rapid implementation
+- **Competitive Advantage**: Leverages existing Context Preset architecture for rapid implementation
 
 ### Key Innovation
 Instead of requiring users to manually maintain dictionaries, Clio will automatically detect their professional context (coding tools, design apps, medical software) and intelligently preload relevant technical vocabularies. When a developer opens VS Code, Clio automatically understands React, TypeScript, and API terminology. When switching to email, it adapts to professional communication context.
@@ -42,7 +42,7 @@ Instead of requiring users to manually maintain dictionaries, Clio will automati
 **4. Competitive Gap**
 - Other transcription tools don't address technical vocabulary
 - Opportunity to own the "developer/professional tools" market segment
-- Current PowerMode system provides foundation but lacks intelligent automation
+- Current Context Preset system provides foundation but lacks intelligent automation
 
 ### User Pain Points
 
@@ -125,7 +125,7 @@ class PersonaManager: ObservableObject {
 - Learn and adapt vocabulary based on recognition success rates
 
 **Integration Points:**
-- Extends existing `PowerModeManager` architecture
+- Extends existing `Context PresetManager` architecture
 - Leverages `ActiveWindowService` for context detection
 - Integrates with `SonioxStreamingService` context parameter
 
@@ -167,11 +167,11 @@ class DevelopmentContextExtractor {
 
 ### Integration with Existing Systems
 
-#### PowerMode Enhancement
-Extend existing `PowerModeConfig` to support persona assignments:
+#### Context Preset Enhancement
+Extend existing `Context PresetConfig` to support persona assignments:
 
 ```swift
-struct PowerModeConfig {
+struct Context PresetConfig {
     // Existing properties...
     var assignedPersonas: [PersonaType] = []
     var enableDynamicVocabulary: Bool = true
@@ -316,7 +316,7 @@ Dynamic Vocabulary
 └── Manage custom vocabularies →
 ```
 
-**Optional PowerMode Enhancements:**
+**Optional Context Preset Enhancements:**
 ```
 Email Configuration
 ├── 📧 Professional Communication
@@ -460,7 +460,7 @@ Your Recognition Improvements
 **Risk: Competitive Response**
 - *Probability*: Medium
 - *Impact*: Medium (differentiation loss)
-- *Mitigation*: First-mover advantage, deep integration with existing PowerMode system
+- *Mitigation*: First-mover advantage, deep integration with existing Context Preset system
 
 **Risk: User Adoption**
 - *Probability*: Low
@@ -505,7 +505,7 @@ Your Recognition Improvements
 
 ## Conclusion
 
-The Dynamic Context & Persona-Based Hot Words feature represents a fundamental evolution of Clio from a generic transcription tool to an intelligent, context-aware professional assistant. By leveraging our existing PowerMode architecture and adding invisible intelligence, we can dramatically improve accuracy for technical users while maintaining the seamless experience Clio is known for.
+The Dynamic Context & Persona-Based Hot Words feature represents a fundamental evolution of Clio from a generic transcription tool to an intelligent, context-aware professional assistant. By leveraging our existing Context Preset architecture and adding invisible intelligence, we can dramatically improve accuracy for technical users while maintaining the seamless experience Clio is known for.
 
 **Key Success Factors:**
 1. **Seamless Integration**: Build on existing systems rather than replacing them

@@ -54,7 +54,7 @@ i am not sure if you can see that from my client log. The client log. In case yo
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: 2025-08-17-ptt-losing-initial-audio.md — clio-project (Workspace) — Untracked (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: 2025-08-17-ptt-losing-initial-audio.md — clio-project (Workspace) — Untracked (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: 2025-08-17-ptt-losing-initial-audio.md — clio-project (Workspace) — Untracked (Cursor) - matches Context Preset detection
 ✅ [CACHE] Context unchanged - reusing cache (3918 chars)
 ♻️ [SMART-CACHE] Using cached context: 3918 characters
 🔥 [NER-CACHE] Triggering NER callback with cached content (3918 chars)

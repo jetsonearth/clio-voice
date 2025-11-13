@@ -16,7 +16,7 @@
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: com.apple.dt.Xcode|Clio — TempKeyCache.swift
 🔄 [CACHE]   New: dev.warp.Warp-Stable|~/clio-project/Clio
@@ -27,11 +27,11 @@
 🚀 Starting Clio streaming transcription
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🎯 Found window: ~/clio-project/Clio (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ~/clio-project/Clio (ID: 2201)
 🔊 Setting up audio engine...
 ✅ Successfully captured window: 3840.000000x2110.000000
@@ -95,7 +95,7 @@ pass
 ✅ [CAPTURE DEBUG] Screen capture successful: 3152 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|~/clio-project/Clio (3152 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (3152 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

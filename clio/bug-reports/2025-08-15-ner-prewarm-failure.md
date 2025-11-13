@@ -198,7 +198,7 @@ I'm not sure if it's app-specific error or a random issue that happens across al
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: WeChat (com.tencent.xinWeChat)
 🎯 Found matching window: Weixin (WeChat) - layer:0, pid:66681
-🎯 ScreenCapture found window: Weixin (WeChat) - matches PowerMode detection
+🎯 ScreenCapture found window: Weixin (WeChat) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: com.apple.dt.Xcode|Clio — DynamicNotchWindowManager.swift
 🔄 [CACHE]   New: com.tencent.xinWeChat|Weixin
@@ -209,12 +209,12 @@ I'm not sure if it's app-specific error or a random issue that happens across al
 🚀 Starting Clio streaming transcription
 🎯 ScreenCapture detected frontmost app: WeChat (com.tencent.xinWeChat)
 🎯 Found matching window: Weixin (WeChat) - layer:0, pid:66681
-🎯 ScreenCapture found window: Weixin (WeChat) - matches PowerMode detection
+🎯 ScreenCapture found window: Weixin (WeChat) - matches Context Preset detection
 🎯 Found window: Weixin (WeChat)
 🎯 ScreenCapture detected frontmost app: WeChat (com.tencent.xinWeChat)
 🔊 Setting up audio engine...
 🎯 Found matching window: Weixin (WeChat) - layer:0, pid:66681
-🎯 ScreenCapture found window: Weixin (WeChat) - matches PowerMode detection
+🎯 ScreenCapture found window: Weixin (WeChat) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Weixin (ID: 1804)
 ✅ Successfully captured window: 2682.000000x1618.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -250,7 +250,7 @@ nw_path_necp_check_for_updates Failed to copy updated result (22)
 ✅ [CAPTURE DEBUG] Screen capture successful: 865 characters
 🎯 ScreenCapture detected frontmost app: WeChat (com.tencent.xinWeChat)
 🎯 Found matching window: Weixin (WeChat) - layer:0, pid:66681
-🎯 ScreenCapture found window: Weixin (WeChat) - matches PowerMode detection
+🎯 ScreenCapture found window: Weixin (WeChat) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.tencent.xinWeChat|Weixin (865 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (865 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -359,7 +359,7 @@ nw_path_necp_check_for_updates Failed to copy updated result (22)
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — DynamicNotchWindowManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches Context Preset detection
 🔄 [CACHE] Context changed - invalidating cache
 🔄 [CACHE]   Old: com.tencent.xinWeChat|Weixin
 🔄 [CACHE]   New: com.apple.dt.Xcode|Clio — DynamicNotchWindowManager.swift
@@ -370,12 +370,12 @@ nw_path_necp_check_for_updates Failed to copy updated result (22)
 🚀 Starting Clio streaming transcription
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — DynamicNotchWindowManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches Context Preset detection
 🎯 Found window: Clio — DynamicNotchWindowManager.swift (Xcode)
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🔊 Setting up audio engine...
 🎯 Found matching window: Clio — DynamicNotchWindowManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Clio — DynamicNotchWindowManager.swift (ID: 268)
 ✅ Successfully captured window: 3456.000000x2038.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -413,7 +413,7 @@ nw_connection_copy_protocol_metadata_internal_block_invoke [C39] Client called n
 ✅ [CAPTURE DEBUG] Screen capture successful: 2490 characters
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — DynamicNotchWindowManager.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — DynamicNotchWindowManager.swift (Xcode) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.apple.dt.Xcode|Clio — DynamicNotchWindowManager.swift (2490 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2490 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

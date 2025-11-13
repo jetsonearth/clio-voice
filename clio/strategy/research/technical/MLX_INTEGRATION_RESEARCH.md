@@ -11,10 +11,10 @@ This report provides a comprehensive analysis of integrating MLX-based Whisper i
 Clio currently uses whisper.cpp through the following architecture:
 
 **Core Components:**
-- `WhisperState.swift` - Central coordinator managing recording, transcription, and model lifecycle
+- `RecordingEngine.swift` - Central coordinator managing recording, transcription, and model lifecycle
 - `LibWhisper.swift` - Direct interface to whisper.cpp C library through Swift bindings
 - `whisper.xcframework` - Pre-built framework providing the whisper.cpp functionality
-- Audio pipeline: `AudioTranscriptionService` → `WhisperState` → `LibWhisper` → whisper.cpp
+- Audio pipeline: `AudioTranscriptionService` → `RecordingEngine` → `LibWhisper` → whisper.cpp
 
 **Key Integration Points:**
 - Model loading from `modelsDirectory` (Application Support)
@@ -175,12 +175,12 @@ Apple's MLX framework implementation of Whisper with proven performance benefits
 ### Current Code Impact Assessment
 
 **Low Impact Changes:**
-- Model loading and management (`WhisperState+ModelManager.swift`)
+- Model loading and management (`RecordingEngine+ModelManager.swift`)
 - Audio processing pipeline (`AudioTranscriptionService.swift`)
 - UI components remain largely unchanged
 
 **Medium Impact Changes:**
-- Core transcription logic (`WhisperState.swift`)
+- Core transcription logic (`RecordingEngine.swift`)
 - Model file management and storage
 - Error handling and fallback mechanisms
 

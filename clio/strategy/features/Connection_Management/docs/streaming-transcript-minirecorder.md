@@ -73,7 +73,7 @@ Add alternative MiniRecorder UI mode that displays real-time ASR transcript stre
 
 ### Architecture Changes
 
-#### WhisperState Extensions
+#### RecordingEngine Extensions
 ```swift
 // New published properties for real-time display
 @Published var streamingPartialText: String = ""
@@ -112,22 +112,22 @@ enum MiniRecorderMode: String, CaseIterable {
 #### StreamingTranscriptView
 ```swift
 struct StreamingTranscriptView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(alignment: .leading, spacing: 4) {
                     // Final confirmed text
-                    if !whisperState.streamingFinalText.isEmpty {
-                        Text(whisperState.streamingFinalText)
+                    if !recordingEngine.streamingFinalText.isEmpty {
+                        Text(recordingEngine.streamingFinalText)
                             .foregroundColor(.white)
                             .opacity(1.0)
                     }
                     
                     // Partial interim text with blur effect
-                    if !whisperState.streamingPartialText.isEmpty {
-                        Text(whisperState.streamingPartialText)
+                    if !recordingEngine.streamingPartialText.isEmpty {
+                        Text(recordingEngine.streamingPartialText)
                             .foregroundColor(.white)
                             .opacity(0.6)
                             .blur(radius: 0.5)
@@ -136,7 +136,7 @@ struct StreamingTranscriptView: View {
                 .padding(16)
                 .id("transcript")
             }
-            .onChange(of: whisperState.streamingPartialText) { _ in
+            .onChange(of: recordingEngine.streamingPartialText) { _ in
                 withAnimation(.easeInOut(duration: 0.2)) {
                     proxy.scrollTo("transcript", anchor: .bottom)
                 }
@@ -162,10 +162,10 @@ private func getExpandedSize() -> CGSize {
 .overlay {
     if showContent {
         Group {
-            if whisperState.isProcessing {
-                TranscribingProgressBar(progress: $whisperState.transcriptionProgress)
+            if recordingEngine.isProcessing {
+                TranscribingProgressBar(progress: $recordingEngine.transcriptionProgress)
             } else if miniRecorderMode == .streamingTranscript {
-                StreamingTranscriptView(whisperState: whisperState)
+                StreamingTranscriptView(recordingEngine: recordingEngine)
             } else {
                 // Wave visualizer (existing)
                 AudioVisualizer(...)
@@ -193,7 +193,7 @@ private func getExpandedSize() -> CGSize {
 #### Text Clarification Animation
 ```swift
 // Progressive text clarity as words are confirmed
-.onChange(of: whisperState.streamingFinalText) { oldValue, newValue in
+.onChange(of: recordingEngine.streamingFinalText) { oldValue, newValue in
     // Find newly confirmed words
     let newWords = extractNewWords(old: oldValue, new: newValue)
     
@@ -213,7 +213,7 @@ private func getExpandedSize() -> CGSize {
 User Speech → Soniox WebSocket → Interim Results → partialTranscript
                               → Final Results → finalBuffer
                               ↓
-SonioxStreamingService → WhisperState Binding → StreamingTranscriptView
+SonioxStreamingService → RecordingEngine Binding → StreamingTranscriptView
                       ↓
 Real-time UI Updates (60fps) → Progressive Text Clarification
 ```
@@ -263,7 +263,7 @@ Real-time UI Updates (60fps) → Progressive Text Clarification
 ## Implementation Timeline
 
 ### Week 1: Core Infrastructure
-- ✅ WhisperState streaming properties & binding
+- ✅ RecordingEngine streaming properties & binding
 - Settings integration with mode selection toggle
 - Basic StreamingTranscriptView component
 

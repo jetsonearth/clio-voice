@@ -25,7 +25,7 @@ class ContextHandoffManager: ObservableObject {
     
     // TODO: Implement dynamic context detection and handoff
     // - Monitor app switches, URL changes, document changes
-    // - Coordinate with PowerMode system for context-aware configuration
+    // - Coordinate with Context Preset system for context-aware configuration
     // - Intelligent handoff triggers based on context similarity
     // - State persistence across recording sessions
     // - Integration with Active Window Service and Browser URL detection

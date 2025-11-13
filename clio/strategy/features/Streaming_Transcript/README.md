@@ -17,7 +17,7 @@
 #### Minimal State Updates
 ```swift
 // EFFICIENT: Throttled updates prevent excessive re-renders
-class WhisperState: ObservableObject {
+class RecordingEngine: ObservableObject {
     @Published var streamingPartialText: String = ""
     @Published var streamingFinalText: String = ""
     
@@ -61,7 +61,7 @@ struct TextUpdateDiff {
 #### Text Virtualization for Long Transcripts
 ```swift
 struct EfficientStreamingTranscriptView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @State private var displayText: String = ""
     @State private var maxDisplayLength: Int = 500 // Limit visible chars
     
@@ -71,14 +71,14 @@ struct EfficientStreamingTranscriptView: View {
                 LazyVStack(alignment: .leading, spacing: 2) { // Lazy loading
                     // EFFICIENT: Only render visible text
                     Group {
-                        if !whisperState.streamingFinalText.isEmpty {
+                        if !recordingEngine.streamingFinalText.isEmpty {
                             Text(truncatedFinalText)
                                 .foregroundColor(.white)
                                 .font(.system(size: 13, weight: .regular)) // Smaller font for efficiency
                         }
                         
-                        if !whisperState.streamingPartialText.isEmpty {
-                            Text(whisperState.streamingPartialText)
+                        if !recordingEngine.streamingPartialText.isEmpty {
+                            Text(recordingEngine.streamingPartialText)
                                 .foregroundColor(.white)
                                 .opacity(0.6)
                                 .blur(radius: 0.3) // Reduced blur for performance
@@ -90,7 +90,7 @@ struct EfficientStreamingTranscriptView: View {
                 .id("transcript")
             }
             .clipped() // Prevent overdraw
-            .onChange(of: whisperState.streamingPartialText) { _ in
+            .onChange(of: recordingEngine.streamingPartialText) { _ in
                 // EFFICIENT: Debounced scrolling
                 scrollToBottomDebounced(proxy: proxy)
             }
@@ -99,7 +99,7 @@ struct EfficientStreamingTranscriptView: View {
     
     private var truncatedFinalText: String {
         // EFFICIENT: Only keep last 500 chars visible
-        let text = whisperState.streamingFinalText
+        let text = recordingEngine.streamingFinalText
         return text.count > maxDisplayLength 
             ? String(text.suffix(maxDisplayLength))
             : text
@@ -231,7 +231,7 @@ struct MiniRecorderModeSection: View {
 
 #### Memory Cleanup Strategy
 ```swift
-class WhisperState: ObservableObject {
+class RecordingEngine: ObservableObject {
     private let maxTranscriptLength = 1000 // chars
     private var transcriptCleanupTimer: Timer?
     
@@ -299,7 +299,7 @@ struct PerformanceMonitor {
 }
 
 // Usage in StreamingTranscriptView
-.onChange(of: whisperState.streamingPartialText) { _ in
+.onChange(of: recordingEngine.streamingPartialText) { _ in
     PerformanceMonitor.trackUIUpdate()
     // ... rest of update logic
 }

@@ -81,7 +81,7 @@ Bug fixes, patches, and system maintenance documentation.
 
 ### Completed ✅
 - Core architecture and service layer
-- Basic PowerMode system
+- Basic Context Preset system
 - Soniox streaming integration
 - Local whisper.cpp processing
 

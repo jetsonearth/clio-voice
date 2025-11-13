@@ -117,11 +117,11 @@ Context around failure shows earlier normal runs, then this session enters a per
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches Context Preset detection
 🎯 Found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor)
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: SonioxStreamingService.swift — clio-project (Workspace) — Modified (ID: 113)
 ✅ Successfully captured window: 3840.000000x2110.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -176,7 +176,7 @@ pass
 ✅ [CAPTURE DEBUG] Screen capture successful: 4117 characters
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.todesktop.230313mzl4w4u92|SonioxStreamingService.swift — clio-project (Workspace) — Modified (4117 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (4117 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -562,11 +562,11 @@ os_unix.c:49455: (2) open(/private/var/db/DetachedSignatures) - No such file or 
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🔊 Setting up audio engine...
 🎯 Found matching window: ~/clio-project (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project (Warp) - matches Context Preset detection
 🎯 Found window: ~/clio-project (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ~/clio-project (ID: 2201)
 ✅ Successfully captured window: 3516.000000x1948.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -600,7 +600,7 @@ pass
 ✅ [CAPTURE DEBUG] Screen capture successful: 2831 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|~/clio-project (2831 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2831 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -698,7 +698,7 @@ pass
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project (Warp) - matches Context Preset detection
 ✅ [CACHE] Context unchanged - reusing cache (2831 chars)
 ♻️ [SMART-CACHE] Using cached context: 2831 characters
 🔥 [NER-CACHE] Triggering NER callback with cached content (2831 chars)
@@ -899,7 +899,7 @@ see the log, this is going to deserve another tier fucking 1 bug.
 🔍 [CALLBACK DEBUG] onOCRCompleted callback exists: true
 🎯 ScreenCapture detected frontmost app: Cursor (com.todesktop.230313mzl4w4u92)
 🎯 Found matching window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - layer:0, pid:652
-🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches PowerMode detection
+🎯 ScreenCapture found window: SonioxStreamingService.swift — clio-project (Workspace) — Modified (Cursor) - matches Context Preset detection
 ✅ [CACHE] Context unchanged - reusing cache (4831 chars)
 ♻️ [SMART-CACHE] Using cached context: 4831 characters
 🔥 [NER-CACHE] Triggering NER callback with cached content (4831 chars)
@@ -1233,11 +1233,11 @@ nw_connection_copy_protocol_metadata_internal_block_invoke [C4] Client called nw
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Clio (com.cliovoice.clio)
 🎯 Found matching window:  (Clio) - layer:0, pid:92191
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 🎯 Found window:  (Clio)
 🎯 ScreenCapture detected frontmost app: Clio (com.cliovoice.clio)
 🎯 Found matching window:  (Clio) - layer:0, pid:92191
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 🖼️ Attempting window-specific capture for:  (ID: 5011)
 ✅ Successfully captured window: 2200.000000x1556.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -1385,7 +1385,7 @@ Task <F6029B99-4379-4F4A-9665-85D72F845D35>.<5> finished with error [-1003] Erro
 ✅ [CAPTURE DEBUG] Screen capture successful: 890 characters
 🎯 ScreenCapture detected frontmost app: Clio (com.cliovoice.clio)
 🎯 Found matching window:  (Clio) - layer:0, pid:92191
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.cliovoice.clio| (890 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (890 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -1999,11 +1999,11 @@ nw_connection_copy_protocol_metadata_internal_block_invoke [C8] Client called nw
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 🎯 Found window: Clio — SonioxStreamingService.swift (Xcode)
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Clio — SonioxStreamingService.swift (ID: 268)
 ✅ Successfully captured window: 3456.000000x2038.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -2061,7 +2061,7 @@ pass
 ✅ [CAPTURE DEBUG] Screen capture successful: 2281 characters
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:623
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.apple.dt.Xcode|Clio — SonioxStreamingService.swift (2281 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2281 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

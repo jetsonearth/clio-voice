@@ -9,7 +9,7 @@ This document outlines the architecture for implementing real-time streaming tex
 ### Client Side (Swift)
 - **DirectTextInserter.swift** - Direct AXUIElement text insertion
 - **StreamingEnhancementService.swift** - Server-Sent Events handling
-- **WhisperState.swift** - Updated streaming integration
+- **RecordingEngine.swift** - Updated streaming integration
 
 ### Server Side (Node.js/Fly.io)
 - **Streaming LLM Proxy** - Real-time Groq API streaming

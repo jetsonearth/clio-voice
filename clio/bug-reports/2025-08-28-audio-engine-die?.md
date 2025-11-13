@@ -346,7 +346,7 @@ t=193203 sess=tam lvl=INFO cat=audio evt=capture_backend_selected backend=avcapt
 ✅ Selected account account-bundle (connections: 1/10)
 🧠 [TEN-VAD] Initialized (threshold=0.5, hop=256)
 🚀 Starting Clio streaming transcription
-🎯 WhisperState.swift — clio-project (Workspace)
+🎯 RecordingEngine.swift — clio-project (Workspace)
 🌐 Using selected languages for OCR: zh-Hans, en-US
 🏥 [AUDIO HEALTH] Health monitoring timer started
 ⏱️ [TIMING] mic_engaged @ 1756313990.517
@@ -383,12 +383,12 @@ throwing -10877
 ✅ Text extraction successful: 3417 chars, 3417 non-whitespace, 382 words from 180 observations
 ✅ Captured text successfully
 ✅ [CAPTURE DEBUG] Screen capture successful: 3514 characters
-💾 [SMART-CACHE] Cached new context: com.todesktop.230313mzl4w4u92|WhisperState.swift — clio-project (Workspace) (3514 chars)
+💾 [SMART-CACHE] Cached new context: com.todesktop.230313mzl4w4u92|RecordingEngine.swift — clio-project (Workspace) (3514 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (3514 chars)
 🔥 [PREWARM DEBUG] Pre-warming AI connection (target: Gemini), environment: flyio
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
 🎦 [NER-PREWARM] Using raw OCR text for NER: 3514 characters
-🎦 [NER-INPUT-FULL] Full OCR Text Being Sent to NER: Active Window: WhisperState.swift — clio-project (Workspace)
+🎦 [NER-INPUT-FULL] Full OCR Text Being Sent to NER: Active Window: RecordingEngine.swift — clio-project (Workspace)
 Application: Cursor
 Window Content:
 •
@@ -418,10 +418,10 @@ StreamingTextCache.swift
 TranscriptionEngine.swift
 TranscriptionManager.swift
 y WhisperPrompt.swift
-> WhisperState.swift
-WhisperState+ModelManager.swift
-4 WhisperState+Ul.swift
-4 WhisperStateErrorShim.swift
+> RecordingEngine.swift
+RecordingEngine+ModelManager.swift
+4 RecordingEngine+Ul.swift
+4 RecordingEngineErrorShim.swift
 以 WhisperTextFormatter.swift
 y WhisperVAD.swift
 Clio-Bridging-Header.h
@@ -434,7 +434,7 @@ Clio-Bridging-Header.h
 >Image
 〉 NOTEPADS
 OUTLINE
-WhisperState.swift — clio-project （Workspace）
+RecordingEngine.swift — clio-project （Workspace）
 D
 Investigating warn
 Evaluate
@@ -443,11 +443,11 @@ ement.md
 f mcp.json
 Js polar.js
 clio-project >Clio >Clio >Whisper〉
-> WhisperState.swift
+> RecordingEngine.swift
 #endif
 y PolarService.swift
 LicensePageView.swift
-WhisperState.swift M
+RecordingEngine.swift M
 980
 1559
 1668
@@ -538,7 +538,7 @@ Clio/Services/AI/TranscriptionBuffer.swift
 modified：
 Clio/Views/Recorder/DynamicNotchWindowManager.swift
 modified：
-Clio/Whisper/WhisperState.swift
+Clio/Whisper/RecordingEngine.swift
 no changes added to commit （use "git add" and/or "'git commit -a"）
 （base）
 ZhaobangJetwu（feature/ensure-synchronous-root-rendering-with-placehoLder-content-for-windowgroup-dock-menu-restore-20
@@ -598,7 +598,7 @@ t=196015 sess=tam lvl=INFO cat=stream evt=ttft_hotkey ms=2767
 t=196015 sess=tam lvl=INFO cat=stream evt=ttft ms=2308
 🛑 [SPEECH-WATCHDOG] Cancelled
 🤖 [FLY.IO-NER] Server-reported provider: gemini
-📥 [NER-STORE] Stored NER entities: 1051 chars - FULL TEXT: {"classes": ["WhisperState", "Transcription", "DynamicNotchWindowManager"], "components": [], "function names": ["handleStreamingTranscriptionComple", "shouldSkipEnhancement"], "files": ["WhisperState.swift", "LibWhisper.swift", "PredefinedModelsShim.swift", "StreamingTextCache.swift", "TranscriptionEngine.swift", "TranscriptionManager.swift", "WhisperPrompt.swift", "WhisperState+ModelManager.swift", "WhisperState+Ul.swift", "WhisperStateErrorShim.swift", "WhisperTextFormatter.swift", "WhisperVAD.swift", "Clio-Bridging-Header.h", "PolarService.swift", "LicensePageView.swift", "mcp.json", "polar.js"], "frameworks": [], "packages": [], "variables": ["enhancementService", "contextCaptureLatencyMs", "originalText", "actualDuration", "streamingLatencyMs", "modelContext", "newTranscription", "audioFileURL", "wc", "dur", "shouldCancelRecording", "shouldSkipEnhancement", "text"], "services": ["PolarService", "ConnectionResilientStreamingService", "SonioxStreamingService"], "products": ["Clio"], "people": ["ZhaobangJetwu"], "organizations": []}
+📥 [NER-STORE] Stored NER entities: 1051 chars - FULL TEXT: {"classes": ["RecordingEngine", "Transcription", "DynamicNotchWindowManager"], "components": [], "function names": ["handleStreamingTranscriptionComple", "shouldSkipEnhancement"], "files": ["RecordingEngine.swift", "LibWhisper.swift", "PredefinedModelsShim.swift", "StreamingTextCache.swift", "TranscriptionEngine.swift", "TranscriptionManager.swift", "WhisperPrompt.swift", "RecordingEngine+ModelManager.swift", "RecordingEngine+Ul.swift", "RecordingEngineErrorShim.swift", "WhisperTextFormatter.swift", "WhisperVAD.swift", "Clio-Bridging-Header.h", "PolarService.swift", "LicensePageView.swift", "mcp.json", "polar.js"], "frameworks": [], "packages": [], "variables": ["enhancementService", "contextCaptureLatencyMs", "originalText", "actualDuration", "streamingLatencyMs", "modelContext", "newTranscription", "audioFileURL", "wc", "dur", "shouldCancelRecording", "shouldSkipEnhancement", "text"], "services": ["PolarService", "ConnectionResilientStreamingService", "SonioxStreamingService"], "products": ["Clio"], "people": ["ZhaobangJetwu"], "organizations": []}
 ✅ [FLY.IO] NER refresh completed successfully
 🛑 Stopping recording
 🛑 Stopping Clio streaming transcription

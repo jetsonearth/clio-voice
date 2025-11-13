@@ -425,11 +425,11 @@ Monitor these log patterns:
 
 ## 🔗 Integration Points
 
-### WhisperState Integration
+### RecordingEngine Integration
 
 The system is already integrated via:
 ```swift
-// In WhisperState.swift - look for these calls:
+// In RecordingEngine.swift - look for these calls:
 enhanceWithDynamicContextTracking(
     transcript,
     windowTitle: windowTitle,

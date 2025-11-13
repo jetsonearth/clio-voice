@@ -25,7 +25,7 @@ Total delay: 1280ms before any text appears
 ```
 
 ### Current Implementation Points
-- **WhisperState.swift**: Calls `CursorPaster.pasteAtCursor(enhancedText)` after complete LLM response
+- **RecordingEngine.swift**: Calls `CursorPaster.pasteAtCursor(enhancedText)` after complete LLM response
 - **CursorPaster.swift**: Manages clipboard state and simulates Cmd+V keypress
 - **AIEnhancementService.swift**: Makes synchronous calls to Fly.io proxy, waits for complete response
 - **clio-flyio-api/src/routes/llm.js**: Sets `stream: false` in Groq API requests
@@ -202,8 +202,8 @@ User speaks → ASR (400ms) → First tokens (100ms) → Stream remaining tokens
    }
    ```
 
-### Phase 4: Integrate Real-Time Streaming in WhisperState
-**Target file**: `Clio/Clio/Whisper/WhisperState.swift`
+### Phase 4: Integrate Real-Time Streaming in RecordingEngine
+**Target file**: `Clio/Clio/Whisper/RecordingEngine.swift`
 
 #### Replace Batch Processing
 1. **Current implementation** (to be replaced):
@@ -322,7 +322,7 @@ User speaks → ASR (400ms) → First tokens (100ms) → Stream remaining tokens
 1. **Phase 1**: Implement Fly.io streaming endpoint (backend only)
 2. **Phase 2**: Create DirectTextInserter service (can coexist with existing)
 3. **Phase 3**: Add streaming capability to AIEnhancementService
-4. **Phase 4**: Replace WhisperState batch processing with streaming
+4. **Phase 4**: Replace RecordingEngine batch processing with streaming
 5. **Phase 5**: Add Cursor IDE specific enhancements
 
 ### Backward Compatibility

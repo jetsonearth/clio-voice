@@ -64,11 +64,11 @@ client log:
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🔊 Setting up audio engine...
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🎯 Found window: ~/clio-project/Clio (Warp)
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: ~/clio-project/Clio (ID: 2201)
 ✅ Successfully captured window: 3456.000000x2044.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -128,7 +128,7 @@ Task <CA69CE36-DCC4-4E6F-85B2-0422AE0B43C1>.<10> finished with error [57] Error 
 ✅ [CAPTURE DEBUG] Screen capture successful: 2990 characters
 🎯 ScreenCapture detected frontmost app: Warp (dev.warp.Warp-Stable)
 🎯 Found matching window: ~/clio-project/Clio (Warp) - layer:0, pid:656
-🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches PowerMode detection
+🎯 ScreenCapture found window: ~/clio-project/Clio (Warp) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: dev.warp.Warp-Stable|~/clio-project/Clio (2990 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2990 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

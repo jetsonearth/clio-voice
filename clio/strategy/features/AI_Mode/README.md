@@ -187,7 +187,7 @@ Key Points:
 - User-customizable prompt templates
 - Learning from user editing patterns (similar to Smart Dictionary)
 - Domain-specific template libraries
-- Integration with existing PowerMode system for app-specific configurations
+- Integration with existing Context Preset system for app-specific configurations
 - Advanced context understanding and application
 
 ---
@@ -271,7 +271,7 @@ Settings → Dictation → AI Mode
 - Use existing app detection for platform inference
 - Maintain performance optimizations from context pipeline
 
-#### PowerMode System Integration
+#### Context Preset System Integration
 - App-specific AI Mode configurations
 - URL-based platform detection for web-based AI tools
 - Dynamic template selection based on context

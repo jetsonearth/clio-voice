@@ -62,11 +62,11 @@ t=29417895 sess=8Hv lvl=INFO cat=audio evt=capture_backend_selected backend=avca
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 t=29417936 sess=8Hv lvl=INFO cat=transcript evt=session_start divider="────────── session start ──────────"
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:661
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 🎯 Found window: Clio — SonioxStreamingService.swift (Xcode)
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:661
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 🖼️ Attempting window-specific capture for: Clio — SonioxStreamingService.swift (ID: 3391)
 ⚡ [CACHE-HIT] Retrieved temp key in 2.1ms
 ✅ Successfully captured window: 3456.000000x2042.000000
@@ -135,7 +135,7 @@ t=29418269 sess=8Hv lvl=INFO cat=stream evt=ws_bind socket=sock_5910722198444033
 ✅ [CAPTURE DEBUG] Screen capture successful: 2617 characters
 🎯 ScreenCapture detected frontmost app: Xcode (com.apple.dt.Xcode)
 🎯 Found matching window: Clio — SonioxStreamingService.swift (Xcode) - layer:0, pid:661
-🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches PowerMode detection
+🎯 ScreenCapture found window: Clio — SonioxStreamingService.swift (Xcode) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.apple.dt.Xcode|Clio — SonioxStreamingService.swift (2617 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (2617 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content
@@ -444,11 +444,11 @@ Cleanup run finished — removed: 0, failed: 0
 🎬 Starting screen capture with verified permissions
 🎯 ScreenCapture detected frontmost app: Clio (com.cliovoice.clio)
 🎯 Found matching window:  (Clio) - layer:0, pid:49158
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 🎯 Found window:  (Clio)
 🎯 ScreenCapture detected frontmost app: Clio (com.cliovoice.clio)
 🎯 Found matching window:  (Clio) - layer:0, pid:49158
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 🖼️ Attempting window-specific capture for:  (ID: 26846)
 ✅ Successfully captured window: 2200.000000x1604.000000
 🌐 [LANG DEBUG] Multi-language setting exists: true, Single language: en
@@ -553,7 +553,7 @@ CMIO_Unit_Converter_Audio.cpp:590:RebuildAudioConverter AudioConverterSetPropert
 237067          HALC_ProxyIOContext.cpp:1622  HALC_ProxyIOContext::IOWorkLoop: skipping cycle due to overload
 182283          HALC_ProxyIOContext.cpp:1622  HALC_ProxyIOContext::IOWorkLoop: skipping cycle due to overload
 🎯 Found matching window:  (Clio) - layer:0, pid:49158
-🎯 ScreenCapture found window:  (Clio) - matches PowerMode detection
+🎯 ScreenCapture found window:  (Clio) - matches Context Preset detection
 💾 [SMART-CACHE] Cached new context: com.cliovoice.clio| (1042 chars)
 🎯 [CALLBACK DEBUG] Executing callback with fresh content (1042 chars)
 🔥 [NER-TRIGGER] OCR completion callback triggered with fresh content

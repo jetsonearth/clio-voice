@@ -49,12 +49,12 @@ struct VADSegment {
 
 ### 2. VAD Model Management
 
-The VAD model is automatically downloaded and managed by WhisperState:
+The VAD model is automatically downloaded and managed by RecordingEngine:
 
 - **Download URL**: `https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v5.1.2.bin`
 - **Storage Location**: `~/Library/Application Support/com.jetsonai.clio/WhisperModels/ggml-silero-v5.1.2.bin`
 - **Auto-download**: VAD model is downloaded automatically on first launch if not present
-- **Initialization**: VAD context is initialized during WhisperState initialization
+- **Initialization**: VAD context is initialized during RecordingEngine initialization
 
 ## Audio Processing Pipeline
 
@@ -65,7 +65,7 @@ The VAD model is automatically downloaded and managed by WhisperState:
 
 ### 2. Processing Phase
 
-The audio processing flow in `WhisperState.transcribeAudio()`:
+The audio processing flow in `RecordingEngine.transcribeAudio()`:
 
 ```swift
 1. Load audio samples from WAV file
@@ -84,7 +84,7 @@ The audio processing flow in `WhisperState.transcribeAudio()`:
 When VAD is enabled, the following occurs:
 
 ```swift
-// From WhisperState.swift
+// From RecordingEngine.swift
 if let vadContext = vadContext {
     do {
         logger.info("🎙️ VAD Context exists, applying VAD to remove silence...")
@@ -114,10 +114,10 @@ Audio samples are processed as follows:
 
 ## VAD Integration Points
 
-### 1. WhisperState Integration
+### 1. RecordingEngine Integration
 
 - VAD context is stored as a property: `private var vadContext: WhisperVADContext?`
-- Initialized during WhisperState init
+- Initialized during RecordingEngine init
 - Applied during transcription before Whisper processing
 
 ### 2. TranscriptionManager Integration
@@ -128,7 +128,7 @@ Audio samples are processed as follows:
 
 ### 3. Model Management Integration
 
-- VAD model download handled in `WhisperState+ModelManager.swift`
+- VAD model download handled in `RecordingEngine+ModelManager.swift`
 - `downloadVADModel()` and `deleteVADModel()` methods available
 - VAD model presence checked via `isVADModelDownloaded` property
 
@@ -212,7 +212,7 @@ struct OptimizedVADParams {
 
 To enable streaming transcription:
 
-1. **Modify WhisperState**: Add streaming mode toggle
+1. **Modify RecordingEngine**: Add streaming mode toggle
 2. **Create StreamingTranscriptionManager**: Handle real-time audio processing
 3. **Integrate VAD**: Use VAD for real-time speech detection
 4. **Update UI**: Show partial transcription results
