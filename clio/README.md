@@ -1,11 +1,6 @@
 # Clio
 
-**Transform your voice into text at the speed of thought**
-
-Clio is an advanced macOS voice transcription application that lets you speak at 200 words per minute instead of typing at 50 wpm. Built with privacy-first design and powered by local AI, Clio processes everything on your device without sending data to the cloud.
-
-> **Community Edition**  
-> This open-source build removes hosted authentication, licensing, and payment dependencies. Bring your own Groq + Soniox API keys (stored locally in the Keychain) and start using every feature immediately—no accounts, no trials, no paywalls.
+**macOS dictation that feels personal, intentional, and yours**
 
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Platform](https://img.shields.io/badge/platform-macOS%2014.0%2B-brightgreen)
@@ -13,186 +8,127 @@ Clio is an advanced macOS voice transcription application that lets you speak at
 
 ---
 
-## ✨ Features
+## A Builder's Note
 
-### 🎙️ **Lightning-Fast Transcription**
-- **4x productivity boost**: Speak at 200 wpm vs typing at 50 wpm
-- Near-instant local AI transcription using Whisper models
-- Support for multiple languages with auto-detection
+In January 2025 I opened a blank Swift file with a simple promise to myself: *maybe voice could make my Mac feel quieter*. I had never shipped a macOS app, never lived inside AppKit, and definitely did not expect to learn audio pipelines, CoreML quirks, and Accessibility APIs all at once. Clio began as a private tool so I could think out loud, transcribe fast, and keep everything on my machine.
 
-### 🔒 **Privacy by Design**
-- **100% offline processing** - your voice never leaves your device
-- No cloud dependencies, no data collection
-- Complete control over your sensitive information
-
-### 🧠 **Intelligent Context Awareness**
-- **PowerMode**: Automatically adapts to different apps and websites
-- Smart screen context integration for enhanced accuracy
-- AI-powered text enhancement with local and cloud options
-
-### ⚡ **Seamless Workflow Integration**
-- Global hotkeys for instant recording
-- Push-to-talk functionality
-- Automatic text insertion at cursor position
-- Custom dictionary for technical terms and names
-
-### 🎯 **Advanced AI Capabilities**
-- Multiple AI providers (OpenAI, Anthropic, Ollama, etc.)
-- Context-aware text enhancement
-- Custom prompts and writing styles
-- Real-time voice activity detection
-- Bring-your-own Groq & Soniox API keys, stored securely in the macOS Keychain
+Somewhere between debugging hotkeys at 2 a.m. and teaching myself SwiftUI by brute force, the project stopped being “for me only.” Dictation deserves to be infrastructure—not a gated SaaS add-on or yet another subscription. So I’m open-sourcing the entire stack, hoping other builders will treat voice as a primitive we can improve together. If you are reading this, consider it an invitation to add your own rituals, shortcuts, and ideas to Clio.
 
 ---
 
-## 🚀 Quick Start
+## Why Clio Exists
 
-### Requirements
-- macOS 14.0 or later
-- Apple Silicon (M1/M2/M3/M4) or Intel Mac
+- **Voice as infrastructure**: A locally owned pipeline that slots into any workflow instead of asking you to relocate your thoughts to a web app.
+- **Privacy without performance trade-offs**: Whisper.cpp, Metal acceleration, and the Keychain mean fast transcription with zero server round-trips.
+- **Context-aware by default**: PowerMode watches which app or URL you’re in and reshapes prompts, models, and formatting in real time.
+- **For builders, writers, and tinkerers**: Pull it, fork it, gut it—Clio is documented, scriptable, and ready for your own experiments.
 
-### Installation
+---
 
-#### Option 1: Download Release
-1. Download the latest release from [Releases](https://github.com/studio-kensense/clio/releases)
-2. Open the `.dmg` file and drag Clio to Applications
-3. Launch Clio and grant necessary permissions
+## What You Get
 
-#### Option 2: Build from Source
+### 🎙️ Fluent Dictation
+- 200 wpm transcription backed by Whisper Flash/Turbo or your own fine-tuned models
+- Push-to-talk, hold-to-record, and automatic cursor insertion
+- Multi-language support with confidence scoring and inline correction commands
+
+### 🧠 Context & Enhancement
+- PowerMode profiles for writing apps, IDEs, browsers, and any bundle identifier you care about
+- Optional AI enhancement that routes through Groq, Soniox, OpenAI, Anthropic, or local Ollama models
+- Custom prompts and style presets (“memo,” “stand-up notes,” “support ticket,” etc.)
+
+### 🔒 Local-First Security
+- Audio never leaves the device unless you explicitly wire up a cloud provider
+- API keys live in the macOS Keychain
+- Automatic cleanup of temporary recordings and transcripts
+
+### ⚙️ Integrations & Extensibility
+- Whisper.cpp submodule for on-device inference
+- Sparkle-powered updates for signed releases
+- KeyboardShortcuts + AppKit Accessibility hooks for system-wide hotkeys
+- A modular `Services`, `Managers`, and `StateMachine` layout so you can drop in new providers or UI experiments
+
+---
+
+## Quick Start
+
 ```bash
 git clone https://github.com/studio-kensense/clio.git
-cd Clio
+cd clio
 open Clio.xcodeproj
 ```
 
-Build and run in Xcode (⌘+R)
+Build with Xcode 15+ (`⌘R`) or run the CLI build:
+
+```bash
+xcodebuild -project Clio.xcodeproj -scheme Clio -configuration Debug build
+```
+
+Prefer binaries? Download the latest signed DMG from the [Releases](https://github.com/studio-kensense/clio/releases) page, drag to `/Applications`, and grant microphone/accessibility permissions on first launch.
 
 ---
 
-## 🛠️ Setup
+## First Launch Checklist
 
-### 1. Permissions
-Clio requires the following permissions to function:
-- **Microphone**: For voice recording
-- **Accessibility**: For automatic text insertion
-- **Screen Recording**: For context-aware features (optional)
+1. **Permissions** – macOS will prompt for Microphone, Accessibility, and (optionally) Screen Recording so Clio can insert text at your cursor and capture on-screen context.
+2. **Models** – Choose Whisper Flash for speed (~130 MB) or Turbo for accuracy (~1.6 GB). You can sideload custom GGML models inside `~/Library/Application Support/Clio/Models`.
+3. **Hotkeys** – Set global shortcuts for toggle-recording and push-to-talk. They live under **Settings → Shortcuts**.
+4. **API Keys (optional)** – Drop Groq and Soniox keys into **Settings → Cloud API Keys**. They’re stored locally and never synced.
 
-### 2. Download Models
-On first launch, Clio will help you download Whisper models:
-- **Flash Model** (130MB) - Fast, good quality
-- **Turbo Model** (1.6GB) - Highest accuracy
-- **Custom Models** - Upload your own fine-tuned models
-
-### 3. Configure Hotkeys
-Set up global keyboard shortcuts:
-- **Toggle Recording** (default: ⌘+⇧+Space)
-- **Push to Talk** (customizable)
-
-### 4. Add API Keys
-- Open **Settings → Cloud API Keys** inside Clio
-- Paste your **Groq** key for AI enhancement and your **Soniox** key for streaming transcription
-- Keys are saved locally in the macOS Keychain; feel free to leave either field blank if you are testing offline-only flows
+After that, tap your shortcut, speak naturally, and watch text flow wherever your caret lives—Notes, Xcode, Notion, or even the Terminal.
 
 ---
 
-## 🎯 Usage
+## Workflow Recipes
 
-### Basic Recording
-1. Press your hotkey to start recording
-2. Speak naturally
-3. Press hotkey again to stop and transcribe
-4. Text appears at your cursor automatically
+- **Draft mode** – Use PowerMode to auto-format Slack updates or daily journals with headings and bullet styles.
+- **Pair-programming journal** – Switch to a “code” profile that disables auto-punctuation, respects camelCase, and keeps markdown fences intact.
+- **Meeting memory** – Route long-form audio through Soniox low-latency streaming and hand the transcript to Groq for summaries.
+- **Hands-free coding** – Combine push-to-talk with cursor control tools (Raycast, Hammerspoon, etc.) for voice-driven scaffolding.
 
-### PowerMode (Context-Aware)
-Configure different settings for specific apps:
-- **Writing Apps**: Enhanced grammar and style
-- **Code Editors**: Technical terminology focus
-- **Browsers**: URL-specific configurations
-- **Email/Slack**: Professional tone adjustment
-
-### AI Enhancement
-Enable AI enhancement for:
-- Grammar and style improvements
-- Context-aware suggestions
-- Professional tone adjustment
-- Technical writing optimization
+If you build a workflow worth sharing, drop it in `docs/recipes` (or open an issue) so the rest of us can steal it.
 
 ---
 
-## 🔧 Architecture
+## Architecture at a Glance
 
-### Core Components
-- **WhisperState**: Central transcription coordinator
-- **AIEnhancementService**: Multi-provider AI integration
-- **PowerMode System**: Context-aware configuration
-- **VAD (Voice Activity Detection)**: Intelligent audio processing
+- `Core/WhisperState.swift` – Orchestrates recording, VAD, chunking, and transcription jobs.
+- `Services/AIEnhancementService.swift` – Provider-agnostic layer for Groq, OpenAI, Anthropic, Gemini, and Ollama.
+- `Managers/PowerModeManager.swift` – Keeps context about foreground apps/URLs and applies presets.
+- `Whisper/whisper.cpp` – The embedded inference engine with Metal + CoreML acceleration.
+- `StateMachine/` – Guards all the little edge cases (lost focus, permission changes, model swaps) so sessions stay stable.
 
-### AI Providers Supported
-- OpenAI (GPT-4, GPT-3.5)
-- Anthropic (Claude)
-- Google (Gemini)
-- Ollama (Local models)
-- Groq (Ultra-fast inference)
-
-### Local Processing
-- **whisper.cpp**: High-performance local transcription
-- **Metal acceleration**: Optimized for Apple Silicon
-- **CoreML integration**: Native iOS/macOS AI frameworks
+Everything is written in Swift with a strict 4-space indent, plenty of structs, and zero force unwraps. Tests live in `ClioTests/` and `ClioUITests/`; Python tooling and CI scripts sit at the repo root.
 
 ---
 
-## 🔒 Privacy & Security
+## Roadmap & Community
 
-### Data Handling
-- **Voice recordings**: Processed locally, automatically deleted
-- **Transcripts**: Stored locally in encrypted format
-- **AI enhancement**: Optional, user-controlled
-- **No telemetry**: Zero data collection
+- **Short term** – polish onboarding, add more preset voices/styles, expose the automation hooks I use daily.
+- **Medium term** – ship a plug-in surface so you can call any local LLM or automation script after transcription.
+- **Long term** – keep Clio fast, private, and boring in the best possible way. Dictation should feel like a keyboard, not a product funnel.
 
-### Open Source Benefits
-- Full code transparency
-- Community security audits
-- No hidden data collection
-- Complete user control
+Issues and PRs are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for coding style, testing expectations, and how to run the deployment scripts (`build_release.sh`, `create_dmg.sh`, etc.).
 
 ---
 
-## 🤝 Contributing
+## License
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-1. Clone the repository
-2. Install dependencies (Xcode 15.0+)
-3. Build whisper.cpp framework (see [BUILDING.md](BUILDING.md))
-4. Run tests: `⌘+U` in Xcode
-
-### Areas for Contribution
-- New AI provider integrations
-- Language model improvements
-- UI/UX enhancements
-- Performance optimizations
-- Documentation
+Clio ships under the **Clio Community License v1.0**, which keeps the code open for personal and non-commercial use while requiring derivative work to remain non-commercial. Need a commercial license? Reach out via issues or email and we can figure out terms. Read the full text in [LICENSE](LICENSE).
 
 ---
 
-## 📄 License
+## Credits
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+- **boring.notch** – The recorder UI leans on the thoughtful interaction patterns pioneered by [TheBoredTeam/boring.notch](https://github.com/TheBoredTeam/boring.notch).
+- **Soniox** – Streaming and batch ASR capabilities are powered by Soniox models; huge thanks for low-latency accuracy.
 
-## 🙏 Acknowledgments
-
-### Core Technologies
-- [whisper.cpp](https://github.com/ggerganov/whisper.cpp) - High-performance Whisper inference
-- [Sparkle](https://github.com/sparkle-project/Sparkle) - Automatic updates
-- [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts) - Global hotkey management
+If your work ends up inside Clio, let me know so I can brag about it here.
 
 ---
 
-<div align="center">
+### Thank You
 
-**Speak faster. Think clearer. Work smarter.**
+Clio exists because people keep cheering for indie infrastructure. If this helped you, star the repo, file an issue, or tell me how you are bending it to your workflow. I built this to talk to my Mac without apology; now it’s yours to shape.
 
-[⭐ Star us on GitHub](https://github.com/studio-kensense/clio) • [🐛 Report Issues](https://github.com/studio-kensense/clio/issues) • [💬 Discussions](https://github.com/studio-kensense/clio/discussions)
-
-</div>
+— jetson
