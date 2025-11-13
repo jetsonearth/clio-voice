@@ -5,8 +5,7 @@ enum AIProvider: String, CaseIterable {
     case groq = "GROQ"
     
     var baseURL: String {
-        // All requests go through fly.io proxy - no direct API calls
-        return APIConfig.llmProxyURL
+        return "https://api.groq.com/openai/v1/chat/completions"
     }
     
     var defaultModel: String {
@@ -24,8 +23,7 @@ enum AIProvider: String, CaseIterable {
     }
     
     var requiresAPIKey: Bool {
-        // Proxy handles authentication - no user API keys needed
-        return false
+        return true
     }
     
     /// Returns user-friendly display names for models

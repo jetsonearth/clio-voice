@@ -24,9 +24,6 @@ struct SystemSettingsSection: View {
     @StateObject private var permissionManager = PermissionManager()
 
     // Sign out
-    @StateObject private var supabaseService = SupabaseServiceSDK.shared
-    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = true
-    @AppStorage("hasCompletedAuthentication") private var hasCompletedAuthentication = true
 
     private var isScreenRecordingRequired: Bool { contextService.useScreenCaptureContext }
 
@@ -270,43 +267,6 @@ VStack(alignment: .leading, spacing: 4) {
                 }
                 .padding(16)
 
-                // Divider
-                Rectangle().fill(DarkTheme.textSecondary.opacity(0.2)).frame(height: 1).padding(.horizontal, 16)
-
-                // Sign Out row
-                HStack(spacing: 12) {
-                    Image(systemName: "rectangle.portrait.and.arrow.right")
-                        .font(.system(size: 20))
-                        .foregroundColor(.accentColor)
-                        .frame(width: 24, height: 24)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(localizationManager.localizedString("settings.sign_out.title"))
-                            .font(.headline)
-                            .foregroundColor(DarkTheme.textPrimary)
-                        Text(localizationManager.localizedString("settings.sign_out.subtitle"))
-                            .font(.subheadline)
-                            .foregroundColor(DarkTheme.textSecondary)
-                    }
-                    Spacer()
-                    Button(action: signOut) {
-                        Text(localizationManager.localizedString("settings.sign_out.button"))
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundColor(DarkTheme.textPrimary)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(DarkTheme.textPrimary.opacity(0.1))
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .stroke(DarkTheme.textPrimary.opacity(0.2), lineWidth: 1)
-                                    )
-                            )
-                    }
-                    .buttonStyle(.plain)
-                }
-                .padding(16)
             }
             .background(
                 RoundedRectangle(cornerRadius: 12)
@@ -326,19 +286,6 @@ VStack(alignment: .leading, spacing: 4) {
                 launchDefaulted = true
             } else {
                 launchAtLoginEnabled = LaunchAtLogin.isEnabled
-            }
-        }
-    }
-
-    private func signOut() {
-        Task {
-            do {
-                try await supabaseService.signOut()
-                // Do NOT reset onboarding; users keep their completed setup
-                hasCompletedAuthentication = false
-            } catch {
-                // Even if sign out fails, reflect unauthenticated state locally
-                hasCompletedAuthentication = false
             }
         }
     }

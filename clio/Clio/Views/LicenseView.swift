@@ -5,45 +5,27 @@ struct LicenseView: View {
     @EnvironmentObject private var localizationManager: LocalizationManager
     
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(spacing: 18) {
             Text(localizationManager.localizedString("license.management.title"))
                 .font(.headline)
-            
-            if case .licensed = licenseViewModel.licenseState {
+
+            Text("Clio Community Edition is fully unlocked—no license or activation key is required.")
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .frame(maxWidth: 360)
+
+            if !(licenseViewModel.licenseKey.isEmpty) {
                 VStack(spacing: 10) {
-                    Text(localizationManager.localizedString("license.status.activated"))
-                        .foregroundColor(.green)
-                    
-                    Button(role: .destructive, action: {
+                    Text("A legacy key is still stored locally. You can clear it to remove stale data.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    Button(role: .destructive) {
                         licenseViewModel.removeLicense()
-                    }) {
-                        Text(localizationManager.localizedString("license.action.remove"))
+                    } label: {
+                        Text("Clear Legacy License Data")
                     }
                 }
-            } else {
-                TextField(localizationManager.localizedString("license.placeholder.enter_key"), text: $licenseViewModel.licenseKey)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(maxWidth: 300)
-                
-                Button(action: {
-                    Task {
-                        await licenseViewModel.validateLicense()
-                    }
-                }) {
-                    if licenseViewModel.isValidating {
-                        ProgressView()
-                            .frame(width: 20, height: 20)
-                    } else {
-                        Text(localizationManager.localizedString("license.action.activate"))
-                    }
-                }
-                .disabled(licenseViewModel.isValidating)
-            }
-            
-            if let message = licenseViewModel.validationMessage {
-                Text(message)
-                    .foregroundColor(licenseViewModel.licenseState == .licensed ? .green : .red)
-                    .font(.caption)
             }
         }
         .padding()

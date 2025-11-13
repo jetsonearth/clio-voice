@@ -384,7 +384,6 @@ extension WhisperState {
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleToggleMiniRecorder), name: .toggleMiniRecorder, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleLicenseStatusChanged), name: .licenseStatusChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePromptChange), name: .promptDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleNotchRecorderESC), name: NSNotification.Name("NotchRecorderESCPressed"), object: nil)
         // ESC mapping handled dynamically by HotkeyManager.updateEscapeShortcut()
@@ -402,11 +401,6 @@ extension WhisperState {
         Task {
             await showCancelConfirmation()
         }
-    }
-    
-    @objc func handleLicenseStatusChanged() {
-        // No need to create new instance - using shared singleton
-        // License state will update automatically via @Published properties
     }
     
     @objc func handlePromptChange() {

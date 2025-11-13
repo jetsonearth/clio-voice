@@ -202,6 +202,14 @@ private struct TrialData: Codable {
     let deviceId: String
 }
 
+struct SecureTrialData: Codable {
+    let startDate: Date
+    let expiryDate: Date
+    let serverSignature: String
+    let deviceFingerprint: String
+    let createdAt: Date
+}
+
 enum KeychainError: Error {
     case storeFailed
     case retrievalFailed

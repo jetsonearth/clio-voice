@@ -6,6 +6,7 @@ import KeyboardShortcuts
 extension Notification.Name {
     static let navigateToDestination = Notification.Name("navigateToDestination")
     static let showFeedbackModal = Notification.Name("showFeedbackModal")
+    static let showRecordingFailedDialog = Notification.Name("showRecordingFailedDialog")
 }
 
 // ViewType enum with all cases
@@ -98,7 +99,6 @@ struct DynamicSidebar: View {
     @ObservedObject private var licenseViewModel = LicenseViewModel.shared
     @ObservedObject private var userProfile = UserProfileService.shared
     @ObservedObject private var subscriptionManager = SubscriptionManager.shared
-    @ObservedObject private var supabaseService = SupabaseServiceSDK.shared
     @ObservedObject var updaterViewModel: UpdaterViewModel
     @Namespace private var buttonAnimation
 
@@ -262,31 +262,10 @@ struct DynamicSidebar: View {
             VStack(spacing: 12) {
                 offlineModeSection
 
-                if subscriptionManager.currentTier == .free && !subscriptionManager.isInTrial {
-                    Button(action: { selectedView = .license }) {
-                        Text(localizationManager.localizedString("subscription.upgrade"))
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(DarkTheme.textPrimary)
-                            .frame(maxWidth: .infinity)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 10)
-                            .background(
-                                Capsule()
-                                    .fill(DarkTheme.textPrimary.opacity(0.1))
-                                    .overlay(
-                                        Capsule()
-                                            .stroke(DarkTheme.textPrimary.opacity(0.3), lineWidth: 1)
-                                    )
-                            )
-                    }
-                    .buttonStyle(.plain)
-                    .padding(.horizontal, 8)
-                } else {
-                    HStack {
-                        Spacer()
-                        UpdateStatusBadge(updaterViewModel: updaterViewModel)
-                        Spacer()
-                    }
+                HStack {
+                    Spacer()
+                    UpdateStatusBadge(updaterViewModel: updaterViewModel)
+                    Spacer()
                 }
             }
             .padding(.bottom, 16)
@@ -342,28 +321,15 @@ case .personalizationVocabulary: return localizationManager.localizedString("nav
     
     @ViewBuilder
     private var statusBadge: some View {
-        let (text, fg, bg): (String, Color, Color) = {
-            // Use ONLY SubscriptionManager states - simple and clear
-            if subscriptionManager.isInTrial {
-                // Active trial user
-                return ("PRO TRIAL", .white, DarkTheme.accent)
-            } else if subscriptionManager.currentTier == .pro {
-                // Actual Pro user (not in trial)
-                return ("PRO", .white, DarkTheme.accent)
-            } else {
-                // Free user (expired trial or never had trial)
-                return (localizationManager.localizedString("subscription.free"), DarkTheme.textPrimary, DarkTheme.textPrimary.opacity(0.1))
-            }
-        }()
-        Text(text.uppercased())
+        Text("COMMUNITY")
             .font(.system(size: 9, weight: .heavy))
-            .foregroundColor(fg)
+            .foregroundColor(.white)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(
                 Capsule()
-                    .fill(bg)
-                    .shadow(color: bg.opacity(0.3), radius: 2, x: 0, y: 1)
+                    .fill(DarkTheme.accent)
+                    .shadow(color: DarkTheme.accent.opacity(0.3), radius: 2, x: 0, y: 1)
             )
     }
 

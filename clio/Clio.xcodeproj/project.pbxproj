@@ -26,7 +26,6 @@
 		12C055572E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C0554B2E18AAA400FCCFA9 /* Localizable.strings */; };
 		12C055582E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055482E18AAA400FCCFA9 /* Localizable.strings */; };
 		12C055592E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055452E18AAA400FCCFA9 /* Localizable.strings */; };
-		12C5D49A2E2E8F3500DA9BF7 /* SonioxConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */; };
 		E10340512DE1F666008BCBE5 /* whisper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; };
 		E10340522DE1F666008BCBE5 /* whisper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1A261122CC143AC00B233D1 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = E1A261112CC143AC00B233D1 /* KeyboardShortcuts */; };
@@ -71,7 +70,6 @@
 		12C055442E18AAA400FCCFA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		12C055472E18AAA400FCCFA9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		12C0554A2E18AAA400FCCFA9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
-		12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SonioxConfig.plist; sourceTree = "<group>"; };
 		E11473B02CBE0F0A00318EE4 /* Clio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11473C32CBE0F0B00318EE4 /* IoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11473CD2CBE0F0B00318EE4 /* IoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,7 +261,6 @@
 		E11473A72CBE0F0A00318EE4 = {
 			isa = PBXGroup;
 			children = (
-				12C5D4992E2E8F3500DA9BF7 /* SonioxConfig.plist */,
 				12C055422E18AAA400FCCFA9 /* ar.lproj */,
 				12C055432E18AAA400FCCFA9 /* de.lproj */,
 				12C055462E18AAA400FCCFA9 /* en.lproj */,
@@ -471,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12C5D49A2E2E8F3500DA9BF7 /* SonioxConfig.plist in Resources */,
 				12C055572E18AAA400FCCFA9 /* Localizable.strings in Resources */,
 				12C055582E18AAA400FCCFA9 /* Localizable.strings in Resources */,
 				12C055592E18AAA400FCCFA9 /* Localizable.strings in Resources */,

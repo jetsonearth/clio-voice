@@ -23,7 +23,6 @@ struct ClioApp: App {
     @ObservedObject private var localizationManager = LocalizationManager.shared
     @ObservedObject private var supabaseService = SupabaseServiceSDK.shared
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
-    @AppStorage("hasCompletedAuthentication") private var hasCompletedAuthentication = false
     @AppStorage("ui.compactMode") private var compactMode: Bool = true
     
     // Audio cleanup manager for automatic deletion of old audio files
@@ -154,38 +153,6 @@ struct ClioApp: App {
         // Initialize SubscriptionManager early to ensure it receives SupabaseService notifications
         _ = SubscriptionManager.shared
 
-        // Lightweight startup warmup: keep the proxy socket hot and pre-initialize upstream
-        Task.detached { [weak enhancementService] in
-            guard APIConfig.environment == .flyio else { return }
-            let session = ProxySessionManager.shared.session
-            // 1) Touch health (cheap HEAD) to establish TCP/TLS
-            if let healthURL = URL(string: APIConfig.healthCheckURL) {
-                var headReq = URLRequest(url: healthURL)
-                headReq.httpMethod = "HEAD"
-                _ = try? await session.data(for: headReq)
-            }
-            // 2) Trigger server-side LLM warmup with tiny payload (non-blocking)
-            do {
-                let url = URL(string: APIConfig.llmProxyURL.replacingOccurrences(of: "/proxy", with: "/warmup"))!
-                var req = URLRequest(url: url)
-                req.httpMethod = "POST"
-                req.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                if let token = try? await TokenManager.shared.getValidToken() {
-                    req.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-                }
-                // Minimal warmup body
-                let body: [String: Any] = [
-                    "text": "ping",
-                    "systemPrompt": "warmup",
-                    "provider": "gemini"
-                ]
-                req.httpBody = try JSONSerialization.data(withJSONObject: body)
-                _ = try await session.data(for: req)
-            } catch {
-                // Ignore warmup errors
-            }
-        }
-
         // Diagnostics boot: if enabled via defaults, start the stall monitor and show the debug overlay.
         if UserDefaults.standard.bool(forKey: "DiagnosticsEnabled") {
             // Ensure the on-screen log overlay can render
@@ -303,11 +270,6 @@ struct ClioApp: App {
                                     WindowManager.shared.resetDefaultSizeForNextTransition()
                                 }
                             }
-                    } else if !supabaseService.isAuthenticated {
-                        // Returning users who completed onboarding but need to sign in again
-                        AuthGateView()
-                            .environmentObject(localizationManager)
-                            .preferredColorScheme(.dark)
                     } else {
                         // Authenticated or not required: show main app
                         ZStack(alignment: .bottomLeading) {

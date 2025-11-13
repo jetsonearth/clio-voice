@@ -5,7 +5,6 @@ struct MenuBarView: View {
     @EnvironmentObject var whisperState: WhisperState
     @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var enhancementService: AIEnhancementService
-    @ObservedObject private var subscriptionManager = SubscriptionManager.shared
     @State private var showFeedbackWindow = false
 
     private var appVersionString: String {

@@ -181,13 +181,7 @@ final class ConnectionWarmupManager {
     }
 
     private func warmupNetworkConnections() async {
-        logger.debug("🔥 [SYSTEM-WARMUP] Warming up network connections")
-        do {
-            _ = try await TokenManager.shared.getValidToken()
-            logger.debug("✅ [SYSTEM-WARMUP] JWT token pre-fetched")
-        } catch {
-            logger.warning("⚠️ [SYSTEM-WARMUP] Network warm-up failed: \(error)")
-        }
+        logger.debug("🔥 [SYSTEM-WARMUP] Skipping network warmup – direct Soniox mode does not require proxy tokens")
     }
 
     private func prewarmDNSResolution() async {
@@ -228,5 +222,4 @@ final class ConnectionWarmupManager {
         warmupSession.finishTasksAndInvalidate()
     }
 }
-
 

@@ -3,153 +3,44 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    // Handle OAuth redirect URLs and license activation deep-links
+    // Handle community deep-links (legacy activation/sign-in URLs now show info alerts)
     func application(_ application: NSApplication, open urls: [URL]) {
         for url in urls {
-            // Handle OAuth callbacks first
-            if SupabaseServiceSDK.shared.handleOpenURL(url) {
-                print("🔗 [AUTH] Handled OAuth callback: \(url.absoluteString)")
-                return
-            }
-            
-            // Handle license activation deep-links
-            if url.scheme == "com.cliovoice.clio" {
-                handleClioDeepLink(url)
-                return
-            }
+            guard url.scheme == "com.cliovoice.clio" else { continue }
+            handleCommunityDeepLink(url)
         }
     }
     
-    private func handleClioDeepLink(_ url: URL) {
+    private func handleCommunityDeepLink(_ url: URL) {
         print("🔗 [DEEP-LINK] Received Clio deep-link: \(url.absoluteString)")
-        
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
-            print("🔗 [DEEP-LINK] Failed to parse URL components")
-            return
-        }
-        
-        switch url.host {
+        guard let host = url.host else { return }
+
+        switch host {
         case "activate":
-            handleLicenseActivation(components: components)
-        case "signin":
-            handleSignInDeepLink()
-        default:
-            print("🔗 [DEEP-LINK] Unknown deep-link host: \(url.host ?? "nil")")
-        }
-    }
-    
-    private func handleLicenseActivation(components: URLComponents) {
-        // Prefer explicit license key if present
-        let licenseKey = components.queryItems?.first(where: { $0.name == "license" })?.value
-        // Fallback to checkout id flow if no key present
-        let checkoutId = components.queryItems?.first(where: { $0.name == "checkout_id" || $0.name == "checkoutId" })?.value
-
-        guard licenseKey != nil || checkoutId != nil else {
-            print("🔗 [DEEP-LINK] No license or checkout id found in activation URL")
-            showLicenseActivationError("Invalid activation link. Missing license or checkout id.")
-            return
-        }
-
-        // Ensure app is active and window is visible
-        NSApp.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
-        WindowManager.shared.ensureAndActivateMainWindow()
-
-        Task { @MainActor in
-            do {
-                var resolvedKey: String
-                if let key = licenseKey {
-                    resolvedKey = key
-                } else if let cid = checkoutId {
-                    print("🔗 [DEEP-LINK] Resolving license from checkout id: \(cid)")
-                    resolvedKey = try await PolarService.shared.resolveLicenseKeyFromCheckout(checkoutId: cid)
-                } else {
-                    throw LicenseError.validationFailed
-                }
-
-                // Reuse the main license activation flow so we persist and sync state
-                let vm = LicenseViewModel.shared
-                vm.licenseKey = resolvedKey
-                await vm.validateLicense()
-
-                print("🔗 [DEEP-LINK] License activation successful")
-
-                // Fetch subscription details to align timing with Polar
-                if let details = try? await PolarService.shared.getSubscriptionDetails(licenseKey: resolvedKey),
-                   details.status.lowercased().contains("trial") || details.status.lowercased().contains("trialing") {
-                    if let end = details.expirationDate {
-                        UserDefaults.standard.set(end, forKey: "PolarTrialEndsAt")
-                    }
-                }
-
-                // Refresh subscription state
-                await SubscriptionManager.shared.updateSubscriptionState()
-
-                // Show success notification
-                NotificationCenter.default.post(
-                    name: .licenseActivatedViaDeepLink,
-                    object: resolvedKey
-                )
-
-                // Navigate to license page to show success
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    NotificationCenter.default.post(
-                        name: .navigateToDestinationInternal,
-                        object: "license"
-                    )
-                }
-
-            } catch {
-                print("🔗 [DEEP-LINK] License activation failed: \(error)")
-                // If the user already has Pro/Trial entitlements, treat this as a soft success
-                let tier = SubscriptionManager.shared.currentTier
-                let supaStatus = SupabaseServiceSDK.shared.currentSession?.user.subscriptionStatus
-                if tier != .free || supaStatus == .active || supaStatus == .trial {
-                    // Show a friendly banner instead of an error dialog
-                    NotificationCenter.default.post(
-                        name: .licenseActivatedViaDeepLink,
-                        object: "Account active"
-                    )
-                    // Navigate to plan page so the state is visible
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        NotificationCenter.default.post(
-                            name: .navigateToDestinationInternal,
-                            object: "license"
-                        )
-                    }
-                    return
-                }
-
-                // Otherwise, provide actionable guidance for the transient failure
-                let friendly = "Couldn’t verify your purchase yet. Try restarting Clio, then click ‘Open in Clio’ on the success page. If it persists, please try again in a minute or contact support."
-                showLicenseActivationError(friendly)
-            }
-        }
-    }
-    
-    private func handleSignInDeepLink() {
-        print("🔗 [DEEP-LINK] Handling sign-in deep-link")
-        
-        // Ensure app is active and window is visible
-        NSApp.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
-        WindowManager.shared.ensureAndActivateMainWindow()
-        
-        // Navigate to settings/account page
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            NotificationCenter.default.post(
-                name: .navigateToDestinationInternal,
-                object: "settings"
+            showCommunityEditionNotice(
+                title: "Community Edition",
+                message: "This open-source build no longer requires license activation. All features are unlocked by default."
             )
+        case "signin":
+            showCommunityEditionNotice(
+                title: "No Account Needed",
+                message: "Cloud sign-in has been removed in the open-source build. Manage everything locally from Settings."
+            )
+        default:
+            print("🔗 [DEEP-LINK] Unknown deep-link host: \(host)")
         }
     }
     
-    private func showLicenseActivationError(_ message: String) {
+    private func showCommunityEditionNotice(title: String, message: String) {
         DispatchQueue.main.async {
+            NSApp.setActivationPolicy(.regular)
+            NSApp.activate(ignoringOtherApps: true)
+            WindowManager.shared.ensureAndActivateMainWindow()
+
             let alert = NSAlert()
-            alert.messageText = "License Activation Failed"
+            alert.messageText = title
             alert.informativeText = message
-            alert.alertStyle = .warning
+            alert.alertStyle = .informational
             alert.addButton(withTitle: "OK")
             alert.runModal()
         }
@@ -388,5 +279,4 @@ extension Notification.Name {
     static let whisperStateReady = Notification.Name("WhisperStateReadyNotification")
     static let navigateToDestinationInternal = Notification.Name("navigateToDestinationInternal")
     static let showFeedbackModalInternal = Notification.Name("showFeedbackModalInternal")
-    static let licenseActivatedViaDeepLink = Notification.Name("licenseActivatedViaDeepLink")
 }

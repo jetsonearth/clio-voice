@@ -57,13 +57,11 @@ final class WarmupCoordinator {
 
         private func runWarmup(_ context: Context) async {
                 logger.notice("🔥 [WARMUP] ensureReady() invoked context=\(context.rawValue)")
-                // 1) JWT token
-                _ = try? await TokenManager.shared.getValidToken()
-                // 2) Temp key prefetch (Soniox)
+                // Temp key prefetch (Soniox)
                 await TempKeyCache.shared.integrateWithSystemWarmup()
-                // 3) Soniox DNS/TLS prewarm (WS path)
+                // Soniox DNS/TLS prewarm (WS path)
                 await prewarmASRTransport()
-                // 4) UnifiedAudioManager warmup (eliminates cold start on first recording)
+                // UnifiedAudioManager warmup (eliminates cold start on first recording)
                 await prewarmAudioSystem()
                 // 5) LLM warmup via NER prewarm path (triggered elsewhere on OCR completion)
                 // Note: AIEnhancementService is not a singleton; its prewarm is invoked by OCR callback in WhisperState.

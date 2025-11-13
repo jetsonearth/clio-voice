@@ -15,9 +15,6 @@ struct User: Codable, Identifiable {
     let subscriptionPlan: SubscriptionPlan?
     let subscriptionExpiresAt: Date?
     let trialEndsAt: Date?
-    // Polar linking
-    let polarCustomerId: String?
-    
     // Feature access
     let features: UserFeatures
     
@@ -42,7 +39,6 @@ struct User: Codable, Identifiable {
         case subscriptionPlan = "subscription_plan"
         case subscriptionExpiresAt = "subscription_expires_at"
         case trialEndsAt = "trial_ends_at"
-        case polarCustomerId = "polar_customer_id"
         case features
         case totalWordsTranscribed = "total_words_transcribed"
         case totalSpeakingMinutes = "total_speaking_minutes"
@@ -100,7 +96,6 @@ struct User: Codable, Identifiable {
         self.updatedAt = parseDate(supabaseData["updated_at"] as? String) ?? Date()
         self.subscriptionExpiresAt = parseDate(supabaseData["subscription_expires_at"] as? String)
         self.trialEndsAt = parseDate(supabaseData["trial_ends_at"] as? String)
-        self.polarCustomerId = supabaseData["polar_customer_id"] as? String
         
         // Debug logging for trial_ends_at
         if let trialString = supabaseData["trial_ends_at"] as? String {
@@ -417,6 +412,48 @@ struct UserSession: Codable {
     var shouldRefresh: Bool {
         // Refresh if token expires within 5 minutes
         Date().addingTimeInterval(300) > expiresAt
+    }
+}
+
+extension User {
+    init(
+        id: String,
+        email: String,
+        fullName: String?,
+        subscriptionStatus: SubscriptionStatus,
+        subscriptionPlan: SubscriptionPlan?,
+        features: UserFeatures
+    ) {
+        self.id = id
+        self.email = email
+        self.fullName = fullName
+        self.avatarUrl = nil
+        self.createdAt = Date()
+        self.updatedAt = Date()
+        self.subscriptionStatus = subscriptionStatus
+        self.subscriptionPlan = subscriptionPlan
+        self.subscriptionExpiresAt = nil
+        self.trialEndsAt = nil
+        self.features = features
+        self.totalWordsTranscribed = nil
+        self.totalSpeakingMinutes = nil
+        self.totalSessions = nil
+        self.totalTimeSavedMinutes = nil
+        self.averageWpm = nil
+        self.lastActivityAt = nil
+        self.trialWordsUsed = nil
+        self.trialMinutesUsed = nil
+    }
+
+    static func makeLocalUser(id: String = UUID().uuidString, email: String, fullName: String?) -> User {
+        User(
+            id: id,
+            email: email,
+            fullName: fullName,
+            subscriptionStatus: .active,
+            subscriptionPlan: .pro,
+            features: .pro
+        )
     }
 }
 

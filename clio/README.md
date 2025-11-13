@@ -4,6 +4,9 @@
 
 Clio is an advanced macOS voice transcription application that lets you speak at 200 words per minute instead of typing at 50 wpm. Built with privacy-first design and powered by local AI, Clio processes everything on your device without sending data to the cloud.
 
+> **Community Edition**  
+> This open-source build removes hosted authentication, licensing, and payment dependencies. Bring your own Groq + Soniox API keys (stored locally in the Keychain) and start using every feature immediately—no accounts, no trials, no paywalls.
+
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Platform](https://img.shields.io/badge/platform-macOS%2014.0%2B-brightgreen)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
@@ -38,6 +41,7 @@ Clio is an advanced macOS voice transcription application that lets you speak at
 - Context-aware text enhancement
 - Custom prompts and writing styles
 - Real-time voice activity detection
+- Bring-your-own Groq & Soniox API keys, stored securely in the macOS Keychain
 
 ---
 
@@ -50,13 +54,13 @@ Clio is an advanced macOS voice transcription application that lets you speak at
 ### Installation
 
 #### Option 1: Download Release
-1. Download the latest release from [Releases](https://github.com/jetsonearth/Clio/releases)
+1. Download the latest release from [Releases](https://github.com/studio-kensense/clio/releases)
 2. Open the `.dmg` file and drag Clio to Applications
 3. Launch Clio and grant necessary permissions
 
 #### Option 2: Build from Source
 ```bash
-git clone https://github.com/jetsonearth/Clio.git
+git clone https://github.com/studio-kensense/clio.git
 cd Clio
 open Clio.xcodeproj
 ```
@@ -83,6 +87,11 @@ On first launch, Clio will help you download Whisper models:
 Set up global keyboard shortcuts:
 - **Toggle Recording** (default: ⌘+⇧+Space)
 - **Push to Talk** (customizable)
+
+### 4. Add API Keys
+- Open **Settings → Cloud API Keys** inside Clio
+- Paste your **Groq** key for AI enhancement and your **Soniox** key for streaming transcription
+- Keys are saved locally in the macOS Keychain; feel free to leave either field blank if you are testing offline-only flows
 
 ---
 
@@ -184,6 +193,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
 **Speak faster. Think clearer. Work smarter.**
 
-[⭐ Star us on GitHub](https://github.com/jetsonearth/Clio) • [🐛 Report Issues](https://github.com/jetsonearth/Clio/issues) • [💬 Discussions](https://github.com/jetsonearth/Clio/discussions)
+[⭐ Star us on GitHub](https://github.com/studio-kensense/clio) • [🐛 Report Issues](https://github.com/studio-kensense/clio/issues) • [💬 Discussions](https://github.com/studio-kensense/clio/discussions)
 
 </div>

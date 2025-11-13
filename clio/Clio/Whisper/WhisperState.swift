@@ -809,39 +809,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                 return
             }
             
-            // CRITICAL: Check trial limits BEFORE recording starts (prevents 3-hour recordings that fail)
-            // print("🎙️ [TOGGLERECORD DEBUG] Checking subscription limits...")
-            if !subscriptionManager.canStartNewRecording() {
-                // print("🎙️ [TOGGLERECORD DEBUG] ❌ BLOCKED: Trial/subscription limits exceeded")
-                await MainActor.run {
-                    TrialExpiredModal.shared.show(whisperState: self)
-                    isAttemptingToRecord = false  // Reset flag on failure
-                }
-                return
-            }
-            // print("🎙️ [TOGGLERECORD DEBUG] ✅ Subscription check passed")
-
-            // Show custom floating prompt if user is on free tier after trial but still has Pro model selected
-            // print("🎙️ [TOGGLERECORD DEBUG] Checking model access permissions...")
-            if let selectedModel = self.currentModel,
-               !ModelAccessControl.shared.canUseWhisperModel(selectedModel) {
-                // print("🎙️ [TOGGLERECORD DEBUG] ❌ BLOCKED: No access to selected model \(selectedModel.name)")
-                 let neverRemindKey = "TrialExpiredNeverRemind"
-                 if UserDefaults.standard.bool(forKey: neverRemindKey) {
-                     // print("🎙️ [TOGGLERECORD DEBUG] Auto-switching to fallback model")
-                     // Auto switch silently
-                     if let flashModel = self.availableModels.first(where: { $0.name == "ggml-small" }) {
-                         await setDefaultModel(flashModel)
-                     }
-                 } else {
-                     // print("🎙️ [TOGGLERECORD DEBUG] Showing trial expired window")
-                     await MainActor.run {
-                         TrialExpiredModal.shared.show(whisperState: self)
-                     }
-                 }
-                 return // wait for user choice or after auto-switch restart
-            }
-            // print("🎙️ [TOGGLERECORD DEBUG] ✅ Model access check passed")
             shouldCancelRecording = false
             // print("🎙️ [TOGGLERECORD DEBUG] ✅ All checks passed - starting recording sequence")
             // Non-blocking, idempotent warmup on hotkey
@@ -1307,24 +1274,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             return
         }
         
-        // Check usage limits (for free tier)
-        do {
-            try modelAccessControl.validateUsageLimit(for: .unlimitedTranscription)
-        } catch {
-            logger.error("❌ Cannot transcribe: Usage limit exceeded - \(error.localizedDescription)")
-            currentError = .modelLoadFailed
-            
-            // Show custom recording failed dialog for usage limit
-            await MainActor.run {
-                let modelName = PredefinedModels.models.first(where: { $0.name == currentModel.name })?.displayName ?? currentModel.name
-                NotificationCenter.default.post(
-                    name: .showRecordingFailedDialog,
-                    object: nil,
-                    userInfo: ["modelName": modelName]
-                )
-            }
-            return
-        }
         // Local Whisper path disabled: skip loadModel() calls
         guard let whisperContext = whisperContext else {
             logger.error("❌ Cannot transcribe: Model could not be loaded")
@@ -1368,16 +1317,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             // Calculate ACTUAL ASR latency (T1 - T0) - Only Whisper processing time
             let asrLatencyMs: Double? = processingStartTime.map { startTime in
                 Date().timeIntervalSince(startTime) * 1000 // Convert to milliseconds
-            }
-            
-            // Track usage for subscription limits
-            subscriptionManager.trackTranscription(durationSeconds: actualDuration)
-            
-            // Update user stats for trial tracking
-            if subscriptionManager.isInTrial {
-                Task {
-                    await UserStatsService.shared.updateTrialUsage(additionalMinutes: actualDuration / 60.0)
-                }
             }
             
             if UserDefaults.standard.bool(forKey: "IsWordReplacementEnabled") {
@@ -1661,22 +1600,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         let actualDuration = sonioxStreamingService.lastRecordingDuration
         let audioFileURL = sonioxStreamingService.lastAudioFileURL?.absoluteString ?? "streaming://soniox"
         
-        // Track usage for subscription limits  
-        let subscriptionTrackingStart = Date()
-        subscriptionManager.trackTranscription(durationSeconds: actualDuration)
-        let subscriptionTrackingTime = Date().timeIntervalSince(subscriptionTrackingStart) * 1000
-        print("⏱️ [TIMING] Subscription tracking: \(String(format: "%.1f", subscriptionTrackingTime))ms")
-        
-        // Update user stats for trial tracking
-        if subscriptionManager.isInTrial {
-            let trialUpdateStart = Date()
-            Task {
-                await UserStatsService.shared.updateTrialUsage(additionalMinutes: actualDuration / 60.0)
-                let trialUpdateTime = Date().timeIntervalSince(trialUpdateStart) * 1000
-                print("⏱️ [TIMING] Trial usage update: \(String(format: "%.1f", trialUpdateTime))ms")
-            }
-        }
-        
         if shouldCancelRecording { await dismissRecorder(); enhancementService?.cleanupConnection(); return }
         // Do NOT apply word replacements here for streaming; apply once later to the final text (post enhancement or raw if skipped).
         // Normalize numbers/units on Simplified first, then convert to Traditional if needed
@@ -1685,12 +1608,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         var promptDetectionResult: PromptDetectionService.PromptDetectionResult? = nil
         let originalText = text
         
-        // Track ASR words for trial usage (streaming path)
-        let asrTrackingStart = Date()
-        let asrWordCount = TextUtils.countWords(in: originalText)
-        subscriptionManager.trackASRWords(wordCount: asrWordCount)
-        let asrTrackingTime = Date().timeIntervalSince(asrTrackingStart) * 1000
-        print("⏱️ [TIMING] ASR word tracking: \(String(format: "%.1f", asrTrackingTime))ms")
         
         // Handle prompt detection for trigger words (non-blocking, only if triggers exist)
         var promptDetectionTime: Double = 0
@@ -1799,7 +1716,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                     }
                 }
                 // Debug breakdown (non-blocking)
-                let detailedOverheadMs = promptDetectionTime + asrTrackingTime
+                let detailedOverheadMs = promptDetectionTime
                 let accountedTime = (streamingLatencyMs ?? 0) + contextCaptureLatencyMs + enhancementResult.llmLatencyMs + detailedOverheadMs
                 let unaccountedTime = totalLatencyMs - accountedTime
                 print("📊 [DETAILED STREAMING TIMING] Streaming: \(String(format: "%.1f", streamingLatencyMs ?? 0))ms | Context: \(String(format: "%.1f", contextCaptureLatencyMs))ms | LLM: \(String(format: "%.1f", enhancementResult.llmLatencyMs))ms | Tracked Overhead: \(String(format: "%.1f", detailedOverheadMs))ms | Unaccounted: \(String(format: "%.1f", unaccountedTime))ms | Total: \(String(format: "%.1f", totalLatencyMs))ms")

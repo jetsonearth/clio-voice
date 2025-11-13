@@ -203,19 +203,15 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         NotificationCenter.default.removeObserver(self)
         // Clean up connection resources synchronously since we can't use async in deinit
         isPrewarmingEnabled = false
-        if APIConfig.environment == .koyeb {
-            KoyebKeepAlive.shared.stop()
-        } else if APIConfig.environment == .railway {
+        if APIConfig.environment == .railway {
             RailwayKeepAlive.shared.stop()
         }
         warmSession?.invalidateAndCancel()
         warmSession = nil
         
-        // Clean up persistent session (Railway only - Koyeb uses centralized session)
-        if APIConfig.environment != .koyeb {
-            persistentSession?.invalidateAndCancel()
-            persistentSession = nil
-        }
+        // Clean up persistent session
+        persistentSession?.invalidateAndCancel()
+        persistentSession = nil
         
         // Note: connectionState will be cleaned up automatically when object is deallocated
     }
@@ -328,18 +324,11 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             logger.notice("🔥 [PREWARM DEBUG] Pre-warming AI connection for \(self.aiService.selectedProvider.rawValue), environment: \(String(describing: APIConfig.environment))")
         }
         
-        // For Railway and Koyeb, just mark as ready - connection will be established on first actual request
+        // For Railway, just mark as ready - connection will be established on first actual request
         if APIConfig.environment == .railway {
             connectionState = .ready
             RailwayKeepAlive.shared.start() // Use reliable background scheduler for keep-alive
             logger.notice("🚂 [RAILWAY] Pre-warming completed - persistent session ready for use (keep-alive enabled)")
-            return
-        }
-        
-        if APIConfig.environment == .koyeb {
-            connectionState = .ready
-            KoyebKeepAlive.shared.start() // Use Koyeb-specific LLM keep-alive service
-            logger.notice("🚀 [KOYEB] Pre-warming completed - HTTP/2 session ready for use (75s LLM keep-alive)")
             return
         }
         
@@ -377,9 +366,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
                 try await establishWarmConnection()
                 await MainActor.run {
                     self.connectionState = .ready
-                    if APIConfig.environment == .koyeb {
-                        KoyebKeepAlive.shared.start()
-                    } else if APIConfig.environment == .railway {
+                    if APIConfig.environment == .railway {
                         RailwayKeepAlive.shared.start()
                     }
                     // No keep-alive for other environments
@@ -429,22 +416,14 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     
     /// Clean up warm connection when recording ends
     func cleanupConnection() {
-        // For Railway and Koyeb we keep the session & keep-alive timer running so the socket stays warm
+        // For Railway we keep the session & keep-alive timer running so the socket stays warm
         if APIConfig.environment == .railway {
             logger.notice("🚂 [RAILWAY] Keeping persistent session + keep-alive timer alive between recordings")
             // Leave isPrewarmingEnabled true and DO NOT cancel the timer or session
-        } else if APIConfig.environment == .koyeb {
-            logger.notice("🚀 [KOYEB] Keeping HTTP/2 session + keep-alive pings alive between recordings")
-            // Leave isPrewarmingEnabled true and DO NOT cancel the timer or session for optimal connection reuse
         } else if APIConfig.environment == .flyio {
             // No cleanup needed for Fly.io
         } else {
             isPrewarmingEnabled = false
-            if APIConfig.environment == .koyeb {
-                KoyebKeepAlive.shared.stop()
-            } else if APIConfig.environment == .railway {
-                RailwayKeepAlive.shared.stop()
-            }
             // No keep-alive to stop for other environments
             warmSession?.invalidateAndCancel()
             warmSession = nil
@@ -504,12 +483,10 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     /// Koyeb-specific pre-warming with LLM keep-alive endpoint to establish HTTP/2 connection
     private func sendKoyebWarmingRequest() async throws {
         let keepAliveURL = URL(string: APIConfig.llmKeepAliveURL)!
-        let token = try await TokenManager.shared.getValidToken()
         
         var request = URLRequest(url: keepAliveURL)
         request.httpMethod = "POST"
         request.timeoutInterval = 5
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Koyeb-PreWarm/1.0", forHTTPHeaderField: "User-Agent")
         request.httpBody = "{}".data(using: .utf8)
@@ -558,10 +535,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 15
-        
-        if let token = try? await TokenManager.shared.getValidToken() {
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
         
         // Get OCR text from context service for NER processing
         let ocrText = await getOCRTextForNER()
@@ -666,9 +639,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 8
-        if let token = try? await TokenManager.shared.getValidToken() {
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
         let body: [String: Any] = [
             "text": "hello",
             "model": "gemini-2.5-flash-lite",
@@ -1306,14 +1276,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         
         // Skip rate limiting for proxy requests (handled server-side)
         
-        // Step 1: Get JWT token (cached, only refreshes when needed)
-        logger.notice("🔑 [DEBUG] Getting JWT token...")
-        let tokenStartTime = CFAbsoluteTimeGetCurrent()
-        let token = try await TokenManager.shared.getValidToken()
-        let tokenTime = CFAbsoluteTimeGetCurrent() - tokenStartTime
-        logger.notice("🔑 [DEBUG] JWT token obtained in \(Int(tokenTime * 1000))ms")
-        
-        // Step 2: Prepare request - Route to correct endpoint based on configuration
+        // Prepare request - Route to correct endpoint based on configuration
         let requestPrepStartTime = CFAbsoluteTimeGetCurrent()
         
         // Route to appropriate endpoint based on configuration
@@ -1353,7 +1316,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         if useStreamingLLM {
             request.addValue("text/event-stream", forHTTPHeaderField: "Accept")
         }
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = baseTimeout
         
         let correlationId = UUID().uuidString
@@ -1523,7 +1485,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         let overallTime = CFAbsoluteTimeGetCurrent() - overallStartTime
         
         // logger.notice("📊 [COMPLETE TIMING BREAKDOWN]")
-        // logger.notice("📊   Token Auth: \(String(format: "%.1f", tokenTime * 1000))ms")
         // logger.notice("📊   Request Prep: \(String(format: "%.1f", requestPrepTime * 1000))ms") 
         // logger.notice("📊   Network (Client→Proxy): \(String(format: "%.1f", networkTime * 1000))ms")
         // logger.notice("📊   Response Process: \(String(format: "%.1f", responseProcessTime * 1000))ms")
@@ -1571,7 +1532,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             logger.notice("🔍 [LATENCY ANALYSIS]")
             logger.notice("🔍   Pure Network Latency: \(String(format: "%.1f", clientNetwork))ms (TCP+TLS+RTT)")
             logger.notice("🔍   Server Processing: \(serverTotal)ms (Proxy+Groq)")
-            logger.notice("🔍   Client Overhead: \(String(format: "%.1f", (tokenTime + requestPrepTime + responseProcessTime) * 1000))ms")
+            logger.notice("🔍   Client Overhead: \(String(format: "%.1f", (requestPrepTime + responseProcessTime) * 1000))ms")
         }
         
         logger.notice("🔍 [CONNECTION HEALTH]")
@@ -1596,10 +1557,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 15
-        
-        if let token = try? await TokenManager.shared.getValidToken() {
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
         
         // Get OCR text for NER processing (same as Fly path)
         let ocrText = await getOCRTextForNER()
@@ -1720,16 +1677,12 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     private func makeGeminiRequest(systemMessage: String, userMessage: String, urlSession: URLSession) async throws -> String {
         let startTime = CFAbsoluteTimeGetCurrent()
         
-        // Get JWT token
-        let token = try await TokenManager.shared.getValidToken()
-        
         // Prepare Gemini request
         let geminiURL = URL(string: "\(APIConfig.apiBaseURL)/llm/gemini")!
         var request = URLRequest(url: geminiURL)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = 10 // Gemini timeout (longer than Groq)
         
         let requestBody: [String: Any] = [
@@ -1923,18 +1876,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             throw error
         }
         
-        // Additional check: Ensure trial not expired (with grace period)
-        if !subscriptionManager.canUseAIEnhancementNow() {
-            logger.error("❌ Trial expired - blocking AI enhancement")
-            
-            // Show trial expired prompt
-            await MainActor.run {
-                TrialExpiredModal.shared.show(whisperState: nil)
-            }
-            
-            throw ModelAccessControl.ModelAccessError.usageLimitExceeded("Trial expired")
-        }
-        
         // DISABLED: Check usage limits for AI enhancement (Pro now has unlimited access)
         // do {
         //     try modelAccessControl.validateUsageLimit(for: .unlimitedEnhancement)
@@ -1971,18 +1912,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             logger.error("❌ AI Enhancement access denied: \(error.localizedDescription)")
             subscriptionManager.promptUpgrade(from: "ai_enhancement")
             throw error
-        }
-        
-        // Additional check: Ensure trial not expired (with grace period)
-        if !subscriptionManager.canUseAIEnhancementNow() {
-            logger.error("❌ Trial expired - blocking AI enhancement")
-            
-            // Show trial expired prompt
-            await MainActor.run {
-                TrialExpiredModal.shared.show(whisperState: nil)
-            }
-            
-            throw ModelAccessControl.ModelAccessError.usageLimitExceeded("Trial expired")
         }
         
         // DISABLED: Check usage limits for AI enhancement (Pro now has unlimited access)
@@ -2047,18 +1976,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             logger.error("❌ AI Enhancement access denied: \(error.localizedDescription)")
             subscriptionManager.promptUpgrade(from: "ai_enhancement")
             throw error
-        }
-        
-        // Additional check: Ensure trial not expired (with grace period)
-        if !subscriptionManager.canUseAIEnhancementNow() {
-            logger.error("❌ Trial expired - blocking AI enhancement")
-            
-            // Show trial expired prompt
-            await MainActor.run {
-                TrialExpiredModal.shared.show(whisperState: nil)
-            }
-            
-            throw ModelAccessControl.ModelAccessError.usageLimitExceeded("Trial expired")
         }
         
         // DISABLED: Check usage limits for AI enhancement (Pro now has unlimited access)

@@ -6,8 +6,6 @@ import CryptoKit
 class ModelValidationService: ObservableObject {
     static let shared = ModelValidationService()
     
-    private let supabaseService = SupabaseServiceSDK.shared
-    
     // Cache for model validation results (avoid repeated server calls)
     private var validationCache: [String: (result: Bool, timestamp: Date)] = [:]
     private let cacheTimeout: TimeInterval = 300 // 5 minutes
@@ -112,37 +110,11 @@ class ModelValidationService: ObservableObject {
         // SECURITY: Cloud models (like Soniox) require pro/trial subscription
         let isCloudModel = model.name.contains("soniox")
         
-        // 2. Require an authenticated session for paid models (especially cloud models)
-        guard let session = supabaseService.currentSession else {
-            print("❌ [MODEL] No active session – denying access to paid model: \(model.name)")
-            
-            // CRITICAL: Block cloud model access for unauthenticated users
-            if isCloudModel {
-                print("🚨 [SECURITY] Cloud model \(model.name) requires authentication – access denied")
-            }
-            return false
-        }
-        
-        // 3. Cloud models require stricter validation
+        // Community build: heuristics downgraded to always allow usage.
         if isCloudModel {
-            switch session.user.subscriptionStatus {
-            case .trial, .active:
-                // print("✅ [MODEL] Cloud model \(model.name) access granted for subscription: \(session.user.subscriptionStatus.rawValue)")
-                return true
-            default:
-                print("🚨 [SECURITY] Cloud model \(model.name) requires trial/active subscription – current status: \(session.user.subscriptionStatus.rawValue)")
-                return false
-            }
+            print("ℹ️ [MODEL] Allowing cloud model \(model.name) in community build.")
         }
-        
-        // 4. Regular whisper models - allow access for Trial and Active subscriptions
-        switch session.user.subscriptionStatus {
-        case .trial, .active:
-            return true
-        default:
-            print("❌ [MODEL] Subscription status \(session.user.subscriptionStatus.rawValue) does not permit model: \(model.name)")
-            return false
-        }
+        return true
     }
     
     /// Clears validation cache (useful for testing or subscription changes)

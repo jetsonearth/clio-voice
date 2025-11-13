@@ -262,7 +262,6 @@ enum WhisperModelSize: String {
 class ProfessionalOnboardingViewModel: ObservableObject {
     enum Step: Int, CaseIterable {
         case auth
-        case welcomeSource
         case languageSelection
         case permissions
         case trial
@@ -271,10 +270,9 @@ class ProfessionalOnboardingViewModel: ObservableObject {
         
         var title: String {
             switch self {
-            case .auth: return "ACCOUNT"
-            case .welcomeSource: return "WELCOME"
+            case .auth: return "WELCOME"
             case .languageSelection: return "LANGUAGES"
-            case .permissions: return "PERMISSIONS" 
+            case .permissions: return "PERMISSIONS"
             case .trial: return "TRIAL"
             case .setup: return "SET UP"
             case .tryIt: return "TRY IT"
@@ -284,7 +282,6 @@ class ProfessionalOnboardingViewModel: ObservableObject {
     
     enum Screen: String {
         case auth
-        case welcomeSource
         case languageSelection
         case permissions
         case trial
@@ -311,18 +308,21 @@ class ProfessionalOnboardingViewModel: ObservableObject {
     }
     
     init() {
-        if let raw = UserDefaults.standard.string(forKey: storageKey),
-           let restored = Screen(rawValue: raw) {
-            // Migrate deprecated onboarding screens (PTT/Command removed for now)
-            switch restored {
-            case .welcomeSource:
+        if let raw = UserDefaults.standard.string(forKey: storageKey) {
+            if raw == "welcomeSource" {
                 currentScreen = .languageSelection
-            case .primerPTT, .tryItPTT:
-                currentScreen = .primerHF
-            case .primerCommand, .tryItCommand:
-                currentScreen = .vocabPrimer
-            default:
-                currentScreen = restored
+                return
+            }
+            if let restored = Screen(rawValue: raw) {
+                // Migrate deprecated onboarding screens (PTT/Command removed for now)
+                switch restored {
+                case .primerPTT, .tryItPTT:
+                    currentScreen = .primerHF
+                case .primerCommand, .tryItCommand:
+                    currentScreen = .vocabPrimer
+                default:
+                    currentScreen = restored
+                }
             }
         }
     }
@@ -330,7 +330,6 @@ class ProfessionalOnboardingViewModel: ObservableObject {
     var currentStep: Step {
         switch currentScreen {
         case .auth: return .auth
-        case .welcomeSource: return .welcomeSource
         case .languageSelection: return .languageSelection
         case .permissions: return .permissions
         case .trial, .primerPTT, .tryItPTT, .primerHF, .tryItHF, .primerCommand, .tryItCommand, .vocabPrimer, .vocabPlaceholder: return .trial
@@ -342,9 +341,7 @@ class ProfessionalOnboardingViewModel: ObservableObject {
     func nextScreen() {
         switch currentScreen {
         case .auth:
-            // Skip Welcome Source; go straight to language selection
-            currentScreen = .languageSelection
-        case .welcomeSource:
+            // Intro moves directly into language selection
             currentScreen = .languageSelection
         case .languageSelection:
             currentScreen = .permissions
@@ -385,10 +382,8 @@ class ProfessionalOnboardingViewModel: ObservableObject {
         switch currentScreen {
         case .auth:
             break
-        case .welcomeSource:
-            currentScreen = .auth
         case .languageSelection:
-            // With Welcome Source removed, go back to auth
+            // Intro screen precedes language selection
             currentScreen = .auth
         case .permissions:
             currentScreen = .languageSelection

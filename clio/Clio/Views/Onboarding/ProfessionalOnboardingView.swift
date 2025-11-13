@@ -30,10 +30,6 @@ struct ProfessionalOnboardingView: View {
                             .environmentObject(userViewModel)
                             .environmentObject(subscriptionManager)
                             .environmentObject(modelAccessControl)
-                    case .welcomeSource:
-                        // Welcome Source is temporarily disabled; show language selection instead
-                        LanguageSelectionOnboardingView(viewModel: viewModel)
-                            .environmentObject(localizationManager)
                     case .languageSelection:
                         LanguageSelectionOnboardingView(viewModel: viewModel)
                             .environmentObject(localizationManager)
@@ -81,13 +77,6 @@ struct ProfessionalOnboardingView: View {
                     print("🧪 [ONBOARDING] ForceShowOnboarding override cleared after completion")
                 }
                 WindowManager.shared.resetDefaultSizeForNextTransition()
-            }
-        }
-        .onReceive(SupabaseServiceSDK.shared.$isAuthenticated) { authed in
-            if authed && viewModel.currentScreen == .auth {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                    viewModel.nextScreen()
-                }
             }
         }
     }

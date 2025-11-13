@@ -5,6 +5,7 @@ extension UserDefaults {
         static let aiProviderApiKey = "IoAIProviderKey"
         static let licenseKey = "IoLicense"
         static let trialStartDate = "IoTrialStartDate"
+        static let activationId = "IoActivationId"
     }
     
     // MARK: - AI Provider API Key
@@ -24,4 +25,10 @@ extension UserDefaults {
         get { object(forKey: Keys.trialStartDate) as? Date }
         set { setValue(newValue, forKey: Keys.trialStartDate) }
     }
-} 
+    
+    // MARK: - Legacy Activation ID
+    var activationId: String? {
+        get { string(forKey: Keys.activationId) }
+        set { setValue(newValue, forKey: Keys.activationId) }
+    }
+}
