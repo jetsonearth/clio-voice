@@ -48,10 +48,18 @@ Somewhere between debugging hotkeys at 2 a.m. and teaching myself SwiftUI by b
 - Push-to-talk, hold-to-record, and automatic cursor insertion so you can stay hands-on with whatever app is open
 - Automatic fallback to whisper.cpp for fully offline work plus support for custom GGML models when you want to tinker
 
+![Live recorder home](clio/Image/Demo/home.png)
+
 ### 🧠 Context & Enhancement
 - App-aware formatting profiles so writing apps, IDEs, browsers, or comms tools each get their own prompt and voice
 - Optional AI enhancement that routes through Groq and Google Gemini (with OpenAI, Anthropic, or local Ollama as alternates) for rewriting, summaries, or tone shifts
 - Custom prompts and style presets (“memo,” “stand-up notes,” “support ticket,” etc.) that you can toggle per workflow
+- Dial editing strength from “light touch” to “rewrite it for me” without ever leaving the app
+- Build personal terminology dictionaries so hotwords stick after one correction
+
+![Personal terms dashboard](clio/Image/Demo/dict.png)
+![Editing strength controls](clio/Image/Demo/strength.png)
+![Preset designer](clio/Image/Demo/preset.gif)
 
 ### 🔒 Local-First Security
 - Audio never leaves the device unless you explicitly wire up a cloud provider
@@ -64,6 +72,9 @@ Somewhere between debugging hotkeys at 2 a.m. and teaching myself SwiftUI by b
 - Sparkle-powered updates for signed releases
 - KeyboardShortcuts + AppKit Accessibility hooks for system-wide hotkeys
 - Modular `Services`, `Managers`, and `StateMachine` layout so you can drop in new providers or UI experiments
+- Provider configuration UI makes it trivial to mix Groq, Gemini, and Soniox without touching config files
+
+![Provider configuration](clio/Image/Demo/model.gif)
 
 ---
 
