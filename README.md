@@ -18,7 +18,7 @@
 
 Only about 0.3 percent of people on Earth ship professional software today. That number will explode as AI turns curious problem-solvers into confident builders, and I want Clio to be proof that the door is already open. I wrote this app without prior Swift experience, learned macOS development on the fly, and somehow went from concept to revenue with thousands of users.
 
-Voice is a crowded vertical with teams like WhisperFlow, WISPR, and FLOW raising tens of millions of dollars. Clio will not be the first or the most funded dictation product, but it can be the most generous: a full stack that treats voice as infrastructure and refuses to hide behind subscriptions. If I cannot be the first or the best in a category, I would rather open source the work than chase it as a part-time cash flow project, so the entire codebase is now available for the community to build on.
+Voice is a crowded vertical with teams like Wispr Flow, Aqua, and Superwhisper raising tens of millions of dollars. Clio will not be the first or the most funded dictation product, but it can be the most generous: a full stack that treats voice as infrastructure and refuses to hide behind subscriptions. If I cannot be the first or the best in a category, I would rather open source the work than chase it as a part-time cash flow project, so the entire codebase is now available for the community to build on.
 
 Take this repo as inspiration and curriculum. Read the code, fork the UI, swap the models, wire up your own automations. AI will keep lowering the threshold between an idea and its implementation, and the best way to prepare is to build something real. Clio is my love letter to that future.
 
@@ -26,7 +26,7 @@ Take this repo as inspiration and curriculum. Read the code, fork the UI, swap t
 
 ## A Builder's Note
 
-In January 2025 I opened a blank Swift file with a simple promise to myself: *maybe voice could make my Mac feel quieter*. I had never shipped a macOS app, never lived inside AppKit, and definitely did not expect to learn audio pipelines, CoreML quirks, and Accessibility APIs all at once. Clio began as a private tool so I could think out loud, transcribe fast, and keep everything on my machine.
+In Feb 2025 I opened a blank Swift file with a simple promise to myself: *maybe voice could make my Mac feel quieter*. I had never shipped a macOS app, never lived inside AppKit, and definitely did not expect to learn audio pipelines, CoreML quirks, and Accessibility APIs all at once. Clio began as a private tool so I could think out loud, transcribe fast, and keep everything on my machine.
 
 Somewhere between debugging hotkeys at 2 a.m. and teaching myself SwiftUI by brute force, the project stopped being “for me only.” Dictation deserves to be infrastructure-not a gated SaaS add-on or yet another subscription. So I’m open-sourcing the entire stack, hoping other builders will treat voice as a primitive we can improve together. If you are reading this, consider it an invitation to add your own rituals, shortcuts, and ideas to Clio.
 
