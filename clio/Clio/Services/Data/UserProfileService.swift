@@ -43,6 +43,7 @@ class UserProfileService: ObservableObject {
         self.userName = name
         self.userEmail = email
         self.userInitials = generateInitials(from: name)
+        self.isSignedIn = true
         saveUserState()
     }
     
@@ -131,6 +132,7 @@ class UserProfileService: ObservableObject {
         userDefaults.set(isSignedIn, forKey: signedInKey)
         userDefaults.set(userName, forKey: userNameKey)
         userDefaults.set(userEmail, forKey: userEmailKey)
+        userDefaults.synchronize()
     }
     
     private func clearUserState() {

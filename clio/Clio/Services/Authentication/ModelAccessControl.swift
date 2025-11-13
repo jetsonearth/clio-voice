@@ -87,10 +87,6 @@ class ModelAccessControl: ObservableObject {
         subscriptionManager.features.canUseAIEnhancement
     }
     
-    func canUsePowerModes() -> Bool {
-        subscriptionManager.features.canUsePowerModes
-    }
-    
     // MARK: - Model Metadata
     
     func isProModel(_ model: WhisperModel) -> Bool {

@@ -1401,7 +1401,7 @@
 "ai_strength.toggle.on_hint" = "On: Clio runs AI editing for clarity; expect a short delay while it rewrites using the strength you choose below.";
 
 "ai_models.header.title" = "AI Models";
-"ai_models.header.subtitle" = "Connect Groq, Gemini, and Soniox directly with your own API keys—nothing routes through our proxy.";
+"ai_models.header.subtitle" = "Connect to LLM providers (Groq, Gemini), and speech model provider (Soniox) directly with your own API keys.";
 "ai_models.hero.title" = "Connect once, keep it local";
 "ai_models.hero.subtitle" = "Keys live in the macOS Keychain and never leave your device. Swap providers or rotate credentials whenever you need.";
 "ai_models.button.groq_dashboard" = "Groq Dashboard";
@@ -1460,3 +1460,4 @@
 "plan.share.website.caption" = "Send the official download page to a friend.";
 "plan.share.repo.title" = "Share GitHub Repo";
 "plan.share.repo.caption" = "Fork or star the open-source project.";
+"plan.share.copied" = "Copied";

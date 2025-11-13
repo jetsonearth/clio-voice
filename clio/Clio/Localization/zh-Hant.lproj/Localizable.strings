@@ -1336,3 +1336,67 @@
 
 "ai_strength.toggle.off_hint" = "關閉：幾乎不經額外處理即可最快取得原始稿，只會稍微清除口頭填充語。";
 "ai_strength.toggle.on_hint" = "開啟：Clio 會執行 AI 編輯以增進清晰度；依照下方選擇的強度重寫時會有短暫延遲。";
+
+/* AI Models */
+"ai_models.header.title" = "AI 模型";
+"ai_models.header.subtitle" = "直接使用您自己的 API 金鑰連接 LLM 提供商（Groq、Gemini）和語音模型提供商（Soniox）。";
+"ai_models.hero.title" = "一次連接，本機保存";
+"ai_models.hero.subtitle" = "金鑰保存在 macOS 鑰匙圈中，從不離開您的裝置。隨時切換提供商或輪換憑證。";
+"ai_models.button.groq_dashboard" = "Groq 控制台";
+"ai_models.button.soniox_dashboard" = "Soniox 控制台";
+"ai_models.button.google_ai" = "Google AI Studio";
+"ai_models.section.provider_keys" = "提供商金鑰";
+"ai_models.tab.llm.title" = "語言模型";
+"ai_models.tab.llm.subtitle" = "設定 Groq + Gemini 金鑰和模型。";
+"ai_models.tab.voice.title" = "語音模型";
+"ai_models.tab.voice.subtitle" = "控制 Soniox 串流 ASR。";
+"ai_models.section.groq.title" = "Groq API";
+"ai_models.section.groq.subtitle" = "Groq 執行 Clio 的主要 LLM，讓您的聽寫即時清理。提供您的金鑰並選擇符合您工作流程的模型。";
+"ai_models.section.groq.model_label" = "首選 LLM";
+"ai_models.section.gemini.title" = "Gemini 備援";
+"ai_models.section.gemini.subtitle" = "新增 Google AI Studio 金鑰，讓 Clio 可以即時切換到 Gemini，在不接觸我們伺服器的情況下保持增強功能在線。";
+"ai_models.section.gemini.model_label" = "備援模型";
+"ai_models.section.soniox.title" = "Soniox 雲端存取";
+"ai_models.section.soniox.subtitle" = "Soniox 是我們最快的雲端 ASR——當您需要超高準確度的串流轉錄時啟用，同時錄音保持在本機。";
+"ai_models.status.ready" = "增強就緒";
+"ai_models.status.required" = "需要 API 金鑰";
+"ai_models.status.auto_ready" = "自動備援就緒";
+"ai_models.status.optional" = "可選備援";
+"ai_models.status.voice_ready" = "串流已解鎖";
+"ai_models.status.voice_required" = "需要語音金鑰";
+"ai_models.model.qwen32.title" = "Qwen 3 32B";
+"ai_models.model.qwen32.detail" = "平衡的編輯品質，具備 Groq 最快的首字回應時間——理想預設選擇。";
+"ai_models.model.llama_scout.title" = "Llama 4 Scout 17B";
+"ai_models.model.llama_scout.detail" = "當您更看重回應速度而非強大效能時的超低延遲草稿。";
+"ai_models.model.llama_maverick.title" = "Llama 4 Maverick 17B";
+"ai_models.model.llama_maverick.detail" = "更溫暖的語氣和更強的摘要能力，適合創意改寫。";
+"ai_models.model.llama33.title" = "Llama 3.3 70B";
+"ai_models.model.llama33.detail" = "最高品質的 Groq 模型，用於複雜改寫（稍慢）。";
+"ai_models.model.llama31.title" = "Llama 3.1 8B Instant";
+"ai_models.model.llama31.detail" = "輕量級選項，優先考慮成本和速度而非深度。";
+"ai_models.model.gemini25.title" = "Gemini 2.5 Flash Lite";
+"ai_models.model.gemini25.detail" = "預設備援——極速且為編輯流程最佳化。";
+"ai_models.model.gemini20exp.title" = "Gemini 2.0 Flash Experimental";
+"ai_models.model.gemini20exp.detail" = "最新推理改進，延遲相近。";
+"ai_models.model.gemini15flash.title" = "Gemini 1.5 Flash";
+"ai_models.model.gemini15flash.detail" = "久經考驗的串流模型，回應可預測。";
+"ai_models.model.gemini15pro.title" = "Gemini 1.5 Pro";
+"ai_models.model.gemini15pro.detail" = "長文字編輯的最高品質，速度不那麼關鍵時使用。";
+
+/* Plan */
+"plan.community.title" = "社群版";
+"plan.community.subtitle" = "此開源方案為您提供完整的 Clio 體驗——無需授權金鑰，無需代理服務，無功能限制。";
+"plan.overview.heading" = "方案概覽";
+"plan.highlight.everything.title" = "全部解鎖";
+"plan.highlight.everything.detail" = "AI 增強、串流轉錄和個人化功能在此版本中永久啟用。";
+"plan.highlight.accounts.title" = "無需帳戶";
+"plan.highlight.accounts.detail" = "所有身份驗證畫面已移除——使用您自己的 API 金鑰在本機管理一切。";
+"plan.highlight.providers.title" = "使用您自己的提供商";
+"plan.highlight.providers.detail" = "Groq、Gemini 和 Soniox 使用您的憑證執行，由您控制成本和存取權限。";
+"plan.share.title" = "與朋友分享 Clio";
+"plan.share.subtitle" = "複製下方連結，將隊友引導到網站或開源版本的 GitHub 儲存庫。";
+"plan.share.website.title" = "分享網站";
+"plan.share.website.caption" = "將官方下載頁面傳送給朋友。";
+"plan.share.repo.title" = "分享 GitHub 儲存庫";
+"plan.share.repo.caption" = "Fork 或 star 開源專案。";
+"plan.share.copied" = "已複製";

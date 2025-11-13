@@ -72,6 +72,9 @@ struct CommunityProfileSection: View {
             lastSavedName = profile.userName
             lastSavedEmail = profile.userEmail
         }
+        .onDisappear {
+            saveProfileIfNeeded()
+        }
         .onReceive(profile.$userName) { newValue in
             name = newValue
             lastSavedName = newValue
@@ -93,6 +96,11 @@ struct CommunityProfileSection: View {
         profile.updateProfile(name: trimmedName, email: trimmedEmail)
         lastSavedName = trimmedName
         lastSavedEmail = trimmedEmail
+    }
+    
+    private func saveProfileIfNeeded() {
+        guard hasChanges else { return }
+        saveProfile()
     }
 }
 

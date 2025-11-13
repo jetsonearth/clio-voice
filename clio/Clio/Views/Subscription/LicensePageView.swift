@@ -109,7 +109,8 @@ struct LicensePageView: View {
                         title: localizationManager.localizedString(link.titleKey),
                         caption: localizationManager.localizedString(link.captionKey),
                         buttonTitle: localizationManager.localizedString(link.titleKey),
-                        icon: link.icon
+                        icon: link.icon,
+                        copiedLabel: localizationManager.localizedString("plan.share.copied")
                     ) {
                         copyLink(link.url)
                     }
@@ -129,6 +130,7 @@ private struct ShareRow: View {
     let caption: String
     let buttonTitle: String
     let icon: String
+    let copiedLabel: String
     let action: () -> Void
     
     @State private var showConfirmation = false
@@ -147,14 +149,9 @@ private struct ShareRow: View {
             Spacer()
             Button(action: handleTap) {
                 HStack(spacing: 6) {
-                    ZStack {
-                        Image(systemName: icon)
-                            .opacity(showConfirmation ? 0 : 1)
-                        Image(systemName: "checkmark")
-                            .opacity(showConfirmation ? 1 : 0)
-                    }
-                    .font(.system(size: 12, weight: .semibold))
-                    Text(buttonTitle)
+                    Image(systemName: showConfirmation ? "checkmark" : icon)
+                        .font(.system(size: 12, weight: .semibold))
+                    Text(showConfirmation ? copiedLabel : buttonTitle)
                         .font(.system(size: 12, weight: .medium))
                 }
                 .foregroundColor(.white)

@@ -39,8 +39,7 @@ struct SettingsView: View {
                 
                 // Main Content
                 VStack(spacing: 32) {
-                    CommunityProfileSection()
-                    
+
                     // Audio Cleanup Section
 //                    AudioInputSection()
                     
@@ -55,6 +54,9 @@ struct SettingsView: View {
                     
                     // System Settings Section (grouped rows)
                     SystemSettingsSection()
+
+                    // Community profile lives at the bottom so it appears after permissions
+                    CommunityProfileSection()
                     
                     // AI Enhancement Section with Toggle Header (commented out for menubar integration)
                     // AIEnhancementSectionWithToggle()

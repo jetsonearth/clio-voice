@@ -30,7 +30,6 @@ struct SubscriptionFeatures {
     var canUseCloudModels: Bool { true }
     var canUseAIEnhancement: Bool { true }
     var canUseCustomPrompts: Bool { true }
-    var canUsePowerModes: Bool { true }
     var canExportTranscripts: Bool { true }
     var canSyncAcrossDevices: Bool { true }
     var prioritySupport: Bool { true }
@@ -56,7 +55,6 @@ struct MonthlyUsage: Codable {
 enum ProFeature: String, CaseIterable, Identifiable {
     case aiEnhancement
     case cloudModels
-    case powerModes
     case localDictionary
     case automation
 
@@ -66,7 +64,6 @@ enum ProFeature: String, CaseIterable, Identifiable {
         switch self {
         case .aiEnhancement: return "AI Enhancement"
         case .cloudModels: return "Cloud Models"
-        case .powerModes: return "Power Modes"
         case .localDictionary: return "Personal Dictionary"
         case .automation: return "Automations"
         }
@@ -76,7 +73,6 @@ enum ProFeature: String, CaseIterable, Identifiable {
         switch self {
         case .aiEnhancement: return "wand.and.rays"
         case .cloudModels: return "cloud.bolt.fill"
-        case .powerModes: return "bolt.square.fill"
         case .localDictionary: return "book.closed.fill"
         case .automation: return "gearshape.2.fill"
         }
