@@ -231,6 +231,7 @@ class HotkeyManager: ObservableObject {
         didSet {
             if let shortcut = assistantShortcut, let data = try? JSONEncoder().encode(shortcut) {
                 UserDefaults.standard.set(data, forKey: "assistantShortcut")
+                isAssistantShortcutDisabled = false
             } else {
                 UserDefaults.standard.removeObject(forKey: "assistantShortcut")
             }
@@ -271,6 +272,12 @@ class HotkeyManager: ObservableObject {
     private var debugLocalMonitor: Any?
     private var enableSecondaryCommandMonitor: Bool = true
     private var lastRightCommandDown: Bool = false
+    private let assistantShortcutDisabledKey = "assistantShortcutDisabled"
+
+    private var isAssistantShortcutDisabled: Bool {
+        get { UserDefaults.standard.bool(forKey: assistantShortcutDisabledKey) }
+        set { UserDefaults.standard.set(newValue, forKey: assistantShortcutDisabledKey) }
+    }
     
     // Hotkey readiness watchdog
     private var hotkeyWatchdogTask: Task<Void, Never>? = nil
@@ -1992,6 +1999,7 @@ private func handleDictationKeyUp() async {
     func clearAssistantHotkey() {
         assistantShortcut = nil
         UserDefaults.standard.removeObject(forKey: "assistantShortcut")
+        isAssistantShortcutDisabled = true
         print("🧹 [RESET] Cleared assistant hotkey")
     }
     
@@ -2044,15 +2052,19 @@ private func handleDictationKeyUp() async {
             )
             self.handsFreeShortcut = rightCommandShortcut
             
-            // Set default command mode: Left Command + Left Control (modifier-only)
-            let cmdCtrlFlags: NSEvent.ModifierFlags = [.command, .control]
-            let commandModeShortcut = CustomShortcut(
-                keys: [],
-                modifiers: cmdCtrlFlags.rawValue,
-                keyCode: nil,
-                modifierKeyCodes: [55, 59]
-            )
-            self.assistantShortcut = commandModeShortcut
+            if !isAssistantShortcutDisabled {
+                // Set default command mode: Left Command + Left Control (modifier-only)
+                let cmdCtrlFlags: NSEvent.ModifierFlags = [.command, .control]
+                let commandModeShortcut = CustomShortcut(
+                    keys: [],
+                    modifiers: cmdCtrlFlags.rawValue,
+                    keyCode: nil,
+                    modifierKeyCodes: [55, 59]
+                )
+                self.assistantShortcut = commandModeShortcut
+            } else {
+                print("🎹 Assistant shortcut disabled by user – skipping default")
+            }
             
             // Enable push-to-talk by default for new users
             self.isPushToTalkEnabled = true
@@ -2074,7 +2086,7 @@ private func handleDictationKeyUp() async {
                 self.customShortcut = rightOptionShortcut
             }
             // If this user never set an Assistant (Command Mode) shortcut, set our default now.
-            if self.assistantShortcut == nil {
+            if self.assistantShortcut == nil && !isAssistantShortcutDisabled {
                 let cmdCtrlFlags: NSEvent.ModifierFlags = [.command, .control]
                 let commandModeShortcut = CustomShortcut(
                     keys: [],
