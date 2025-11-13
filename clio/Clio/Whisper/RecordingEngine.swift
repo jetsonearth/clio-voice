@@ -8,7 +8,7 @@ import os
 import Combine
 
 @MainActor
-class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
+class RecordingEngine: NSObject, ObservableObject, AVAudioRecorderDelegate {
     // When set, the next completed transcript will be treated as a command instruction
     // instead of being pasted. The string passed is the spoken instruction.
     var commandModeCallback: ((String) -> Task<Void, Never>)? = nil
@@ -201,7 +201,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
     /// should observe `audioLevel.level` instead.
     var currentAudioMeter: AudioMeter = AudioMeter(averagePower: 0, peakPower: 0)
 
-    /// Lightweight publisher dedicated to high-frequency audio-meter updates so that other views don’t have to observe WhisperState directly.
+    /// Lightweight publisher dedicated to high-frequency audio-meter updates so that other views don’t have to observe RecordingEngine directly.
     let audioLevel = AudioLevelPublisher()
     /// Rendering cache for streaming transcript snapshots (crisp + overlay)
     let streamingTextCache = StreamingTextCache()
@@ -258,7 +258,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
     let sonioxStreamingService = SonioxStreamingService()
     private let subscriptionManager = SubscriptionManager.shared
     private let modelAccessControl = ModelAccessControl.shared
-    let logger = Logger(subsystem: "com.jetsonai.clio", category: "WhisperState")
+    let logger = Logger(subsystem: "com.jetsonai.clio", category: "RecordingEngine")
     private var cancellables: Set<AnyCancellable> = []
     // Notch recorder removed (no instance kept)
     var miniWindowManager: MiniWindowManager?
@@ -288,7 +288,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
     
     init(modelContext: ModelContext, enhancementService: AIEnhancementService? = nil, contextService: ContextService? = nil) {
         self.modelContext = modelContext
-        self.modelsDirectory = WhisperState.resolveModelsDirectory()
+        self.modelsDirectory = RecordingEngine.resolveModelsDirectory()
         self.recordingsDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
             .appendingPathComponent(Bundle.main.bundleIdentifier ?? "com.cliovoice.clio")
             .appendingPathComponent("Recordings")
@@ -311,7 +311,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         registerStreamingModelsIfNeeded()
         
         // Initialize cancel confirmation window manager
-        cancelConfirmationWindowManager = CancelConfirmationWindowManager(whisperState: self)
+        cancelConfirmationWindowManager = CancelConfirmationWindowManager(recordingEngine: self)
         
         // Setup audio meter updates
         setupAudioMeterUpdates()
@@ -329,22 +329,22 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         let useLocalModel = UserDefaults.standard.bool(forKey: "UseLocalModel")
         if !useLocalModel {
             canTranscribe = true
-            // logger.notice("✅ [WhisperState init] canTranscribe enabled immediately for cloud setup")
+            // logger.notice("✅ [RecordingEngine init] canTranscribe enabled immediately for cloud setup")
         }
         
         if let savedModelName = UserDefaults.standard.string(forKey: "CurrentModel") {
-            // logger.notice("🔍 [WhisperState init] Saved model name from UserDefaults: \(savedModelName)")
+            // logger.notice("🔍 [RecordingEngine init] Saved model name from UserDefaults: \(savedModelName)")
             if let savedModel = availableModels.first(where: { $0.name == savedModelName }) {
                 currentModel = savedModel
-                // logger.notice("✅ [WhisperState init] Restored current model: \(savedModel.name)")
+                // logger.notice("✅ [RecordingEngine init] Restored current model: \(savedModel.name)")
             } else {
-                logger.error("❌ [WhisperState init] Could not find saved model in availableModels")
-                logger.notice("📋 [WhisperState init] Available models: \(self.availableModels.map { $0.name })")
+                logger.error("❌ [RecordingEngine init] Could not find saved model in availableModels")
+                logger.notice("📋 [RecordingEngine init] Available models: \(self.availableModels.map { $0.name })")
                 // Set default to Clio Ultra if saved model not found
                 setDefaultToClioUltra()
             }
         } else {
-            logger.notice("⚠️ [WhisperState init] No saved model in UserDefaults")
+            logger.notice("⚠️ [RecordingEngine init] No saved model in UserDefaults")
             // Set default to Clio Ultra on first launch
             setDefaultToClioUltra()
         }
@@ -646,13 +646,13 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             if let turboModel = availableModels.first(where: { $0.name == "ggml-large-v3-turbo" }) {
                 currentModel = turboModel
                 UserDefaults.standard.set("ggml-large-v3-turbo", forKey: "CurrentModel")
-                logger.notice("🔒 [WhisperState init] UseLocalModel enabled - set default to Whisper v3 Turbo")
+                logger.notice("🔒 [RecordingEngine init] UseLocalModel enabled - set default to Whisper v3 Turbo")
             } else if let anyLocal = availableModels.first(where: { $0.url.isFileURL }) {
                 currentModel = anyLocal
                 UserDefaults.standard.set(anyLocal.name, forKey: "CurrentModel")
-                logger.notice("🔒 [WhisperState init] UseLocalModel enabled - using local model \(anyLocal.name)")
+                logger.notice("🔒 [RecordingEngine init] UseLocalModel enabled - using local model \(anyLocal.name)")
             } else {
-                logger.notice("⚠️ [WhisperState init] UseLocalModel enabled but no local models present - waiting for download")
+                logger.notice("⚠️ [RecordingEngine init] UseLocalModel enabled but no local models present - waiting for download")
                 canTranscribe = false
             }
         } else {
@@ -670,12 +670,12 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             currentModel = streamingModel
             UserDefaults.standard.set(streamingModel.name, forKey: "CurrentModel")
             canTranscribe = true
-            // logger.notice("🎯 [WhisperState init] Set default model to: \(streamingModel.name)")
-            // logger.notice("✅ [WhisperState init] canTranscribe set to true for cloud model")
+            // logger.notice("🎯 [RecordingEngine init] Set default model to: \(streamingModel.name)")
+            // logger.notice("✅ [RecordingEngine init] canTranscribe set to true for cloud model")
         } else {
-            logger.error("❌ [WhisperState init] No streaming model found in availableModels")
-            logger.notice("📋 [WhisperState init] Available models: \(self.availableModels.map { $0.name })")
-            logger.notice("📋 [WhisperState init] Predefined models: \(self.predefinedModels.map { $0.name })")
+            logger.error("❌ [RecordingEngine init] No streaming model found in availableModels")
+            logger.notice("📋 [RecordingEngine init] Available models: \(self.availableModels.map { $0.name })")
+            logger.notice("📋 [RecordingEngine init] Predefined models: \(self.predefinedModels.map { $0.name })")
         }
     }
 
@@ -989,7 +989,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                 print("🎙️ [BATCH DEBUG] Set isRecording=true, isVisualizerActive=true")
                             }
                             
-        // PowerMode removed
 
                             if let currentModel = await self.currentModel, await self.whisperContext == nil {
                                 do {
@@ -998,7 +997,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                                     self.logger.error("❌ Model loading failed: \(error.localizedDescription)")
                                     
                                     // SECURITY: Stop recording immediately if model access is denied
-                                    if error is WhisperStateError && (error as! WhisperStateError) == .accessDenied {
+                                    if error is RecordingEngineError && (error as! RecordingEngineError) == .accessDenied {
                                         self.logger.error("🚨 [SECURITY] Access denied - stopping recording immediately")
                                         self.currentRecordingSessionID = nil
                                         self.stopPipelineInFlightSessionID = nil
@@ -1144,7 +1143,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         
         // Create mini window manager if it doesn't exist
         if miniWindowManager == nil {
-            miniWindowManager = MiniWindowManager(whisperState: self, recorder: recorder)
+            miniWindowManager = MiniWindowManager(recordingEngine: self, recorder: recorder)
             logger.info("Created always-on mini window manager")
         }
         
@@ -1352,7 +1351,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
                 
                 let contextStartTime = Date()
                 
-                // PowerMode removed
                 
                 // Capture screen context from the final location
                 if let contextService = contextService {
@@ -1638,7 +1636,6 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
             
             let contextStartTime = Date()
             
-            // PowerMode removed
             
             // Capture screen context from the final location
             if let contextService = contextService {
@@ -1837,7 +1834,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
         return floats
     }
 
-    @Published var currentError: WhisperStateError?
+    @Published var currentError: RecordingEngineError?
 
     func getEnhancementService() -> AIEnhancementService? {
         return enhancementService
@@ -1946,7 +1943,7 @@ class WhisperState: NSObject, ObservableObject, AVAudioRecorderDelegate {
 }
 
 // MARK: - Models directory resolver (handles legacy bundle ids)
-extension WhisperState {
+extension RecordingEngine {
     static func resolveModelsDirectory() -> URL {
         let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
         let currentId = Bundle.main.bundleIdentifier ?? "com.cliovoice.clio"

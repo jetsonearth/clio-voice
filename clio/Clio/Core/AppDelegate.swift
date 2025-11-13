@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     private var lastResignActive: Date? = nil
-    private weak var whisperState: WhisperState?
+    private weak var recordingEngine: RecordingEngine?
     private var didStartWarmupCadence = false
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         updateActivationPolicy()
         NotificationCenter.default.addObserver(self, selector: #selector(appDidResignActive), name: NSApplication.didResignActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleWhisperStateReady(_:)), name: .whisperStateReady, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRecordingEngineReady(_:)), name: .recordingEngineReady, object: nil)
         
         // Handle menu bar navigation notifications
         NotificationCenter.default.addObserver(self, selector: #selector(handleNavigateToDestination(_:)), name: .navigateToDestination, object: nil)
@@ -125,16 +125,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let idleSecs = Date().timeIntervalSince(last)
             if idleSecs > 7 * 60 { // 7 minutes threshold
                 Task { [weak self] in
-                    await self?.whisperState?.sonioxStreamingService.quickFocusWarmup()
+                    await self?.recordingEngine?.sonioxStreamingService.quickFocusWarmup()
                 }
             }
         }
 
         // Always refresh auth and recompute subscription state on foreground
         refreshSubscriptionState(reason: "appDidBecomeActive")
-        // Register WhisperState for warmup plumbing if available
-        if let state = whisperState {
-            WarmupCoordinator.shared.register(whisperState: state)
+        // Register RecordingEngine for warmup plumbing if available
+        if let state = recordingEngine {
+            WarmupCoordinator.shared.register(recordingEngine: state)
             // Optional: prewarm the notch window to remove first-show latency
             if RuntimeConfig.notchKeepAliveEnabled && RuntimeConfig.notchPrewarmOnActivation {
                 Task { @MainActor in await state.prewarmNotchIfEnabled() }
@@ -234,14 +234,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    // Inject reference to WhisperState so we can warm up the audio when needed
-    func setWhisperState(_ state: WhisperState) {
-        self.whisperState = state
+    // Inject reference to RecordingEngine so we can warm up the audio when needed
+    func setRecordingEngine(_ state: RecordingEngine) {
+        self.recordingEngine = state
     }
 
-    @objc private func handleWhisperStateReady(_ note: Notification) {
-        if let state = note.object as? WhisperState {
-            self.whisperState = state
+    @objc private func handleRecordingEngineReady(_ note: Notification) {
+        if let state = note.object as? RecordingEngine {
+            self.recordingEngine = state
         }
     }
 
@@ -251,14 +251,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         refreshSubscriptionState(reason: "systemDidWake")
         // Proactively refresh streaming network stack to avoid stale sockets post-wake
         Task { @MainActor in
-            await self.whisperState?.sonioxStreamingService.handleSystemWake()
+            await self.recordingEngine?.sonioxStreamingService.handleSystemWake()
         }
     }
     
     @objc private func systemWillSleep(_ note: Notification) {
         // Tear down any warm/standby sockets to avoid post-sleep stalls
         Task { @MainActor in
-            await self.whisperState?.sonioxStreamingService.prepareForSleep()
+            await self.recordingEngine?.sonioxStreamingService.prepareForSleep()
         }
     }
     
@@ -276,7 +276,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension Notification.Name {
-    static let whisperStateReady = Notification.Name("WhisperStateReadyNotification")
+    static let recordingEngineReady = Notification.Name("RecordingEngineReadyNotification")
     static let navigateToDestinationInternal = Notification.Name("navigateToDestinationInternal")
     static let showFeedbackModalInternal = Notification.Name("showFeedbackModalInternal")
 }

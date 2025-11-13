@@ -3,7 +3,7 @@ import KeyboardShortcuts
 import AppKit
 
 struct RecordView: View {
-    @EnvironmentObject var whisperState: WhisperState
+    @EnvironmentObject var recordingEngine: RecordingEngine
     @EnvironmentObject var hotkeyManager: HotkeyManager
     @Environment(\.colorScheme) private var colorScheme
     @ObservedObject private var mediaController = MediaController.shared
@@ -61,7 +61,7 @@ struct RecordView: View {
             Text("IO")
                 .font(.system(size: 42, weight: .bold))
             
-            if whisperState.currentModel != nil {
+            if recordingEngine.currentModel != nil {
                 Text("Powered by Whisper AI")
                     .font(.system(size: 15))
                     .foregroundColor(.secondary)
@@ -90,7 +90,7 @@ struct RecordView: View {
                 
                 // Settings section
                 VStack(alignment: .leading, spacing: 12) {
-                    Toggle(isOn: $whisperState.isAutoCopyEnabled) {
+                    Toggle(isOn: $recordingEngine.isAutoCopyEnabled) {
                         HStack {
                             Image(systemName: "doc.on.clipboard")
                                 .foregroundColor(.secondary)
@@ -229,7 +229,7 @@ struct RecordView: View {
                 .font(.headline)
             
             VStack(alignment: .leading, spacing: 12) {
-                if whisperState.isAutoCopyEnabled {
+                if recordingEngine.isAutoCopyEnabled {
                     InfoRow(icon: "doc.on.clipboard", text: "Copied to clipboard")
                 }
                 InfoRow(icon: "text.cursor", text: "Pasted at cursor position")

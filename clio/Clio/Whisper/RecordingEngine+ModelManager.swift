@@ -5,7 +5,7 @@ import Zip
 import SwiftUI
 
 // MARK: - Model Management Extension
-extension WhisperState {
+extension RecordingEngine {
     
     // MARK: - Model Directory Management
     
@@ -47,7 +47,7 @@ extension WhisperState {
         let hasAccess = await ModelAccessControl.shared.validateModelAccess(model)
         guard hasAccess else {
             logger.error("❌ [loadModel] Server denied access to model: \(model.name)")
-            throw WhisperStateError.accessDenied
+            throw RecordingEngineError.accessDenied
         }
         
         // Check if this is a cloud model - skip file validation for cloud models
@@ -66,7 +66,7 @@ extension WhisperState {
         let isValidFile = await ModelValidationService.shared.validateModelFile(model, at: model.url)
         guard isValidFile else {
             logger.error("❌ [loadModel] Model file integrity check failed: \(model.name)")
-            throw WhisperStateError.invalidModelFile
+            throw RecordingEngineError.invalidModelFile
         }
         
         isModelLoading = true
@@ -350,7 +350,7 @@ extension WhisperState {
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: destination.path, isDirectory: &isDirectory), isDirectory.boolValue else {
             try? FileManager.default.removeItem(at: zipPath)
-            throw WhisperStateError.unzipFailed
+            throw RecordingEngineError.unzipFailed
         }
         
         try? FileManager.default.removeItem(at: zipPath)

@@ -1658,7 +1658,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         }
     }
     
-    /// Enhanced version with a custom prompt string for PowerMode
     func enhanceWithCustomPrompt(_ text: String, promptText: String) async throws -> String {
         logger.notice("🚀 Starting AI enhancement with custom prompt for text (\(text.count) characters)")
         
@@ -2045,8 +2044,6 @@ let totalLatencyMs = (CFAbsoluteTimeGetCurrent() - startTime) * 1000
         return dynamicNERPrompt
     }
     
-    /// PowerMode prompt mapping removed; no-op retained for compatibility
-    func setPromptForPowerMode(_ promptId: String?) { selectedPromptId = nil }
     
     // Retry methods removed - now using single attempt with raw transcript fallback
     

@@ -4,7 +4,7 @@ import SwiftData
 #if CLIO_ENABLE_LOCAL_MODEL
 
 struct ModelManagementView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @State private var modelToDelete: WhisperModel?
     @StateObject private var aiService = AIService()
     @EnvironmentObject private var enhancementService: AIEnhancementService
@@ -30,7 +30,7 @@ struct ModelManagementView: View {
                         Spacer()
                     }
                     
-                    Text(String(format: localizationManager.localizedString("models.library_subtitle"), whisperState.predefinedModels.count))
+                    Text(String(format: localizationManager.localizedString("models.library_subtitle"), recordingEngine.predefinedModels.count))
                         .font(.system(size: 15, weight: .medium))
                         .foregroundColor(DarkTheme.textSecondary)
                 }
@@ -65,18 +65,18 @@ struct ModelManagementView: View {
                 message: Text(String(format: localizationManager.localizedString("models.delete.confirmation"), model.name)),
                 primaryButton: .destructive(Text(localizationManager.localizedString("general.delete"))) {
                     Task {
-                        await whisperState.deleteModel(model)
+                        await recordingEngine.deleteModel(model)
                     }
                 },
                 secondaryButton: .cancel(Text(localizationManager.localizedString("general.cancel")))
             )
         }
-        .alert(item: $whisperState.currentError) { error in
+        .alert(item: $recordingEngine.currentError) { error in
             Alert(
                 title: Text("Download Failed"),
                 message: Text(error.errorDescription ?? "An error occurred"),
                 dismissButton: .default(Text("OK")) {
-                    whisperState.currentError = nil
+                    recordingEngine.currentError = nil
                 }
             )
         }
@@ -134,7 +134,7 @@ struct ModelManagementView: View {
                 }
                 
                 // Model details
-                if let currentModel = whisperState.currentModel,
+                if let currentModel = recordingEngine.currentModel,
                    let predefinedModel = PredefinedModels.models.first(where: { $0.name == currentModel.name }) {
                     VStack(alignment: .leading, spacing: 16) {
                         Text(predefinedModel.displayName)
@@ -152,15 +152,15 @@ struct ModelManagementView: View {
                         
                         // VAD Status
                         // HStack(spacing: 8) {
-                        //     Image(systemName: whisperState.vadContext != nil ? "waveform.circle.fill" : "waveform.circle")
+                        //     Image(systemName: recordingEngine.vadContext != nil ? "waveform.circle.fill" : "waveform.circle")
                         //         .font(.system(size: 14))
-                        //         .foregroundColor(whisperState.vadContext != nil ? .green : DarkTheme.textSecondary)
+                        //         .foregroundColor(recordingEngine.vadContext != nil ? .green : DarkTheme.textSecondary)
                             
-                        //     Text("VAD: \(whisperState.vadContext != nil ? "Active" : "Loading...")")
+                        //     Text("VAD: \(recordingEngine.vadContext != nil ? "Active" : "Loading...")")
                         //         .font(.system(size: 12, weight: .medium))
                         //         .foregroundColor(DarkTheme.textSecondary)
                             
-                        //     if whisperState.vadContext != nil {
+                        //     if recordingEngine.vadContext != nil {
                         //         Text("(Silence removal enabled)")
                         //             .font(.system(size: 11))
                         //             .foregroundColor(DarkTheme.textSecondary.opacity(0.8))
@@ -281,7 +281,7 @@ struct ModelManagementView: View {
     }
     
     private func isCurrentModelMultilingual() -> Bool {
-        guard let currentModel = whisperState.currentModel,
+        guard let currentModel = recordingEngine.currentModel,
                let predefinedModel = PredefinedModels.models.first(where: { $0.name == currentModel.name }) else {
             return false
         }
@@ -289,7 +289,7 @@ struct ModelManagementView: View {
     }
     
     private func getCurrentLanguageDisplayName() -> String {
-        guard let currentModel = whisperState.currentModel,
+        guard let currentModel = recordingEngine.currentModel,
               let predefinedModel = PredefinedModels.models.first(where: { $0.name == currentModel.name }) else {
             return "English"
         }
@@ -312,7 +312,7 @@ struct ModelManagementView: View {
                 .buttonStyle(.plain)
             }
             
-            LanguageSelectionView(whisperState: whisperState, displayMode: .full, whisperPrompt: whisperPrompt)
+            LanguageSelectionView(recordingEngine: recordingEngine, displayMode: .full, whisperPrompt: whisperPrompt)
         }
         // .padding(24)
         .background(
@@ -369,29 +369,29 @@ struct ModelManagementView: View {
     }
     
     private var localModels: [PredefinedModel] {
-        whisperState.predefinedModels.filter { model in
+        recordingEngine.predefinedModels.filter { model in
             !model.isComingSoon && !model.isCloudModel
         }
     }
     
     private var premiumCloudModels: [PredefinedModel] {
-        whisperState.predefinedModels.filter { model in
+        recordingEngine.predefinedModels.filter { model in
             model.isCloudModel || model.isComingSoon
         }
     }
     
     @ViewBuilder
     private func modelCard(for model: PredefinedModel) -> some View {
-        let isDownloaded: Bool = whisperState.availableModels.contains { $0.name == model.name }
-        let isCurrent: Bool = whisperState.currentModel?.name == model.name
-        let modelURL: URL? = whisperState.availableModels.first { $0.name == model.name }?.url
+        let isDownloaded: Bool = recordingEngine.availableModels.contains { $0.name == model.name }
+        let isCurrent: Bool = recordingEngine.currentModel?.name == model.name
+        let modelURL: URL? = recordingEngine.availableModels.first { $0.name == model.name }?.url
         let isHovered: Bool = hoveredModelId == model.id
         
         ModernModelCard(
             model: model,
             isDownloaded: isDownloaded,
             isCurrent: isCurrent,
-            downloadProgress: whisperState.downloadProgress,
+            downloadProgress: recordingEngine.downloadProgress,
             modelURL: modelURL,
             isHovered: isHovered,
             deleteAction: { self.handleDeleteAction(for: model) },
@@ -407,7 +407,7 @@ struct ModelManagementView: View {
     }
     
     private func handleDeleteAction(for model: PredefinedModel) {
-        if let downloadedModel = whisperState.availableModels.first(where: { $0.name == model.name }) {
+        if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == model.name }) {
             modelToDelete = downloadedModel
         }
     }
@@ -436,15 +436,15 @@ struct ModelManagementView: View {
             )
             
             Task {
-                await whisperState.setDefaultModel(cloudModel)
+                await recordingEngine.setDefaultModel(cloudModel)
                 print("✅ Cloud model set as default successfully: \(model.displayName)")
             }
         } else {
             // Handle local models (existing logic)
-            if let downloadedModel = whisperState.availableModels.first(where: { $0.name == model.name }) {
+            if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == model.name }) {
                 print("💾 Setting local model as default: \(downloadedModel.name)")
                 Task {
-                    await whisperState.setDefaultModel(downloadedModel)
+                    await recordingEngine.setDefaultModel(downloadedModel)
                     print("✅ Local model set as default successfully: \(downloadedModel.name)")
                 }
             } else {
@@ -480,13 +480,13 @@ struct ModelManagementView: View {
     // Download and switch to Flash model with permission
     private func downloadFlashModel() {
         // Find Clio Flash (ggml-small) model
-        if let freeModel = whisperState.predefinedModels.first(where: { $0.name == "ggml-small" }) {
+        if let freeModel = recordingEngine.predefinedModels.first(where: { $0.name == "ggml-small" }) {
             print("🔄 Auto-switching to free model: \(freeModel.displayName)")
             
             // Check if it's downloaded
-            if let downloadedModel = whisperState.availableModels.first(where: { $0.name == "ggml-small" }) {
+            if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == "ggml-small" }) {
                 Task {
-                    await whisperState.setDefaultModel(downloadedModel)
+                    await recordingEngine.setDefaultModel(downloadedModel)
                     print("✅ Successfully switched to free model: \(freeModel.displayName)")
                     
                     // Show confirmation notification
@@ -496,13 +496,13 @@ struct ModelManagementView: View {
                 // Auto-download free model if not available
                 print("📥 Free model not downloaded, auto-downloading...")
                 Task {
-                    await whisperState.downloadModel(freeModel)
+                    await recordingEngine.downloadModel(freeModel)
                     
                     // Wait for download to complete and then set as default
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        if let downloadedModel = whisperState.availableModels.first(where: { $0.name == "ggml-small" }) {
+                        if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == "ggml-small" }) {
                             Task {
-                                await whisperState.setDefaultModel(downloadedModel)
+                                await recordingEngine.setDefaultModel(downloadedModel)
                                 print("✅ Successfully downloaded and switched to free model: \(freeModel.displayName)")
                                 showFallbackNotification(freeModel: freeModel)
                             }
@@ -541,7 +541,7 @@ struct ModelManagementView: View {
     
     private func checkAndAutoSwitchModel() {
         // Check if current model is a Pro model
-        guard let currentModel = whisperState.currentModel,
+        guard let currentModel = recordingEngine.currentModel,
               let predefinedModel = PredefinedModels.models.first(where: { $0.name == currentModel.name }),
               isProModel(predefinedModel) else {
             return // Current model is free, no need to switch
@@ -558,14 +558,14 @@ struct ModelManagementView: View {
     
     private func handleDownloadAction(for model: PredefinedModel) {
         Task {
-            await whisperState.downloadModel(model)
+            await recordingEngine.downloadModel(model)
         }
     }
     
     private var modelFilterTabs: some View {
         HStack(spacing: 12) {
-            filterPill(localizationManager.localizedString("models.filter.all"), count: whisperState.predefinedModels.count, isSelected: true)
-            filterPill(localizationManager.localizedString("models.filter.downloaded"), count: whisperState.availableModels.count, isSelected: false)
+            filterPill(localizationManager.localizedString("models.filter.all"), count: recordingEngine.predefinedModels.count, isSelected: true)
+            filterPill(localizationManager.localizedString("models.filter.downloaded"), count: recordingEngine.availableModels.count, isSelected: false)
         }
     }
     

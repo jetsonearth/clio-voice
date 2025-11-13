@@ -94,10 +94,10 @@ class CancelConfirmationWindow: NSPanel {
 
 class CancelConfirmationWindowManager: ObservableObject {
     private var window: CancelConfirmationWindow?
-    private var whisperState: WhisperState
+    private var recordingEngine: RecordingEngine
     
-    init(whisperState: WhisperState) {
-        self.whisperState = whisperState
+    init(recordingEngine: RecordingEngine) {
+        self.recordingEngine = recordingEngine
     }
     
     func show(near miniRecorderFrame: NSRect) {
@@ -110,27 +110,27 @@ class CancelConfirmationWindowManager: ObservableObject {
             let contentView = CancelConfirmationView(
                 onNo: { [weak self] in
                     Task { @MainActor in
-                        self?.whisperState.showCancelConfirmation = false
+                        self?.recordingEngine.showCancelConfirmation = false
                         self?.hide()
                     }
                 },
                 onYes: { [weak self] in
                     Task { @MainActor in
                         // Hide UI elements immediately - no async needed for instant response
-                        self?.whisperState.showCancelConfirmation = false
+                        self?.recordingEngine.showCancelConfirmation = false
                         self?.hide()
                         
                         // Sound will be played after mic fully stops in dismiss flow
                         
                         // Set immediate UI-only states for instant mini recorder shrinking
-                        self?.whisperState.isProcessing = false
-                        self?.whisperState.isVisualizerActive = false
-                        self?.whisperState.isRecording = false  // For immediate UI shrinking - cleanup uses shouldCancelRecording flag
+                        self?.recordingEngine.isProcessing = false
+                        self?.recordingEngine.isVisualizerActive = false
+                        self?.recordingEngine.isRecording = false  // For immediate UI shrinking - cleanup uses shouldCancelRecording flag
                         
                         // Run heavy async operations in background without blocking UI
-                        self?.whisperState.shouldCancelRecording = true
-                        self?.whisperState.isAttemptingToRecord = false  // Reset attempt flag on cancel
-                        Task { await self?.whisperState.dismissRecorder() }
+                        self?.recordingEngine.shouldCancelRecording = true
+                        self?.recordingEngine.isAttemptingToRecord = false  // Reset attempt flag on cancel
+                        Task { await self?.recordingEngine.dismissRecorder() }
                         // Play cancel sound shortly after to keep UX snappy while avoiding pops
                         try? await Task.sleep(nanoseconds: 120_000_000)
                         SoundManager.shared.playEscSound()

@@ -110,7 +110,7 @@ If you build a workflow worth sharing, drop it in `docs/recipes` (or open an iss
 
 ## Architecture at a Glance
 
-- `Whisper/WhisperState.swift` – Orchestrates recording, VAD, buffering, Soniox streaming handoff, and whisper.cpp fallback.
+- `Whisper/RecordingEngine.swift` – Orchestrates recording, VAD, buffering, Soniox streaming handoff, and whisper.cpp fallback.
 - `Services/AI/SonioxStreamingService.swift` – Manages the low-latency websocket connection to Soniox v3 and keeps partial transcripts flowing.
 - `Services/AI/AIEnhancementService.swift` – Provider-agnostic layer for Groq, Gemini, OpenAI, Anthropic, and Ollama text enhancement.
 - `StateMachine/RecorderStateMachine.swift` – Guards every session edge case (lost focus, permission changes, model swaps) so recordings stay resilient.

@@ -13,7 +13,6 @@ enum ViewType: String, CaseIterable {
     // case transcribeAudio = "Transcribe Audio"
     // case models = "Models" // Disabled for proxy architecture
     // case enhancement = "Prompts"
-//    case powerMode = "AI Enhancement"
     // case permissions = "Permissions"
     // case audioInput = "Audio Input"
 
@@ -32,7 +31,6 @@ enum ViewType: String, CaseIterable {
         case .home: return NSLocalizedString("Home", comment: "")
         case .aiModels: return NSLocalizedString("AI Models", comment: "")
         // case .models: return NSLocalizedString("speech.models.title", comment: "") // Disabled for proxy architecture
-//        case .powerMode: return NSLocalizedString("enhance.mode.title", comment: "")
         case .personalizationEditingStrength: return NSLocalizedString("navigation.ai_editing_strength", comment: "")
         case .personalizationVocabulary: return NSLocalizedString("dictionary.vocabulary", comment: "")
         case .personalizationReplacements: return NSLocalizedString("dictionary.replacements", comment: "")
@@ -51,7 +49,6 @@ enum ViewType: String, CaseIterable {
         // case .transcribeAudio: return "waveform.circle.fill"
         // case .models: return "brain.head.profile.fill" // Disabled for proxy architecture
         // case .enhancement: return "text.quote"
-//        case .powerMode: return "circle.lefthalf.striped.horizontal"
         // case .permissions: return "shield.fill"
         // case .audioInput: return "mic.fill"
         case .personalizationEditingStrength: return "wand.and.stars"
@@ -247,7 +244,7 @@ struct DynamicSidebar: View {
     @Binding var hoveredView: ViewType?
     @Environment(\.colorScheme) private var colorScheme
     @EnvironmentObject private var localizationManager: LocalizationManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @ObservedObject private var licenseViewModel = LicenseViewModel.shared
     @ObservedObject private var userProfile = UserProfileService.shared
@@ -518,7 +515,7 @@ struct DynamicSidebar: View {
     }
 
     private var availableLocalModels: [WhisperModel] {
-        whisperState.availableModels.filter { $0.url.isFileURL }
+        recordingEngine.availableModels.filter { $0.url.isFileURL }
     }
 
     private func preferredLocalModel(named preferredName: String? = nil) -> WhisperModel? {
@@ -559,7 +556,7 @@ struct DynamicSidebar: View {
     @MainActor
     private func enableOfflineMode(preferredName: String? = nil) async {
         // Refresh available local models from disk in case user deleted files
-        whisperState.loadAvailableModels()
+        recordingEngine.loadAvailableModels()
 
         if let model = preferredLocalModel(named: preferredName),
            FileManager.default.fileExists(atPath: model.url.path) {
@@ -573,8 +570,8 @@ struct DynamicSidebar: View {
             let previous = (UserDefaults.standard.object(forKey: "NotchTranscriptEnabled") as? Bool) ?? true
             UserDefaults.standard.set(previous, forKey: "NotchTranscriptEnabled.prev")
             UserDefaults.standard.set(false, forKey: "NotchTranscriptEnabled")
-            whisperState.notchWindowManager?.applyBottomTranscriptPreference(false)
-            await whisperState.setDefaultModel(model)
+            recordingEngine.notchWindowManager?.applyBottomTranscriptPreference(false)
+            await recordingEngine.setDefaultModel(model)
             WarmupCoordinator.shared.setCloudWarmupEnabled(false)
             return
         }
@@ -588,8 +585,8 @@ struct DynamicSidebar: View {
     @MainActor
     private func disableOfflineMode() async {
         storedUseLocalModel = false
-        await whisperState.unloadCurrentModel()
-        whisperState.activateStreamingMode()
+        await recordingEngine.unloadCurrentModel()
+        recordingEngine.activateStreamingMode()
         streamingTranscriptEnabled = true
         // Restore user's cloud language preferences if a backup exists
         restoreCloudLanguagePreferencesIfAvailable()
@@ -600,17 +597,17 @@ struct DynamicSidebar: View {
         UserDefaults.standard.removeObject(forKey: "NotchTranscriptEnabled.prev")
         if hadPrev {
             UserDefaults.standard.set(restoreValue, forKey: "NotchTranscriptEnabled")
-            whisperState.notchWindowManager?.applyBottomTranscriptPreference(restoreValue)
+            recordingEngine.notchWindowManager?.applyBottomTranscriptPreference(restoreValue)
         } else {
             // If no previous record, default to ON for cloud mode
             UserDefaults.standard.set(true, forKey: "NotchTranscriptEnabled")
-            whisperState.notchWindowManager?.applyBottomTranscriptPreference(true)
+            recordingEngine.notchWindowManager?.applyBottomTranscriptPreference(true)
         }
     }
 
     @MainActor
     private func startOfflineDownload(for model: PredefinedModel) async {
-        await whisperState.downloadModel(model, confirm: false)
+        await recordingEngine.downloadModel(model, confirm: false)
         // Refresh toggle state if download succeeded
         if preferredLocalModel(named: model.name) != nil {
             isOfflineActionInFlight = true
@@ -723,7 +720,7 @@ private struct SidebarToggleCard: View {
 }
 
 private struct OfflineModelDownloadSheet: View {
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
 
     let defaultModel: PredefinedModel?
@@ -793,7 +790,7 @@ private struct OfflineModelDownloadSheet: View {
         .onAppear {
             selectedModelName = defaultModel?.name ?? selectedModelName
         }
-        .onReceive(whisperState.$downloadProgress) { progress in
+        .onReceive(recordingEngine.$downloadProgress) { progress in
             guard isDownloading, let model = defaultModel else { return }
             let mainKey = model.name + "_main"
             let coreKey = model.name + "_coreml"
@@ -871,7 +868,7 @@ struct DynamicSidebarButton: View {
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var hotkeyManager: HotkeyManager
     @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var updaterViewModel: UpdaterViewModel
@@ -891,7 +888,7 @@ struct ContentView: View {
     
     private var isSetupComplete: Bool {
         hasLoadedData &&
-        whisperState.currentModel != nil &&
+        recordingEngine.currentModel != nil &&
         KeyboardShortcuts.getShortcut(for: .toggleMiniRecorder) != nil &&
         AXIsProcessTrusted() &&
         CGPreflightScreenCaptureAccess()
@@ -1061,26 +1058,26 @@ struct ContentView: View {
     // Download and switch to Flash model with permission
     private func downloadFlashModel() {
         // Find Clio Flash (ggml-small) model
-        if let freeModel = whisperState.predefinedModels.first(where: { $0.name == "ggml-small" }) {
+        if let freeModel = recordingEngine.predefinedModels.first(where: { $0.name == "ggml-small" }) {
             print("🔄 Auto-switching to free model: \(freeModel.displayName)")
             
             // Check if it's downloaded
-            if let downloadedModel = whisperState.availableModels.first(where: { $0.name == "ggml-small" }) {
+            if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == "ggml-small" }) {
                 Task {
-//                    await whisperState.setDefaultModel(downloadedModel)
+//                    await recordingEngine.setDefaultModel(downloadedModel)
                     print("✅ Successfully switched to free model: \(freeModel.displayName)")
                 }
             } else {
                 // Auto-download free model if not available
                 print("📥 Free model not downloaded, auto-downloading...")
                 Task {
-//                    await whisperState.downloadModel(freeModel)
+//                    await recordingEngine.downloadModel(freeModel)
                     
                     // Wait for download to complete and then set as default
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        if let downloadedModel = whisperState.availableModels.first(where: { $0.name == "ggml-small" }) {
+                        if let downloadedModel = recordingEngine.availableModels.first(where: { $0.name == "ggml-small" }) {
                             Task {
-//                                await whisperState.setDefaultModel(downloadedModel)
+//                                await recordingEngine.setDefaultModel(downloadedModel)
                                 print("✅ Successfully downloaded and switched to free model: \(freeModel.displayName)")
                             }
                         }
@@ -1100,7 +1097,7 @@ struct ContentView: View {
         // case .metrics:
         //     MetricsView(skipSetupCheck: true)
         // case .models: // Disabled for proxy architecture
-        //     ModelManagementView(whisperState: whisperState)
+        //     ModelManagementView(recordingEngine: recordingEngine)
         // case .enhancement:
         //     EnhancementSettingsView()
         // case .record:
@@ -1113,16 +1110,15 @@ struct ContentView: View {
             AIEditingStrengthView()
                 .environmentObject(localizationManager)
         case .personalizationVocabulary:
-            DictionarySettingsView(whisperPrompt: whisperState.whisperPrompt, initialTab: .vocabulary)
+            DictionarySettingsView(whisperPrompt: recordingEngine.whisperPrompt, initialTab: .vocabulary)
         case .personalizationReplacements:
-            DictionarySettingsView(whisperPrompt: whisperState.whisperPrompt, initialTab: .replacements)
+            DictionarySettingsView(whisperPrompt: recordingEngine.whisperPrompt, initialTab: .replacements)
         case .personalizationSnippets:
             SnippetsView()
                 .environmentObject(localizationManager)
-        // PowerMode removed
         case .settings:
             SettingsView()
-                .environmentObject(whisperState)
+                .environmentObject(recordingEngine)
         // case .profile:
         //     ProfileView()
         case .license:

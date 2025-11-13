@@ -47,7 +47,7 @@ class AudioTranscriptionManager: ObservableObject {
     
     private init() {}
     
-    func startProcessing(url: URL, modelContext: ModelContext, whisperState: WhisperState) {
+    func startProcessing(url: URL, modelContext: ModelContext, recordingEngine: RecordingEngine) {
         // Cancel any existing processing
         cancelProcessing()
         
@@ -60,7 +60,7 @@ class AudioTranscriptionManager: ObservableObject {
             do {
                 let processingStartTime = Date() // T0 for file transcription
                 
-                guard let currentModel = whisperState.currentModel else {
+                guard let currentModel = recordingEngine.currentModel else {
                     throw TranscriptionError.noModelSelected
                 }
                 
@@ -88,7 +88,7 @@ class AudioTranscriptionManager: ObservableObject {
                 
                 // Transcribe
                 processingPhase = .transcribing
-                await whisperContext?.setPrompt(whisperState.whisperPrompt.transcriptionPrompt)
+                await whisperContext?.setPrompt(recordingEngine.whisperPrompt.transcriptionPrompt)
                 try await whisperContext?.fullTranscribe(samples: samples)
                 var text = await whisperContext?.getTranscription() ?? ""
                 text = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -103,7 +103,7 @@ class AudioTranscriptionManager: ObservableObject {
                 }
                 
                 // Handle enhancement if enabled
-                if let enhancementService = whisperState.enhancementService,
+                if let enhancementService = recordingEngine.enhancementService,
                    enhancementService.isEnhancementEnabled,
                    enhancementService.isConfigured {
                     processingPhase = .enhancing

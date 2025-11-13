@@ -241,12 +241,12 @@ struct AudioPlayerView: View {
     @State private var showRetranscribeSuccess = false
     @State private var showRetranscribeError = false
     @State private var errorMessage = ""
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @Environment(\.modelContext) private var modelContext
     
     private var transcriptionService: AudioTranscriptionService {
-        AudioTranscriptionService(modelContext: modelContext, whisperState: whisperState)
+        AudioTranscriptionService(modelContext: modelContext, recordingEngine: recordingEngine)
     }
     
     var body: some View {
@@ -408,7 +408,7 @@ struct AudioPlayerView: View {
     }
     
     private func retranscribeAudio() {
-        guard let currentModel = whisperState.currentModel else {
+        guard let currentModel = recordingEngine.currentModel else {
             errorMessage = localizationManager.localizedString("audio_player.no_model_selected")
             showRetranscribeError = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

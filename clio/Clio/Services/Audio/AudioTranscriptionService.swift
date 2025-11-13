@@ -13,7 +13,7 @@ class AudioTranscriptionService: ObservableObject {
     private var whisperContext: WhisperContext?
     private let modelContext: ModelContext
     private let enhancementService: AIEnhancementService?
-    private let whisperState: WhisperState
+    private let recordingEngine: RecordingEngine
     private let logger = Logger(subsystem: "com.jetsonai.clio", category: "AudioTranscriptionService")
     
     enum TranscriptionError: Error {
@@ -23,10 +23,10 @@ class AudioTranscriptionService: ObservableObject {
         case invalidAudioFormat
     }
     
-    init(modelContext: ModelContext, whisperState: WhisperState) {
+    init(modelContext: ModelContext, recordingEngine: RecordingEngine) {
         self.modelContext = modelContext
-        self.whisperState = whisperState
-        self.enhancementService = whisperState.enhancementService
+        self.recordingEngine = recordingEngine
+        self.enhancementService = recordingEngine.enhancementService
     }
     
     func retranscribeAudio(from url: URL, using whisperModel: WhisperModel) async throws -> Transcription {
@@ -121,9 +121,9 @@ class AudioTranscriptionService: ObservableObject {
             // Read audio samples
             let samples = try readAudioSamples(permanentURL)
             
-            // Process with Whisper - using the same prompt as WhisperState
-            messageLog += "Setting prompt: \(whisperState.whisperPrompt.transcriptionPrompt)\n"
-            await whisperContext.setPrompt(whisperState.whisperPrompt.transcriptionPrompt)
+            // Process with Whisper - using the same prompt as RecordingEngine
+            messageLog += "Setting prompt: \(recordingEngine.whisperPrompt.transcriptionPrompt)\n"
+            await whisperContext.setPrompt(recordingEngine.whisperPrompt.transcriptionPrompt)
             
             try await whisperContext.fullTranscribe(samples: samples)
             var text = await whisperContext.getTranscription()
@@ -139,7 +139,7 @@ class AudioTranscriptionService: ObservableObject {
                 logger.notice("✅ Word replacements applied")
             }
             
-            // Apply AI enhancement if enabled - using the same enhancement service as WhisperState
+            // Apply AI enhancement if enabled - using the same enhancement service as RecordingEngine
             if let enhancementService = enhancementService,
                enhancementService.isEnhancementEnabled,
                enhancementService.isConfigured {

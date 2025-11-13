@@ -5,7 +5,7 @@ import SwiftData
 
 struct OnboardingModelDownloadView: View {
     @Binding var hasCompletedOnboarding: Bool
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @State private var scale: CGFloat = 0.8
     @State private var opacity: CGFloat = 0
@@ -89,7 +89,7 @@ struct OnboardingModelDownloadView: View {
                         if isDownloading {
                             DownloadProgressView(
                                 modelName: turboModel.name,
-                                downloadProgress: whisperState.downloadProgress
+                                downloadProgress: recordingEngine.downloadProgress
                             )
                             .transition(.opacity)
                         }
@@ -153,8 +153,8 @@ struct OnboardingModelDownloadView: View {
     }
     
     private func checkModelStatus() {
-        if let model = whisperState.availableModels.first(where: { $0.name == turboModel.name }) {
-            isModelSet = whisperState.currentModel?.name == model.name
+        if let model = recordingEngine.availableModels.first(where: { $0.name == turboModel.name }) {
+            isModelSet = recordingEngine.currentModel?.name == model.name
         }
     }
     
@@ -163,9 +163,9 @@ struct OnboardingModelDownloadView: View {
             withAnimation {
                 showTutorial = true
             }
-        } else if let model = whisperState.availableModels.first(where: { $0.name == turboModel.name }) {
+        } else if let model = recordingEngine.availableModels.first(where: { $0.name == turboModel.name }) {
             Task {
-                await whisperState.setDefaultModel(model)
+                await recordingEngine.setDefaultModel(model)
                 withAnimation {
                     isModelSet = true
                 }
@@ -175,9 +175,9 @@ struct OnboardingModelDownloadView: View {
                 isDownloading = true
             }
             Task {
-                await whisperState.downloadModel(turboModel)
-                if let model = whisperState.availableModels.first(where: { $0.name == turboModel.name }) {
-                    await whisperState.setDefaultModel(model)
+                await recordingEngine.downloadModel(turboModel)
+                if let model = recordingEngine.availableModels.first(where: { $0.name == turboModel.name }) {
+                    await recordingEngine.setDefaultModel(model)
                     withAnimation {
                         isModelSet = true
                         isDownloading = false
@@ -192,7 +192,7 @@ struct OnboardingModelDownloadView: View {
             return localizationManager.localizedString("general.continue")
         } else if isDownloading {
             return localizationManager.localizedString("onboarding.model_download.downloading")
-        } else if whisperState.availableModels.contains(where: { $0.name == turboModel.name }) {
+        } else if recordingEngine.availableModels.contains(where: { $0.name == turboModel.name }) {
             return localizationManager.localizedString("onboarding.model_download.set_default")
         } else {
             return localizationManager.localizedString("onboarding.model_download.download")

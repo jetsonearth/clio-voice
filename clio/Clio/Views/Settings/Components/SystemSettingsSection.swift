@@ -20,7 +20,7 @@ struct SystemSettingsSection: View {
     @EnvironmentObject private var contextService: ContextService
     @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var hotkeyManager: HotkeyManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @StateObject private var permissionManager = PermissionManager()
 
     // Sign out
@@ -152,18 +152,18 @@ struct SystemSettingsSection: View {
                     Toggle("", isOn: $recorderStyleIsNotch)
                         .toggleStyle(SwitchToggleStyle(tint: DarkTheme.accent))
                         .onChange(of: recorderStyleIsNotch) { _, newValue in
-                            whisperState.recorderType = newValue ? "notch" : "mini"
+                            recordingEngine.recorderType = newValue ? "notch" : "mini"
                             if newValue {
-                                whisperState.miniWindowManager?.hide()
+                                recordingEngine.miniWindowManager?.hide()
                             } else {
-                                whisperState.notchWindowManager?.hide()
+                                recordingEngine.notchWindowManager?.hide()
                             }
                         }
                 }
                 .padding(16)
                 .onAppear {
-                    // Sync whisperState with persisted preference on load
-                    whisperState.recorderType = recorderStyleIsNotch ? "notch" : "mini"
+                    // Sync recordingEngine with persisted preference on load
+                    recordingEngine.recorderType = recorderStyleIsNotch ? "notch" : "mini"
                 }
                 */
 
@@ -193,7 +193,7 @@ VStack(alignment: .leading, spacing: 4) {
                         .toggleStyle(SwitchToggleStyle(tint: DarkTheme.accent))
                         .onChange(of: notchTranscriptEnabled) { _, newValue in
                             // Update active notch UI immediately if present
-                            whisperState.notchWindowManager?.applyBottomTranscriptPreference(newValue)
+                            recordingEngine.notchWindowManager?.applyBottomTranscriptPreference(newValue)
                         }
                 }
                 .padding(16)

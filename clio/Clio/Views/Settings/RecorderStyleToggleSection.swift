@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecorderStyleToggleSection: View {
-	@EnvironmentObject private var whisperState: WhisperState
+	@EnvironmentObject private var recordingEngine: RecordingEngine
 	@AppStorage("RecorderStyleIsNotch") private var isNotch: Bool = false
 
 	var body: some View {
@@ -27,15 +27,15 @@ struct RecorderStyleToggleSection: View {
 					get: { isNotch },
 					set: { newValue in
 						isNotch = newValue
-						whisperState.recorderType = newValue ? "notch" : "mini"
+						recordingEngine.recorderType = newValue ? "notch" : "mini"
 						
 						// Ensure mutual exclusivity - hide the other recorder type
 						if newValue {
 							// Switching to notch - hide mini recorder
-							whisperState.miniWindowManager?.hide()
+							recordingEngine.miniWindowManager?.hide()
 						} else {
 							// Switching to mini - hide notch recorder
-							whisperState.notchWindowManager?.hide()
+							recordingEngine.notchWindowManager?.hide()
 						}
 					}
 				))
@@ -55,7 +55,7 @@ struct RecorderStyleToggleSection: View {
 		)
 		.onAppear {
 			// Keep AppStorage and state in sync on load
-			whisperState.recorderType = isNotch ? "notch" : "mini"
+			recordingEngine.recorderType = isNotch ? "notch" : "mini"
 		}
 	}
 }

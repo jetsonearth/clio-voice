@@ -59,7 +59,7 @@ struct AudioInputSection: View {
 }
 
 struct PrivacySection: View {
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @AppStorage("UseLocalModel") private var useLocalModel = false
     @State private var isDownloading = false
@@ -67,7 +67,7 @@ struct PrivacySection: View {
     
     private var localModelAvailable: Bool {
         // Check if Clio Flash is downloaded
-        whisperState.availableModels.contains(where: { $0.name == "ggml-small" })
+        recordingEngine.availableModels.contains(where: { $0.name == "ggml-small" })
     }
     
     var body: some View {
@@ -154,8 +154,8 @@ struct PrivacySection: View {
         Task {
             if useLocal {
                 // Switch to local Clio Flash
-                if let flashModel = whisperState.availableModels.first(where: { $0.name == "ggml-small" }) {
-//                    await whisperState.setDefaultModel(flashModel)
+                if let flashModel = recordingEngine.availableModels.first(where: { $0.name == "ggml-small" }) {
+//                    await recordingEngine.setDefaultModel(flashModel)
                 }
             } else {
                 // Switch to Soniox (cloud)
@@ -164,13 +164,13 @@ struct PrivacySection: View {
                     url: URL(fileURLWithPath: "/tmp/dummy"),
                     coreMLEncoderURL: nil
                 )
-//                await whisperState.setDefaultModel(sonioxModel)
+//                await recordingEngine.setDefaultModel(sonioxModel)
             }
         }
     }
     
     private func downloadLocalModel() {
-        guard let flashModel = whisperState.predefinedModels.first(where: { $0.name == "ggml-small" }) else {
+        guard let flashModel = recordingEngine.predefinedModels.first(where: { $0.name == "ggml-small" }) else {
             return
         }
         
@@ -178,7 +178,7 @@ struct PrivacySection: View {
         
         Task {
             // Subscribe to download progress
-            for await progress in whisperState.$downloadProgress.values {
+            for await progress in recordingEngine.$downloadProgress.values {
                 if let modelProgress = progress[flashModel.name] {
                     await MainActor.run {
                         downloadProgress = modelProgress
@@ -188,7 +188,7 @@ struct PrivacySection: View {
         }
         
         Task {
-//            await whisperState.downloadModel(flashModel)
+//            await recordingEngine.downloadModel(flashModel)
             await MainActor.run {
                 isDownloading = false
                 downloadProgress = 0.0

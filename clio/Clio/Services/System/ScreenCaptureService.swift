@@ -155,7 +155,6 @@ class ScreenCaptureService: ObservableObject {
     }
     
     private func getActiveWindowInfo() -> (title: String, ownerName: String, windowID: CGWindowID)? {
-        // Use the same frontmost app detection as PowerMode for consistency
         guard let frontmostApp = NSWorkspace.shared.frontmostApplication,
               let bundleIdentifier = frontmostApp.bundleIdentifier else {
             logger.notice("❌ Could not get frontmost application for screen capture")
@@ -196,7 +195,7 @@ class ScreenCaptureService: ObservableObject {
             // Handle empty window titles (common for Terminal, code editors)
             let title = frontWindow[kCGWindowName as String] as? String ?? ownerName
             
-            // logger.notice("🎯 ScreenCapture found window: \(title) (\(ownerName)) - matches PowerMode detection")
+            // logger.notice("🎯 ScreenCapture found window: \(title) (\(ownerName)) - matches current detection pipeline")
             return (title: title, ownerName: ownerName, windowID: windowID)
         }
         

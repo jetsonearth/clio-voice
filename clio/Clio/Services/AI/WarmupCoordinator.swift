@@ -9,13 +9,13 @@ final class WarmupCoordinator {
         private var lastRunAt: Date = .distantPast
         private var isRunning: Bool = false
         private var cadenceTimer: Timer?
-        private weak var whisperState: WhisperState?
+        private weak var recordingEngine: RecordingEngine?
         private var isCloudWarmupEnabled: Bool = true
 
         private init() {}
 
-        func register(whisperState: WhisperState) {
-                self.whisperState = whisperState
+        func register(recordingEngine: RecordingEngine) {
+                self.recordingEngine = recordingEngine
         }
 
         func setCloudWarmupEnabled(_ enabled: Bool) {
@@ -64,12 +64,12 @@ final class WarmupCoordinator {
                 // UnifiedAudioManager warmup (eliminates cold start on first recording)
                 await prewarmAudioSystem()
                 // 5) LLM warmup via NER prewarm path (triggered elsewhere on OCR completion)
-                // Note: AIEnhancementService is not a singleton; its prewarm is invoked by OCR callback in WhisperState.
+                // Note: AIEnhancementService is not a singleton; its prewarm is invoked by OCR callback in RecordingEngine.
         }
 
         /// Lightweight warms for Soniox networking (DNS + TCP/TLS) on cadence
         private func prewarmASRTransport() async {
-                guard let svc = whisperState?.sonioxStreamingService else { return }
+                guard let svc = recordingEngine?.sonioxStreamingService else { return }
                 await svc.prewarmASRTransport()
         }
         

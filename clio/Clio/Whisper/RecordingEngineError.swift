@@ -1,6 +1,6 @@
 import Foundation
 
-public enum WhisperStateError: Error, Identifiable, Equatable {
+public enum RecordingEngineError: Error, Identifiable, Equatable {
     case accessDenied
     case invalidModelFile
     case modelDownloadFailed
@@ -12,7 +12,7 @@ public enum WhisperStateError: Error, Identifiable, Equatable {
     public var id: String { String(describing: self) }
 }
 
-extension WhisperStateError: LocalizedError {
+extension RecordingEngineError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .accessDenied:

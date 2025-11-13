@@ -2,7 +2,7 @@ import SwiftUI
 import KeyboardShortcuts
 
 struct MetricsSetupView: View {
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @State private var isAccessibilityEnabled = AXIsProcessTrusted()
     @State private var isScreenRecordingEnabled = CGPreflightScreenCaptureAccess()
     
@@ -78,7 +78,7 @@ struct MetricsSetupView: View {
             title = "Enable Screen Recording"
             description = "Allow Io to understand context from your screen for transcript  Enhancement"
         default:
-            isCompleted = whisperState.currentModel != nil
+            isCompleted = recordingEngine.currentModel != nil
             icon = "arrow.down"
             title = "Download Model"
             description = "Choose and download an AI model"

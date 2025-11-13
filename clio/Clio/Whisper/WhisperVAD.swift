@@ -190,8 +190,8 @@ actor WhisperVADContext {
     }
 }
 
-// Extension to WhisperState for VAD integration
-extension WhisperState {
+// Extension to RecordingEngine for VAD integration
+extension RecordingEngine {
     // VAD model URL - Using HuggingFace repository
     static let vadModelURL = "https://huggingface.co/ggml-org/whisper-vad/resolve/main/ggml-silero-v5.1.2.bin"
     static let vadModelFileName = "ggml-silero-v5.1.2.bin"

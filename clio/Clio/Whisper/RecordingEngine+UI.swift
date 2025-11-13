@@ -5,7 +5,7 @@ import KeyboardShortcuts
 import DynamicNotchKit
 
 // MARK: - UI Management Extension
-extension WhisperState {
+extension RecordingEngine {
     
     // MARK: - Intent-driven session control (Phase 1)
     enum Intent {
@@ -58,7 +58,7 @@ extension WhisperState {
             // Ensure mini is hidden when showing notch
             miniWindowManager?.hide()
             if notchWindowManager == nil {
-                notchWindowManager = DynamicNotchWindowManager(whisperState: self, recorder: recorder)
+                notchWindowManager = DynamicNotchWindowManager(recordingEngine: self, recorder: recorder)
             }
             // Call show without forcing callers to hop onto MainActor manually
             Task { @MainActor in await notchWindowManager?.show() }
@@ -68,7 +68,7 @@ extension WhisperState {
         // Ensure notch is hidden when showing mini
         notchWindowManager?.hide(force: true)
         if miniWindowManager == nil {
-            miniWindowManager = MiniWindowManager(whisperState: self, recorder: recorder)
+            miniWindowManager = MiniWindowManager(recordingEngine: self, recorder: recorder)
             logger.info("Created new mini window manager")
         }
         miniWindowManager?.show()
@@ -77,7 +77,7 @@ extension WhisperState {
     // Ensure notch manager exists before rendering from state (phase 2b)
     @MainActor private func ensureNotchManager() {
         if recorderType == "notch" && notchWindowManager == nil {
-            notchWindowManager = DynamicNotchWindowManager(whisperState: self, recorder: recorder)
+            notchWindowManager = DynamicNotchWindowManager(recordingEngine: self, recorder: recorder)
         }
     }
 
@@ -85,7 +85,7 @@ extension WhisperState {
     @MainActor func prewarmNotchIfEnabled() async {
         guard recorderType == "notch" else { return }
         if notchWindowManager == nil {
-            notchWindowManager = DynamicNotchWindowManager(whisperState: self, recorder: recorder)
+            notchWindowManager = DynamicNotchWindowManager(recordingEngine: self, recorder: recorder)
         }
         // Honor flags: only prewarm when keep-alive + prewarm are enabled
         if RuntimeConfig.notchKeepAliveEnabled && RuntimeConfig.notchPrewarmOnActivation {

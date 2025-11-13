@@ -2,9 +2,9 @@ import Foundation
 import SwiftUI
 import Combine
 
-/// Executes commands from the RecorderStateMachine and coordinates with existing WhisperState
+/// Executes commands from the RecorderStateMachine and coordinates with existing RecordingEngine
 actor RecorderCommandExecutor {
-    private weak var whisperState: WhisperState?
+    private weak var recordingEngine: RecordingEngine?
     private weak var stateMachine: RecorderStateMachine?
     
     // Timer management
@@ -15,8 +15,8 @@ actor RecorderCommandExecutor {
     private var sessionStateObserver: AnyCancellable?
     private var isWaitingForRecordingComplete = false
     
-    init(whisperState: WhisperState) {
-        self.whisperState = whisperState
+    init(recordingEngine: RecordingEngine) {
+        self.recordingEngine = recordingEngine
     }
     
     func setStateMachine(_ stateMachine: RecorderStateMachine) {
@@ -32,31 +32,31 @@ actor RecorderCommandExecutor {
     
     /// Execute a single command
     private func execute(_ command: RecorderCommand) async {
-        guard let whisperState = whisperState else { return }
+        guard let recordingEngine = recordingEngine else { return }
         
         switch command {
         case .showLightweightUI:
             await MainActor.run {
-                whisperState.isAttemptingToRecord = true
-                whisperState.isVisualizerActive = true
+                recordingEngine.isAttemptingToRecord = true
+                recordingEngine.isVisualizerActive = true
             }
             // Start mic preview + pre-roll buffering immediately on key down
             if RuntimeConfig.enablePreviewCapture {
-                let isNotch: Bool = await MainActor.run { whisperState.recorderType == "notch" }
-                let isMini: Bool = await MainActor.run { whisperState.recorderType == "mini" }
+                let isNotch: Bool = await MainActor.run { recordingEngine.recorderType == "notch" }
+                let isMini: Bool = await MainActor.run { recordingEngine.recorderType == "mini" }
                 if (isNotch) || (isMini && RuntimeConfig.previewCaptureForMini) {
-                    Task { await whisperState.sonioxStreamingService.startPreviewCapture() }
+                    Task { await recordingEngine.sonioxStreamingService.startPreviewCapture() }
                 }
             }
-            await whisperState.showRecorderPanel()
+            await recordingEngine.showRecorderPanel()
             
         case .startRecording(let mode):
             await MainActor.run {
-                whisperState.recorderMode = mode == .ptt ? .ptt : .hf
-                whisperState.isAttemptingToRecord = false
-                whisperState.isVisualizerActive = true
+                recordingEngine.recorderMode = mode == .ptt ? .ptt : .hf
+                recordingEngine.isAttemptingToRecord = false
+                recordingEngine.isVisualizerActive = true
                 if mode == .handsFreeLocked {
-                    whisperState.isHandsFreeLocked = true
+                    recordingEngine.isHandsFreeLocked = true
                 }
             }
             // Do NOT stop preview here. startStreaming() will atomically install the main tap
@@ -66,35 +66,35 @@ actor RecorderCommandExecutor {
             if mode == .ptt {
                 try? await Task.sleep(nanoseconds: 40_000_000) // ~40ms
             }
-            await whisperState.toggleRecord()
+            await recordingEngine.toggleRecord()
             
         case .stopRecording:
             // Always stop any preview capture to ensure mic shuts down on PTT release
-            await whisperState.sonioxStreamingService.stopPreviewCapture()
+            await recordingEngine.sonioxStreamingService.stopPreviewCapture()
             // If this stop was triggered by an immediate cancel, do a fast dismissal
-            let isCancelled = await MainActor.run { whisperState.shouldCancelRecording }
+            let isCancelled = await MainActor.run { recordingEngine.shouldCancelRecording }
             if isCancelled {
                 // Do not observe completion or render stopping; dismiss now
-                await whisperState.dismissRecorder()
+                await recordingEngine.dismissRecorder()
                 stopObservingRecordingCompletion()
             } else {
                 // Normal stop: observe recordingComplete and let UI render stopping
                 await startObservingRecordingCompletion()
-                await whisperState.toggleRecord()
+                await recordingEngine.toggleRecord()
             }
             
         case .hideUI:
             // Ensure any lightweight preview capture is stopped when hiding UI (mis‑touch)
-            await whisperState.sonioxStreamingService.stopPreviewCapture()
+            await recordingEngine.sonioxStreamingService.stopPreviewCapture()
             await MainActor.run {
                 // Ensure transition flags do not block UI dismissal on cancel
-                whisperState.isAttemptingToRecord = false
-                whisperState.isVisualizerActive = false
-                whisperState.isHandsFreeLocked = false
-                whisperState.isProcessing = false
+                recordingEngine.isAttemptingToRecord = false
+                recordingEngine.isVisualizerActive = false
+                recordingEngine.isHandsFreeLocked = false
+                recordingEngine.isProcessing = false
             }
             // Force hide to bypass "session active or in transition" guard
-            await whisperState.hideRecorderPanel(force: true)
+            await recordingEngine.hideRecorderPanel(force: true)
             
         case .playSound(let soundType):
             switch soundType {
@@ -122,15 +122,15 @@ actor RecorderCommandExecutor {
             
         case .updateUI(let viewModel):
             await MainActor.run {
-                // Update WhisperState properties to match view model
-                whisperState.isAttemptingToRecord = viewModel.isAttemptingToRecord
-                whisperState.isVisualizerActive = viewModel.isVisualizerActive
-                whisperState.isHandsFreeLocked = viewModel.isHandsFreeLocked
-                whisperState.canTranscribe = viewModel.canTranscribe
+                // Update RecordingEngine properties to match view model
+                recordingEngine.isAttemptingToRecord = viewModel.isAttemptingToRecord
+                recordingEngine.isVisualizerActive = viewModel.isVisualizerActive
+                recordingEngine.isHandsFreeLocked = viewModel.isHandsFreeLocked
+                recordingEngine.canTranscribe = viewModel.canTranscribe
             }
             
-            // PHASE 3: Update all state machine-driven properties in WhisperState
-            await whisperState.updateFromStateMachine()
+            // PHASE 3: Update all state machine-driven properties in RecordingEngine
+            await recordingEngine.updateFromStateMachine()
             
         case .schedulePromotion(let delay):
             promotionTask?.cancel()
@@ -162,7 +162,7 @@ actor RecorderCommandExecutor {
 
         case .markCancelled:
             await MainActor.run {
-                whisperState.shouldCancelRecording = true
+                recordingEngine.shouldCancelRecording = true
             }
         }
     }
@@ -170,13 +170,13 @@ actor RecorderCommandExecutor {
     // MARK: - Recording Completion Observation
     
     private func startObservingRecordingCompletion() async {
-        guard let whisperState = whisperState, !isWaitingForRecordingComplete else { return }
+        guard let recordingEngine = recordingEngine, !isWaitingForRecordingComplete else { return }
         
         isWaitingForRecordingComplete = true
         
         // Create observation on main actor, but use task to communicate back to actor
         await MainActor.run {
-            let observer = whisperState.$sessionState
+            let observer = recordingEngine.$sessionState
                 .sink { [weak self] sessionState in
                     if case .idle = sessionState {
                         Task {

@@ -7,7 +7,7 @@ import AppKit
 /// Only uses compact mode (elongated notch) - never shows expanded dropdown
 class DynamicNotchWindowManager: ObservableObject {
     @Published var isVisible = false
-    private let whisperState: WhisperState
+    private let recordingEngine: RecordingEngine
     private let recorder: Recorder
     private var escapeGlobalMonitor: Any?
     private var escapeLocalMonitor: Any?
@@ -16,8 +16,8 @@ class DynamicNotchWindowManager: ObservableObject {
     private var notch: DynamicNotch<ExpandedContent, CompactContent, CompactTrailingContent, CompactBottomContent>?
     private var targetScreen: NSScreen? // Lock to screen where mouse was when recording started
     
-    init(whisperState: WhisperState, recorder: Recorder) {
-        self.whisperState = whisperState
+    init(recordingEngine: RecordingEngine, recorder: Recorder) {
+        self.recordingEngine = recordingEngine
         self.recorder = recorder
     }
     
@@ -55,13 +55,13 @@ class DynamicNotchWindowManager: ObservableObject {
         // Create DynamicNotch if it doesn't exist - copy exact pattern from working test app
         if notch == nil {
             notch = DynamicNotch(style: .notch) {
-                ExpandedContent(recorder: self.recorder, whisperState: self.whisperState)
+                ExpandedContent(recorder: self.recorder, recordingEngine: self.recordingEngine)
             } compactLeading: {
-                CompactContent(recorder: self.recorder, whisperState: self.whisperState)
+                CompactContent(recorder: self.recorder, recordingEngine: self.recordingEngine)
             } compactTrailing: {
                 CompactTrailingContent()
             } compactBottom: {
-                CompactBottomContent(whisperState: self.whisperState)
+                CompactBottomContent(recordingEngine: self.recordingEngine)
             }
             // Apply keep-alive policy if configured
             notch?.keepAlive = RuntimeConfig.notchKeepAliveEnabled
@@ -115,13 +115,13 @@ class DynamicNotchWindowManager: ObservableObject {
     func prewarm() async {
         if notch == nil {
             notch = DynamicNotch(style: .notch) {
-                ExpandedContent(recorder: self.recorder, whisperState: self.whisperState)
+                ExpandedContent(recorder: self.recorder, recordingEngine: self.recordingEngine)
             } compactLeading: {
-                CompactContent(recorder: self.recorder, whisperState: self.whisperState)
+                CompactContent(recorder: self.recorder, recordingEngine: self.recordingEngine)
             } compactTrailing: {
                 CompactTrailingContent()
             } compactBottom: {
-                CompactBottomContent(whisperState: self.whisperState)
+                CompactBottomContent(recordingEngine: self.recordingEngine)
             }
             notch?.keepAlive = RuntimeConfig.notchKeepAliveEnabled
         }
@@ -146,7 +146,7 @@ class DynamicNotchWindowManager: ObservableObject {
         guard isVisible else { return }
         
         // Do not hide while a recording session is active or starting/stopping unless forced
-        if !force && (whisperState.isRecording || whisperState.isAttemptingToRecord || whisperState.isProcessing) {
+        if !force && (recordingEngine.isRecording || recordingEngine.isAttemptingToRecord || recordingEngine.isProcessing) {
             // print("🛑 [DYNAMIC NOTCH DEBUG] hide() ignored – session active or in transition")
             return
         }
@@ -169,7 +169,7 @@ class DynamicNotchWindowManager: ObservableObject {
             guard let self = self else { return }
             if event.keyCode == 53 { // ESC key
                 Task { @MainActor in
-                    if self.isVisible && self.whisperState.isRecording {
+                    if self.isVisible && self.recordingEngine.isRecording {
                         self.handleEscapeKey(event)
                     }
                 }
@@ -179,7 +179,7 @@ class DynamicNotchWindowManager: ObservableObject {
         // Local monitor when app is foreground (matches GPL version)
         escapeLocalMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
             guard let self = self else { return event }
-            if event.keyCode == 53 && self.isVisible && self.whisperState.isRecording {
+            if event.keyCode == 53 && self.isVisible && self.recordingEngine.isRecording {
                 self.handleEscapeKey(event)
                 return nil // consume the event
             }
@@ -191,16 +191,16 @@ class DynamicNotchWindowManager: ObservableObject {
         guard event.keyCode == 53 else { return } // ESC key
         
         Task { @MainActor in
-            if isVisible && whisperState.isRecording {
+            if isVisible && recordingEngine.isRecording {
                 // Cancel recording immediately
-                whisperState.isProcessing = false
-                whisperState.isVisualizerActive = false
-                whisperState.isRecording = false
-                whisperState.shouldCancelRecording = true
-                whisperState.isAttemptingToRecord = false
+                recordingEngine.isProcessing = false
+                recordingEngine.isVisualizerActive = false
+                recordingEngine.isRecording = false
+                recordingEngine.shouldCancelRecording = true
+                recordingEngine.isAttemptingToRecord = false
                 
                 // Dismiss and cleanup using existing Clio logic
-                await whisperState.dismissRecorder()
+                await recordingEngine.dismissRecorder()
                 
                 // Play cancel sound after cleanup (matches GPL timing)
                 SoundManager.shared.playEscSound()
@@ -235,7 +235,7 @@ class DynamicNotchWindowManager: ObservableObject {
     
     // Passive renderer: show when session is non-idle; hide when idle
     @MainActor
-    func render(sessionState: WhisperState.SessionState) async {
+    func render(sessionState: RecordingEngine.SessionState) async {
         switch sessionState {
         case .idle:
             hide(force: true)
@@ -246,13 +246,13 @@ class DynamicNotchWindowManager: ObservableObject {
     
     // Ensure previous session text does not leak into a new recording UI session
     @MainActor private func clearTranscriptState() {
-        // Clear WhisperState combined sources
-        whisperState.streamingFinalText = ""
-        whisperState.streamingPartialText = ""
+        // Clear RecordingEngine combined sources
+        recordingEngine.streamingFinalText = ""
+        recordingEngine.streamingPartialText = ""
         
         // Clear direct Soniox service buffers used by CompactBottomContent fallback
-        whisperState.sonioxStreamingService.finalBuffer = ""
-        whisperState.sonioxStreamingService.partialTranscript = ""
+        recordingEngine.sonioxStreamingService.finalBuffer = ""
+        recordingEngine.sonioxStreamingService.partialTranscript = ""
     }
 }
 
@@ -260,13 +260,13 @@ class DynamicNotchWindowManager: ObservableObject {
 /// Kept for compatibility but never shown
 struct ExpandedContent: View {
     @ObservedObject var recorder: Recorder
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     var body: some View {
         HStack(spacing: 8) {
             RecordingVisualizerView(
                 recorder: recorder,
-                whisperState: whisperState,
-                isActive: whisperState.isVisualizerActive || whisperState.isRecording || whisperState.isProcessing
+                recordingEngine: recordingEngine,
+                isActive: recordingEngine.isVisualizerActive || recordingEngine.isRecording || recordingEngine.isProcessing
             )
             Spacer(minLength: 0)
         }
@@ -278,7 +278,7 @@ struct ExpandedContent: View {
 /// Left side of compact notch - shows recording status
 struct CompactContent: View {
     @ObservedObject var recorder: Recorder
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     var body: some View {
         // Match trailing side width and align to the leading edge so the visualizer hugs the left margin
         let leadingWidth: CGFloat = 66
@@ -294,13 +294,13 @@ struct CompactContent: View {
         HStack(spacing: 0) {
             RecordingVisualizerView(
                 recorder: recorder,
-                whisperState: whisperState,
-                isActive: whisperState.isVisualizerActive || whisperState.isRecording || whisperState.isProcessing
+                recordingEngine: recordingEngine,
+                isActive: recordingEngine.isVisualizerActive || recordingEngine.isRecording || recordingEngine.isProcessing
             )
             
             // Right-side lock region sized to remaining width, lock overlaps into visualizer by a few points
             ZStack(alignment: .trailing) {
-                if whisperState.isHandsFreeLocked && whisperState.isRecording {
+                if recordingEngine.isHandsFreeLocked && recordingEngine.isRecording {
                     Image(systemName: "lock.fill")
                         .font(.system(size: 9, weight: .semibold))
                         .foregroundColor(.white)
@@ -340,7 +340,7 @@ struct CompactTrailingContent: View {
 
 /// Bottom row of compact notch - shows persistent streaming transcript with ethereal animations
 struct CompactBottomContent: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @State private var scrollOffset: CGFloat = 0
     @State private var textWidth: CGFloat = 0
     @State private var containerWidth: CGFloat = 0
@@ -351,8 +351,8 @@ struct CompactBottomContent: View {
     
     // Combine final + partial text for persistence
     private var combinedText: String {
-        let final = whisperState.streamingFinalText
-        let partial = whisperState.streamingPartialText
+        let final = recordingEngine.streamingFinalText
+        let partial = recordingEngine.streamingPartialText
         
         if !final.isEmpty && !partial.isEmpty {
             return joinFinalAndPartial(final: final, partial: partial)
@@ -362,8 +362,8 @@ struct CompactBottomContent: View {
             return partial
         } else {
             // Fallback to direct Soniox streams
-            let directFinal = whisperState.sonioxStreamingService.finalBuffer
-            let directPartial = whisperState.sonioxStreamingService.partialTranscript
+            let directFinal = recordingEngine.sonioxStreamingService.finalBuffer
+            let directPartial = recordingEngine.sonioxStreamingService.partialTranscript
             
             if !directFinal.isEmpty && !directPartial.isEmpty {
                 return joinFinalAndPartial(final: directFinal, partial: directPartial)
@@ -396,12 +396,12 @@ struct CompactBottomContent: View {
     }
     
     private var isSessionActive: Bool {
-        whisperState.isRecording || whisperState.isProcessing || whisperState.isAttemptingToRecord
+        recordingEngine.isRecording || recordingEngine.isProcessing || recordingEngine.isAttemptingToRecord
     }
     
     private var isEnhancementPending: Bool {
         // Start shimmering immediately when recording stops and processing begins (no text dependency)
-        (!whisperState.isRecording) && whisperState.isProcessing
+        (!recordingEngine.isRecording) && recordingEngine.isProcessing
     }
     
     var body: some View {
@@ -455,7 +455,7 @@ struct CompactBottomContent: View {
             .onChange(of: combinedText) { newText in
                 handleTextChange(newText)
             }
-            .onChange(of: whisperState.isProcessing) { _ in
+            .onChange(of: recordingEngine.isProcessing) { _ in
                 // During recording→processing transition, avoid lateral shifts by snapping
                 shouldAnimateScroll = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {

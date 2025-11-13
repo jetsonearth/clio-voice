@@ -5,7 +5,7 @@ import AVFoundation
 
 struct AudioTranscribeView: View {
     @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @StateObject private var transcriptionManager = AudioTranscriptionManager.shared
     @State private var isDropTargeted = false
@@ -111,7 +111,7 @@ struct AudioTranscribeView: View {
                         .font(.headline)
                     
                     // AI Enhancement Settings
-                    if let enhancementService = whisperState.getEnhancementService() {
+                    if let enhancementService = recordingEngine.getEnhancementService() {
                         VStack(spacing: 16) {
                             // AI Enhancement and Prompt in the same row
                             HStack(spacing: 16) {
@@ -188,7 +188,7 @@ struct AudioTranscribeView: View {
                                 transcriptionManager.startProcessing(
                                     url: url,
                                     modelContext: modelContext,
-                                    whisperState: whisperState
+                                    recordingEngine: recordingEngine
                                 )
                             }
                         }

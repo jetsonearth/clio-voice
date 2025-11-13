@@ -7,7 +7,7 @@ struct ProfessionalOnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
     @StateObject private var viewModel = ProfessionalOnboardingViewModel()
     @EnvironmentObject private var hotkeyManager: HotkeyManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var aiService: AIService
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @EnvironmentObject private var userViewModel: UserViewModel

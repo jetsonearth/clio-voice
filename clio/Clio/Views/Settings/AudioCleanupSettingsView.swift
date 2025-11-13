@@ -3,7 +3,7 @@ import SwiftData
 
 /// A view component for configuring audio cleanup settings
 struct AudioCleanupSettingsView: View {
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     
     // Audio cleanup settings (simplified - default to 14 days)
@@ -34,7 +34,7 @@ struct AudioCleanupSettingsView: View {
 
 // MARK: - Configuration View Component
 struct AudioCleanupConfigurationView: View {
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     
     // Audio cleanup settings
@@ -292,7 +292,7 @@ struct AudioCleanupConfigurationView: View {
                 isPerformingCleanup = true
             }
             
-            let info = await AudioCleanupManager.shared.getCleanupInfo(modelContext: whisperState.modelContext)
+            let info = await AudioCleanupManager.shared.getCleanupInfo(modelContext: recordingEngine.modelContext)
             
             await MainActor.run {
                 cleanupInfo = info
@@ -309,7 +309,7 @@ struct AudioCleanupConfigurationView: View {
             }
             
             let result = await AudioCleanupManager.shared.runCleanupForTranscriptions(
-                modelContext: whisperState.modelContext,
+                modelContext: recordingEngine.modelContext,
                 transcriptions: cleanupInfo.transcriptions
             )
             

@@ -2,7 +2,7 @@ import SwiftUI
 import AppKit
 
 struct MenuBarView: View {
-    @EnvironmentObject var whisperState: WhisperState
+    @EnvironmentObject var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @State private var showFeedbackWindow = false
@@ -38,9 +38,9 @@ struct MenuBarView: View {
             
             // Audio & Language Configuration Group
             LanguageSelectionView(
-                whisperState: whisperState, 
+                recordingEngine: recordingEngine, 
                 displayMode: .menuItem, 
-                whisperPrompt: whisperState.whisperPrompt
+                whisperPrompt: recordingEngine.whisperPrompt
             )
             
             MicrophoneSelectionView()

@@ -5,7 +5,7 @@ import KeyboardShortcuts
 struct ProfessionalTryItView: View {
     @ObservedObject var viewModel: ProfessionalOnboardingViewModel
     @Binding var hasCompletedOnboarding: Bool
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var hotkeyManager: HotkeyManager
     @EnvironmentObject private var localizationManager: LocalizationManager
     // Three pages: 0 = Push‑to‑talk, 1 = Hands‑free, 2 = Command
@@ -617,7 +617,7 @@ struct AquaStyleTryItContainer: View {
     let secondaryIsBack: Bool
     @EnvironmentObject private var hotkeyManager: HotkeyManager
     @EnvironmentObject private var localizationManager: LocalizationManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @State private var transcribedText = ""
     @State private var isAnimating = false
     @State private var showShortcutCapture = false
@@ -897,14 +897,14 @@ struct AquaStyleTryItContainer: View {
             )
         }
         // Cache the latest Soniox finalized chunk, but don't show it until recording ends.
-        .onReceive(whisperState.sonioxStreamingService.$finalBuffer) { text in
+        .onReceive(recordingEngine.sonioxStreamingService.$finalBuffer) { text in
             guard isTryItActive else { return }
             let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
             if !trimmed.isEmpty {
                 pendingFinalResult = trimmed
             }
         }
-        .onReceive(whisperState.$isRecording) { isRecording in
+        .onReceive(recordingEngine.$isRecording) { isRecording in
             guard isTryItActive else { return }
             // Track start → clear any previous results and focus editor
             if isRecording {
@@ -916,7 +916,7 @@ struct AquaStyleTryItContainer: View {
                 // Recording just ended — prefer AI-enhanced text if available, else Soniox final fallback
                 if wasRecording {
                     wasRecording = false
-                    let enhanced = whisperState.lastOutputText.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let enhanced = recordingEngine.lastOutputText.trimmingCharacters(in: .whitespacesAndNewlines)
                     if !enhanced.isEmpty {
                         transcribedText = enhanced
                     } else {
@@ -930,7 +930,7 @@ struct AquaStyleTryItContainer: View {
             }
         }
         // If enhancement completes slightly later, still prefer it and replace the fallback
-        .onReceive(whisperState.$lastOutputText) { latest in
+        .onReceive(recordingEngine.$lastOutputText) { latest in
             guard isTryItActive else { return }
             let trimmed = latest.trimmingCharacters(in: .whitespacesAndNewlines)
             if !trimmed.isEmpty {
@@ -941,9 +941,9 @@ struct AquaStyleTryItContainer: View {
             // Activate TryIt component when it appears
             isTryItActive = true
             // Suppress global paste while the Try It UI is frontmost
-            whisperState.suppressSystemPaste = true
+            recordingEngine.suppressSystemPaste = true
             // Clear any previous outputs
-            whisperState.lastOutputText = ""
+            recordingEngine.lastOutputText = ""
             // Set example text for command mode only
             if mode == .command {
                 transcribedText = localizationManager.localizedString("onboarding.tryit.command_default_text")
@@ -964,7 +964,7 @@ struct AquaStyleTryItContainer: View {
             // Deactivate TryIt component when it disappears
             isTryItActive = false
             // Re-enable normal paste behavior for the rest of the app
-            whisperState.suppressSystemPaste = false
+            recordingEngine.suppressSystemPaste = false
         }
     }
     

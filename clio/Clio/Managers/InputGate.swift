@@ -4,7 +4,7 @@ import AppKit
 
 actor InputGate {
     private let logger = Logger(subsystem: "com.jetsonai.clio", category: "InputGate")
-    private weak var whisperState: WhisperState?
+    private weak var recordingEngine: RecordingEngine?
     
     // PHASE 1.2: State machine integration (proof of concept)
     private var recorderStateMachine: RecorderStateMachine?
@@ -42,14 +42,14 @@ actor InputGate {
     // After promoting to hands-free, ignore stray additional downs for a short window
     private var handsFreeDebounceUntil: Date? = nil
 
-    init(whisperState: WhisperState) {
-        self.whisperState = whisperState
+    init(recordingEngine: RecordingEngine) {
+        self.recordingEngine = recordingEngine
         
         // PHASE 1.2: Initialize state machine for testing
         if UserDefaults.standard.bool(forKey: "EnableRecorderStateMachine") {
             self.recorderStateMachine = RecorderStateMachine()
             if let stateMachine = recorderStateMachine {
-                let executor = RecorderCommandExecutor(whisperState: whisperState)
+                let executor = RecorderCommandExecutor(recordingEngine: recordingEngine)
                 Task {
                     await executor.setStateMachine(stateMachine)
                 }
@@ -107,7 +107,7 @@ actor InputGate {
         lastDownAt = now
         
         // If already locked in hands‑free (from dedicated shortcut), pressing dictation acts as STOP
-        if let ws = whisperState, await ws.isRecording, await ws.isHandsFreeLocked {
+        if let ws = recordingEngine, await ws.isRecording, await ws.isHandsFreeLocked {
             logger.debug("🔒 [GATE-LEGACY] HF locked; keyDown → stop")
             SoundManager.shared.playKeyUp()
             await setHandsFreeBadge(false)
@@ -166,7 +166,7 @@ actor InputGate {
     /// is running; when that pipeline is active, the recorder should stay visible and
     /// dismiss only after paste completes.
     private func failsafeStopAfterRelease() async {
-        guard let ws = whisperState else { return }
+        guard let ws = recordingEngine else { return }
         // Give the normal pipeline time to run first
         try? await Task.sleep(nanoseconds: 300_000_000) // ~300ms
         // Read states on main for consistency
@@ -206,7 +206,7 @@ actor InputGate {
     }
 
     private func showLightweightUI() async {
-        guard let ws = whisperState else { return }
+        guard let ws = recordingEngine else { return }
         await MainActor.run { Task { await ws.handleIntent(.showLightweight) } }
         // Tracking for mis-touch logic only
         self.lastShownUIGenerationToken = nil
@@ -216,7 +216,7 @@ actor InputGate {
     }
 
     private func quickHideMisTouch() async -> Bool {
-        guard let ws = whisperState else { return false }
+        guard let ws = recordingEngine else { return false }
         // Ensure the notch had time to fully open before we hide
         if let shownAt = lastUIShowTime {
             let elapsed = Date().timeIntervalSince(shownAt)
@@ -239,21 +239,21 @@ actor InputGate {
     }
 
     private func startFullRecording() async {
-        if let ws = whisperState {
+        if let ws = recordingEngine {
             await MainActor.run { Task { await ws.handleIntent(.startPTT) } }
         }
     }
 
     private func stopFullRecording() async {
         await setHandsFreeBadge(false)
-        if let ws = whisperState {
+        if let ws = recordingEngine {
             await MainActor.run { Task { await ws.handleIntent(.stop) } }
         }
     }
 
     private func setHandsFreeBadge(_ locked: Bool) async {
-        await MainActor.run { [weak whisperState] in
-            whisperState?.isHandsFreeLocked = locked
+        await MainActor.run { [weak recordingEngine] in
+            recordingEngine?.isHandsFreeLocked = locked
         }
     }
 

@@ -21,7 +21,7 @@ struct SettingsView: View {
     @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @EnvironmentObject private var contextService: ContextService
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @StateObject private var deviceManager = AudioDeviceManager.shared
     @State private var showResetOnboardingAlert = false
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
@@ -106,7 +106,7 @@ struct SettingsView: View {
                 //         Text("Select how you want the recorder to appear on your screen.")
                 //             .settingsDescription()
                         
-                //         Picker("Recorder Style", selection: $whisperState.recorderType) {
+                //         Picker("Recorder Style", selection: $recordingEngine.recorderType) {
                 //             Text("Notch Recorder").tag("notch")
                 //             Text("Mini Recorder").tag("mini")
                 //         }

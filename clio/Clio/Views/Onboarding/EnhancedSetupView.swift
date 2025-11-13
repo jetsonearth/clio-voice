@@ -78,7 +78,7 @@ struct EnhancedSetupView: View {
     @ObservedObject var viewModel: ProfessionalOnboardingViewModel
     @Binding var hasCompletedOnboarding: Bool
     @EnvironmentObject private var hotkeyManager: HotkeyManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @State private var selectedKey: HotkeyManager.PushToTalkKey = .rightCommand
     // Local model selection disabled; keep placeholder only if flag is enabled.
@@ -782,7 +782,7 @@ struct EnhancedMicrophoneOption: View {
 #if CLIO_ENABLE_LOCAL_MODEL
 struct ModelSetupContent: View {
     @Binding var selectedModel: WhisperModelSize
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     let onContinue: () -> Void
     let onBack: () -> Void

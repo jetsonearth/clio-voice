@@ -5,15 +5,15 @@ class MiniWindowManager: ObservableObject {
     @Published var isVisible = false
     private var windowController: NSWindowController?
     private var miniPanel: MiniRecorderPanel?
-    private let whisperState: WhisperState
+    private let recordingEngine: RecordingEngine
     private let recorder: Recorder
     
     var window: NSWindow? {
         return miniPanel
     }
     
-    init(whisperState: WhisperState, recorder: Recorder) {
-        self.whisperState = whisperState
+    init(recordingEngine: RecordingEngine, recorder: Recorder) {
+        self.recordingEngine = recordingEngine
         self.recorder = recorder
         
         NotificationCenter.default.addObserver(
@@ -48,12 +48,12 @@ class MiniWindowManager: ObservableObject {
         Task { @MainActor in
             initializeWindow(screen: activeScreen)
             self.isVisible = true
-            miniPanel?.show(on: activeScreen, streamingTranscriptEnabled: whisperState.isStreamingTranscriptEnabled)
+            miniPanel?.show(on: activeScreen, streamingTranscriptEnabled: recordingEngine.isStreamingTranscriptEnabled)
         }
     }
     
     func showAlwaysOn() {
-        // Show the always-on small oval without triggering WhisperState visibility logic
+        // Show the always-on small oval without triggering RecordingEngine visibility logic
         // This prevents the race condition in toggleMiniRecorder
         
         let activeScreen = screenForFrontmostApplication()
@@ -68,9 +68,9 @@ class MiniWindowManager: ObservableObject {
         Task { @MainActor in
             initializeWindow(screen: activeScreen)
             // Set isVisible so the window manager knows it exists, but this doesn't trigger
-            // WhisperState.isMiniRecorderVisible because we call this before that flag is set
+            // RecordingEngine.isMiniRecorderVisible because we call this before that flag is set
             self.isVisible = true
-            miniPanel?.show(on: activeScreen, streamingTranscriptEnabled: whisperState.isStreamingTranscriptEnabled)
+            miniPanel?.show(on: activeScreen, streamingTranscriptEnabled: recordingEngine.isStreamingTranscriptEnabled)
         }
     }
     
@@ -92,13 +92,13 @@ class MiniWindowManager: ObservableObject {
     private func initializeWindow(screen: NSScreen) {
         deinitializeWindow()
         
-        let metrics = MiniRecorderPanel.calculateWindowMetrics(for: screen, streamingTranscriptEnabled: whisperState.isStreamingTranscriptEnabled)
+        let metrics = MiniRecorderPanel.calculateWindowMetrics(for: screen, streamingTranscriptEnabled: recordingEngine.isStreamingTranscriptEnabled)
         let panel = MiniRecorderPanel(contentRect: metrics)
         
         let miniRecorderView = MiniRecorderView(
-            whisperState: whisperState,
+            recordingEngine: recordingEngine,
             recorder: recorder,
-            audioLevel: whisperState.audioLevel
+            audioLevel: recordingEngine.audioLevel
         )
             .environmentObject(self)
         
@@ -145,7 +145,7 @@ class MiniWindowManager: ObservableObject {
         guard let panel = miniPanel else { return }
         let metrics = MiniRecorderPanel.calculateWindowMetrics(
             for: screen,
-            streamingTranscriptEnabled: whisperState.isStreamingTranscriptEnabled
+            streamingTranscriptEnabled: recordingEngine.isStreamingTranscriptEnabled
         )
         panel.setFrame(metrics, display: true)
     }

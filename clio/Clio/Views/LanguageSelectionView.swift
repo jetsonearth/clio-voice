@@ -7,7 +7,7 @@ enum LanguageDisplayMode {
 }
 
 struct LanguageSelectionView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @AppStorage("SelectedLanguage") private var selectedLanguage: String = "en"
     @AppStorage("SelectedLanguages") private var selectedLanguagesData: Data = Data()
     // Add display mode parameter with full as the default
@@ -43,7 +43,7 @@ struct LanguageSelectionView: View {
     
     // Function to check if current model is multilingual
     private func isMultilingualModel() -> Bool {
-        guard let currentModel = whisperState.currentModel,
+        guard let currentModel = recordingEngine.currentModel,
                let predefinedModel = PredefinedModels.models.first(where: { $0.name == currentModel.name }) else {
             return false
         }
@@ -52,7 +52,7 @@ struct LanguageSelectionView: View {
 
     // Function to get current model's supported languages
     private func getCurrentModelLanguages() -> [String: String] {
-        guard let currentModel = whisperState.currentModel,
+        guard let currentModel = recordingEngine.currentModel,
               let predefinedModel = PredefinedModels.models.first(where: {
                   $0.name == currentModel.name
               })
@@ -91,7 +91,7 @@ struct LanguageSelectionView: View {
             Text(localizationManager.localizedString("language.transcription.title"))
                 .font(.headline)
 
-            if let currentModel = whisperState.currentModel,
+            if let currentModel = recordingEngine.currentModel,
                let predefinedModel = PredefinedModels.models.first(where: {
                    $0.name == currentModel.name
                })

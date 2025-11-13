@@ -1,11 +1,10 @@
 import SwiftUI
 
 struct MiniRecorderView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @ObservedObject var recorder: Recorder
     @ObservedObject var audioLevel: AudioLevelPublisher
     @EnvironmentObject var windowManager: MiniWindowManager
-    // PowerMode removed
     @State private var isShowing = false
     @State private var hasInitialized = false
     @State private var isExpanded = false
@@ -15,7 +14,7 @@ struct MiniRecorderView: View {
     // Helper to update expansion/content states based on recording & processing flags
     private func refreshVisualState() {
         let wasExpanded = isExpanded
-        let shouldExpand = whisperState.isRecording || whisperState.isProcessing || whisperState.isAttemptingToRecord
+        let shouldExpand = recordingEngine.isRecording || recordingEngine.isProcessing || recordingEngine.isAttemptingToRecord
         
         // Animation is now handled directly in onChange - just update state
         isExpanded = shouldExpand
@@ -50,9 +49,9 @@ struct MiniRecorderView: View {
     private func getHeight() -> CGFloat {
         if !isExpanded {
             return 10 // Collapsed state - slightly taller
-        } else if whisperState.isProcessing {
+        } else if recordingEngine.isProcessing {
             return 10 // Thin bar for transcribing - slightly taller
-        } else if whisperState.isStreamingTranscriptEnabled {
+        } else if recordingEngine.isStreamingTranscriptEnabled {
             return 160 // 24px top + 112px content (6 lines) + 24px bottom = 160px total
         } else {
             return 32 // Full height for wave visualizer recording
@@ -62,7 +61,7 @@ struct MiniRecorderView: View {
     private func getWidth() -> CGFloat {
         if !isExpanded {
             return 40 // Collapsed state
-        } else if whisperState.isStreamingTranscriptEnabled && !whisperState.isProcessing {
+        } else if recordingEngine.isStreamingTranscriptEnabled && !recordingEngine.isProcessing {
             return 320 // Wider for streaming transcript with elegant padding
         } else {
             return 95 // Standard width for wave visualizer
@@ -135,26 +134,26 @@ struct MiniRecorderView: View {
                 .scaleEffect(animationScale)
                 // Lighter animations to avoid jank on continuous updates
                 .animation(.interactiveSpring(response: 0.28, dampingFraction: 0.85), value: isExpanded)
-                .animation(.interactiveSpring(response: 0.28, dampingFraction: 0.85), value: whisperState.isProcessing)
+                .animation(.interactiveSpring(response: 0.28, dampingFraction: 0.85), value: recordingEngine.isProcessing)
                 .overlay {
                     // Content only shows when expanded
                     if showContent {
                         Group {
-                            if whisperState.isProcessing {
+                            if recordingEngine.isProcessing {
                                 // Show progress bar for transcribing state
-                                TranscribingProgressBar(progress: $whisperState.transcriptionProgress)
-                            } else if whisperState.isRecording {
+                                TranscribingProgressBar(progress: $recordingEngine.transcriptionProgress)
+                            } else if recordingEngine.isRecording {
                                 // Conditional content based on streaming transcript setting
-                                if whisperState.isStreamingTranscriptEnabled {
+                                if recordingEngine.isStreamingTranscriptEnabled {
                                     // Show streaming transcript view
-                                    StreamingTranscriptView(whisperState: whisperState)
+                                    StreamingTranscriptView(recordingEngine: recordingEngine)
                                 } else {
                                     // Show audio visualizer for recording state
                                     HStack(spacing: 0) {
                                         AudioVisualizer(
                                             audioMeter: audioLevel.level,
                                             color: .white,
-                                            isActive: whisperState.isRecording
+                                            isActive: recordingEngine.isRecording
                                         )
                                         .frame(maxWidth: .infinity)
                                         .padding(.horizontal, 4)
@@ -170,8 +169,8 @@ struct MiniRecorderView: View {
                 }
         }
         .frame(
-            width: whisperState.isStreamingTranscriptEnabled ? 320 : 95,
-            height: whisperState.isStreamingTranscriptEnabled ? 160 : 32,
+            width: recordingEngine.isStreamingTranscriptEnabled ? 320 : 95,
+            height: recordingEngine.isStreamingTranscriptEnabled ? 160 : 32,
             alignment: .bottom  // Bottom-anchored expansion - key for upward growth!
         )
         .task {
@@ -182,39 +181,38 @@ struct MiniRecorderView: View {
             }
             refreshVisualState()
         }
-        .onChange(of: whisperState.isAttemptingToRecord) { oldValue, newValue in
+        .onChange(of: recordingEngine.isAttemptingToRecord) { oldValue, newValue in
             // INSTANT expansion - zero lag response
             if newValue && !oldValue {
                 // Reset progress at the very start of recording to ensure clean state
-                whisperState.transcriptionProgress = 0.0
+                recordingEngine.transcriptionProgress = 0.0
                 animateRecordingStart()
                 // Set states immediately - no refreshVisualState conflicts
                 isExpanded = true
                 showContent = true
             } else if !newValue && oldValue {
                 // If attempt was cancelled and not actually recording/processing, collapse
-                if !whisperState.isRecording && !whisperState.isProcessing {
+                if !recordingEngine.isRecording && !recordingEngine.isProcessing {
                     isExpanded = false
                     showContent = false
                 }
             }
             // DON'T call refreshVisualState() - it causes competing state changes
         }
-        .onChange(of: whisperState.isRecording) { oldValue, newValue in
+        .onChange(of: recordingEngine.isRecording) { oldValue, newValue in
             if !newValue && oldValue {
                 animateRecordingStop()
             }
             refreshVisualState()
         }
-        .onChange(of: whisperState.isProcessing) { oldValue, newValue in
+        .onChange(of: recordingEngine.isProcessing) { oldValue, newValue in
             // Reset progress to 0 when transcription starts
             if newValue && !oldValue {
-                whisperState.transcriptionProgress = 0.0
+                recordingEngine.transcriptionProgress = 0.0
             }
             // Removed animateBounce() to prevent startup animation conflicts
             refreshVisualState()
         }
     }
 }
-
 

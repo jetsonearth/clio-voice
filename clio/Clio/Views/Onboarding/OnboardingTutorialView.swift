@@ -5,7 +5,7 @@ import KeyboardShortcuts
 struct OnboardingTutorialView: View {
     @Binding var hasCompletedOnboarding: Bool
     @EnvironmentObject private var hotkeyManager: HotkeyManager
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var localizationManager: LocalizationManager
     @State private var scale: CGFloat = 0.8
     @State private var opacity: CGFloat = 0
@@ -198,11 +198,11 @@ struct OnboardingTutorialView: View {
         .environmentObject(LocalizationManager.shared)
         .environmentObject({
             let context = try! ModelContainer(for: Transcription.self).mainContext
-            let whisperState = WhisperState(modelContext: context, enhancementService: nil)
-            return HotkeyManager(whisperState: whisperState)
+            let recordingEngine = RecordingEngine(modelContext: context, enhancementService: nil)
+            return HotkeyManager(recordingEngine: recordingEngine)
         }())
         .environmentObject({
             let context = try! ModelContainer(for: Transcription.self).mainContext
-            return WhisperState(modelContext: context, enhancementService: nil)
+            return RecordingEngine(modelContext: context, enhancementService: nil)
         }())
 } 

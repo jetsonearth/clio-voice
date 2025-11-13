@@ -6,7 +6,7 @@ import KeyboardShortcuts
 struct MetricsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Transcription.timestamp) private var transcriptions: [Transcription]
-    @EnvironmentObject private var whisperState: WhisperState
+    @EnvironmentObject private var recordingEngine: RecordingEngine
     @EnvironmentObject private var hotkeyManager: HotkeyManager
     @State private var hasLoadedData = false
     let skipSetupCheck: Bool
@@ -36,7 +36,7 @@ struct MetricsView: View {
     
     private var isSetupComplete: Bool {
         hasLoadedData &&
-        whisperState.currentModel != nil &&
+        recordingEngine.currentModel != nil &&
         KeyboardShortcuts.getShortcut(for: .toggleMiniRecorder) != nil &&
         AXIsProcessTrusted() &&
         CGPreflightScreenCaptureAccess()

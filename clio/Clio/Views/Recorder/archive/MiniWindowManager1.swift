@@ -5,15 +5,15 @@
 //     @Published var isVisible = false
 //     private var windowController: NSWindowController?
 //     private var miniPanel: MiniRecorderPanel?
-//     private let whisperState: WhisperState
+//     private let recordingEngine: RecordingEngine
 //     private let recorder: Recorder
     
 //     var window: NSWindow? {
 //         return miniPanel
 //     }
     
-//     init(whisperState: WhisperState, recorder: Recorder) {
-//         self.whisperState = whisperState
+//     init(recordingEngine: RecordingEngine, recorder: Recorder) {
+//         self.recordingEngine = recordingEngine
 //         self.recorder = recorder
         
 //         NotificationCenter.default.addObserver(
@@ -62,7 +62,7 @@
 //         let metrics = MiniRecorderPanel.calculateWindowMetrics()
 //         let panel = MiniRecorderPanel(contentRect: metrics)
         
-//         let miniRecorderView = MiniRecorderView(whisperState: whisperState, recorder: recorder)
+//         let miniRecorderView = MiniRecorderView(recordingEngine: recordingEngine, recorder: recorder)
 //             .environmentObject(self)
         
 //         let hostingController = NSHostingController(rootView: miniRecorderView)

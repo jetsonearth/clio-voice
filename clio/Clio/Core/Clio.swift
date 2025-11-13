@@ -9,7 +9,7 @@ struct ClioApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let container: ModelContainer
     
-    @StateObject private var whisperState: WhisperState
+    @StateObject private var recordingEngine: RecordingEngine
     @StateObject private var hotkeyManager: HotkeyManager
     @StateObject private var updaterViewModel: UpdaterViewModel
     // MenuBarManager removed
@@ -117,13 +117,13 @@ struct ClioApp: App {
         // Ensure all proxy calls share a single session with metrics collection
         ProxySessionManager.shared.setDelegate(enhancementService)
         
-        let whisperState = WhisperState(modelContext: container.mainContext, enhancementService: enhancementService, contextService: contextService)
-        _whisperState = StateObject(wrappedValue: whisperState)
+        let recordingEngine = RecordingEngine(modelContext: container.mainContext, enhancementService: enhancementService, contextService: contextService)
+        _recordingEngine = StateObject(wrappedValue: recordingEngine)
         
         // TEMPORARILY COMMENT OUT: Testing if HotkeyManager initialization causes hang
         // Re-enable HotkeyManager in safe minimal mode (defers setup until app is active)
         let hotkeyManager = HotkeyManager(
-            whisperState: whisperState,
+            recordingEngine: recordingEngine,
             disabled: false,
             minimalMode: true,
             enablePushToTalk: true,
@@ -215,7 +215,7 @@ struct ClioApp: App {
                         // Developer override: force show onboarding (enabled via UserDefaults)
                         ProfessionalOnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
                             .environmentObject(hotkeyManager)
-                            .environmentObject(whisperState)
+                            .environmentObject(recordingEngine)
                             .environmentObject(aiService)
                             .environmentObject(contextService)
                             .environmentObject(enhancementService)
@@ -229,7 +229,7 @@ struct ClioApp: App {
                     } else if shouldShowUpdateShowcase {
                         UpdateShowcaseView(didFinish: $updateShowcaseFinished)
                             .environmentObject(hotkeyManager)
-                            .environmentObject(whisperState)
+                            .environmentObject(recordingEngine)
                             .environmentObject(aiService)
                             .environmentObject(contextService)
                             .environmentObject(enhancementService)
@@ -253,7 +253,7 @@ struct ClioApp: App {
                         // First-time users: full onboarding (includes auth, permissions, setup)
                         ProfessionalOnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
                             .environmentObject(hotkeyManager)
-                            .environmentObject(whisperState)
+                            .environmentObject(recordingEngine)
                             .environmentObject(aiService)
                             .environmentObject(contextService)
                             .environmentObject(enhancementService)
@@ -281,7 +281,7 @@ struct ClioApp: App {
                                     .zIndex(1000)
                             }
                         }
-                            .environmentObject(whisperState)
+                            .environmentObject(recordingEngine)
                             .environmentObject(hotkeyManager)
                             .environmentObject(updaterViewModel)
                             // MenuBarManager removed
@@ -350,7 +350,7 @@ struct ClioApp: App {
         
         MenuBarExtra {
             MenuBarView()
-                .environmentObject(whisperState)
+                .environmentObject(recordingEngine)
                 .environmentObject(hotkeyManager)
                 // MenuBarManager removed
                 .environmentObject(updaterViewModel)

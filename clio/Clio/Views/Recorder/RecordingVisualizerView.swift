@@ -4,7 +4,7 @@ import Combine
 /// Audio visualizer for the notch with selectable styles. Defaults to elegant bars.
 struct RecordingVisualizerView: View {
     @ObservedObject var recorder: Recorder
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     let isActive: Bool
 
     // Test new direct audio visualizer
@@ -21,19 +21,19 @@ struct RecordingVisualizerView: View {
         // Source 1: meters (recorder + Soniox)
         let meterProvider: () -> AudioMeter = {
             let r = recorder.audioMeter
-            let s = whisperState.sonioxStreamingService.sonioxMeter
+            let s = recordingEngine.sonioxStreamingService.sonioxMeter
             return AudioMeter(
                 averagePower: max(r.averagePower, s.averagePower),
                 peakPower: max(r.peakPower, s.peakPower)
             )
         }
         // Source 2: direct level from streaming service (0..1)
-        let streamingLevelProvider: () -> Double = { whisperState.sonioxStreamingService.streamingAudioLevel }
+        let streamingLevelProvider: () -> Double = { recordingEngine.sonioxStreamingService.streamingAudioLevel }
 
         ZStack(alignment: .trailing) {
             // Show mic-driven visualizer ONLY during active recording.
             // For pre-recording (attempting) and post-recording processing, show loading indicator.
-            if whisperState.isRecording {
+            if recordingEngine.isRecording {
                 switch style {
                 case .wave:
                     ElegantAudioWave(audioMeterProvider: meterProvider,
@@ -49,7 +49,7 @@ struct RecordingVisualizerView: View {
                                       isActive: isActive)
                 case .directAudio:
                     // Observe unified audio level publisher so it works for both streaming and local modes
-                    DirectAudioVisualizer(levelSource: whisperState.audioLevel,
+                    DirectAudioVisualizer(levelSource: recordingEngine.audioLevel,
                                           isActive: isActive)
                 #if canImport(Orb)
                 case .orb:
@@ -59,7 +59,7 @@ struct RecordingVisualizerView: View {
                                          preset: .mystic)
                 #endif
                 }
-            } else if (whisperState.isProcessing && !whisperState.isRecording) {
+            } else if (recordingEngine.isProcessing && !recordingEngine.isRecording) {
                 // Show loading ONLY after recording stops, while transcribing/enhancing
                 ThreeBallsTriangleIfAvailable()
             } else {
@@ -489,7 +489,7 @@ private struct DirectAudioVisualizer: View {
     }
     
     private func updateAudioLevel(_ audioLevel: Float) {
-        // WhisperState.audioLevel already publishes 0..1 values
+        // RecordingEngine.audioLevel already publishes 0..1 values
         let normalizedLevel = max(0, min(1, Double(audioLevel)))
         
         // Smooth the audio level with some responsiveness

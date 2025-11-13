@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StreamingTranscriptView: View {
-    @ObservedObject var whisperState: WhisperState
+    @ObservedObject var recordingEngine: RecordingEngine
     @State private var maxDisplayLength: Int = 500 // Limit visible chars for efficiency
     // Subtle dreamy micro-animations (render-only, no layout changes)
     @State private var overlayOpacity: Double = 0.92
@@ -11,7 +11,7 @@ struct StreamingTranscriptView: View {
     
     var isEnhancementPending: Bool {
         // Start shimmering immediately when recording stops and processing begins (no text dependency)
-        (!whisperState.isRecording) && whisperState.isProcessing
+        (!recordingEngine.isRecording) && recordingEngine.isProcessing
     }
     
     var body: some View {
@@ -27,11 +27,11 @@ struct StreamingTranscriptView: View {
                             // Soft two-layer rendering that remains atomic: crisp final under a hazy partial overlay
                             ZStack(alignment: .topLeading) {
                                 // Finalized text (crisp)
-                                Text(whisperState.streamingTextCache.snapshot.crisp)
+                                Text(recordingEngine.streamingTextCache.snapshot.crisp)
                                     .font(.system(size: 12, weight: .semibold, design: .default))
                                     .scaleEffect(crispScale)
                                 // Partial overlay with gentle blur/haze
-                                Text(whisperState.streamingTextCache.snapshot.overlay)
+                                Text(recordingEngine.streamingTextCache.snapshot.overlay)
                                     .font(.system(size: 12, weight: .semibold, design: .default))
                                     .blur(radius: 1.8)
                                     .opacity(overlayOpacity)
@@ -53,12 +53,12 @@ struct StreamingTranscriptView: View {
                 }
                 .transaction { t in t.animation = nil } // hard-disable implicit animations inside
                 // Avoid clipping to prevent bottom cut-off
-                .onChange(of: whisperState.streamingAttributed) { _ in
+                .onChange(of: recordingEngine.streamingAttributed) { _ in
                     // Non-animated jump to bottom, debounced slightly to batch updates
                     scrollToBottomDebounced(proxy: proxy)
                 }
                 // Dreamy micro-animations: run only on promotions (atomic, cheap transforms)
-                .onChange(of: whisperState.streamingPromotionCounter) { _ in
+                .onChange(of: recordingEngine.streamingPromotionCounter) { _ in
                     // Start slightly shrunken and a touch dimmer, then ease out
                     crispScale = 0.995
                     overlayOpacity = 0.86

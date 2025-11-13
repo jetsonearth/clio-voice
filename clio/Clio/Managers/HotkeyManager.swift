@@ -36,7 +36,6 @@ extension KeyboardShortcuts.Name {
     static let toggleMiniRecorder = Self("toggleMiniRecorder")
     static let escapeRecorder = Self("escapeRecorder")
     static let toggleEnhancement = Self("toggleEnhancement")
-    // PowerMode removed
 }
 
 // Custom shortcut storage for keys that KeyboardShortcuts library can't handle
@@ -242,7 +241,7 @@ class HotkeyManager: ObservableObject {
     }
     
     
-    private var whisperState: WhisperState
+    private var recordingEngine: RecordingEngine
     private let disabled: Bool
     private let minimalMode: Bool
     private let enablePushToTalk: Bool
@@ -362,7 +361,7 @@ private var updateDebounceTask: Task<Void, Never>?
     }
     
     init(
-        whisperState: WhisperState,
+        recordingEngine: RecordingEngine,
         disabled: Bool = false,
         minimalMode: Bool = true,
         enablePushToTalk: Bool = false,
@@ -379,11 +378,11 @@ private var updateDebounceTask: Task<Void, Never>?
         self.enableDelayedReregistration = enableDelayedReregistration
         
         // Initialize references used by other members early
-        self.whisperState = whisperState
-        self.inputGate = InputGate(whisperState: whisperState)
+        self.recordingEngine = recordingEngine
+        self.inputGate = InputGate(recordingEngine: recordingEngine)
         self.appLaunchTime = Date()
         
-        // PHASE 3: Connect state machine to WhisperState for consolidated state (defer to avoid self capture before init)
+        // PHASE 3: Connect state machine to RecordingEngine for consolidated state (defer to avoid self capture before init)
         let deferredInputGate = self.inputGate
         
         // Respect exactly what the user previously selected; no silent migrations
@@ -459,11 +458,11 @@ private var updateDebounceTask: Task<Void, Never>?
             }
         }
         
-        // PHASE 3: Connect state machine to WhisperState after init is complete
+        // PHASE 3: Connect state machine to RecordingEngine after init is complete
         Task {
             if let stateMachine = await deferredInputGate?.getRecorderStateMachine() {
                 await MainActor.run {
-                    whisperState.setupRecorderStateMachine(stateMachine)
+                    recordingEngine.setupRecorderStateMachine(stateMachine)
                 }
             }
         }
@@ -558,16 +557,14 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
     
     private func setupVisibilityObserver() {
         visibilityTask = Task { @MainActor in
-            for await isVisible in whisperState.$isMiniRecorderVisible.values {
+            for await isVisible in recordingEngine.$isMiniRecorderVisible.values {
                 if isVisible {
                     // Don't re-register the main hotkey handler - it should stay active
                     // setupShortcutHandler() // REMOVED - handler should be set once during init
                     setupEnhancementShortcut()
-                    // PowerMode removed
                 } else {
                     removeEscapeShortcut()
                     removeEnhancementShortcut()
-                    // PowerMode removed
                 }
                 // Update Escape shortcut based on current recording state whenever visibility changes
                 updateEscapeShortcut()
@@ -576,7 +573,7 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
         
         // Separate observer for recording state so we can toggle Escape shortcut precisely
         Task { @MainActor in
-            for await _ in whisperState.$isRecording.values {
+            for await _ in recordingEngine.$isRecording.values {
                 updateEscapeShortcut()
             }
         }
@@ -716,16 +713,16 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
         // Dedicated hands-free key path (acts as a toggle, not hold)
         if isPushToTalkEnabled {
             if isKeyPressed {
-                if whisperState.isRecording {
+                if recordingEngine.isRecording {
                     // Toggle off
                     isHandsFreeLocked = false
-                    whisperState.isHandsFreeLocked = false
-                    Task { @MainActor in await whisperState.handleToggleMiniRecorder() }
+                    recordingEngine.isHandsFreeLocked = false
+                    Task { @MainActor in await recordingEngine.handleToggleMiniRecorder() }
                 } else {
                     // Toggle on with hands-free lock
                     isHandsFreeLocked = true
-                    whisperState.isHandsFreeLocked = true
-                    Task { @MainActor in await whisperState.handleToggleMiniRecorder() }
+                    recordingEngine.isHandsFreeLocked = true
+                    Task { @MainActor in await recordingEngine.handleToggleMiniRecorder() }
                 }
             }
             return
@@ -738,13 +735,13 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
             // If we're in hands-free mode, stop recording
             if isHandsFreeMode {
                 isHandsFreeMode = false
-                Task { @MainActor in await whisperState.handleToggleMiniRecorder() }
+                Task { @MainActor in await recordingEngine.handleToggleMiniRecorder() }
                 return
             }
             
             // Show recorder if not already visible
-            if !whisperState.isMiniRecorderVisible {
-                Task { @MainActor in await whisperState.handleToggleMiniRecorder() }
+            if !recordingEngine.isMiniRecorderVisible {
+                Task { @MainActor in await recordingEngine.handleToggleMiniRecorder() }
             }
         } else {
             let now = Date()
@@ -758,7 +755,7 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
                     isHandsFreeMode = true
                 } else {
                     // For longer presses, stop and transcribe
-                    Task { @MainActor in await whisperState.handleToggleMiniRecorder() }
+                    Task { @MainActor in await recordingEngine.handleToggleMiniRecorder() }
                 }
             }
             
@@ -773,7 +770,7 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
                 guard let self = self else { return }
 
                 // Allow ESC when recording in either mini or notch mode
-                guard await self.whisperState.isRecording else { return }
+                guard await self.recordingEngine.isRecording else { return }
 
                 // Check if state machine is enabled
                 if let inputGate = self.inputGate {
@@ -795,17 +792,17 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
                 
                 // Fallback to existing logic for non-state-machine path
                 // Direct cancel without confirmation
-                // await self.whisperState.showCancelConfirmation()
+                // await self.recordingEngine.showCancelConfirmation()
                 
                 // Cancel recording immediately
-                self.whisperState.isProcessing = false
-                self.whisperState.isVisualizerActive = false
-                self.whisperState.isRecording = false
-                self.whisperState.shouldCancelRecording = true
-                self.whisperState.isAttemptingToRecord = false
+                self.recordingEngine.isProcessing = false
+                self.recordingEngine.isVisualizerActive = false
+                self.recordingEngine.isRecording = false
+                self.recordingEngine.shouldCancelRecording = true
+                self.recordingEngine.isAttemptingToRecord = false
                 
                 // Dismiss and cleanup
-                await self.whisperState.dismissRecorder()
+                await self.recordingEngine.dismissRecorder()
                 
                 // Reset input gate and modifier tracking so subsequent presses work immediately
                 await self.inputGate?.reset()
@@ -825,14 +822,13 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
         KeyboardShortcuts.onKeyDown(for: .toggleEnhancement) { [weak self] in
             Task { @MainActor in
                 guard let self = self,
-                      await self.whisperState.isMiniRecorderVisible,
-                      let enhancementService = await self.whisperState.getEnhancementService() else { return }
+                      await self.recordingEngine.isMiniRecorderVisible,
+                      let enhancementService = await self.recordingEngine.getEnhancementService() else { return }
                 enhancementService.isEnhancementEnabled.toggle()
             }
         }
     }
     
-    // PowerMode shortcuts removed
     
     private func removeEnhancementShortcut() {
         KeyboardShortcuts.setShortcut(nil, for: .toggleEnhancement)
@@ -1113,7 +1109,7 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
         if useStateMachine, let inputGate = self.inputGate,
            let stateMachine = await inputGate.getRecorderStateMachine(),
            let executor = await inputGate.getCommandExecutor() {
-            if await whisperState.isRecording {
+            if await recordingEngine.isRecording {
                 // Stop depending on current FSM state:
                 // - If PTT is active, a keyUp ends recording
                 // - If Hands‑free is active, a keyDown ends recording
@@ -1133,9 +1129,9 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
             } else {
                 // Ensure a plain hands‑free start can never be misrouted into Command Mode
                 await MainActor.run {
-                    if self.whisperState.commandModeCallback != nil {
+                    if self.recordingEngine.commandModeCallback != nil {
                         print("🧹 [COMMAND] Clearing stale commandModeCallback before hands-free start")
-                        self.whisperState.commandModeCallback = nil
+                        self.recordingEngine.commandModeCallback = nil
                     }
                 }
                 // Not recording: promote directly to hands‑free via a synthetic double‑tap (down + down)
@@ -1148,23 +1144,23 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
         }
 
         // Legacy fallback (FSM off)
-        if await whisperState.isRecording {
+        if await recordingEngine.isRecording {
             SoundManager.shared.playKeyUp()
             isHandsFreeLocked = false
-            whisperState.isHandsFreeLocked = false
-            await whisperState.handleToggleMiniRecorder()
+            recordingEngine.isHandsFreeLocked = false
+            await recordingEngine.handleToggleMiniRecorder()
         } else {
             // Ensure a plain hands‑free start can never be misrouted into Command Mode
             await MainActor.run {
-                if self.whisperState.commandModeCallback != nil {
+                if self.recordingEngine.commandModeCallback != nil {
                     print("🧹 [COMMAND] Clearing stale commandModeCallback before hands-free start")
-                    self.whisperState.commandModeCallback = nil
+                    self.recordingEngine.commandModeCallback = nil
                 }
             }
             SoundManager.shared.playKeyDown()
             isHandsFreeLocked = true
-            whisperState.isHandsFreeLocked = true
-            await whisperState.handleToggleMiniRecorder()
+            recordingEngine.isHandsFreeLocked = true
+            await recordingEngine.handleToggleMiniRecorder()
         }
     }
     
@@ -1393,15 +1389,15 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
     
     private func beginAssistantCommand() async {
         // Prepare command-mode callback then reuse dictation PTT pipeline
-        let svc = await whisperState.getEnhancementService()
-        let context = whisperState.modelContext
+        let svc = await recordingEngine.getEnhancementService()
+        let context = recordingEngine.modelContext
         // Defer screen-context capture + AI pre-warm until after recording actually starts
         if let svc = svc {
             Task.detached(priority: .utility) { [weak self] in
                 guard let self = self else { return }
                 // Wait until we are actually recording (UI shown + promotion complete)
                 while true {
-                    let isRec = await MainActor.run { self.whisperState.isRecording }
+                    let isRec = await MainActor.run { self.recordingEngine.isRecording }
                     if isRec { break }
                     try? await Task.sleep(nanoseconds: 20_000_000) // 20ms poll
                 }
@@ -1412,7 +1408,7 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
                 await MainActor.run { svc.prewarmConnection() }
             }
         }
-        whisperState.commandModeCallback = { instruction in
+        recordingEngine.commandModeCallback = { instruction in
             SelectionCommandService.run(instruction: instruction, enhancementService: svc, modelContext: context)
         }
         await handleDictationKeyDown()
@@ -1479,9 +1475,9 @@ StructuredLog.shared.log(cat: .hotkey, evt: "register", lvl: .info, ["ok": true]
 private func handleDictationKeyDown() async {
         // If a stale command-mode callback is armed but the Assistant shortcut is NOT pressed,
         // clear it so a plain dictation session cannot be misrouted into Command Mode.
-        if !assistantPressed, whisperState.commandModeCallback != nil {
+        if !assistantPressed, recordingEngine.commandModeCallback != nil {
             print("🧹 [COMMAND] Clearing stale commandModeCallback before dictation keyDown")
-            whisperState.commandModeCallback = nil
+            recordingEngine.commandModeCallback = nil
         }
         // Route all logic through InputGate (handles mis-touch, PTT, double-tap to hands-free, and stop while locked)
         await inputGate?.onKeyDown()
@@ -1545,20 +1541,20 @@ private func handleDictationKeyUp() async {
         
         // Log detailed service state
         // print("🎹 [HOTKEY DEBUG] Service State:")
-        // print("🎹 [HOTKEY DEBUG]   - canTranscribe: \(whisperState.canTranscribe)")
-        // print("🎹 [HOTKEY DEBUG]   - currentModel: \(whisperState.currentModel?.name ?? "nil")")
-        // print("🎹 [HOTKEY DEBUG]   - isRecording: \(whisperState.isRecording)")
-        // print("🎹 [HOTKEY DEBUG]   - isMiniRecorderVisible: \(whisperState.isMiniRecorderVisible)")
-        // print("🎹 [HOTKEY DEBUG]   - miniWindowManager exists: \(whisperState.miniWindowManager != nil)")
+        // print("🎹 [HOTKEY DEBUG]   - canTranscribe: \(recordingEngine.canTranscribe)")
+        // print("🎹 [HOTKEY DEBUG]   - currentModel: \(recordingEngine.currentModel?.name ?? "nil")")
+        // print("🎹 [HOTKEY DEBUG]   - isRecording: \(recordingEngine.isRecording)")
+        // print("🎹 [HOTKEY DEBUG]   - isMiniRecorderVisible: \(recordingEngine.isMiniRecorderVisible)")
+        // print("🎹 [HOTKEY DEBUG]   - miniWindowManager exists: \(recordingEngine.miniWindowManager != nil)")
         // print("🎹 [HOTKEY DEBUG]   - isShortcutConfigured: \(isShortcutConfigured)")
         
         // Check service readiness first
-        if !whisperState.canTranscribe {
+        if !recordingEngine.canTranscribe {
             // print("🎹 [HOTKEY DEBUG] ❌ BLOCKED: canTranscribe is false")
             return
         }
         
-        if whisperState.currentModel == nil {
+        if recordingEngine.currentModel == nil {
             // print("🎹 [HOTKEY DEBUG] ❌ BLOCKED: currentModel is nil")
             return
         }
@@ -1575,12 +1571,12 @@ private func handleDictationKeyUp() async {
         // Update last trigger time
         lastShortcutTriggerTime = Date()
         
-        // print("🎹 [HOTKEY DEBUG] ✅ All checks passed, calling whisperState.handleToggleMiniRecorder")
+        // print("🎹 [HOTKEY DEBUG] ✅ All checks passed, calling recordingEngine.handleToggleMiniRecorder")
         // print("⏱️ [TIMING] toggleMiniRecorder_call @ \(String(format: "%.3f", Date().timeIntervalSince1970))")
         
         // Handle the shortcut and track what happens
         do {
-            await whisperState.handleToggleMiniRecorder()
+            await recordingEngine.handleToggleMiniRecorder()
             // print("🎹 [HOTKEY DEBUG] ✅ handleToggleMiniRecorder completed successfully")
         } catch {
             print("🎹 [HOTKEY DEBUG] ❌ handleToggleMiniRecorder threw error: \(error)")
@@ -1591,8 +1587,8 @@ private func handleDictationKeyUp() async {
     
     // MARK: - Dynamic Escape Shortcut
     private func updateEscapeShortcut() {
-        let isMiniActive = whisperState.isMiniRecorderVisible && whisperState.isRecording
-        let isNotchActive = (whisperState.recorderType == "notch") && whisperState.isRecording && (whisperState.notchWindowManager?.isVisible == true)
+        let isMiniActive = recordingEngine.isMiniRecorderVisible && recordingEngine.isRecording
+        let isNotchActive = (recordingEngine.recorderType == "notch") && recordingEngine.isRecording && (recordingEngine.notchWindowManager?.isVisible == true)
         if isMiniActive || isNotchActive {
             setupEscapeShortcut()
         } else {
@@ -1604,7 +1600,7 @@ private func handleDictationKeyUp() async {
     // Avoid removing the F5 interception while hands-free is active; stopping
     // the tap mid-session would allow Apple Dictation to capture F5 on release.
     private func shouldProtectF5Interception() -> Bool {
-        return isHandsFreeLocked || whisperState.isHandsFreeLocked
+        return isHandsFreeLocked || recordingEngine.isHandsFreeLocked
     }
     
     // MARK: - Loading phase setup
@@ -2019,7 +2015,6 @@ private func handleDictationKeyUp() async {
             removeHandsFreeShortcutMonitor()
             removeEscapeShortcut()
             removeEnhancementShortcut()
-            // PowerMode removed
             removeDebugEventMonitors()
         }
         if let observer = resignObserver { NotificationCenter.default.removeObserver(observer) }
