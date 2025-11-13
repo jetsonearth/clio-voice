@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SonioxAPIConfigurationSection: View {
+    @EnvironmentObject private var localizationManager: LocalizationManager
     @ObservedObject private var keyStore = SonioxAPIKeyStore.shared
     @State private var draftKey: String = ""
     @State private var isRevealed = false
@@ -12,19 +13,19 @@ struct SonioxAPIConfigurationSection: View {
 
     var body: some View {
         SettingsSection(
-            title: "Soniox Cloud Access",
-            subtitle: "Soniox is our fastest cloud ASR—enable it when you want ultra-accurate streaming transcription while recordings stay local."
+            title: localizationManager.localizedString("ai_models.section.soniox.title"),
+            subtitle: localizationManager.localizedString("ai_models.section.soniox.subtitle")
         ) {
             VStack(alignment: .leading, spacing: 16) {
                 credentialField
 
                 HStack(spacing: 12) {
-                    Button("Save") {
+                    Button(localizationManager.localizedString("general.save")) {
                         keyStore.update(apiKey: draftKey)
                     }
                     .buttonStyle(SettingsPillButtonStyle())
 
-                    Button("Clear") {
+                    Button(localizationManager.localizedString("general.clear")) {
                         draftKey = ""
                         keyStore.update(apiKey: nil)
                     }
@@ -35,7 +36,7 @@ struct SonioxAPIConfigurationSection: View {
 
                     ConfigurationStatusBadge(
                         status: hasKeyConfigured ? .ready : .required,
-                        text: hasKeyConfigured ? "Streaming unlocked" : "Voice key required"
+                        text: localizationManager.localizedString(hasKeyConfigured ? "ai_models.status.voice_ready" : "ai_models.status.voice_required")
                     )
                 }
             }

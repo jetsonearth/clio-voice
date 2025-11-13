@@ -2,62 +2,63 @@ import SwiftUI
 
 private struct ProviderModelOption: Identifiable, Hashable {
     let id: String
-    let title: String
-    let detail: String
+    let titleKey: String
+    let detailKey: String
 }
 
 private let groqModelOptions: [ProviderModelOption] = [
     .init(
         id: "qwen/qwen3-32b",
-        title: "Qwen 3 32B",
-        detail: "Balanced editing quality with Groq’s fastest TTFT — ideal default."
+        titleKey: "ai_models.model.qwen32.title",
+        detailKey: "ai_models.model.qwen32.detail"
     ),
     .init(
         id: "meta-llama/llama-4-scout-17b-16e-instruct",
-        title: "Llama 4 Scout 17B",
-        detail: "Ultra-low latency drafts when you value responsiveness over raw power."
+        titleKey: "ai_models.model.llama_scout.title",
+        detailKey: "ai_models.model.llama_scout.detail"
     ),
     .init(
         id: "meta-llama/llama-4-maverick-17b-128e-instruct",
-        title: "Llama 4 Maverick 17B",
-        detail: "Creative rewrites with a warmer tone and stronger summarization."
+        titleKey: "ai_models.model.llama_maverick.title",
+        detailKey: "ai_models.model.llama_maverick.detail"
     ),
     .init(
         id: "llama-3.3-70b-versatile",
-        title: "Llama 3.3 70B",
-        detail: "Highest quality Groq model for complex rewrites (slightly slower)."
+        titleKey: "ai_models.model.llama33.title",
+        detailKey: "ai_models.model.llama33.detail"
     ),
     .init(
         id: "llama-3.1-8b-instant",
-        title: "Llama 3.1 8B Instant",
-        detail: "Lightweight option that favors cost and speed over depth."
+        titleKey: "ai_models.model.llama31.title",
+        detailKey: "ai_models.model.llama31.detail"
     )
 ]
 
 private let geminiModelOptions: [ProviderModelOption] = [
     .init(
         id: "gemini-2.5-flash-lite",
-        title: "Gemini 2.5 Flash Lite",
-        detail: "Default fallback — lightning-fast and optimized for editing flows."
+        titleKey: "ai_models.model.gemini25.title",
+        detailKey: "ai_models.model.gemini25.detail"
     ),
     .init(
         id: "gemini-2.0-flash-exp",
-        title: "Gemini 2.0 Flash Experimental",
-        detail: "Latest reasoning improvements with similar latency."
+        titleKey: "ai_models.model.gemini20exp.title",
+        detailKey: "ai_models.model.gemini20exp.detail"
     ),
     .init(
         id: "gemini-1.5-flash",
-        title: "Gemini 1.5 Flash",
-        detail: "Battle-tested streaming model for predictable responses."
+        titleKey: "ai_models.model.gemini15flash.title",
+        detailKey: "ai_models.model.gemini15flash.detail"
     ),
     .init(
         id: "gemini-1.5-pro",
-        title: "Gemini 1.5 Pro",
-        detail: "Highest quality for long-form edits when speed is less critical."
+        titleKey: "ai_models.model.gemini15pro.title",
+        detailKey: "ai_models.model.gemini15pro.detail"
     )
 ]
 
 struct GroqAPIConfigurationSection: View {
+    @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @ObservedObject private var keyStore = GroqAPIKeyStore.shared
     @State private var draftKey: String = ""
@@ -75,8 +76,8 @@ struct GroqAPIConfigurationSection: View {
     
     var body: some View {
         SettingsSection(
-            title: "Groq API",
-            subtitle: "Groq runs Clio’s main LLM so your dictation cleans up instantly. Provide your key and choose the model that fits your workflow."
+            title: localizationManager.localizedString("ai_models.section.groq.title"),
+            subtitle: localizationManager.localizedString("ai_models.section.groq.subtitle")
         ) {
             VStack(alignment: .leading, spacing: 16) {
                 modelPicker
@@ -84,7 +85,7 @@ struct GroqAPIConfigurationSection: View {
                 credentialField(placeholder: "gsk_...")
                 
                 actionRow(
-                    statusText: hasKeyConfigured ? "Ready for enhancement" : "API key required",
+                    statusText: localizationManager.localizedString(hasKeyConfigured ? "ai_models.status.ready" : "ai_models.status.required"),
                     status: hasKeyConfigured ? .ready : .required
                 )
             }
@@ -103,7 +104,7 @@ struct GroqAPIConfigurationSection: View {
     
     private var modelPicker: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Preferred LLM")
+            Text(localizationManager.localizedString("ai_models.section.groq.model_label"))
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(DarkTheme.textPrimary)
             
@@ -112,15 +113,17 @@ struct GroqAPIConfigurationSection: View {
                 options: groqModelOptions,
                 selectedOption: selectedModel,
                 defaultText: "",
-                optionDisplayText: { $0.title }
+                optionDisplayText: { option in
+                    localizationManager.localizedString(option.titleKey)
+                }
             ) { option in
                 guard let option else { return }
                 selectedModelId = option.id
                 enhancementService.groqModel = option.id
             }
             
-            if let detail = selectedModel?.detail {
-                Text(detail)
+            if let detailKey = selectedModel?.detailKey {
+                Text(localizationManager.localizedString(detailKey))
                     .font(.caption)
                     .foregroundColor(DarkTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -151,12 +154,12 @@ struct GroqAPIConfigurationSection: View {
     
     private func actionRow(statusText: String, status: ConfigurationStatusBadge.Status) -> some View {
         HStack(spacing: 12) {
-            Button("Save") {
+            Button(localizationManager.localizedString("general.save")) {
                 keyStore.update(apiKey: draftKey)
             }
             .buttonStyle(SettingsPillButtonStyle())
             
-            Button("Clear") {
+            Button(localizationManager.localizedString("general.clear")) {
                 draftKey = ""
                 keyStore.update(apiKey: nil)
             }
@@ -181,6 +184,7 @@ struct GroqAPIConfigurationSection: View {
 }
 
 struct GeminiAPIConfigurationSection: View {
+    @EnvironmentObject private var localizationManager: LocalizationManager
     @EnvironmentObject private var enhancementService: AIEnhancementService
     @ObservedObject private var keyStore = GeminiAPIKeyStore.shared
     @State private var draftKey: String = ""
@@ -198,8 +202,8 @@ struct GeminiAPIConfigurationSection: View {
     
     var body: some View {
         SettingsSection(
-            title: "Gemini Fallback",
-            subtitle: "Add a Google AI Studio key so Clio can switch to Gemini instantly, keeping enhancement online without touching our servers."
+            title: localizationManager.localizedString("ai_models.section.gemini.title"),
+            subtitle: localizationManager.localizedString("ai_models.section.gemini.subtitle")
         ) {
             VStack(alignment: .leading, spacing: 16) {
                 geminiModelPicker
@@ -207,7 +211,7 @@ struct GeminiAPIConfigurationSection: View {
                 credentialField(placeholder: "AIza...")
                 
                 actionRow(
-                    statusText: hasKeyConfigured ? "Auto-fallback ready" : "Optional fallback",
+                    statusText: localizationManager.localizedString(hasKeyConfigured ? "ai_models.status.auto_ready" : "ai_models.status.optional"),
                     status: hasKeyConfigured ? .ready : .optional
                 )
             }
@@ -226,7 +230,7 @@ struct GeminiAPIConfigurationSection: View {
     
     private var geminiModelPicker: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Fallback model")
+            Text(localizationManager.localizedString("ai_models.section.gemini.model_label"))
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(DarkTheme.textPrimary)
             
@@ -235,15 +239,17 @@ struct GeminiAPIConfigurationSection: View {
                 options: geminiModelOptions,
                 selectedOption: selectedModel,
                 defaultText: "",
-                optionDisplayText: { $0.title }
+                optionDisplayText: { option in
+                    localizationManager.localizedString(option.titleKey)
+                }
             ) { option in
                 guard let option else { return }
                 selectedModelId = option.id
                 enhancementService.geminiModel = option.id
             }
             
-            if let detail = selectedModel?.detail {
-                Text(detail)
+            if let detailKey = selectedModel?.detailKey {
+                Text(localizationManager.localizedString(detailKey))
                     .font(.caption)
                     .foregroundColor(DarkTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -274,12 +280,12 @@ struct GeminiAPIConfigurationSection: View {
     
     private func actionRow(statusText: String, status: ConfigurationStatusBadge.Status) -> some View {
         HStack(spacing: 12) {
-            Button("Save") {
+            Button(localizationManager.localizedString("general.save")) {
                 keyStore.update(apiKey: draftKey)
             }
             .buttonStyle(SettingsPillButtonStyle())
             
-            Button("Clear") {
+            Button(localizationManager.localizedString("general.clear")) {
                 draftKey = ""
                 keyStore.update(apiKey: nil)
             }
