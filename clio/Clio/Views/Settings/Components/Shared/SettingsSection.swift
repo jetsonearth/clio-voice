@@ -25,35 +25,41 @@ struct SettingsSection<Content: View>: View {
         self.content = content()
     }
     
+    private var hasHeaderContent: Bool {
+        !(title.isEmpty && subtitle.isEmpty && icon == nil)
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: icon == nil ? 0 : 12) {
-                if let icon {
-                    Image(systemName: icon)
-                        .font(.system(size: 20))
-                        .foregroundColor(showWarning ? .orange : .accentColor)
-                        .frame(width: 24, height: 24)
+            if hasHeaderContent {
+                HStack(spacing: icon == nil ? 0 : 12) {
+                    if let icon {
+                        Image(systemName: icon)
+                            .font(.system(size: 20))
+                            .foregroundColor(showWarning ? .orange : .accentColor)
+                            .frame(width: 24, height: 24)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(title)
+                            .font(.system(size: 13, weight: .semibold))
+                            .foregroundColor(DarkTheme.textPrimary)
+                        Text(subtitle)
+                            .font(.system(size: 12))
+                            .foregroundColor(showWarning ? .orange : DarkTheme.textSecondary)
+                    }
+                    
+                    if showWarning {
+                        Spacer()
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundColor(.orange)
+                            .help("Permission required for Io to function properly")
+                    }
                 }
                 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(title)
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundColor(DarkTheme.textPrimary)
-                    Text(subtitle)
-                        .font(.system(size: 12))
-                        .foregroundColor(showWarning ? .orange : DarkTheme.textSecondary)
-                }
-                
-                if showWarning {
-                    Spacer()
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.orange)
-                        .help("Permission required for Io to function properly")
-                }
+                Divider()
+                    .padding(.vertical, 4)
             }
-            
-            Divider()
-                .padding(.vertical, 4)
             
             content
         }

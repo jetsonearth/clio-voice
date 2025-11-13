@@ -13,17 +13,14 @@ struct ConfigurationStatusBadge: View {
     var body: some View {
         HStack(spacing: 6) {
             Image(systemName: icon)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.system(size: 11, weight: .semibold))
             Text(text)
-                .font(.system(size: 12, weight: .medium))
+                .font(.system(size: 11, weight: .medium))
         }
-        .foregroundColor(foregroundColor)
-        .padding(.horizontal, 12)
-        .padding(.vertical, 5)
-        .background(
-            Capsule()
-                .fill(backgroundColor)
-        )
+        .buttonStyle(.plain)
+        .padding(.horizontal, 0)
+        .padding(.vertical, 0)
+        .modifier(StatusPillModifier(color: foregroundColor))
     }
     
     private var icon: String {
@@ -37,13 +34,24 @@ struct ConfigurationStatusBadge: View {
     private var foregroundColor: Color {
         switch status {
         case .ready: return DarkTheme.textPrimary
-        case .required: return DarkTheme.textPrimary
+        case .required: return DarkTheme.warning
         case .optional: return DarkTheme.textSecondary
         }
     }
+}
+
+private struct StatusPillModifier: ViewModifier {
+    let color: Color
     
-    private var backgroundColor: Color {
-        DarkTheme.surfaceBackground.opacity(0.7)
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(color)
+            .padding(.vertical, 4)
+            .padding(.horizontal, 10)
+            .background(
+                Capsule()
+                    .fill(DarkTheme.surfaceBackground.opacity(0.6))
+            )
     }
 }
 
@@ -51,16 +59,17 @@ struct SettingsPillButtonStyle: ButtonStyle {
     enum Style {
         case primary
         case secondary
+        case status
     }
     
     var style: Style = .primary
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 12, weight: .semibold))
+            .font(.system(size: 11, weight: .semibold))
             .foregroundColor(textColor(configuration: configuration))
-            .padding(.vertical, 6)
-            .padding(.horizontal, 14)
+            .padding(.vertical, style == .status ? 3 : 5)
+            .padding(.horizontal, style == .status ? 10 : 12)
             .background(
                 Capsule()
                     .fill(backgroundColor(configuration: configuration))
@@ -78,6 +87,8 @@ struct SettingsPillButtonStyle: ButtonStyle {
             return .white
         case .secondary:
             return DarkTheme.textPrimary
+        case .status:
+            return DarkTheme.textPrimary
         }
     }
     
@@ -87,6 +98,8 @@ struct SettingsPillButtonStyle: ButtonStyle {
             return Color.accentColor.opacity(configuration.isPressed ? 0.85 : 1.0)
         case .secondary:
             return DarkTheme.surfaceBackground.opacity(configuration.isPressed ? 0.9 : 1.0)
+        case .status:
+            return DarkTheme.surfaceBackground.opacity(configuration.isPressed ? 0.85 : 0.75)
         }
     }
     
@@ -96,6 +109,8 @@ struct SettingsPillButtonStyle: ButtonStyle {
             return Color.accentColor.opacity(0.6)
         case .secondary:
             return DarkTheme.border.opacity(0.9)
+        case .status:
+            return DarkTheme.border.opacity(0.6)
         }
     }
 }
