@@ -5,9 +5,10 @@ struct APIConfig {
     // MARK: - Environment Configuration
     
     /// Current API environment
-    static let environment: APIEnvironment = .flyio // Switch back to Fly.io proxy
-    
+    static let environment: APIEnvironment = .direct // Community build: talk directly to providers
+   
     enum APIEnvironment {
+        case direct
         case vercel
         case railway
         case koyeb
@@ -16,6 +17,8 @@ struct APIConfig {
         
         var baseURL: String {
             switch self {
+            case .direct:
+                return ""
             case .vercel:
                 return "https://www.cliovoice.com/api"
             case .railway:
@@ -31,6 +34,8 @@ struct APIConfig {
         
         var displayName: String {
             switch self {
+            case .direct:
+                return "Direct (User Keys)"
             case .vercel:
                 return "Vercel (Legacy)"
             case .railway:
@@ -54,37 +59,46 @@ struct APIConfig {
     
     /// LLM proxy endpoint (Groq-focused)
     static var llmProxyURL: String {
+        guard environment != .direct else { return "" }
         return "\(apiBaseURL)/llm/proxy"
     }
     
     /// Gemini proxy endpoint (Gemini-focused) 
     static var geminiProxyURL: String {
+        guard environment != .direct else { return "" }
         return "\(apiBaseURL)/llm/gemini"
     }
     
     /// Secure ASR temporary key endpoint (already implemented correctly)
     static var asrTempKeyURL: String {
+        guard environment != .direct else { return "" }
         return "\(apiBaseURL)/asr/temp-key"
     }
     
     /// Authentication endpoint
     static var authSessionURL: String {
+        guard environment != .direct else { return "" }
         switch environment {
         case .vercel, .railway:
             return "\(apiBaseURL)/auth/session-inline"
         case .koyeb, .cloudflare, .flyio:
             return "\(apiBaseURL)/auth/session"
+        case .direct:
+            return ""
         }
     }
     
     /// Usage tracking endpoint
     static var usageTrackURL: String {
+        guard environment != .direct else { return "" }
         return "\(apiBaseURL)/usage/track"
     }
     
     /// Health check endpoint  
     static var healthCheckURL: String {
         switch environment {
+        case .direct:
+            return ""
         case .vercel:
             return "https://www.cliovoice.com/health"
         case .railway:
@@ -100,6 +114,7 @@ struct APIConfig {
     
     /// LLM Keep-alive endpoint for maintaining proxy connection warmth
     static var llmKeepAliveURL: String {
+        guard environment != .direct else { return "" }
         return "\(apiBaseURL)/llm/keepalive"
     }
     
@@ -108,6 +123,12 @@ struct APIConfig {
     /// Expected latency improvement with optimized backends
     static var expectedImprovements: [String: String] {
         switch environment {
+        case .direct:
+            return [
+                "Network": "Requests hit Groq, Gemini, and Soniox directly with your API keys.",
+                "Privacy": "Keys stay local—no proxy or hosted auth services.",
+                "Flexibility": "Swap providers or regions by updating your own credentials."
+            ]
         case .vercel:
             return [:]
         case .railway:
@@ -145,16 +166,22 @@ struct APIConfig {
     /// Log current configuration for debugging
     static func logConfiguration() {
         print("🔧 [API-CONFIG] Environment: \(environment.displayName)")
-        print("🔧 [API-CONFIG] Base URL: \(apiBaseURL)")
-        print("🔧 [API-CONFIG] Groq Proxy: \(llmProxyURL)")
-        print("🔧 [API-CONFIG] Gemini Proxy: \(geminiProxyURL)")
-        print("🔧 [API-CONFIG] ASR Temp Key: \(asrTempKeyURL)")
+        if environment == .direct {
+            print("🔧 [API-CONFIG] Direct mode enabled – no proxy endpoints configured.")
+        } else {
+            print("🔧 [API-CONFIG] Base URL: \(apiBaseURL)")
+            print("🔧 [API-CONFIG] Groq Proxy: \(llmProxyURL)")
+            print("🔧 [API-CONFIG] Gemini Proxy: \(geminiProxyURL)")
+            print("🔧 [API-CONFIG] ASR Temp Key: \(asrTempKeyURL)")
+        }
         
-        if environment != .vercel {
+        if environment != .vercel && environment != .direct {
             print("🚀 [API-CONFIG] Expected improvements:")
             for (key, value) in expectedImprovements {
                 print("   • \(key): \(value)")
             }
+        } else if environment == .direct {
+            print("🚀 [API-CONFIG] Direct connections: configure API keys in Settings → AI Models.")
         }
     }
 }
@@ -180,6 +207,8 @@ extension APIConfig {
             return "🌟 Using Cloudflare Workers - Global edge computing with <200ms latency worldwide."
         case .flyio:
             return "🎯 Using Fly.io - Optimized for Asia-Pacific users with ~300ms latency."
+        case .direct:
+            return "🟢 Using direct provider mode with user-supplied API keys. No hosted proxy involved."
         }
     }
 }

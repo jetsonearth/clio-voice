@@ -34,6 +34,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         subsystem: "com.jetsonai.clio",
         category: "aienhancement"
     )
+    private let usesProxyBackend = false
     
     private let modelAccessControl = ModelAccessControl.shared
     private let subscriptionManager = SubscriptionManager.shared
@@ -66,7 +67,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             }
         }
     }
-
+    
     // Editing strength (Light vs Full). UI persists to UserDefaults; we mirror it here.
     @Published var editingStrength: AIEditingStrength = {
         let raw = UserDefaults.standard.string(forKey: "ai.editingStrength") ?? AIEditingStrength.full.rawValue
@@ -110,6 +111,12 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         }
     }
     
+    @Published var geminiModel: String {
+        didSet {
+            UserDefaults.standard.set(geminiModel, forKey: "geminiModel")
+        }
+    }
+    
     // Dynamic context-based prompt enhancement
     @Published var currentDetectedContext: DetectedContextType?
     private var dynamicPromptEnhancement: String?
@@ -130,10 +137,12 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     
     private let aiService: AIService
     private let contextService: ContextService
-    private let baseTimeout: TimeInterval = 10   // Let the proxy own TTFT/fallback; do not preempt on client
+    private let baseTimeout: TimeInterval = 10   // Keep client-side timeouts low; provider SDK handles retries
     private let rateLimitInterval: TimeInterval = 0.0  // Removed rate limiting
     private var lastRequestTime: Date?
     private let modelContext: ModelContext
+    private let defaultGroqModel = "qwen/qwen3-32b"
+    private let defaultGeminiModel = "gemini-2.5-flash-lite"
     
     init(aiService: AIService = AIService(), contextService: ContextService, modelContext: ModelContext) {
         // --- Phase 1: assign stored properties that don't require self ---
@@ -147,7 +156,8 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         self.customPrompts = []
         self.selectedPromptId = nil
         self.llmConfiguration = 2 // Default to Config 2 (Groq-first)
-        self.groqModel = "qwen" // Default to Qwen 3 32B
+        self.groqModel = defaultGroqModel
+        self.geminiModel = defaultGeminiModel
 
         // Call NSObject initialiser before using self in any computed properties / methods
         super.init()
@@ -180,14 +190,25 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         self.llmConfiguration = 2 // Force Config 2
         
         if defaults.object(forKey: "groqModel") == nil {
-            defaults.set("qwen", forKey: "groqModel") // Default to Qwen
-        } else if defaults.string(forKey: "groqModel") == "maverick" {
-            // Migrate old default to Qwen for consistency across devices
-            defaults.set("qwen", forKey: "groqModel")
+            defaults.set(defaultGroqModel, forKey: "groqModel")
+        } else if let legacyValue = defaults.string(forKey: "groqModel") {
+            switch legacyValue {
+            case "qwen":
+                defaults.set(defaultGroqModel, forKey: "groqModel")
+            case "maverick":
+                defaults.set("meta-llama/llama-4-maverick-17b-128e-instruct", forKey: "groqModel")
+            default:
+                break
+            }
         }
-        self.groqModel = defaults.string(forKey: "groqModel") ?? "qwen"
+        self.groqModel = defaults.string(forKey: "groqModel") ?? defaultGroqModel
+        
+        if defaults.object(forKey: "geminiModel") == nil {
+            defaults.set(defaultGeminiModel, forKey: "geminiModel")
+        }
+        self.geminiModel = defaults.string(forKey: "geminiModel") ?? defaultGeminiModel
 
-        // API key notification observer removed - proxy handles all authentication
+        // API key notification observer removed - direct mode loads keys from Keychain
 
         // Fixed-prompt build: no predefined/custom selection
 
@@ -203,7 +224,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         NotificationCenter.default.removeObserver(self)
         // Clean up connection resources synchronously since we can't use async in deinit
         isPrewarmingEnabled = false
-        if APIConfig.environment == .railway {
+        if usesProxyBackend && APIConfig.environment == .railway {
             RailwayKeepAlive.shared.stop()
         }
         warmSession?.invalidateAndCancel()
@@ -216,7 +237,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         // Note: connectionState will be cleaned up automatically when object is deallocated
     }
     
-// API key change handling removed - proxy handles all authentication
+// API key change handling removed - direct mode reads from Keychain singletons
     
     // MARK: - Public: Transform selected text according to an instruction (Command Mode)
     func transformSelectedText(selected: String, instruction: String) async throws -> String {
@@ -262,26 +283,8 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             """
         }
         let session = getURLSession()
-        do {
-            let result = try await makeProxyRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: session)
-            // Do not run PostEnhancementFormatter here to avoid unintended normalization
-            return result
-        } catch {
-            logger.notice("⚠️ [FALLBACK] Groq failed in transform: \(error.localizedDescription)")
-            let shouldFallback = shouldFallbackToGemini(error: error)
-            if shouldFallback {
-                logger.notice("🤖 [FALLBACK] Attempting Gemini fallback (transform)...")
-                do {
-                    let fallbackResult = try await makeGeminiRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: getURLSession())
-                    return fallbackResult // keep exact output; no PostEnhancementFormatter for transform
-                } catch {
-                    logger.notice("❌ [FALLBACK] Gemini fallback also failed: \(error.localizedDescription)")
-                    throw error
-                }
-            } else {
-                throw error
-            }
-        }
+        let result = try await makeGroqRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: session)
+        return result // Do not normalize transform outputs
     }
     
     func getAIService() -> AIService? {
@@ -289,8 +292,8 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     }
     
     var isConfigured: Bool {
-        // AI Enhancement uses proxy server - always configured
-        return true
+        guard let key = GroqAPIKeyStore.shared.apiKey else { return false }
+        return !key.isEmpty
     }
     
     // MARK: - Connection Pre-warming
@@ -301,6 +304,12 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         
         guard isEnhancementEnabled && isConfigured else {
             logger.notice("🔥 Pre-warming skipped: enhancement disabled or not configured")
+            return
+        }
+        
+        guard usesProxyBackend else {
+            connectionState = .ready
+            logger.notice("🔥 [PREWARM] Direct Groq mode – skipping proxy warmup")
             return
         }
         
@@ -387,6 +396,10 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     func prewarmKeepAlivePing() {
         // Bypass the enhancement-enabled guard on purpose: we want the socket warm
         // even if the enhancement feature is toggled off in UI while offline.
+        guard usesProxyBackend else {
+            connectionState = .ready
+            return
+        }
         if APIConfig.environment == .flyio {
             // Mark ready immediately and fire-and-forget a tiny warmup request
             connectionState = .ready
@@ -416,6 +429,15 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     
     /// Clean up warm connection when recording ends
     func cleanupConnection() {
+        guard usesProxyBackend else {
+            isPrewarmingEnabled = false
+            warmSession?.invalidateAndCancel()
+            warmSession = nil
+            if groqURLSession != nil {
+                groqURLSession = nil
+            }
+            return
+        }
         // For Railway we keep the session & keep-alive timer running so the socket stays warm
         if APIConfig.environment == .railway {
             logger.notice("🚂 [RAILWAY] Keeping persistent session + keep-alive timer alive between recordings")
@@ -593,7 +615,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         let requestBody: [String: Any] = [
             // provider not required when calling dedicated Gemini route
             "text": ocrText,
-            "model": "gemini-2.5-flash-lite",
+            "model": geminiModel,
             "systemPrompt": nerSystemPrompt
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
@@ -641,7 +663,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         request.timeoutInterval = 8
         let body: [String: Any] = [
             "text": "hello",
-            "model": "gemini-2.5-flash-lite",
+            "model": geminiModel,
             "systemPrompt": "warmup"
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -862,6 +884,9 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
 
     // MARK: - Networking helper
     private func getURLSession() -> URLSession {
+        guard usesProxyBackend else {
+            return URLSession.shared
+        }
         // For Koyeb, use centralized session for connection reuse
         if APIConfig.environment == .koyeb {
             return getGroqSession()  // Returns centralized Koyeb session
@@ -887,6 +912,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     
     /// Return a URLSession to the connection pool after use
     private func returnURLSession(_ session: URLSession) {
+        guard usesProxyBackend else { return }
         // For Koyeb, keep centralized session alive (don't return to pool)
         if APIConfig.environment == .koyeb {
             // Don't return Koyeb session - it's managed centrally
@@ -1211,265 +1237,83 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
             logger.notice("🛰️ Sending to AI provider: \(self.aiService.selectedProvider.rawValue, privacy: .public)")
         }
         
-        // Always use Railway proxy - no direct API fallback
-        
-        // Use Clio Online proxy instead of direct API calls
         let urlSession = getURLSession()
         
         do {
-            // Send to LLM proxy (server owns TTFT + fallback policy)
-            logger.notice("🌐 Sending request to LLM proxy (provider auto-selected by server)...")
-            let result = try await makeProxyRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: urlSession)
+            logger.notice("🌐 Sending request directly to Groq API...")
+            let result = try await makeGroqRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: urlSession)
             let final = PostEnhancementFormatter.apply(result)
             
             // Return session to pool after successful use
             returnURLSession(urlSession)
             
-            logger.notice("✅ Enhancement request via proxy succeeded")
+            logger.notice("✅ Enhancement request via Groq succeeded")
             return final
         } catch {
-            logger.notice("⚠️ [FALLBACK] Groq failed: \(error.localizedDescription)")
-            
-            // Check if this is a fallback-worthy error
-            let shouldFallback = shouldFallbackToGemini(error: error)
-            
-            // GPT o3's fix: Check for SSL corruption errors and invalidate session for next request
-            if let nsError = error as? NSError,
-               nsError.domain == NSURLErrorDomain,
-               nsError.code == NSURLErrorSecureConnectionFailed || nsError.code == -1200 {
-                logger.notice("🔧 [SSL-RECOVERY] Detected SSL corruption (\(nsError.code)), invalidating session for next request")
-                
-                // For Koyeb, invalidate centralized session
-                if APIConfig.environment == .koyeb {
-                    KoyebSessionManager.shared.invalidateSession()
-                } else {
-                    // Invalidate the corrupted session to force fresh connection next time
-                    persistentSession?.invalidateAndCancel()
-                    persistentSession = nil
-                }
-            }
-            
-            // Return session to pool even on error
             returnURLSession(urlSession)
-            
-            // Try Gemini fallback if appropriate
-            if shouldFallback {
-                logger.notice("🤖 [FALLBACK] Attempting Gemini fallback...")
-                do {
-                    let fallbackResult = try await makeGeminiRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: getURLSession())
-                    logger.notice("✅ [FALLBACK] Gemini succeeded")
-                    return PostEnhancementFormatter.apply(fallbackResult)
-                } catch {
-                    logger.notice("❌ [FALLBACK] Gemini also failed: \(error.localizedDescription)")
-                    throw error
-                }
-            } else {
-                // Not a fallback-worthy error, just throw it
-                throw error
+            if let fallback = await performGeminiFallbackIfPossible(systemMessage: systemMessage, userMessage: userMessage) {
+                logger.notice("✅ [FALLBACK] Gemini succeeded")
+                return PostEnhancementFormatter.apply(fallback)
             }
+            throw error
         }
     }
-    
-    /// Make request through Clio Online proxy (routes to appropriate endpoint based on config)
-    private func makeProxyRequest(systemMessage: String, userMessage: String, urlSession: URLSession) async throws -> String {
-        let overallStartTime = CFAbsoluteTimeGetCurrent()
-        
-        // Skip rate limiting for proxy requests (handled server-side)
-        
-        // Prepare request - Route to correct endpoint based on configuration
-        let requestPrepStartTime = CFAbsoluteTimeGetCurrent()
-        
-        // Route to appropriate endpoint based on configuration
-        let endpointURL: String
-        var requestBody: [String: Any] = [
-            "text": userMessage,
-            "systemPrompt": systemMessage
-        ]
-        // Respect streaming flag; when disabled, request JSON response
-        if useStreamingLLM {
-            requestBody["stream"] = true
+    /// Direct Groq API call using the user's API key.
+    private func makeGroqRequest(systemMessage: String, userMessage: String, urlSession: URLSession) async throws -> String {
+        guard let apiKey = GroqAPIKeyStore.shared.apiKey, !apiKey.isEmpty else {
+            logger.error("❌ Missing Groq API key. Configure it under AI Models.")
+            throw EnhancementError.authenticationError
         }
         
-        if self.llmConfiguration == 1 {
-            // Config 1: Gemini primary - use dedicated Gemini endpoint
-            endpointURL = APIConfig.geminiProxyURL
-            requestBody["model"] = "gemini-2.5-flash"  // Use regular flash for enhancement
-            logger.notice("🎯 [CONFIG-DEBUG] Config 1: Routing to Gemini endpoint (\(APIConfig.geminiProxyURL))")
-        } else {
-            // Config 2: Groq primary - use Groq proxy endpoint  
-            endpointURL = APIConfig.llmProxyURL
-            requestBody["groqModel"] = self.groqModel
-            logger.notice("🎯 [CONFIG-DEBUG] Config 2: Routing to Groq endpoint (\(APIConfig.llmProxyURL)) with model: \(self.groqModel)")
-        }
-        
-        // Force non-stream JSON on servers that support the toggle (CFW implemented; Fly may ignore)
-        let finalEndpointURL: String = {
-            guard useStreamingLLM == false else { return endpointURL }
-            let sep = endpointURL.contains("?") ? "&" : "?"
-            return endpointURL + "\(sep)stream=0"
-        }()
-
-        let proxyURL = URL(string: finalEndpointURL)!
-        var request = URLRequest(url: proxyURL)
+        var request = URLRequest(url: URL(string: AIProvider.groq.baseURL)!)
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        if useStreamingLLM {
-            request.addValue("text/event-stream", forHTTPHeaderField: "Accept")
-        }
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = baseTimeout
         
-        let correlationId = UUID().uuidString
+        var body: [String: Any] = [
+            "model": groqModel,
+            "messages": [
+                ["role": "system", "content": systemMessage],
+                ["role": "user", "content": userMessage]
+            ],
+            "temperature": editingStrength == .light ? 0.2 : 0.4,
+            "stream": false
+        ]
         
-        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
-        request.addValue(correlationId, forHTTPHeaderField: "X-Request-Id")
-        let requestPrepTime = CFAbsoluteTimeGetCurrent() - requestPrepStartTime
-        logger.notice("📝 [TIMING] Request preparation: \(String(format: "%.1f", requestPrepTime * 1000))ms")
-
-        // Step 3: Network request
-        logger.notice("🌐 [DEBUG] Sending request to proxy...")
-        let networkStartTime = CFAbsoluteTimeGetCurrent()
+        // Disable reasoning/thinking for Qwen models to prevent <think> tags
+        if groqModel.lowercased().contains("qwen") {
+            body["reasoning_effort"] = "none"
+        }
         
-        // Handle SSE streaming response
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        
         let (data, response) = try await urlSession.data(for: request)
-        let networkTime = CFAbsoluteTimeGetCurrent() - networkStartTime
-        logger.notice("🌐 [DEBUG] Proxy response received in \(Int(networkTime * 1000))ms")
-        
-        // Step 4: Response processing
-        let responseProcessStartTime = CFAbsoluteTimeGetCurrent()
-        
         guard let httpResponse = response as? HTTPURLResponse else {
-            logger.error("❌ [ERROR] Response is not HTTPURLResponse")
             throw EnhancementError.invalidResponse
         }
         
-        // logger.notice("📊 [DEBUG] HTTP Status: \(httpResponse.statusCode)")
-        // logger.notice("📋 [DEBUG] Response Headers: \(httpResponse.allHeaderFields)")
-        
-        // Check for fallback scenarios BEFORE processing 200 responses
-        switch httpResponse.statusCode {
-        case 498: // Groq Flex capacity exceeded (fail-fast)
-            logger.notice("🔄 [FALLBACK] Flex capacity exceeded (498) - routing to Gemini immediately")
-            throw EnhancementError.serverError // This will trigger fallback
-        case 408: // Request timeout from server (proxy abort / network stall)
-            logger.notice("🔄 [FALLBACK] Server timeout detected (408) - flex tier overloaded or network stall")
-            throw EnhancementError.serverError // This will trigger fallback
-        case 429: // Rate limit exceeded  
-            logger.notice("🔄 [FALLBACK] Rate limit detected (429)")
-            throw EnhancementError.rateLimitExceeded // This will trigger fallback
-        case 502, 503, 504: // Bad gateway, service unavailable, gateway timeout
-            logger.notice("🔄 [FALLBACK] Service unavailable (\(httpResponse.statusCode))")
-            throw EnhancementError.serverError // This will trigger fallback
-        default:
-            break
-        }
-
-        var result: String
         switch httpResponse.statusCode {
         case 200:
-            // Check if this is an SSE stream or regular JSON
-            if let contentType = httpResponse.value(forHTTPHeaderField: "content-type"),
-               contentType.contains("text/event-stream") {
-                // Log streaming headers for visibility
-                let headerKeys = [
-                    "X-Route", "X-TTFT-Threshold-MS", "X-Provider-Initial", "X-Stream-Mode",
-                    "X-Content-Cleaned", "X-Conn-Reuse-Threshold", "X-Request-Id"
-                ]
-                var headerLog: [String: String] = [:]
-                for key in headerKeys {
-                    if let v = httpResponse.value(forHTTPHeaderField: key) {
-                        headerLog[key] = v
-                    }
-                }
-                if !headerLog.isEmpty {
-                    logger.notice("🛰️ [SSE-HEADERS] \(headerLog.map { "\($0.key): \($0.value)" }.joined(separator: " | "))")
-                }
-                // Parse SSE stream
-                result = try parseSSEStream(data: data)
-            } else {
-                // Legacy JSON response (fallback)
-                let responseData = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+            if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let choices = json["choices"] as? [[String: Any]],
+               let firstChoice = choices.first,
+               let message = firstChoice["message"] as? [String: Any] {
                 
-                // Provider-aware logging
-                let provider = (responseData?["provider"] as? String) ?? "unknown"
-                logger.notice("🔎 [LLM] Provider reported by server: \(provider)")
-                
-                // Extract accurate timing only for Groq
-                if provider.lowercased() == "groq", let timing = responseData?["timing"] as? [String: Any] {
-                    let clientTotal = Int(networkTime * 1000)
-                    let groqActual = timing["groq_actual"] as? Int ?? 0
-                    let networkOverhead = timing["network_overhead"] as? Int ?? 0
-                    let proxyTotal = timing["proxy_total"] as? Int ?? 0
-                    
-                    // Extract standard Groq usage timing (matches dashboard)
-                    var groqDashboardLatency: Int?
-                    var groqTTFT: Int?
-                    
-                    if let usage = responseData?["usage"] as? [String: Any] {
-                        // Convert from seconds to ms - this matches Groq dashboard
-                        if let totalTime = usage["total_time"] as? Double {
-                            groqDashboardLatency = Int(totalTime * 1000)
-                        }
-                        
-                        // Calculate TTFT from prompt_time + queue_time  
-                        let promptTime = (usage["prompt_time"] as? Double ?? 0) * 1000
-                        let queueTime = (usage["queue_time"] as? Double ?? 0) * 1000
-                        groqTTFT = Int(promptTime + queueTime)
-                    }
-                    
-                    // Show comprehensive breakdown with dashboard-accurate metrics
-                    var logMessage = "📊 [TIMING] Client→Proxy: \(clientTotal)ms | Proxy total: \(proxyTotal)ms"
-                    
-                    if let dashboardLatency = groqDashboardLatency {
-                        logMessage += " | Groq dashboard: \(dashboardLatency)ms"
-                        if let ttft = groqTTFT, ttft > 0 {
-                            logMessage += " (TTFT: \(ttft)ms)"
-                        }
-                    }
-                    
-                    logMessage += " | Groq measured: \(groqActual)ms | Network: \(networkOverhead)ms"
-                    
-                    logger.notice("\(logMessage)")
+                if let content = message["content"] as? String {
+                    // Strip prompt tags (including <CLEANED>, <think>, etc.) before returning
+                    return Self.stripPromptTags(content)
                 }
                 
-                if let enhancedText = responseData?["enhancedText"] as? String {
-                    logger.notice("✅ [DEBUG] Found enhancedText field")
-                    
-                    // Extract and log server-side network diagnostics
-                    if let networkDiagnostics = responseData?["network_diagnostics"] as? [String: Any] {
-                        logServerNetworkDiagnostics(networkDiagnostics)
-                        
-                        // Also log the client-server timing correlation when Groq
-                        if provider.lowercased() == "groq",
-                           let totals = networkDiagnostics["totals"] as? [String: Any],
-                           let serverTotal = totals["end_to_end"] as? Int,
-                           let groqActual = totals["groq_processing"] as? Int {
-                            let clientTotalMs = (CFAbsoluteTimeGetCurrent() - overallStartTime) * 1000
-                            logTimingBreakdown(clientLLMMs: clientTotalMs, serverTotal: serverTotal, groqActual: groqActual)
-                        }
-                    } else {
-                        logger.notice("🌐 [SERVER DIAGNOSTICS] No network diagnostics received from server")
+                if let segments = message["content"] as? [[String: Any]] {
+                    let text = segments.compactMap { $0["text"] as? String }.joined()
+                    if !text.isEmpty {
+                        // Strip prompt tags before returning
+                        return Self.stripPromptTags(text)
                     }
-                    
-                    // Strip framework tags to avoid empty "<TRANSCRIPT></TRANSCRIPT>" surfacing to users
-                    let cleaned = Self.stripPromptTags(enhancedText)
-                    if cleaned.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        logger.notice("⚠️ [JSON] enhancedText empty after cleaning — treating as failure")
-                        throw EnhancementError.enhancementFailed
-                    }
-                    result = cleaned
-                } else if let text = responseData?["text"] as? String {
-                    logger.notice("✅ [DEBUG] Found text field (legacy format)")
-                    let cleanedLegacy = Self.stripPromptTags(text)
-                    if cleanedLegacy.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        logger.notice("⚠️ [JSON] legacy text empty after cleaning — treating as failure")
-                        throw EnhancementError.enhancementFailed
-                    }
-                    result = cleanedLegacy
-                } else {
-                    logger.error("❌ [ERROR] No valid text field found in response")
-                    throw EnhancementError.invalidResponse
                 }
             }
+            throw EnhancementError.invalidResponse
         case 401:
             throw EnhancementError.authenticationError
         case 429:
@@ -1477,78 +1321,93 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         case 500...599:
             throw EnhancementError.serverError
         default:
+            throw EnhancementError.apiError
+        }
+    }
+
+    // MARK: - Gemini fallback
+    private func performGeminiFallbackIfPossible(systemMessage: String, userMessage: String) async -> String? {
+        guard let apiKey = GeminiAPIKeyStore.shared.apiKey, !apiKey.isEmpty else {
+            logger.notice("🔄 [FALLBACK] Gemini key not configured—skipping fallback")
+            return nil
+        }
+        logger.notice("🤖 [FALLBACK] Trying Gemini fallback")
+        do {
+            return try await makeDirectGeminiRequest(systemMessage: systemMessage, userMessage: userMessage, apiKey: apiKey)
+        } catch {
+            logger.error("⚠️ [FALLBACK] Gemini request failed: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
+    private func makeDirectGeminiRequest(systemMessage: String, userMessage: String, apiKey: String) async throws -> String {
+        var components = URLComponents(string: "https://generativelanguage.googleapis.com/v1beta/models/\(geminiModel):generateContent")!
+        components.queryItems = [URLQueryItem(name: "key", value: apiKey)]
+        guard let url = components.url else {
             throw EnhancementError.invalidResponse
         }
         
-        // Step 5: Final timing breakdown
-        let responseProcessTime = CFAbsoluteTimeGetCurrent() - responseProcessStartTime
-        let overallTime = CFAbsoluteTimeGetCurrent() - overallStartTime
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 20
         
-        // logger.notice("📊 [COMPLETE TIMING BREAKDOWN]")
-        // logger.notice("📊   Request Prep: \(String(format: "%.1f", requestPrepTime * 1000))ms") 
-        // logger.notice("📊   Network (Client→Proxy): \(String(format: "%.1f", networkTime * 1000))ms")
-        // logger.notice("📊   Response Process: \(String(format: "%.1f", responseProcessTime * 1000))ms")
-        // logger.notice("📊   Total Client Time: \(String(format: "%.1f", overallTime * 1000))ms")
+        let body: [String: Any] = [
+            "system_instruction": [
+                "parts": [
+                    ["text": systemMessage]
+                ]
+            ],
+            "contents": [
+                [
+                    "role": "user",
+                    "parts": [
+                        ["text": userMessage]
+                    ]
+                ]
+            ]
+        ]
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
-        // Extract detailed network metrics from URLSessionTaskDelegate
-        if let metrics = pendingMetrics[correlationId],
-           let transaction = metrics.transactionMetrics.first {
-            let reused = transaction.isReusedConnection
-            let dns = durationMs(from: transaction.domainLookupStartDate, to: transaction.domainLookupEndDate)
-            let tcp = durationMs(from: transaction.connectStartDate, to: transaction.connectEndDate)
-            let tls = durationMs(from: transaction.secureConnectionStartDate, to: transaction.secureConnectionEndDate)
-            let ttfb = durationMs(from: transaction.requestStartDate, to: transaction.responseStartDate)
-            let download = durationMs(from: transaction.responseStartDate, to: transaction.responseEndDate)
-            
-            logger.notice("🔧 [DETAILED NETWORK BREAKDOWN]")
-            logger.notice("🔧   Connection Reused: \(reused ? "✅ YES" : "❌ NO")")
-            if !reused {
-                logger.notice("🔧   DNS Lookup: \(dns >= 0 ? "\(dns)ms" : "N/A")")
-                logger.notice("🔧   TCP Connect: \(tcp >= 0 ? "\(tcp)ms" : "N/A")")
-                logger.notice("🔧   TLS Handshake: \(tls >= 0 ? "\(tls)ms" : "N/A")")
-            }
-            logger.notice("🔧   Time to First Byte: \(ttfb >= 0 ? "\(ttfb)ms" : "N/A")")
-            logger.notice("🔧   Download Time: \(download >= 0 ? "\(download)ms" : "N/A")")
-            logger.notice("🔧   Protocol: \(transaction.networkProtocolName ?? "unknown")")
-            
-            // Clean up metrics
-            pendingMetrics.removeValue(forKey: correlationId)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw EnhancementError.invalidResponse
         }
         
-        
-        // Extract server-side timing from response if available
-        if let responseDict = result as? [String: Any],
-           let timing = responseDict["timing"] as? [String: Any],
-           let serverTotal = timing["total"] as? Int,
-           let groqTime = timing["groq"] as? Int {
-            let proxyOverhead = serverTotal - groqTime
-            logger.notice("🌐 [SERVER-SIDE BREAKDOWN]")
-            logger.notice("🌐   Proxy Processing: \(proxyOverhead)ms")
-            logger.notice("🌐   Groq API Call: \(groqTime)ms")
-            logger.notice("🌐   Total Server Time: \(serverTotal)ms")
-            
-            // Calculate where time is spent
-            let clientNetwork = (networkTime * 1000) - Double(serverTotal)
-            logger.notice("🔍 [LATENCY ANALYSIS]")
-            logger.notice("🔍   Pure Network Latency: \(String(format: "%.1f", clientNetwork))ms (TCP+TLS+RTT)")
-            logger.notice("🔍   Server Processing: \(serverTotal)ms (Proxy+Groq)")
-            logger.notice("🔍   Client Overhead: \(String(format: "%.1f", (requestPrepTime + responseProcessTime) * 1000))ms")
+        guard httpResponse.statusCode == 200 else {
+            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               let errorDict = json["error"] as? [String: Any],
+               let code = errorDict["code"] as? Int {
+                switch code {
+                case 401:
+                    throw EnhancementError.authenticationError
+                case 429:
+                    throw EnhancementError.rateLimitExceeded
+                case 500...599:
+                    throw EnhancementError.serverError
+                default:
+                    throw EnhancementError.apiError
+                }
+            }
+            throw EnhancementError.apiError
         }
         
-        logger.notice("🔍 [CONNECTION HEALTH]")
-        if let responseDict = result as? [String: Any],
-           let connection = responseDict["connection"] as? [String: Any] {
-            if let reused = connection["reused"] as? Bool {
-                logger.notice("🔍   Connection Reused: \(reused ? "✅ Yes" : "❌ No")")
-            }
-            if let reuseRate = connection["reuseRate"] as? String {
-                logger.notice("🔍   Overall Reuse Rate: \(reuseRate)")
-            }
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let candidates = json["candidates"] as? [[String: Any]],
+              let candidate = candidates.first,
+              let content = candidate["content"] as? [String: Any],
+              let parts = content["parts"] as? [[String: Any]] else {
+            throw EnhancementError.invalidResponse
         }
         
-        return result
+        let text = parts.compactMap { $0["text"] as? String }.joined()
+        guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            throw EnhancementError.invalidResponse
+        }
+        // Strip prompt tags before returning
+        return Self.stripPromptTags(text)
     }
-    
+
     /// Cloudflare Workers warm-up with NER (Gemini) using /api/llm/warmup
     private func sendCloudflareWarmingRequest() async throws {
         // Build POST to CFW warmup endpoint; if we include text + systemPrompt, server computes NER via Gemini
@@ -1571,7 +1430,7 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         let requestBody: [String: Any] = [
             "provider": "gemini",
             "text": ocrText,
-            "model": "gemini-2.5-flash-lite",
+            "model": geminiModel,
             "systemPrompt": nerSystemPrompt
         ]
         request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
@@ -1600,61 +1459,6 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         }
     }
     
-    /// Determine if we should fallback to Gemini based on the Groq error
-    private func shouldFallbackToGemini(error: Error) -> Bool {
-        // Check for HTTP errors first
-        if let nsError = error as? NSError {
-            // URL loading errors
-            if nsError.domain == NSURLErrorDomain {
-                switch nsError.code {
-                case NSURLErrorTimedOut,
-                     NSURLErrorCannotConnectToHost,
-                     NSURLErrorNetworkConnectionLost,
-                     NSURLErrorNotConnectedToInternet:
-                    logger.notice("🔄 [FALLBACK] Network error detected: \(nsError.code)")
-                    return true
-                default:
-                    break
-                }
-            }
-            
-            // HTTP status code errors
-            if nsError.domain == "HTTPError" {
-                switch nsError.code {
-                case 498: // Groq Flex capacity exceeded
-                    logger.notice("🔄 [FALLBACK] Groq flex capacity exceeded (498)")
-                    return true
-                case 408: // Request timeout (proxy abort / stall)
-                    logger.notice("🔄 [FALLBACK] Groq flex timeout detected")
-                    return true
-                case 429: // Rate limit
-                    logger.notice("🔄 [FALLBACK] Groq rate limit detected")
-                    return true
-                case 503, 502, 504: // Service unavailable, bad gateway, gateway timeout
-                    logger.notice("🔄 [FALLBACK] Groq service unavailable")
-                    return true
-                default:
-                    break
-                }
-            }
-        }
-        
-        // Check for enhancement service errors
-        if let enhancementError = error as? EnhancementError {
-            switch enhancementError {
-            case .rateLimitExceeded, .serverError, .networkError,
-                 .invalidResponse, .enhancementFailed:
-                logger.notice("🔄 [FALLBACK] Enhancement error detected: \(enhancementError)")
-                return true
-            default:
-                break
-            }
-        }
-        
-        logger.notice("❌ [FALLBACK] Error not suitable for fallback: \(error)")
-        return false
-    }
-
     /// Remove framework prompt tags from any model output to avoid rendering tags when model echos prompt
     private static func stripPromptTags(_ s: String) -> String {
         if s.isEmpty { return s }
@@ -1667,65 +1471,18 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
         for p in patterns {
             out = out.replacingOccurrences(of: p, with: "", options: .regularExpression)
         }
-        // Also strip <CLEANED> tags using literal replacement (no regex)
+        // Strip <CLEANED> tags
         out = out.replacingOccurrences(of: "<CLEANED>", with: "")
         out = out.replacingOccurrences(of: "</CLEANED>", with: "")
+        
+        // Strip <think> tags (Qwen reasoning tokens) - fallback in case reasoning_effort parameter doesn't work
+        // Remove everything from <think> to </think> including the tags
+        if let thinkRegex = try? NSRegularExpression(pattern: "<think>.*?</think>", options: [.caseInsensitive, .dotMatchesLineSeparators]) {
+            let range = NSRange(out.startIndex..., in: out)
+            out = thinkRegex.stringByReplacingMatches(in: out, options: [], range: range, withTemplate: "")
+        }
+        
         return out.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
-    /// Make request to Gemini API through Fly.io proxy
-    private func makeGeminiRequest(systemMessage: String, userMessage: String, urlSession: URLSession) async throws -> String {
-        let startTime = CFAbsoluteTimeGetCurrent()
-        
-        // Prepare Gemini request
-        let geminiURL = URL(string: "\(APIConfig.apiBaseURL)/llm/gemini")!
-        var request = URLRequest(url: geminiURL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.timeoutInterval = 10 // Gemini timeout (longer than Groq)
-        
-        let requestBody: [String: Any] = [
-            "text": userMessage,
-            "model": "gemini-2.5-flash-lite",
-            "systemPrompt": systemMessage
-        ]
-        
-        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
-        
-        // Make request
-        let (data, response) = try await urlSession.data(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw EnhancementError.invalidResponse
-        }
-        
-        guard httpResponse.statusCode == 200 else {
-            logger.error("❌ [GEMINI] HTTP error: \(httpResponse.statusCode)")
-            if httpResponse.statusCode == 429 {
-                throw EnhancementError.rateLimitExceeded
-            } else if httpResponse.statusCode >= 500 {
-                throw EnhancementError.serverError
-            } else {
-                throw EnhancementError.invalidResponse
-            }
-        }
-        
-        // Parse response
-        guard let responseData = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let enhancedText = responseData["enhancedText"] as? String else {
-            throw EnhancementError.invalidResponse
-        }
-        
-        let duration = CFAbsoluteTimeGetCurrent() - startTime
-        logger.notice("🤖 [GEMINI] Request completed in \(String(format: "%.1f", duration * 1000))ms")
-        
-        // Log that we used fallback
-        if let diagnostics = responseData["network_diagnostics"] as? [String: Any] {
-            logger.notice("🤖 [GEMINI] Used fallback provider successfully")
-        }
-        
-        return Self.stripPromptTags(enhancedText)
     }
     
     /// Log clean network breakdown from server diagnostics
@@ -1747,11 +1504,11 @@ class AIEnhancementService: NSObject, ObservableObject, @preconcurrency URLSessi
     
     /// Log network segment breakdown
     private func logTimingBreakdown(clientLLMMs: Double, serverTotal: Int, groqActual: Int) {
-        // Calculate client to proxy time: total LLM time minus actual Groq processing
-        // User calculation: "client <-> proxy is 1302 - 404 = 900 ish ms"
-        let clientToProxyMs = Int(clientLLMMs) - groqActual
+        // Calculate client-side overhead: total wall time minus Groq processing
+        // Helps spot local network or throttling issues without involving any proxy maths
+        let clientOverheadMs = max(0, Int(clientLLMMs) - groqActual)
         
-        logger.notice("🌐   Client↔Proxy: \(clientToProxyMs)ms")
+        logger.notice("🌐   Client overhead: \(clientOverheadMs)ms")
     }
     
     /// Parse SSE stream data from Groq response
@@ -2199,61 +1956,41 @@ let totalLatencyMs = (CFAbsoluteTimeGetCurrent() - startTime) * 1000
     }
     
     private func makeRequestWithCustomPrompt(systemMessage: String, userMessage: String, retryCount: Int = 0) async throws -> String {
-        // Use proxy-only approach - no direct API calls allowed
         guard isConfigured else {
             logger.error("AI Enhancement: API not configured")
             throw EnhancementError.notConfigured
         }
         
         if RuntimeConfig.logFullPrompt {
-            logger.notice("🛰️ Sending to AI provider via proxy: \(self.aiService.selectedProvider.rawValue, privacy: .public)")
+            logger.notice("🛰️ Sending to AI provider directly: \(self.aiService.selectedProvider.rawValue, privacy: .public)")
             logger.notice("🧠 [PROMPT FULL] System Message (\(systemMessage.count) chars): \(systemMessage, privacy: .public)")
             logger.notice("🧠 [PROMPT FULL] User Message (\(userMessage.count) chars): \(userMessage, privacy: .public)")
         } else if RuntimeConfig.enableVerboseLogging {
             logger.debug("System Message: \(RuntimeConfig.truncate(systemMessage), privacy: .public)")
             logger.debug("User Message: \(RuntimeConfig.truncate(userMessage), privacy: .public)")
         } else {
-            logger.notice("🛰️ Sending to AI provider via proxy: \(self.aiService.selectedProvider.rawValue, privacy: .public)")
+            logger.notice("🛰️ Sending to AI provider directly: \(self.aiService.selectedProvider.rawValue, privacy: .public)")
         }
         
-        // Always use proxy - no direct API fallback
         let urlSession = getURLSession()
         
         do {
-            // Try Groq first with proxy
-            logger.notice("🌐 Sending custom-prompt request to LLM proxy (provider auto-selected by server)...")
-            let result = try await makeProxyRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: urlSession)
+            logger.notice("🌐 Sending custom prompt directly to Groq API...")
+            let result = try await makeGroqRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: urlSession)
             let final = PostEnhancementFormatter.apply(result)
             
             // Return session to pool after successful use
             returnURLSession(urlSession)
             
-            logger.notice("✅ Custom-prompt enhancement via proxy succeeded")
+            logger.notice("✅ Custom prompt enhancement via Groq succeeded")
             return final
         } catch {
-            logger.notice("⚠️ [CUSTOM-PROMPT] Groq via proxy failed: \(error.localizedDescription)")
-            
-            // Check if this is a fallback-worthy error
-            let shouldFallback = shouldFallbackToGemini(error: error)
-            
-            // Return session to pool even on error
             returnURLSession(urlSession)
-            
-            // Try Gemini fallback if appropriate
-            if shouldFallback {
-                logger.notice("🤖 [CUSTOM-PROMPT] Attempting Gemini fallback...")
-                do {
-                    let fallbackResult = try await makeGeminiRequest(systemMessage: systemMessage, userMessage: userMessage, urlSession: getURLSession())
-                    logger.notice("✅ [CUSTOM-PROMPT] Gemini fallback succeeded")
-                    return PostEnhancementFormatter.apply(fallbackResult)
-                } catch {
-                    logger.notice("❌ [CUSTOM-PROMPT] Gemini fallback also failed: \(error.localizedDescription)")
-                    throw error
-                }
-            } else {
-                // Not a fallback-worthy error, just throw it
-                throw error
+            if let fallback = await performGeminiFallbackIfPossible(systemMessage: systemMessage, userMessage: userMessage) {
+                logger.notice("✅ [CUSTOM-PROMPT] Gemini fallback succeeded")
+                return PostEnhancementFormatter.apply(fallback)
             }
+            throw error
         }
     }
     
