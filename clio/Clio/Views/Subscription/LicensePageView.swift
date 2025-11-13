@@ -2,25 +2,43 @@ import SwiftUI
 import AppKit
 
 struct LicensePageView: View {
+    @EnvironmentObject private var localizationManager: LocalizationManager
     @ObservedObject private var licenseViewModel = LicenseViewModel.shared
     
-    private let highlights: [(icon: String, title: String, detail: String)] = [
-        ("checkmark.seal.fill", "Everything unlocked", "AI enhancement, streaming transcription, and personalization features are permanently enabled in this build."),
-        ("lock.shield.fill", "No accounts required", "All authentication screens were removed—manage everything locally with your own API keys."),
-        ("wand.and.rays", "Bring your own providers", "Groq, Gemini, and Soniox run with your credentials so you control cost and access.")
+    private struct PlanHighlight: Identifiable {
+        let icon: String
+        let titleKey: String
+        let detailKey: String
+        
+        var id: String { titleKey }
+    }
+    
+    private struct PlanShareLink: Identifiable {
+        let titleKey: String
+        let captionKey: String
+        let url: String
+        let icon: String
+        
+        var id: String { url }
+    }
+    
+    private let highlights: [PlanHighlight] = [
+        .init(icon: "checkmark.seal.fill", titleKey: "plan.highlight.everything.title", detailKey: "plan.highlight.everything.detail"),
+        .init(icon: "lock.shield.fill", titleKey: "plan.highlight.accounts.title", detailKey: "plan.highlight.accounts.detail"),
+        .init(icon: "wand.and.rays", titleKey: "plan.highlight.providers.title", detailKey: "plan.highlight.providers.detail")
     ]
     
-    private let shareLinks: [(title: String, caption: String, url: String, icon: String)] = [
-        ("Share Website", "Send the official download page to a friend.", "https://www.cliovoice.com", "paperplane.fill"),
-        ("Share GitHub Repo", "Fork or star the open-source project.", "https://github.com/studio-kensense/clio", "chevron.left.forwardslash.chevron.right")
+    private let shareLinks: [PlanShareLink] = [
+        .init(titleKey: "plan.share.website.title", captionKey: "plan.share.website.caption", url: "https://www.cliovoice.com", icon: "paperplane.fill"),
+        .init(titleKey: "plan.share.repo.title", captionKey: "plan.share.repo.caption", url: "https://github.com/jetsonearth/clio-voice", icon: "chevron.left.forwardslash.chevron.right")
     ]
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 PageHeaderView(
-                    title: "Community Edition",
-                    subtitle: "This OSS plan gives you the full Clio experience—no license keys, no proxy services, and no feature gates."
+                    title: localizationManager.localizedString("plan.community.title"),
+                    subtitle: localizationManager.localizedString("plan.community.subtitle")
                 )
                 .padding(.top, 40)
                 
@@ -35,7 +53,7 @@ struct LicensePageView: View {
     private var overviewCard: some View {
         GlassCard {
             VStack(alignment: .leading, spacing: 20) {
-                Label("Plan Overview", systemImage: "sparkles")
+                Label(localizationManager.localizedString("plan.overview.heading"), systemImage: "sparkles")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundColor(.accentColor)
                 
@@ -48,7 +66,7 @@ struct LicensePageView: View {
                 Divider().background(Color.white.opacity(0.08))
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    ForEach(highlights, id: \.title) { item in
+                    ForEach(highlights) { item in
                         HStack(alignment: .top, spacing: 12) {
                             Image(systemName: item.icon)
                                 .font(.system(size: 16, weight: .semibold))
@@ -59,10 +77,10 @@ struct LicensePageView: View {
                                         .fill(Color.accentColor.opacity(0.12))
                                 )
                             VStack(alignment: .leading, spacing: 4) {
-                                Text(item.title)
+                                Text(localizationManager.localizedString(item.titleKey))
                                     .font(.system(size: 13, weight: .semibold))
                                     .foregroundColor(DarkTheme.textPrimary)
-                                Text(item.detail)
+                                Text(localizationManager.localizedString(item.detailKey))
                                     .font(.system(size: 12))
                                     .foregroundColor(DarkTheme.textSecondary)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -77,17 +95,22 @@ struct LicensePageView: View {
     private var shareCard: some View {
         GlassCard {
             VStack(alignment: .leading, spacing: 18) {
-                Text("Share Clio with a friend")
+                Text(localizationManager.localizedString("plan.share.title"))
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(DarkTheme.textPrimary)
                 
-                Text("Copy a link below to point teammates to the website or to the GitHub repo for the open-source build.")
+                Text(localizationManager.localizedString("plan.share.subtitle"))
                     .font(.system(size: 12))
                     .foregroundColor(DarkTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
                 
-                ForEach(shareLinks, id: \.url) { link in
-                    ShareRow(title: link.title, caption: link.caption, icon: link.icon) {
+                ForEach(shareLinks) { link in
+                    ShareRow(
+                        title: localizationManager.localizedString(link.titleKey),
+                        caption: localizationManager.localizedString(link.captionKey),
+                        buttonTitle: localizationManager.localizedString(link.titleKey),
+                        icon: link.icon
+                    ) {
                         copyLink(link.url)
                     }
                 }
@@ -104,8 +127,12 @@ struct LicensePageView: View {
 private struct ShareRow: View {
     let title: String
     let caption: String
+    let buttonTitle: String
     let icon: String
     let action: () -> Void
+    
+    @State private var showConfirmation = false
+    @State private var resetTask: Task<Void, Never>?
     
     var body: some View {
         HStack(spacing: 12) {
@@ -118,8 +145,48 @@ private struct ShareRow: View {
                     .foregroundColor(DarkTheme.textSecondary)
             }
             Spacer()
-            AddNewButton(title, action: action, systemImage: icon)
+            Button(action: handleTap) {
+                HStack(spacing: 6) {
+                    ZStack {
+                        Image(systemName: icon)
+                            .opacity(showConfirmation ? 0 : 1)
+                        Image(systemName: "checkmark")
+                            .opacity(showConfirmation ? 1 : 0)
+                    }
+                    .font(.system(size: 12, weight: .semibold))
+                    Text(buttonTitle)
+                        .font(.system(size: 12, weight: .medium))
+                }
+                .foregroundColor(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(
+                    Capsule()
+                        .fill(Color.accentColor)
+                )
+            }
+            .buttonStyle(.borderless)
+            .animation(.easeInOut(duration: 0.2), value: showConfirmation)
         }
         .padding(.vertical, 6)
+        .onDisappear {
+            resetTask?.cancel()
+        }
+    }
+    
+    private func handleTap() {
+        action()
+        resetTask?.cancel()
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
+            showConfirmation = true
+        }
+        resetTask = Task {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            await MainActor.run {
+                withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
+                    showConfirmation = false
+                }
+            }
+        }
     }
 }
