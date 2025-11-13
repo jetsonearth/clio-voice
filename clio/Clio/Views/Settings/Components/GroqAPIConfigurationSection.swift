@@ -166,6 +166,7 @@ struct GroqAPIConfigurationSection: View {
             Spacer()
             
             ConfigurationStatusBadge(status: status, text: statusText)
+                .padding(.trailing, 6)
         }
     }
     

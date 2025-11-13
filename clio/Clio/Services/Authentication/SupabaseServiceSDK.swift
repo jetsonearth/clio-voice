@@ -17,9 +17,14 @@ final class SupabaseServiceSDK: ObservableObject {
 
     private let savedUserKey = "community.user.profile"
     private let savedCredentialsKey = "community.user.credentials"
+    private let migrationFlagKey = "community.profile.migrated.v1"
 
     private init() {
+        runSupabaseMigrationIfNeeded()
         loadPersistedUser()
+        if currentUser == nil {
+            seedDefaultUser()
+        }
         isInitialized = true
     }
 
@@ -136,6 +141,23 @@ final class SupabaseServiceSDK: ObservableObject {
         )
         isAuthenticated = true
         UserProfileService.shared.signIn(name: user.fullName ?? user.email, email: user.email)
+    }
+    
+    private func runSupabaseMigrationIfNeeded() {
+        let defaults = UserDefaults.standard
+        guard !defaults.bool(forKey: migrationFlagKey) else { return }
+        defaults.removeObject(forKey: savedUserKey)
+        defaults.removeObject(forKey: "SupabaseSession")
+        defaults.set(true, forKey: migrationFlagKey)
+        UserProfileService.shared.ensureDefaultProfile()
+    }
+    
+    private func seedDefaultUser() {
+        let profile = UserProfileService.shared
+        let name = profile.userName.isEmpty ? UserProfileService.fallbackDisplayName() : profile.userName
+        let email = profile.userEmail.isEmpty ? UserProfileService.fallbackEmail(for: name) : profile.userEmail
+        let user = User.makeLocalUser(email: email, fullName: name)
+        persist(user: user)
     }
 }
 

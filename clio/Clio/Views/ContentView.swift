@@ -99,10 +99,10 @@ struct AIModelsView: View {
                         )
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Connect once, keep it local")
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(DarkTheme.textPrimary)
                         Text("Keys live in the macOS Keychain and never leave your device. Swap providers or rotate credentials whenever you need.")
-                            .font(.system(size: 14))
+                            .font(.system(size: 13))
                             .foregroundColor(DarkTheme.textSecondary)
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -114,22 +114,22 @@ struct AIModelsView: View {
                     AddNewButton(
                         "Groq Dashboard",
                         action: { openPortal("https://console.groq.com/keys") },
-                        backgroundColor: DarkTheme.surfaceBackground,
-                        textColor: DarkTheme.textPrimary,
+                        backgroundColor: DarkTheme.accent.opacity(0.16),
+                        textColor: DarkTheme.accent,
                         systemImage: "link"
                     )
                     AddNewButton(
                         "Soniox Dashboard",
                         action: { openPortal("https://soniox.com/dashboard/api-keys") },
-                        backgroundColor: DarkTheme.surfaceBackground,
-                        textColor: DarkTheme.textSecondary,
+                        backgroundColor: DarkTheme.accent.opacity(0.16),
+                        textColor: DarkTheme.accent,
                         systemImage: "link"
                     )
                     AddNewButton(
                         "Google AI Studio",
                         action: { openPortal("https://aistudio.google.com/app/apikey") },
-                        backgroundColor: DarkTheme.surfaceBackground,
-                        textColor: DarkTheme.textPrimary,
+                        backgroundColor: DarkTheme.accent.opacity(0.16),
+                        textColor: DarkTheme.accent,
                         systemImage: "sparkles"
                     )
                     Spacer()
@@ -167,21 +167,21 @@ struct AIModelsView: View {
                 } label: {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(category.rawValue)
-                            .font(.system(size: 15, weight: .semibold))
-                            .foregroundColor(category == selectedCategory ? DarkTheme.textPrimary : DarkTheme.textSecondary)
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundColor(category == selectedCategory ? DarkTheme.textPrimary : DarkTheme.textSecondary.opacity(0.7))
                         Text(category.subtitle)
-                            .font(.system(size: 12))
-                            .foregroundColor(DarkTheme.textSecondary)
+                            .font(.system(size: 11))
+                            .foregroundColor(DarkTheme.textSecondary.opacity(0.6))
                     }
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 14)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
-                        RoundedRectangle(cornerRadius: 14)
-                            .fill(category == selectedCategory ? DarkTheme.surfaceBackground.opacity(0.95) : DarkTheme.surfaceBackground.opacity(0.4))
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(category == selectedCategory ? DarkTheme.textPrimary.opacity(0.06) : DarkTheme.textPrimary.opacity(0.02))
                             .overlay(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .stroke(category == selectedCategory ? Color.accentColor.opacity(0.5) : Color.white.opacity(0.08), lineWidth: 1)
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(category == selectedCategory ? DarkTheme.textPrimary.opacity(0.12) : Color.white.opacity(0.04), lineWidth: 1)
                             )
                     )
                     .animation(.easeInOut(duration: 0.2), value: selectedCategory)

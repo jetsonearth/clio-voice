@@ -39,31 +39,28 @@ struct SettingsView: View {
                 
                 // Main Content
                 VStack(spacing: 32) {
-                
-                // Audio Cleanup Section
-//                AudioInputSection()
-                
-                // Keyboard Shortcuts Section
-                KeyboardShortcutsSection()
-                
-                // Combined Language Settings Section
-                CombinedLanguageSettingsSection()
-                
-                // Context Options Section
-                 ContextOptionsSection()
-                
-                // System Settings Section (grouped rows)
-                SystemSettingsSection()
-                
-                // AI Enhancement Section with Toggle Header (commented out for menubar integration)
-                // AIEnhancementSectionWithToggle()
-                
-                // Privacy Section (commented out for proxy architecture)
-                // PrivacySection()
-                
-                // Cloud API keys
-                GroqAPIConfigurationSection()
-                SonioxAPIConfigurationSection()
+                    CommunityProfileSection()
+                    
+                    // Audio Cleanup Section
+//                    AudioInputSection()
+                    
+                    // Keyboard Shortcuts Section
+                    KeyboardShortcutsSection()
+                    
+                    // Combined Language Settings Section
+                    CombinedLanguageSettingsSection()
+                    
+                    // Context Options Section
+                    ContextOptionsSection()
+                    
+                    // System Settings Section (grouped rows)
+                    SystemSettingsSection()
+                    
+                    // AI Enhancement Section with Toggle Header (commented out for menubar integration)
+                    // AIEnhancementSectionWithToggle()
+                    
+                    // Privacy Section (commented out for proxy architecture)
+                    // PrivacySection()
                 
                 // Updates Section
                 // SettingsSection(

@@ -18,6 +18,7 @@ class UserProfileService: ObservableObject {
     
     private init() {
         loadUserState()
+        ensureDefaultProfile()
     }
     
     // MARK: - Public Methods
@@ -83,6 +84,47 @@ class UserProfileService: ObservableObject {
         userName = userDefaults.string(forKey: userNameKey) ?? ""
         userEmail = userDefaults.string(forKey: userEmailKey) ?? ""
         userInitials = generateInitials(from: userName)
+    }
+    
+    func ensureDefaultProfile() {
+        var didChange = false
+        let trimmedName = userName.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedName.isEmpty {
+            userName = Self.fallbackDisplayName()
+            didChange = true
+        }
+        let trimmedEmail = userEmail.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmedEmail.isEmpty {
+            userEmail = Self.fallbackEmail(for: userName)
+            didChange = true
+        }
+        userInitials = generateInitials(from: userName)
+        if !isSignedIn {
+            isSignedIn = true
+            didChange = true
+        }
+        if didChange {
+            saveUserState()
+        }
+    }
+    
+    static func fallbackDisplayName() -> String {
+        let hostName = Host.current().localizedName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        if !hostName.isEmpty && hostName != "localhost" {
+            return hostName
+        }
+        let accountName = NSUserName().trimmingCharacters(in: .whitespacesAndNewlines)
+        if !accountName.isEmpty {
+            return accountName
+        }
+        return "Clio Community"
+    }
+    
+    static func fallbackEmail(for name: String) -> String {
+        let allowed = CharacterSet.alphanumerics
+        let sanitized = name.lowercased().unicodeScalars.map { allowed.contains($0) ? Character($0) : "-" }.reduce("") { $0 + String($1) }
+        let base = sanitized.trimmingCharacters(in: CharacterSet(charactersIn: "-"))
+        return "\(base.isEmpty ? "friend" : base)@community.cliovoice.local"
     }
     
     private func saveUserState() {
