@@ -325,44 +325,16 @@ struct CompactContent: View {
 struct CompactTrailingContent: View {
     // Mirror the leading width so both sides feel balanced
     private let mirrorWidth: CGFloat = 66
-    @State private var appIcon: NSImage? = nil
-    @State private var iconLoadTask: Task<Void, Never>? = nil
     var body: some View {
         HStack(spacing: 6) {
             Spacer(minLength: 0)
-            if let icon = appIcon {
-                Image(nsImage: icon)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24, height: 24)
-                    .clipShape(RoundedRectangle(cornerRadius: 3))
-                    .opacity(0.9)
-            } else {
-                Circle()
-                    .fill(Color.white.opacity(0.15))
-                    .frame(width: 8, height: 8)
-            }
+            Circle()
+                .fill(Color.white.opacity(0.15))
+                .frame(width: 8, height: 8)
         }
         .frame(width: mirrorWidth, height: 14, alignment: .trailing)
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
-        .onAppear {
-            // Skip lookup entirely when configured to reduce first-frame work
-            if RuntimeConfig.disableAppIconLookup || RuntimeConfig.reducedUIEffects {
-                return
-            }
-            // Defer icon lookup slightly to avoid blocking the first-frame notch opening on slower GPUs
-            iconLoadTask?.cancel()
-            let delayNs = UInt64(max(0, RuntimeConfig.appIconFetchDelayMs)) * 1_000_000
-            iconLoadTask = Task { @MainActor in
-                if delayNs > 0 { try? await Task.sleep(nanoseconds: delayNs) }
-                if Task.isCancelled { return }
-                appIcon = NSWorkspace.shared.frontmostApplication?.icon
-            }
-        }
-        .onDisappear {
-            iconLoadTask?.cancel(); iconLoadTask = nil
-        }
     }
 }
 
