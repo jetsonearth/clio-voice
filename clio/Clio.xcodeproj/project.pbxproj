@@ -12,20 +12,16 @@
 		12413D4F2E176AAA00971E8D /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D4E2E176AAA00971E8D /* PostgREST */; };
 		12413D512E176AAA00971E8D /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D502E176AAA00971E8D /* Realtime */; };
 		12413D532E176AAA00971E8D /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D522E176AAA00971E8D /* Storage */; };
-		12413D552E176AAA00971E8D /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 12413D542E176AAA00971E8D /* Supabase */; };
 		124B75C32E47539700636CB7 /* OpenCC in Frameworks */ = {isa = PBXBuildFile; productRef = 124B75C22E47539700636CB7 /* OpenCC */; };
 		125323352E4DFF0F0017DA1B /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 125323342E4DFF0F0017DA1B /* DynamicNotchKit */; };
-		126FDA942E5021A9004F1E1E /* Orb in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA932E5021A9004F1E1E /* Orb */; };
 		126FDA972E50711F004F1E1E /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA962E50711F004F1E1E /* Shimmer */; };
 		126FDAA02E5083D2004F1E1E /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDA9F2E5083D2004F1E1E /* SwiftfulLoadingIndicators */; };
-		126FDD3D2E530DF3004F1E1E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDD3C2E530DF3004F1E1E /* GoogleSignIn */; };
-		126FDD3F2E530DF3004F1E1E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */; };
 		128D5BC42E37DB77007EDD00 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128D5BC32E37DB77007EDD00 /* AVKit.framework */; };
-		128D5FBD2E38F3CB007EDD00 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 128D5FBC2E38F3CB007EDD00 /* RiveRuntime */; };
 		12B5A2F12E62917900525C49 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 12B5A2F02E62917900525C49 /* Yams */; };
 		12C055572E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C0554B2E18AAA400FCCFA9 /* Localizable.strings */; };
 		12C055582E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055482E18AAA400FCCFA9 /* Localizable.strings */; };
 		12C055592E18AAA400FCCFA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C055452E18AAA400FCCFA9 /* Localizable.strings */; };
+		12F499932EC61B6000B28F0C /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 12F499922EC61B6000B28F0C /* RiveRuntime */; };
 		E10340512DE1F666008BCBE5 /* whisper.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; };
 		E10340522DE1F666008BCBE5 /* whisper.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E136D0102DA3EE57000E1E8A /* whisper.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E1A261122CC143AC00B233D1 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = E1A261112CC143AC00B233D1 /* KeyboardShortcuts */; };
@@ -97,19 +93,15 @@
 				126FDA972E50711F004F1E1E /* Shimmer in Frameworks */,
 				124B75C32E47539700636CB7 /* OpenCC in Frameworks */,
 				128D5BC42E37DB77007EDD00 /* AVKit.framework in Frameworks */,
-				126FDD3D2E530DF3004F1E1E /* GoogleSignIn in Frameworks */,
-				12413D552E176AAA00971E8D /* Supabase in Frameworks */,
 				12413D512E176AAA00971E8D /* Realtime in Frameworks */,
 				E1ADD45A2CC5352A00303ECB /* LaunchAtLogin in Frameworks */,
 				E1ADD45F2CC544F100303ECB /* Sparkle in Frameworks */,
-				126FDA942E5021A9004F1E1E /* Orb in Frameworks */,
 				12413D4B2E176AAA00971E8D /* Auth in Frameworks */,
 				125323352E4DFF0F0017DA1B /* DynamicNotchKit in Frameworks */,
 				E1A261122CC143AC00B233D1 /* KeyboardShortcuts in Frameworks */,
 				126FDAA02E5083D2004F1E1E /* SwiftfulLoadingIndicators in Frameworks */,
+				12F499932EC61B6000B28F0C /* RiveRuntime in Frameworks */,
 				12413D4F2E176AAA00971E8D /* PostgREST in Frameworks */,
-				128D5FBD2E38F3CB007EDD00 /* RiveRuntime in Frameworks */,
-				126FDD3F2E530DF3004F1E1E /* GoogleSignInSwift in Frameworks */,
 				12413D4D2E176AAA00971E8D /* Functions in Frameworks */,
 				E10340512DE1F666008BCBE5 /* whisper.xcframework in Frameworks */,
 				12413D532E176AAA00971E8D /* Storage in Frameworks */,
@@ -332,16 +324,12 @@
 				12413D4E2E176AAA00971E8D /* PostgREST */,
 				12413D502E176AAA00971E8D /* Realtime */,
 				12413D522E176AAA00971E8D /* Storage */,
-				12413D542E176AAA00971E8D /* Supabase */,
-				128D5FBC2E38F3CB007EDD00 /* RiveRuntime */,
 				124B75C22E47539700636CB7 /* OpenCC */,
 				125323342E4DFF0F0017DA1B /* DynamicNotchKit */,
-				126FDA932E5021A9004F1E1E /* Orb */,
 				126FDA962E50711F004F1E1E /* Shimmer */,
 				126FDA9F2E5083D2004F1E1E /* SwiftfulLoadingIndicators */,
-				126FDD3C2E530DF3004F1E1E /* GoogleSignIn */,
-				126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */,
 				12B5A2F02E62917900525C49 /* Yams */,
+				12F499922EC61B6000B28F0C /* RiveRuntime */,
 			);
 			productName = Clio;
 			productReference = E11473B02CBE0F0A00318EE4 /* Clio.app */;
@@ -445,10 +433,8 @@
 				128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */,
 				124B75C12E47539700636CB7 /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */,
 				125323332E4DFF0F0017DA1B /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
-				126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */,
 				126FDA952E50711F004F1E1E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				126FDA9E2E5083D2004F1E1E /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */,
-				126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				12B5A2EF2E62917800525C49 /* XCRemoteSwiftPackageReference "Yams" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -681,7 +667,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clio/Core/Clio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1650;
@@ -698,7 +684,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Clio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Io needs to interact with your browser to detect the current website for applying website-specific configurations.";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Clio needs to interact with your browser to detect the current website for applying website-specific configurations.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Clio transcribes your speech; microphone access is required to capture audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -709,6 +695,7 @@
 				MARKETING_VERSION = 1.65.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliovoice.clio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Clio/Clio-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -722,7 +709,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Clio/Core/Clio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1650;
@@ -739,7 +726,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Clio;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = NO;
-				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Io needs to interact with your browser to detect the current website for applying website-specific configurations.";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Clio needs to interact with your browser to detect the current website for applying website-specific configurations.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Clio transcribes your speech; microphone access is required to capture audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -750,6 +737,7 @@
 				MARKETING_VERSION = 1.65.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliovoice.clio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Clio/Clio-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -886,14 +874,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/itssali/Orb.git";
-			requirement = {
-				branch = "macOS-Support";
-				kind = branch;
-			};
-		};
 		126FDA952E50711F004F1E1E /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
@@ -908,14 +888,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.0.4;
-			};
-		};
-		126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
 			};
 		};
 		128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
@@ -994,11 +966,6 @@
 			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Storage;
 		};
-		12413D542E176AAA00971E8D /* Supabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 12413D492E176AAA00971E8D /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
-		};
 		124B75C22E47539700636CB7 /* OpenCC */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 124B75C12E47539700636CB7 /* XCRemoteSwiftPackageReference "SwiftyOpenCC" */;
@@ -1008,11 +975,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 125323332E4DFF0F0017DA1B /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
 			productName = DynamicNotchKit;
-		};
-		126FDA932E5021A9004F1E1E /* Orb */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 126FDA922E5021A9004F1E1E /* XCRemoteSwiftPackageReference "Orb" */;
-			productName = Orb;
 		};
 		126FDA962E50711F004F1E1E /* Shimmer */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1024,25 +986,15 @@
 			package = 126FDA9E2E5083D2004F1E1E /* XCRemoteSwiftPackageReference "SwiftfulLoadingIndicators" */;
 			productName = SwiftfulLoadingIndicators;
 		};
-		126FDD3C2E530DF3004F1E1E /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		126FDD3E2E530DF3004F1E1E /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 126FDD3B2E530DF3004F1E1E /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
-		128D5FBC2E38F3CB007EDD00 /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
-		};
 		12B5A2F02E62917900525C49 /* Yams */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 12B5A2EF2E62917800525C49 /* XCRemoteSwiftPackageReference "Yams" */;
 			productName = Yams;
+		};
+		12F499922EC61B6000B28F0C /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 128D5FBB2E38F3CB007EDD00 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 		E1A261112CC143AC00B233D1 /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
