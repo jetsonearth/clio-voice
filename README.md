@@ -88,7 +88,13 @@ cd clio
 open Clio.xcodeproj
 ```
 
-Build with Xcode 15+ (`⌘R`) or run the CLI build:
+### Build in Xcode (recommended)
+1. Wait for the project to finish indexing, then pick the `Clio` scheme in the toolbar.
+2. Make sure the run destination says `My Mac (Designed for iPad)` or `My Mac`.
+3. Press `⌘R` (or click the ▶️ button) to build-and-run.
+4. Grant microphone, accessibility, and screen-recording prompts the first time macOS asks.
+
+### Build from the CLI
 
 ```bash
 xcodebuild -project Clio.xcodeproj -scheme Clio -configuration Debug build
